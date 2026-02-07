@@ -3,7 +3,7 @@
 <!--[if IE 7 ]>    <html class="ie7"> <![endif]-->
 <!--[if IE 8 ]>    <html class="ie8"> <![endif]-->
 <!--[if IE 9 ]>    <html class="ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--><html lang="en" class=""><!--<![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html lang="pl" class=""><!--<![endif]-->
 <head>
 	<meta charset="utf-8">
 
@@ -13,7 +13,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-	<title>History</title>
+	<title>Historia</title>
 
 	<!-- Standard Favicon -->
 	<link rel="icon" type="image/x-icon" href="images//favicon.ico" />
@@ -50,6 +50,58 @@
 		<script src="js/html5/respond.min.js"></script>
     <![endif]-->
 	
+	<!-- Language Toggle Styles -->
+	<style>
+		.lang-toggle {
+			display: inline-flex;
+			align-items: center;
+			margin-left: 20px;
+			padding: 5px 12px;
+			background: rgba(0, 0, 0, 0.3);
+			border: 1px solid rgba(193, 154, 107, 0.4);
+			border-radius: 3px;
+			font-family: 'PT Serif', serif;
+			vertical-align: middle;
+		}
+		
+		.lang-option {
+			color: rgba(255, 255, 255, 0.5);
+			font-size: 12px;
+			font-weight: 600;
+			letter-spacing: 1px;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			padding: 2px 6px;
+		}
+		
+		.lang-option:hover {
+			color: rgba(255, 255, 255, 0.8);
+		}
+		
+		.lang-option.active {
+			color: #c19a6b;
+			text-shadow: 0 0 8px rgba(193, 154, 107, 0.5);
+		}
+		
+		.lang-separator {
+			color: rgba(193, 154, 107, 0.4);
+			font-size: 12px;
+			margin: 0 2px;
+			user-select: none;
+		}
+		
+		@media (max-width: 767px) {
+			.lang-toggle {
+				margin-left: 10px;
+				padding: 4px 8px;
+			}
+			
+			.lang-option {
+				font-size: 11px;
+				padding: 2px 4px;
+			}
+		}
+	</style>
 </head>
 
 <body data-offset="200" data-spy="scroll" data-target=".ow-navigation">
@@ -74,7 +126,13 @@
 							<li><a href="#" title="Twitter"><i class="fa fa-twitter"></i></a></li>
 							<li><a href="#" title="Google+"><i class="fa fa-google-plus"></i></a></li>
 						</ul>
-						<h5><span>OPENING HOURS:</span> MONDAY - SUNDAY: 10.00AM TO 8.00PM</h5>
+						<!-- Language Toggle -->
+						<div class="lang-toggle">
+							<span class="lang-option active" data-lang="pl">PL</span>
+							<span class="lang-separator">|</span>
+							<span class="lang-option" data-lang="en">EN</span>
+						</div>
+						<h5><span>GODZINY OTWARCIA:</span> PONIEDZIAŁEK - NIEDZIELA: 10:00 - 20:00</h5>
 					</div>
 				</div>
 			</div><!-- Top Header /- -->
@@ -84,55 +142,55 @@
 				<nav class="navbar navbar-default ow-navigation">
 					<div class="navbar-header">
 						<button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
-							<span class="sr-only">Toggle navigation</span>
+							<span class="sr-only">Przełącz nawigację</span>
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a href="index.html" class="navbar-brand"><img src="images/logo.png" alt="Logo" /></a>
+						<a href="index.html" class="navbar-brand"><img src="images/roszkowice/logo.jpg" alt="Logo" style="max-width:100px; height:100px; object-fit:contain" /></a>
 					</div>
 					<!-- Menu Icon -->
 					<div class="menu-icon">
 						<div class="search">	
-							<a href="#" id="search" title="Search"><i class="icon icon-Search"></i></a>
+							<a href="#" id="search" title="Szukaj"><i class="icon icon-Search"></i></a>
 						</div>
 					</div><!-- Menu Icon /- -->
 					<div class="navbar-collapse collapse navbar-right" id="navbar">
 						<ul class="nav navbar-nav">
 							<li class="active dropdown">
-								<a href="index.html" title="Home" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">Home</a>
+								<a href="index.html" title="Strona główna" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">Strona główna</a>
 								<i class="ddl-switch fa fa-angle-down"></i>
 								<ul class="dropdown-menu">				
-									<li><a href="index.html" title="homepage 1">homepage 1</a></li>
-									<li><a href="index2.html" title="homepage 2">homepage 2</a></li>
+									<li><a href="index.html" title="strona główna 1">strona główna 1</a></li>
+									<li><a href="index2.html" title="strona główna 2">strona główna 2</a></li>
 								</ul>
 							</li>
-							<li><a href="about.html" title="About">About</a></li>
+							<li><a href="about.html" title="O nas">O nas</a></li>
 							<li class="dropdown">
-								<a href="events.html" title="EVENTS" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">EVENTS</a>
+								<a href="events.html" title="Wydarzenia" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">Wydarzenia</a>
 								<i class="ddl-switch fa fa-angle-down"></i>
 								<ul class="dropdown-menu">				
-									<li><a href="event-single.html" title="events 01">EVENTS Single</a></li>
+									<li><a href="event-single.html" title="wydarzenie">Wydarzenie</a></li>
 								</ul>
 							</li>
-							<li><a href="gallery.html" title="Gallery">Gallery</a></li>
+							<li><a href="gallery.html" title="Galeria">Galeria</a></li>
 							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false" title="Pages">Pages</a>
+								<a href="#" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false" title="Strony">Strony</a>
 								<i class="ddl-switch fa fa-angle-down"></i>
 								<ul class="dropdown-menu">
-									<li><a href="blog.html" title="Blog Single">Blog</a></li>
-									<li><a href="blog-single.html" title="Blog Single">Blog Single</a></li>
+									<li><a href="blog.html" title="Blog">Blog</a></li>
+									<li><a href="blog-single.html" title="Wpis na blogu">Wpis na blogu</a></li>
 									<li><a href="404.html" title="404">404</a></li>
 								</ul>
 							</li>
-							<li><a href="contactus.html" title="Contact">Contact</a></li>
+							<li><a href="contactus.html" title="Kontakt">Kontakt</a></li>
 						</ul>
 					</div><!--/.nav-collapse -->
 				</nav><!-- nav /- -->
 				<!-- Search Box -->
 				<div class="search-box">
 					<span><i class="icon_close"></i></span>
-					<form><input type="text" class="form-control" placeholder="Enter a keyword and press enter..." /></form>
+					<form><input type="text" class="form-control" placeholder="Wpisz słowo kluczowe i naciśnij Enter..." /></form>
 				</div><!-- Search Box /- -->
 			</div><!-- Container /- -->		
 		</header><!-- Header Section /- -->
@@ -147,7 +205,7 @@
 						<ul> 
 							<li data-transition="zoomout" data-slotamount="default"  data-easein="easeInOut" data-easeout="easeInOut" data-masterspeed="2000" data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7">
 								<!-- MAIN IMAGE -->
-								<img src="images/slider-1.jpg" alt="slider" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+								<img src="images/roszkowice/zima.jpg" alt="slider" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
 								<!-- LAYERS -->
 
 								<!-- LAYER NR. 1 -->
@@ -169,7 +227,7 @@
 									data-splitout="none" 
 									data-responsive_offset="on"
 									data-elementdelay="0.05" 
-									style="z-index: 5; white-space: nowrap; position:relative; color:#fff; font-weight:700; letter-spacing: 3.15px; font-family: 'PT Serif', serif; text-transform: uppercase;">Ideas Shape the real Course
+									style="z-index: 5; white-space: nowrap; position:relative; color:#fff; font-weight:700; letter-spacing: 3.15px; font-family: 'PT Serif', serif; text-transform: uppercase;">Pomysły kształtują prawdziwy bieg
 								</div>
 
 								<!-- LAYER NR. 2 -->
@@ -190,7 +248,7 @@
 									data-splitin="none" 
 									data-splitout="none" 
 									data-responsive_offset="on" 
-									style="z-index: 6; white-space: nowrap; position:relative; color:#fff; font-weight:700; letter-spacing: 3.15px; font-family: 'PT Serif', serif; text-transform: uppercase;">of History 
+									style="z-index: 6; white-space: nowrap; position:relative; color:#fff; font-weight:700; letter-spacing: 3.15px; font-family: 'PT Serif', serif; text-transform: uppercase;">historii
 								</div>
 
 								<!-- LAYER NR. 3 -->
@@ -212,7 +270,7 @@
 									data-splitout="none"							
 									data-responsive_offset="on"							
 									style="z-index:6; position:relative;">
-									<a style="font-weight: 700; padding: 12px 37px; font-family: 'Poppins', sans-serif;" href="#" title="Purchase Now">Purchase Now</a>
+									<a style="font-weight: 700; padding: 12px 37px; font-family: 'Poppins', sans-serif;" href="#" title="Kup teraz">Kup teraz</a>
 								</div>
 								<div class="tp-caption NotGeneric-Icon tp-resizeme rs-parallaxlevel-1 icon-img" id="slide-layer-4" 
 									data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
@@ -233,12 +291,12 @@
 									data-splitout="none" 
 									data-responsive_offset="on" 
 									style="z-index: 7; white-space: nowrap; font-weight: 500; color:#fff; letter-spacing: 1.4px; font-family: 'Poppins', sans-serif; text-transform: uppercase; line-height: 30px;">
-									<span>estd<img src="images/slider.png" alt="slider">1980</span>
+									<span>zał.<img src="images/slider.png" alt="slider">1980</span>
 								</div>
 							</li>
 							<li data-transition="zoomout" data-slotamount="default"  data-easein="easeInOut" data-easeout="easeInOut" data-masterspeed="2000" data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7">
 								<!-- MAIN IMAGE -->
-								<img src="images/slider-1.jpg" alt="slider" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+								<img src="images/roszkowice/kopula.jpg" alt="slider" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
 								<!-- LAYERS -->
 
 								<!-- LAYER NR. 1 -->
@@ -260,7 +318,7 @@
 									data-splitout="none" 
 									data-responsive_offset="on"
 									data-elementdelay="0.05" 
-									style="z-index: 5; white-space: nowrap; position:relative; color:#fff; font-weight:700; letter-spacing: 3.15px; font-family: 'PT Serif', serif; text-transform: uppercase;">Ideas Shape the real Course
+									style="z-index: 5; white-space: nowrap; position:relative; color:#fff; font-weight:700; letter-spacing: 3.15px; font-family: 'PT Serif', serif; text-transform: uppercase;">Pomysły kształtują prawdziwy bieg
 								</div>
 
 								<!-- LAYER NR. 2 -->
@@ -281,7 +339,7 @@
 									data-splitin="none" 
 									data-splitout="none" 
 									data-responsive_offset="on" 
-									style="z-index: 6; white-space: nowrap; position:relative; color:#fff; font-weight:700; letter-spacing: 3.15px; font-family: 'PT Serif', serif; text-transform: uppercase;">of History 
+									style="z-index: 6; white-space: nowrap; position:relative; color:#fff; font-weight:700; letter-spacing: 3.15px; font-family: 'PT Serif', serif; text-transform: uppercase;">historii
 								</div>
 
 								<!-- LAYER NR. 3 -->
@@ -303,7 +361,7 @@
 									data-splitout="none"							
 									data-responsive_offset="on"							
 									style="z-index:6; position:relative;">
-									<a style="font-weight: 700; padding: 12px 37px; font-family: 'Poppins', sans-serif;" href="#" title="Purchase Now">Purchase Now</a>
+									<a style="font-weight: 700; padding: 12px 37px; font-family: 'Poppins', sans-serif;" href="#" title="Kup teraz">Kup teraz</a>
 								</div>
 								<div class="tp-caption NotGeneric-Icon tp-resizeme rs-parallaxlevel-1 icon-img" id="slide-layer-8" 
 									data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
@@ -324,7 +382,92 @@
 									data-splitout="none" 
 									data-responsive_offset="on" 
 									style="z-index: 7; white-space: nowrap; font-weight: 500; color:#fff; letter-spacing: 1.4px; font-family: 'Poppins', sans-serif; text-transform: uppercase; line-height: 30px;">
-									<span>estd<img src="images/slider.png" alt="slider">1980</span>
+									<span>zał.<img src="images/slider.png" alt="slider">1980</span>
+								</div>
+							</li>
+							<li data-transition="zoomout" data-slotamount="default"  data-easein="easeInOut" data-easeout="easeInOut" data-masterspeed="2000" data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7">
+								<!-- MAIN IMAGE -->
+								<img src="images/roszkowice/park.jpg" alt="slider" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+								<!-- LAYERS -->
+								<div class="tp-caption NotGeneric-Title tp-resizeme rs-parallaxlevel-0" id="slide-layer-9" 
+									data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
+									data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']" 
+									data-fontsize="['70','70','70','45']"
+									data-lineheight="['100','70','70','60']"
+									data-width="none"
+									data-height="none"
+									data-whitespace="nowrap"
+									data-transform_idle="o:1;"
+									data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;" 
+									data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
+									data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" 
+									data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
+									data-start="1000" 
+									data-splitin="chars" 
+									data-splitout="none" 
+									data-responsive_offset="on"
+									data-elementdelay="0.05" 
+									style="z-index: 5; white-space: nowrap; position:relative; color:#fff; font-weight:700; letter-spacing: 3.15px; font-family: 'PT Serif', serif; text-transform: uppercase;">Pomysły kształtują prawdziwy bieg
+								</div>
+								<div class="tp-caption NotGeneric-SubTitle tp-resizeme rs-parallaxlevel-0" id="slide-layer-10" 
+									data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
+									data-y="['middle','middle','middle','middle']" data-voffset="['90','90','90','90']" 
+									data-fontsize="['70','70','70','45']"
+									data-lineheight="['100','70','70','60']"
+									data-width="none"
+									data-height="none"
+									data-whitespace="nowrap"
+									data-transform_idle="o:1;"
+									data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;" 
+									data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
+									data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;" 
+									data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
+									data-start="1500" 
+									data-splitin="none" 
+									data-splitout="none" 
+									data-responsive_offset="on" 
+									style="z-index: 6; white-space: nowrap; position:relative; color:#fff; font-weight:700; letter-spacing: 3.15px; font-family: 'PT Serif', serif; text-transform: uppercase;">historii
+								</div>
+								<div class="tp-caption NotGeneric-Title tp-resizeme rs-parallaxlevel-0 slide-btn" id="slide-layer-11" 
+									data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
+									data-y="['top','top','top','top']"  data-voffset="['625','625','625','625']"
+									data-fontsize="['70','70','70','12']"
+									data-lineheight="['70','70','70','90']"
+									data-width="none"
+									data-height="none"
+									data-whitespace="noraml"
+									data-transform_idle="o:1;"
+									data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;" 
+									data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
+									data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;" 
+									data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
+									data-start="1500" 
+									data-splitin="none" 
+									data-splitout="none"							
+									data-responsive_offset="on"							
+									style="z-index:6; position:relative;">
+									<a style="font-weight: 700; padding: 12px 37px; font-family: 'Poppins', sans-serif;" href="#" title="Kup teraz">Kup teraz</a>
+								</div>
+								<div class="tp-caption NotGeneric-Icon tp-resizeme rs-parallaxlevel-1 icon-img" id="slide-layer-12" 
+									data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
+									data-y="['middle','middle','middle','middle']" data-voffset="['-90','-90','-90','-90']"
+									data-fontsize="['20','60','60','60']"
+									data-lineheight="['70','70','70','90']"
+									data-width="none"
+									data-height="none"
+									data-whitespace="nowrap"
+									data-transform_idle="o:1;"
+									data-style_hover="cursor:default;"
+									data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power4.easeInOut;" 
+									data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
+									data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;" 
+									data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
+									data-start="2000" 
+									data-splitin="none" 
+									data-splitout="none" 
+									data-responsive_offset="on" 
+									style="z-index: 7; white-space: nowrap; font-weight: 500; color:#fff; letter-spacing: 1.4px; font-family: 'Poppins', sans-serif; text-transform: uppercase; line-height: 30px;">
+									<span>zał.<img src="images/slider.png" alt="slider">1980</span>
 								</div>
 							</li>
 						</ul>
@@ -340,8 +483,8 @@
 					<!-- Section Header -->
 					<div class="section-header">
 						<div class="section-title-border">
-							<span>Welcome to</span>
-							<h2>Museum History</h2>
+							<span>Witamy w</span>
+							<h2>Muzeum Historii</h2>
 						</div>
 					</div><!-- Section Header /- -->
 					<!-- Row -->
@@ -351,22 +494,22 @@
 							<div class="carousel-inner" role="listbox">
 								<div class="item active">
 									<div class="col-md-6 col-sm-6 content-block">
-										<p>Then one day he was shooting at some food and up through the ground came a bubbling crude oil that is so lets make the most of this beautiful day since we are together space the final frontier these are the voyages of the Starship Enterprise today still wanted by the government they survive as soldiers of fortune would not you like to get away sometimes you want to go where everybody knows your name.</p>
-										<p>Then one day he was shooting at some food and up through the ground came a bubbling crude oil that is so lets make the most of this beautiful together space the final frontier.</p>
-										<a href="#" title="Read More">Read More</a>
+										<p>Pewnego dnia strzelał do jedzenia, a z ziemi wytrysnęła bulgocząca ropa naftowa. Skoro jesteśmy razem, wykorzystajmy ten piękny dzień – kosmos, ostateczna granica, oto rejsy statku Enterprise. Do dziś poszukiwani przez rząd, przetrwali jako żołnierze fortuny. Czy nie chciałbyś czasem uciec tam, gdzie wszyscy znają twoje imię.</p>
+										<p>Pewnego dnia strzelał do jedzenia, a z ziemi wytrysnęła bulgocząca ropa. Wykorzystajmy ten piękny dzień – kosmos, ostateczna granica.</p>
+										<a href="#" title="Czytaj więcej">Czytaj więcej</a>
 									</div>
 									<div class="col-md-6 col-sm-6 img-block">
-										<i><img src="images/welcome-1.jpg" alt="Welcome" /></i>
+										<i><img src="images/roszkowice/pionowa_zima.jpg" alt="Pałac Roszkowice zimą" style="object-fit:cover; width:100%; height:100%;" /></i>
 									</div>
 								</div>
 								<div class="item">
 									<div class="col-md-6 col-sm-6 content-block">
-										<p>Then one day he was shooting at some food and up through the ground came a bubbling crude oil that is so lets make the most of this beautiful day since we are together space the final frontier these are the voyages of the Starship Enterprise today still wanted by the government they survive as soldiers of fortune would not you like to get away sometimes you want to go where everybody knows your name.</p>
-										<p>Then one day he was shooting at some food and up through the ground came a bubbling crude oil that is so lets make the most of this beautiful together space the final frontier.</p>
-										<a href="#" title="Read More">Read More</a>
+										<p>Pewnego dnia strzelał do jedzenia, a z ziemi wytrysnęła bulgocząca ropa naftowa. Skoro jesteśmy razem, wykorzystajmy ten piękny dzień – kosmos, ostateczna granica, oto rejsy statku Enterprise. Do dziś poszukiwani przez rząd, przetrwali jako żołnierze fortuny. Czy nie chciałbyś czasem uciec tam, gdzie wszyscy znają twoje imię.</p>
+										<p>Pewnego dnia strzelał do jedzenia, a z ziemi wytrysnęła bulgocząca ropa. Wykorzystajmy ten piękny dzień – kosmos, ostateczna granica.</p>
+										<a href="#" title="Czytaj więcej">Czytaj więcej</a>
 									</div>
 									<div class="col-md-6 col-sm-6 img-block">
-										<i><img src="images/welcome-1.jpg" alt="Welcome" /></i>
+										<i><img src="images/roszkowice/pionowe.jpg" alt="Pałac Roszkowice" style="object-fit:cover; width:100%; height:100%;" /></i>
 									</div>
 								</div>
 							</div>
@@ -389,33 +532,33 @@
 				<!-- Container -->
 				<div class="container">
 					<div class="col-md-5 col-sm-5 col-xs-12 img-block">
-						<img src="images/onview-1.png" alt="onview" />
+						<img src="images/onview-1.png" alt="Na wystawie" />
 					</div>
 					<div class="col-md-7 col-sm-7 col-xs-12 onview-content">
 						<!-- Section Header -->
 						<div class="section-header">
 							<div class="section-title-border">
-								<span>About us</span>
-								<h2>on view</h2>
+								<span>O nas</span>
+								<h2>na wystawie</h2>
 							</div>
 						</div><!-- Section Header /- -->
-						<p>Then one day he was shooting at some food and up through the ground came a bubbling crude oil that is so lets make the most of this beautiful day since we are together space the final frontier these are the voyages of the Starship Enterprise.</p>
+						<p>Pewnego dnia strzelał do jedzenia, a z ziemi wytrysnęła bulgocząca ropa naftowa. Skoro jesteśmy razem, wykorzystajmy ten piękny dzień – kosmos, ostateczna granica, oto rejsy statku Enterprise.</p>
 						<ul>
-							<li class="col-md-4 col-sm-6 col-xs-6">Arts of Global Africa</li>
-							<li class="col-md-4 col-sm-6 col-xs-6">Decorative Art</li>
-							<li class="col-md-4 col-sm-6 col-xs-6">Decorative Art</li>
-							<li class="col-md-4 col-sm-6 col-xs-6">American Art</li>
-							<li class="col-md-4 col-sm-6 col-xs-6">Gardens</li>
-							<li class="col-md-4 col-sm-6 col-xs-6">Gardens</li>
-							<li class="col-md-4 col-sm-6 col-xs-6">Arts of Asia</li>
-							<li class="col-md-4 col-sm-6 col-xs-6">War History</li>
-							<li class="col-md-4 col-sm-6 col-xs-6">War History</li>
-							<li class="col-md-4 col-sm-6 col-xs-6">Classical Art</li>
-							<li class="col-md-4 col-sm-6 col-xs-6">Kings of History</li>
-							<li class="col-md-4 col-sm-6 col-xs-6">Kings of History</li>
-							<li class="col-md-4 col-sm-6 col-xs-6">German Arts</li>
-							<li class="col-md-4 col-sm-6 col-xs-6">Vintage Arts</li>
-							<li class="col-md-4 col-sm-6 col-xs-6">Vintage Arts</li>
+							<li class="col-md-4 col-sm-6 col-xs-6">Sztuka Afryki</li>
+							<li class="col-md-4 col-sm-6 col-xs-6">Sztuka dekoracyjna</li>
+							<li class="col-md-4 col-sm-6 col-xs-6">Sztuka dekoracyjna</li>
+							<li class="col-md-4 col-sm-6 col-xs-6">Sztuka amerykańska</li>
+							<li class="col-md-4 col-sm-6 col-xs-6">Ogrody</li>
+							<li class="col-md-4 col-sm-6 col-xs-6">Ogrody</li>
+							<li class="col-md-4 col-sm-6 col-xs-6">Sztuka Azji</li>
+							<li class="col-md-4 col-sm-6 col-xs-6">Historia wojen</li>
+							<li class="col-md-4 col-sm-6 col-xs-6">Historia wojen</li>
+							<li class="col-md-4 col-sm-6 col-xs-6">Sztuka klasyczna</li>
+							<li class="col-md-4 col-sm-6 col-xs-6">Królowie historii</li>
+							<li class="col-md-4 col-sm-6 col-xs-6">Królowie historii</li>
+							<li class="col-md-4 col-sm-6 col-xs-6">Sztuka niemiecka</li>
+							<li class="col-md-4 col-sm-6 col-xs-6">Sztuka vintage</li>
+							<li class="col-md-4 col-sm-6 col-xs-6">Sztuka vintage</li>
 						</ul>
 					</div>
 				</div><!-- Container /- -->
@@ -431,61 +574,61 @@
 								<ol class="mis-slider">
 									<li id="mis_slide-1" class="mis-slide" data-slide="1">
 										<a href="#" class="mis-container">
-											<img src="images/testi-1.jpg" alt="testimonial" />
+											<img src="images/testi-1.jpg" alt="Opinie" />
 										</a>
 									</li>
 									<li id="mis_slide-2" class="mis-slide" data-slide="2">
 										<a href="#" class="mis-container">
-											<img src="images/testi-2.jpg" alt="testimonial" />
+											<img src="images/testi-2.jpg" alt="Opinie" />
 										</a>
 									</li>
 									<li id="mis_slide-3" class="mis-slide" data-slide="3">
 										<a href="#" class="mis-container">
-											<img src="images/testi-3.jpg" alt="testimonial" />
+											<img src="images/testi-3.jpg" alt="Opinie" />
 										</a>
 									</li>
 									<li id="mis_slide-4" class="mis-slide" data-slide="4">
 										<a href="#" class="mis-container">
-											<img src="images/testi-1.jpg" alt="testimonial" />
+											<img src="images/testi-1.jpg" alt="Opinie" />
 										</a>
 									</li>
 									<li id="mis_slide-5" class="mis-slide" data-slide="5">
 										<a href="#" class="mis-container">
-											<img src="images/testi-2.jpg" alt="testimonial" />
+											<img src="images/testi-2.jpg" alt="Opinie" />
 										</a>
 									</li>
 								</ol>
 								
 								<div class="mis-content-block">
 									<div id="mis_slide_content-1">
-										<p>"Then one day he was shooting at some food and up through the ground came a bubbling crude oil that is so lets make the most of this beautiful day since we are together space the final frontier these are the voyage"</p>
+										<p>"Pewnego dnia strzelał do jedzenia, a z ziemi wytrysnęła bulgocząca ropa. Skoro jesteśmy razem, wykorzystajmy ten piękny dzień – kosmos, ostateczna granica, oto rejs."</p>
 										<i class="icon icon-MessageRight"></i>
-										<h3>antony fernandez</h3>
-										<span>ceo, design hub</span>
+										<h3>Antoni Fernandez</h3>
+										<span>prezes, Design Hub</span>
 									</div>
 									<div id="mis_slide_content-2">
-										<p>"Then one day he was shooting at some food and up through the ground came a bubbling crude oil that is so lets make the most of this beautiful day since we are together space the final frontier these are the voyage"</p>
+										<p>"Pewnego dnia strzelał do jedzenia, a z ziemi wytrysnęła bulgocząca ropa. Skoro jesteśmy razem, wykorzystajmy ten piękny dzień – kosmos, ostateczna granica, oto rejs."</p>
 										<i class="icon icon-MessageRight"></i>
-										<h3>antony fernandez</h3>
-										<span>ceo, design hub</span>
+										<h3>Antoni Fernandez</h3>
+										<span>prezes, Design Hub</span>
 									</div>
 									<div id="mis_slide_content-3">
-										<p>"Then one day he was shooting at some food and up through the ground came a bubbling crude oil that is so lets make the most of this beautiful day since we are together space the final frontier these are the voyage"</p>
+										<p>"Pewnego dnia strzelał do jedzenia, a z ziemi wytrysnęła bulgocząca ropa. Skoro jesteśmy razem, wykorzystajmy ten piękny dzień – kosmos, ostateczna granica, oto rejs."</p>
 										<i class="icon icon-MessageRight"></i>
-										<h3>antony fernandez</h3>
-										<span>ceo, design hub</span>
+										<h3>Antoni Fernandez</h3>
+										<span>prezes, Design Hub</span>
 									</div>
 									<div id="mis_slide_content-4">
-										<p>"Then one day he was shooting at some food and up through the ground came a bubbling crude oil that is so lets make the most of this beautiful day since we are together space the final frontier these are the voyage"</p>
+										<p>"Pewnego dnia strzelał do jedzenia, a z ziemi wytrysnęła bulgocząca ropa. Skoro jesteśmy razem, wykorzystajmy ten piękny dzień – kosmos, ostateczna granica, oto rejs."</p>
 										<i class="icon icon-MessageRight"></i>
-										<h3>antony fernandez</h3>
-										<span>ceo, design hub</span>
+										<h3>Antoni Fernandez</h3>
+										<span>prezes, Design Hub</span>
 									</div>
 									<div id="mis_slide_content-5">
-										<p>"Then one day he was shooting at some food and up through the ground came a bubbling crude oil that is so lets make the most of this beautiful day since we are together space the final frontier these are the voyage"</p>
+										<p>"Pewnego dnia strzelał do jedzenia, a z ziemi wytrysnęła bulgocząca ropa. Skoro jesteśmy razem, wykorzystajmy ten piękny dzień – kosmos, ostateczna granica, oto rejs."</p>
 										<i class="icon icon-MessageRight"></i>
-										<h3>antony fernandez</h3>
-										<span>ceo, design hub</span>
+										<h3>Antoni Fernandez</h3>
+										<span>prezes, Design Hub</span>
 									</div>
 								</div>
 							</div>
@@ -498,19 +641,19 @@
 			<div class="container-fluid no-padding client-section">
 				<div class="client-carousel">
 					<div class="item">
-						<a href="#"><img src="images/client-1.png" alt="Client" /></a>
+						<a href="#"><img src="images/client-1.png" alt="Klient" /></a>
 					</div>
 					<div class="item item-bg">
-						<a href="#"><img src="images/client-2.png" alt="Client" /></a>
+						<a href="#"><img src="images/client-2.png" alt="Klient" /></a>
 					</div>
 					<div class="item">
-						<a href="#"><img src="images/client-3.png" alt="Client" /></a>
+						<a href="#"><img src="images/client-3.png" alt="Klient" /></a>
 					</div>
 					<div class="item item-bg">
-						<a href="#"><img src="images/client-4.png" alt="Client" /></a>
+						<a href="#"><img src="images/client-4.png" alt="Klient" /></a>
 					</div>
 					<div class="item">
-						<a href="#"><img src="images/client-5.png" alt="Client" /></a>
+						<a href="#"><img src="images/client-5.png" alt="Klient" /></a>
 					</div>
 				</div>
 			</div><!-- Client Section /- -->
@@ -523,8 +666,8 @@
 					<!-- Section Header -->
 					<div class="section-header">
 						<div class="section-title-border">
-							<span>Exhibitions</span>
-							<h2>UPCOMING EVENTS</h2>
+							<span>Wystawy</span>
+							<h2>NADCHODZĄCE WYDARZENIA</h2>
 						</div>
 					</div><!-- Section Header /- -->
 					<div class="col-md-8 col-sm-12 col-xs-12 no-padding">
@@ -533,27 +676,27 @@
 							<div class="col-md-12 col-sm-12 col-xs-12 event-content">
 								<div class="post-date">
 									<span>26</span>
-									<span>may</span>
+									<span>maj</span>
 								</div>
-								<h3><a href="#" title="British Museum">HEAVEN MUSEUM</a></h3>
-								<h4><a href="#" title="Melbourne, Australia"><i class="fa fa-map-marker"></i>Melbourne, Australia</a> <a href="#"><i class="fa fa-clock-o"></i>MON: 10AM - 6PM</a></h4>
-								<p>Then one day he was shooting at some food and up through the ground came a bubbling crude oil that is so lets make the most of this beautiful day the ground.</p>
+								<h3><a href="#" title="British Museum">MUZEUM NIEBIOS</a></h3>
+								<h4><a href="#" title="Melbourne, Australia"><i class="fa fa-map-marker"></i>Melbourne, Australia</a> <a href="#"><i class="fa fa-clock-o"></i>PON: 10:00 - 18:00</a></h4>
+								<p>Pewnego dnia strzelał do jedzenia, a z ziemi wytrysnęła bulgocząca ropa. Wykorzystajmy ten piękny dzień.</p>
 							</div>
 						</div><!-- Event Block /- -->
 						<!-- Event Block -->
 						<div class="col-md-12 col-sm-12 col-xs-12 no-padding event-block">
-							<div class="event-cover"><a href="#"><img src="images/upcoming-event1.jpg" alt="Events" /></a></div>
+							<div class="event-cover"><a href="#"><img src="images/upcoming-event1.jpg" alt="Wydarzenia" /></a></div>
 							<div class="col-md-12 col-sm-12 col-xs-12 event-content">
 								<div class="post-date">
 									<span>05</span>
-									<span>jun</span>
+									<span>cze</span>
 								</div>
-								<h3><a href="#" title="Forge Museum">Forge Museum</a></h3>
-								<h4><a href="#" title="London, England"><i class="fa fa-map-marker"></i>London, England</a> <a href="#"><i class="fa fa-clock-o"></i>Sunday 10AM - 6PM</a></h4>
-								<p>Then one day he was shooting at some food and up through the ground came a bubbling crude oil that is so lets make the most of this beautiful day the ground.</p>
+								<h3><a href="#" title="Forge Museum">Muzeum Kuźni</a></h3>
+								<h4><a href="#" title="London, England"><i class="fa fa-map-marker"></i>Londyn, Anglia</a> <a href="#"><i class="fa fa-clock-o"></i>Niedziela 10:00 - 18:00</a></h4>
+								<p>Pewnego dnia strzelał do jedzenia, a z ziemi wytrysnęła bulgocząca ropa. Wykorzystajmy ten piękny dzień.</p>
 							</div>
 						</div><!-- Event Block /- -->
-						<a href="#" title="View all events">VIEW ALL EVENTS</a>
+						<a href="#" title="Zobacz wszystkie wydarzenia">ZOBACZ WSZYSTKIE WYDARZENIA</a>
 					</div>
 				</div><!-- Container /- -->
 				
@@ -570,13 +713,13 @@
 							<!-- Section Header -->
 							<div class="section-header">
 								<div class="section-title-border">
-									<span>What Our Client Says</span>
-									<h2>LATEST NEWS</h2>
+									<span>Co mówią nasi klienci</span>
+									<h2>NAJNOWSZE WIADOMOŚCI</h2>
 								</div>
 							</div><!-- Section Header /- -->
 						</div>
 						<div class="col-md-6">
-							<p>Then one day he was shooting at some food and up through the ground came a bubbling crude oil that is so lets make the most of this beautiful day the ground then one day he was shooting at some food and up through the ground came a bubbling.</p>
+							<p>Pewnego dnia strzelał do jedzenia, a z ziemi wytrysnęła bulgocząca ropa. Wykorzystajmy ten piękny dzień – pewnego dnia strzelał do jedzenia, a z ziemi wytrysnęła bulgocząca ropa.</p>
 						</div>
 						<div class="col-md-2">
 							<div class="wc-controls">
@@ -593,18 +736,18 @@
 									<div class="entry-header">
 										<div class="post-date">	
 											<b>05</b>
-											<span>April</span>
+											<span>kwiecień</span>
 											<span>2016</span>
 										</div>
-										<h3 class="entry-title"><a href="#" title="Beautiful day the ground then one day">beautiful day the ground then one day</a></h3>
+										<h3 class="entry-title"><a href="#" title="Piękny dzień, ziemia, a potem pewnego dnia">piękny dzień, ziemia, a potem pewnego dnia</a></h3>
 									</div>
 									<div class="entry-content">
-										<p>Then one day he was shooting at some food and up through the ground came a crude oil that is so lets bubbling  make the most of this beautiful day.</p>
+										<p>Pewnego dnia strzelał do jedzenia, a z ziemi wytrysnęła ropa. Wykorzystajmy ten piękny dzień.</p>
 										<div class="entry-meta">
 											<div class="byline"><a href="#" title="Thomas Antony">Thomas Antony</a></div>
-											<div class="post-comment"><a href="#"><i class="fa fa-commenting-o"></i>17 Comments</a></div>
+											<div class="post-comment"><a href="#"><i class="fa fa-commenting-o"></i>17 komentarzy</a></div>
 										</div>
-										<a href="#" title="Read More">Read More</a>
+										<a href="#" title="Czytaj więcej">Czytaj więcej</a>
 									</div>
 								</div>
 							</article>
@@ -617,18 +760,18 @@
 									<div class="entry-header">
 										<div class="post-date">	
 											<b>05</b>
-											<span>April</span>
+											<span>kwiecień</span>
 											<span>2016</span>
 										</div>
-										<h3 class="entry-title"><a href="#" title="Beautiful day the ground then one day">beautiful day the ground then one day</a></h3>
+										<h3 class="entry-title"><a href="#" title="Piękny dzień, ziemia, a potem pewnego dnia">piękny dzień, ziemia, a potem pewnego dnia</a></h3>
 									</div>
 									<div class="entry-content">
-										<p>Then one day he was shooting at some food and up through the ground came a crude oil that is so lets bubbling  make the most of this beautiful day.</p>
+										<p>Pewnego dnia strzelał do jedzenia, a z ziemi wytrysnęła ropa. Wykorzystajmy ten piękny dzień.</p>
 										<div class="entry-meta">
 											<div class="byline"><a href="#" title="Thomas Antony">Thomas Antony</a></div>
-											<div class="post-comment"><a href="#"><i class="fa fa-commenting-o"></i>17 Comments</a></div>
+											<div class="post-comment"><a href="#"><i class="fa fa-commenting-o"></i>17 komentarzy</a></div>
 										</div>
-										<a href="#" title="Read More">Read More</a>
+										<a href="#" title="Czytaj więcej">Czytaj więcej</a>
 									</div>
 								</div>
 							</article>
@@ -648,18 +791,18 @@
 							<!-- Section Header -->
 							<div class="section-header">
 								<div class="section-title-border">
-									<span>Its Our Great Flows</span>
-									<h2>our gallery</h2>
+									<span>To nasze wielkie dzieła</span>
+									<h2>nasza galeria</h2>
 								</div>
 							</div><!-- Section Header /- -->
 						</div>
 						<div class="col-md-7 portfolio-categories">
 							<ul id="filters">
-								<li><a data-filter="*" class="active" href="#">ALL</a></li>
-								<li><a data-filter=".modern" href="#">MODERN ART</a></li>
-								<li><a data-filter=".vintage" href="#">VINTAGE ART</a></li>
-								<li><a data-filter=".statue" href="#">ANCIENT STATUE</a></li>
-								<li><a data-filter=".others" href="#">OTHERS</a></li>
+								<li><a data-filter="*" class="active" href="#">WSZYSTKO</a></li>
+								<li><a data-filter=".modern" href="#">SZTUKA NOWOCZESNA</a></li>
+								<li><a data-filter=".vintage" href="#">SZTUKA VINTAGE</a></li>
+								<li><a data-filter=".statue" href="#">STAROŻYTNE POSĄGI</a></li>
+								<li><a data-filter=".others" href="#">INNE</a></li>
 							</ul>
 						</div>
 					</div>
@@ -671,8 +814,8 @@
 							<img src="images/portfolio-1.jpg" alt="Portfolio" />
 							<div class="portfolio-content">
 								<i class="icon icon-Search"></i>
-								<h3>spral cloud</h3>
-								<span>Photography</span>
+								<h3>spiralna chmura</h3>
+								<span>Fotografia</span>
 							</div>
 						</a>
 					</div>
@@ -681,8 +824,8 @@
 							<img src="images/portfolio-2.jpg" alt="Portfolio" />
 							<div class="portfolio-content">
 								<i class="icon icon-Search"></i>
-								<h3>spral cloud</h3>
-								<span>Photography</span>
+								<h3>spiralna chmura</h3>
+								<span>Fotografia</span>
 							</div>
 						</a>
 					</div>
@@ -691,8 +834,8 @@
 							<img src="images/portfolio-3.jpg" alt="Portfolio" />
 							<div class="portfolio-content">
 								<i class="icon icon-Search"></i>
-								<h3>spral cloud</h3>
-								<span>Photography</span>
+								<h3>spiralna chmura</h3>
+								<span>Fotografia</span>
 							</div>
 						</a>
 					</div>
@@ -701,8 +844,8 @@
 							<img src="images/portfolio-4.jpg" alt="Portfolio" />
 							<div class="portfolio-content">
 								<i class="icon icon-Search"></i>
-								<h3>spral cloud</h3>
-								<span>Photography</span>
+								<h3>spiralna chmura</h3>
+								<span>Fotografia</span>
 							</div>
 						</a>
 					</div>
@@ -711,8 +854,8 @@
 							<img src="images/portfolio-5.jpg" alt="Portfolio" />
 							<div class="portfolio-content">
 								<i class="icon icon-Search"></i>
-								<h3>spral cloud</h3>
-								<span>Photography</span>
+								<h3>spiralna chmura</h3>
+								<span>Fotografia</span>
 							</div>
 						</a>
 					</div>
@@ -721,8 +864,8 @@
 							<img src="images/portfolio-6.jpg" alt="Portfolio" />
 							<div class="portfolio-content">
 								<i class="icon icon-Search"></i>
-								<h3>spral cloud</h3>
-								<span>Photography</span>
+								<h3>spiralna chmura</h3>
+								<span>Fotografia</span>
 							</div>
 						</a>
 					</div>
@@ -733,8 +876,8 @@
 			<div class="container-fluid no-padding cta-section">
 				<!-- Container -->
 				<div class="container">
-					<h3><img src="images/cta-logo.png" alt="Logo" />here comes the best museum theme ever</h3>
-					<a href="#" title="PURCHASE NOW">PURCHASE NOW</a>
+					<h3><img src="images/cta-logo.png" alt="Logo" />oto najlepszy motyw muzealny wszech czasów</h3>
+					<a href="#" title="KUP TERAZ">KUP TERAZ</a>
 				</div>
 				<!-- Container /- -->
 			</div><!-- Call To Action /- -->
@@ -749,10 +892,10 @@
 					<div class="col-md-4 col-sm-6 col-xs-6">
 						<!-- Widget About -->
 						<aside class="ftr-widget widget_about">
-							<a title="Logo" href="index.html" class="navbar-brand"><img src="images/logo-1.png" alt="logo" /></a>
-							<p>Then one day he was shooting at some food and up the ground came a crude oil day he was shooting at some food.</p>
+							<a title="Logo" href="index.html" class="navbar-brand"><img src="images/logo-1.png" alt="logo" style="max-width:100px; height:100px; object-fit:contain" /></a>
+							<p>Pewnego dnia strzelał do jedzenia, a z ziemi wytrysnęła ropa. Pewnego dnia strzelał do jedzenia.</p>
 							<ul>
-								<li><a href="#" title="Facebbok"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#" title="Facebook"><i class="fa fa-facebook"></i></a></li>
 								<li><a href="#" title="Twitter"><i class="fa fa-twitter"></i></a></li>
 								<li><a href="#" title="Google"><i class="fa fa-google-plus"></i></a></li>
 								<li><a href="#" title="Instagram"><i class="fa fa-instagram"></i></a></li>
@@ -763,34 +906,34 @@
 					<div class="col-md-3 col-sm-6 col-xs-6">
 						<!-- Widget Link -->
 						<aside class="ftr-widget widget_link">
-							<h3 class="widget-title">INFORMATION</h3>
+							<h3 class="widget-title">INFORMACJE</h3>
 							<ul>
-								<li class="col-md-6 col-sm-6 col-xs-6"><a href="about.html" title="About">About</a></li>
-								<li class="col-md-6 col-sm-6 col-xs-6"><a href="#" title="On View">On View</a></li>
-								<li class="col-md-6 col-sm-6 col-xs-6"><a href="#" title="History">History</a></li>
-								<li class="col-md-6 col-sm-6 col-xs-6"><a href="gallery.html" title="Gallery">Gallery</a></li>
-								<li class="col-md-6 col-sm-6 col-xs-6"><a href="#" title="Services">Services</a></li>
-								<li class="col-md-6 col-sm-6 col-xs-6"><a href="contactus.html" title="Contact">Contact</a></li>
+								<li class="col-md-6 col-sm-6 col-xs-6"><a href="about.html" title="O nas">O nas</a></li>
+								<li class="col-md-6 col-sm-6 col-xs-6"><a href="#" title="Na wystawie">Na wystawie</a></li>
+								<li class="col-md-6 col-sm-6 col-xs-6"><a href="#" title="Historia">Historia</a></li>
+								<li class="col-md-6 col-sm-6 col-xs-6"><a href="gallery.html" title="Galeria">Galeria</a></li>
+								<li class="col-md-6 col-sm-6 col-xs-6"><a href="#" title="Usługi">Usługi</a></li>
+								<li class="col-md-6 col-sm-6 col-xs-6"><a href="contactus.html" title="Kontakt">Kontakt</a></li>
 							</ul>
 						</aside><!-- Widget Link /- -->
 					</div>
 					<div class="col-md-2 col-sm-6 col-xs-6">
 						<!-- Widget Link -->
 						<aside class="ftr-widget widget_link">
-							<h3 class="widget-title">resources</h3>
+							<h3 class="widget-title">Zasoby</h3>
 							<ul>
-								<li><a href="#" title="Terms of Use">Terms of Use</a></li>
-								<li><a href="#" title="Privacy Policy">Privacy Policy</a></li>
-								<li><a href="#" title="Sitemaps">Sitemaps</a></li>
+								<li><a href="#" title="Regulamin">Regulamin</a></li>
+								<li><a href="#" title="Polityka prywatności">Polityka prywatności</a></li>
+								<li><a href="#" title="Mapa strony">Mapa strony</a></li>
 							</ul>
 						</aside><!-- Widget Link /- -->
 					</div>
 					<div class="col-md-3 col-sm-6 col-xs-6">
 						<!-- Widget Link -->
 						<aside class="ftr-widget widget_subscribe">
-							<h3 class="widget-title">newsletter</h3>
-							<input type="text" class="form-control" placeholder="Your Email id">
-							<button type="button" title="Subcribe" class="btn btn-default">Subcribe</button>
+							<h3 class="widget-title">Newsletter</h3>
+							<input type="text" class="form-control" placeholder="Twój adres e-mail">
+							<button type="button" title="Subskrybuj" class="btn btn-default">Subskrybuj</button>
 						</aside><!-- Widget Link /- -->
 					</div>
 				</div>
@@ -798,7 +941,7 @@
 			
 			<!-- Copyright -->
 			<div class="container-fluid no-padding copyright">
-				<p>copyrights <i class="fa fa-copyright"></i> 2016. all rights reserved</p>
+				<p>wszelkie prawa zastrzeżone <i class="fa fa-copyright"></i> 2016</p>
 			</div><!-- Copyright /- -->
 		</footer><!-- Footer Section /- -->
 		
@@ -820,5 +963,18 @@
 	
 	<!-- Library - Theme JS -->
 	<script src="js/functions.js"></script>
+	
+	<!-- Language Toggle Script -->
+	<script>
+		$(document).ready(function() {
+			$('.lang-option').on('click', function() {
+				var selectedLang = $(this).data('lang');
+				$('.lang-option').removeClass('active');
+				$(this).addClass('active');
+				// TODO: Dodać funkcjonalność zmiany języka
+				console.log('Język zmieniony na: ' + selectedLang);
+			});
+		});
+	</script>
 </body>
 </html>
