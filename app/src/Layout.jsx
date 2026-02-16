@@ -28,10 +28,10 @@ function Layout() {
       <header id="header" className="header-section container-fluid no-padding">
         <div className="top-header container-fluid no-padding">
           <div className="col-md-7 col-sm-12 col-xs-12 top-content no-padding">
-            <a href="tel:1800234567890"><i className="fa fa-phone"></i><b>1-800-23-456-7890</b></a>
+            <a href="tel:1800234567890"><i className="fa fa-phone"></i><b>456 482 099</b></a>
             <div className="top-icons">
               <ul>
-                <li><a href="#" title="Facebook"><i className="fa fa-facebook"></i></a></li>
+                <li><a href="https://www.facebook.com/p/Pa%C5%82ac-Roszkowice-100084550065108/?locale=pl_PL" title="Facebook" target="_blank" rel="noopener noreferrer"><i className="fa fa-facebook"></i></a></li>
                 <li><a href="#" title="Twitter"><i className="fa fa-twitter"></i></a></li>
                 <li><a href="#" title="Google+"><i className="fa fa-google-plus"></i></a></li>
               </ul>
@@ -107,9 +107,9 @@ function Layout() {
             <div className="col-md-4 col-sm-6 col-xs-6">
               <aside className="ftr-widget widget_about">
                 <Link to="/" title="Logo" className="navbar-brand"><img src="/images/logo-1.png" alt="logo" style={{ maxWidth: '100px', height: '100px', objectFit: 'contain' }} /></Link>
-                <p>Pewnego dnia strzelał do jedzenia, a z ziemi wytrysnęła ropa. Pewnego dnia strzelał do jedzenia.</p>
+                <p>Dziewiętnastowieczna rezydencja ziemiańska odzyskująca dawny blask.</p>
                 <ul>
-                  <li><a href="#" title="Facebook"><i className="fa fa-facebook"></i></a></li>
+                  <li><a href="https://www.facebook.com/p/Pa%C5%82ac-Roszkowice-100084550065108/?locale=pl_PL" title="Facebook" target="_blank" rel="noopener noreferrer"><i className="fa fa-facebook"></i></a></li>
                   <li><a href="#" title="Twitter"><i className="fa fa-twitter"></i></a></li>
                   <li><a href="#" title="Google"><i className="fa fa-google-plus"></i></a></li>
                   <li><a href="#" title="Instagram"><i className="fa fa-instagram"></i></a></li>
