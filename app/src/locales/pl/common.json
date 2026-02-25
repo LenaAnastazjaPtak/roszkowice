@@ -1,4 +1,11 @@
 {
+  "notFound": {
+    "ups": "Ups!",
+    "title": "Nie znaleziono strony",
+    "searchPlaceholder": "Wpisz, czego szukasz...",
+    "search": "Szukaj",
+    "backHome": "Wróć na stronę główną"
+  },
   "nav": {
     "toggle": "Przełącz nawigację",
     "home": "Strona główna",
