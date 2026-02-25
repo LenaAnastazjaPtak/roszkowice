@@ -24,7 +24,9 @@
     "title": "Suchen",
     "placeholder": "Stichwort eingeben und Enter drücken..."
   },
-  "hours": "ÖFFNUNGSZEITEN: MONTAG - SONNTAG: 10:00 - 20:00",
+  "hoursBefore": "",
+  "hoursPalace": "Schloss Roszkowice",
+  "hoursAfter": " wird bald für Besucher geöffnet sein!",
   "footer": {
     "about": "Ein Landhaus aus dem 19. Jahrhundert, das seinen früheren Glanz zurückerlangt.",
     "info": "INFORMATIONEN",
@@ -32,6 +34,7 @@
     "onExhibition": "In der Ausstellung",
     "history": "Geschichte",
     "gallery": "Galerie",
+    "camera": "Kamera-Link",
     "services": "Dienstleistungen",
     "contact": "Kontakt",
     "resources": "Ressourcen",

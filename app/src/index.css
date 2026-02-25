@@ -19,3 +19,11 @@ body {
   font: inherit;
   cursor: pointer;
 }
+
+.top-header .hours-line .hours-text {
+  color: #fff;
+}
+
+.top-header .hours-line .hours-palace {
+  color: #c19a6b;
+}

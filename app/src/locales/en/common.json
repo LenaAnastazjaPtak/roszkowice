@@ -24,7 +24,9 @@
     "title": "Search",
     "placeholder": "Enter keyword and press Enter..."
   },
-  "hours": "OPENING HOURS: MONDAY - SUNDAY: 10:00 AM - 8:00 PM",
+  "hoursBefore": "The ",
+  "hoursPalace": "Roszkowice Palace",
+  "hoursAfter": " will soon be open for visits!",
   "footer": {
     "about": "A nineteenth-century manor house regaining its former splendour.",
     "info": "INFORMATION",
@@ -32,6 +34,7 @@
     "onExhibition": "On exhibition",
     "history": "History",
     "gallery": "Gallery",
+    "camera": "Camera link",
     "services": "Services",
     "contact": "Contact",
     "resources": "Resources",

@@ -10,16 +10,6 @@ const blogPosts = [
     excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     author: 'Thomas Antony',
     comments: 17
-  },
-  {
-    img: '/images/latest-blog1.jpg',
-    day: '05',
-    monthKey: 'latestBlog.monthApril',
-    year: '2016',
-    title: 'Lorem ipsum dolor sit amet',
-    excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    author: 'Thomas Antony',
-    comments: 17
   }
 ]
 

@@ -24,7 +24,9 @@
     "title": "Szukaj",
     "placeholder": "Wpisz słowo kluczowe i naciśnij Enter..."
   },
-  "hours": "GODZINY OTWARCIA: PONIEDZIAŁEK - NIEDZIELA: 10:00 - 20:00",
+  "hoursBefore": "Już niedługo ",
+  "hoursPalace": "Pałac Roszkowice",
+  "hoursAfter": " otwarty do zwiedzania!",
   "footer": {
     "about": "Dziewiętnastowieczna rezydencja ziemiańska odzyskująca dawny blask.",
     "info": "INFORMACJE",
@@ -32,6 +34,7 @@
     "onExhibition": "Na wystawie",
     "history": "Historia",
     "gallery": "Galeria",
+    "camera": "Link do kamery",
     "services": "Usługi",
     "contact": "Kontakt",
     "resources": "Zasoby",
