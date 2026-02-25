@@ -1,8 +1,10 @@
+import { useTranslation } from 'react-i18next'
+
 const blogPosts = [
   {
     img: '/images/latest-blog1.jpg',
     day: '05',
-    month: 'kwiecień',
+    monthKey: 'latestBlog.monthApril',
     year: '2016',
     title: 'Lorem ipsum dolor sit amet',
     excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
@@ -12,7 +14,7 @@ const blogPosts = [
   {
     img: '/images/latest-blog1.jpg',
     day: '05',
-    month: 'kwiecień',
+    monthKey: 'latestBlog.monthApril',
     year: '2016',
     title: 'Lorem ipsum dolor sit amet',
     excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
@@ -22,6 +24,8 @@ const blogPosts = [
 ]
 
 function LatestBlogSection() {
+  const { t } = useTranslation('home')
+
   return (
     <div className="container-fluid no-padding latest-blog">
       <div className="section-padding"></div>
@@ -30,8 +34,8 @@ function LatestBlogSection() {
           <div className="col-md-4">
             <div className="section-header">
               <div className="section-title-border">
-                <span>Co mówią nasi klienci</span>
-                <h2>NAJNOWSZE WIADOMOŚCI</h2>
+                <span>{t('latestBlog.subtitle')}</span>
+                <h2>{t('latestBlog.title')}</h2>
               </div>
             </div>
           </div>
@@ -54,7 +58,7 @@ function LatestBlogSection() {
                   <div className="entry-header">
                     <div className="post-date">
                       <b>{post.day}</b>
-                      <span>{post.month}</span>
+                      <span>{t(post.monthKey)}</span>
                       <span>{post.year}</span>
                     </div>
                     <h3 className="entry-title"><a href="#" title={post.title}>{post.title}</a></h3>
@@ -63,9 +67,9 @@ function LatestBlogSection() {
                     <p>{post.excerpt}</p>
                     <div className="entry-meta">
                       <div className="byline"><a href="#" title={post.author}>{post.author}</a></div>
-                      <div className="post-comment"><a href="#"><i className="fa fa-commenting-o"></i>{post.comments} komentarzy</a></div>
+                      <div className="post-comment"><a href="#"><i className="fa fa-commenting-o"></i>{t('latestBlog.comments', { count: post.comments })}</a></div>
                     </div>
-                    <a href="#" title="Czytaj więcej">Czytaj więcej</a>
+                    <a href="#" title={t('latestBlog.readMore')}>{t('latestBlog.readMore')}</a>
                   </div>
                 </div>
               </article>

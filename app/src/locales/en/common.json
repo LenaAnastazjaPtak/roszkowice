@@ -1,0 +1,39 @@
+{
+  "nav": {
+    "toggle": "Toggle navigation",
+    "home": "Home",
+    "home1": "home 1",
+    "home2": "home 2",
+    "about": "About us",
+    "events": "Events",
+    "event": "Event",
+    "gallery": "Gallery",
+    "pages": "Pages",
+    "blog": "Blog",
+    "blogPost": "Blog post",
+    "contact": "Contact"
+  },
+  "search": {
+    "title": "Search",
+    "placeholder": "Enter keyword and press Enter..."
+  },
+  "hours": "OPENING HOURS: MONDAY - SUNDAY: 10:00 AM - 8:00 PM",
+  "footer": {
+    "about": "A nineteenth-century manor house regaining its former splendour.",
+    "info": "INFORMATION",
+    "aboutLink": "About us",
+    "onExhibition": "On exhibition",
+    "history": "History",
+    "gallery": "Gallery",
+    "services": "Services",
+    "contact": "Contact",
+    "resources": "Resources",
+    "terms": "Terms and conditions",
+    "privacy": "Privacy policy",
+    "sitemap": "Sitemap",
+    "newsletter": "Newsletter",
+    "emailPlaceholder": "Your email address",
+    "subscribe": "Subscribe",
+    "copyright": "all rights reserved"
+  }
+}

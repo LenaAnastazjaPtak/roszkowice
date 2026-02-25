@@ -1,0 +1,34 @@
+{
+  "slider": {
+    "title": "Pomysły kształtują prawdziwy bieg",
+    "subtitle": "historii",
+    "cta": "CO U NAS",
+    "since": "zał."
+  },
+  "welcome": {
+    "welcomeTo": "Witamy w",
+    "title": "Pałacu w Roszkowicach",
+    "text": "Pałac w Roszkowicach powstał w połowie XIX wieku jako siedziba rodu von Cramon-Taubadel.\nPrzez dekady był centrum życia majątku — miejscem pracy, spotkań i wydarzeń rodzinnych.\n\nPo wojnie budynek pełnił różne funkcje użytkowe, stopniowo tracąc swój reprezentacyjny charakter.\nDziś trwa jego renowacja, której celem jest zachowanie zabytku i przywrócenie historycznego wyglądu.\n\nZapraszamy do poznania historii miejsca, ludzi i architektury, które tworzyły ten pałac przez blisko 180 lat.",
+    "readMore": "Czytaj więcej",
+    "altWinter": "Pałac Roszkowice zimą",
+    "alt": "Pałac Roszkowice"
+  },
+  "gallery": {
+    "subtitle": "To nasze wielkie dzieła",
+    "title": "nasza galeria",
+    "all": "WSZYSTKO",
+    "modern": "SZTUKA NOWOCZESNA",
+    "vintage": "SZTUKA VINTAGE",
+    "statues": "STAROŻYTNE POSĄGI",
+    "other": "INNE",
+    "palace": "Pałac Roszkowice",
+    "galleryLabel": "Galeria"
+  },
+  "latestBlog": {
+    "subtitle": "Co mówią nasi klienci",
+    "title": "NAJNOWSZE WIADOMOŚCI",
+    "comments": "{{count}} komentarzy",
+    "readMore": "Czytaj więcej",
+    "monthApril": "kwiecień"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "slider": {
+    "title": "Ideen prägen den wahren Lauf",
+    "subtitle": "der Geschichte",
+    "cta": "WAS WIR BIETEN",
+    "since": "gegr."
+  },
+  "welcome": {
+    "welcomeTo": "Willkommen im",
+    "title": "Schloss Roszkowice",
+    "text": "Das Schloss in Roszkowice wurde Mitte des 19. Jahrhunderts als Sitz der Familie von Cramon-Taubadel erbaut.\nJahrzehntelang war es das Zentrum des Gutlebens — Ort der Arbeit, Begegnungen und familiärer Ereignisse.\n\nNach dem Krieg diente das Gebäude verschiedenen Nutzungszwecken und verlor allmählich seinen repräsentativen Charakter.\nHeute wird es renoviert, um das Denkmal zu erhalten und das historische Erscheinungsbild wiederherzustellen.\n\nWir laden Sie ein, die Geschichte des Ortes, der Menschen und der Architektur kennenzulernen, die dieses Schloss seit fast 180 Jahren prägen.",
+    "readMore": "Weiterlesen",
+    "altWinter": "Schloss Roszkowice im Winter",
+    "alt": "Schloss Roszkowice"
+  },
+  "gallery": {
+    "subtitle": "Das sind unsere großen Werke",
+    "title": "unsere Galerie",
+    "all": "ALLES",
+    "modern": "MODERNE KUNST",
+    "vintage": "VINTAGE-KUNST",
+    "statues": "ANTIKE STATUEN",
+    "other": "SONSTIGES",
+    "palace": "Schloss Roszkowice",
+    "galleryLabel": "Galerie"
+  },
+  "latestBlog": {
+    "subtitle": "Was unsere Kunden sagen",
+    "title": "NEUESTE NACHRICHTEN",
+    "comments": "{{count}} Kommentare",
+    "readMore": "Weiterlesen",
+    "monthApril": "April"
+  }
+}

@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next'
+
 const galleryItems = [
   { src: '/images/roszkowice/gallery/474122627_593199166841747_6658887505205181737_n.jpg', classes: 'col-md-6 col-sm-6 modern statue' },
   { src: '/images/roszkowice/gallery/474162930_593207903507540_3237014207776020479_n.jpg', classes: 'col-md-3 col-sm-3 vintage' },
@@ -8,14 +10,16 @@ const galleryItems = [
 ]
 
 const filters = [
-  { filter: '*', label: 'WSZYSTKO', active: true },
-  { filter: '.modern', label: 'SZTUKA NOWOCZESNA' },
-  { filter: '.vintage', label: 'SZTUKA VINTAGE' },
-  { filter: '.statue', label: 'STAROŻYTNE POSĄGI' },
-  { filter: '.others', label: 'INNE' }
+  { filter: '*', labelKey: 'gallery.all', active: true },
+  { filter: '.modern', labelKey: 'gallery.modern', active: false },
+  { filter: '.vintage', labelKey: 'gallery.vintage', active: false },
+  { filter: '.statue', labelKey: 'gallery.statues', active: false },
+  { filter: '.others', labelKey: 'gallery.other', active: false }
 ]
 
 function GallerySection() {
+  const { t } = useTranslation('home')
+
   return (
     <div className="container-fluid no-padding portfolio-section">
       <div className="container">
@@ -23,16 +27,16 @@ function GallerySection() {
           <div className="col-md-5">
             <div className="section-header">
               <div className="section-title-border">
-                <span>To nasze wielkie dzieła</span>
-                <h2>nasza galeria</h2>
+                <span>{t('gallery.subtitle')}</span>
+                <h2>{t('gallery.title')}</h2>
               </div>
             </div>
           </div>
           <div className="col-md-7 portfolio-categories">
             <ul id="filters">
-              {filters.map(({ filter, label, active }) => (
+              {filters.map(({ filter, labelKey, active }) => (
                 <li key={filter}>
-                  <a data-filter={filter} className={active ? 'active' : ''} href="#">{label}</a>
+                  <a data-filter={filter} className={active ? 'active' : ''} href="#">{t(labelKey)}</a>
                 </li>
               ))}
             </ul>
@@ -46,8 +50,8 @@ function GallerySection() {
               <img src={item.src} alt="Roszkowice" />
               <div className="portfolio-content">
                 <i className="icon icon-Search"></i>
-                <h3>Pałac Roszkowice</h3>
-                <span>Galeria</span>
+                <h3>{t('gallery.palace')}</h3>
+                <span>{t('gallery.galleryLabel')}</span>
               </div>
             </a>
           </div>

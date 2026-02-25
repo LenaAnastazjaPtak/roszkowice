@@ -1,0 +1,39 @@
+{
+  "nav": {
+    "toggle": "Navigation umschalten",
+    "home": "Startseite",
+    "home1": "Startseite 1",
+    "home2": "Startseite 2",
+    "about": "Über uns",
+    "events": "Veranstaltungen",
+    "event": "Veranstaltung",
+    "gallery": "Galerie",
+    "pages": "Seiten",
+    "blog": "Blog",
+    "blogPost": "Blogbeitrag",
+    "contact": "Kontakt"
+  },
+  "search": {
+    "title": "Suchen",
+    "placeholder": "Stichwort eingeben und Enter drücken..."
+  },
+  "hours": "ÖFFNUNGSZEITEN: MONTAG - SONNTAG: 10:00 - 20:00",
+  "footer": {
+    "about": "Ein Landhaus aus dem 19. Jahrhundert, das seinen früheren Glanz zurückerlangt.",
+    "info": "INFORMATIONEN",
+    "aboutLink": "Über uns",
+    "onExhibition": "In der Ausstellung",
+    "history": "Geschichte",
+    "gallery": "Galerie",
+    "services": "Dienstleistungen",
+    "contact": "Kontakt",
+    "resources": "Ressourcen",
+    "terms": "AGB",
+    "privacy": "Datenschutz",
+    "sitemap": "Sitemap",
+    "newsletter": "Newsletter",
+    "emailPlaceholder": "Ihre E-Mail-Adresse",
+    "subscribe": "Abonnieren",
+    "copyright": "alle Rechte vorbehalten"
+  }
+}

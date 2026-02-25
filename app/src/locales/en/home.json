@@ -1,0 +1,34 @@
+{
+  "slider": {
+    "title": "Ideas shape the true course",
+    "subtitle": "of history",
+    "cta": "WHAT WE OFFER",
+    "since": "est."
+  },
+  "welcome": {
+    "welcomeTo": "Welcome to",
+    "title": "Roszkowice Palace",
+    "text": "The palace in Roszkowice was built in the mid-19th century as the seat of the von Cramon-Taubadel family.\nFor decades it was the centre of estate life — a place of work, meetings and family events.\n\nAfter the war the building served various utilitarian functions, gradually losing its representative character.\nToday it is under renovation, aimed at preserving the monument and restoring its historical appearance.\n\nWe invite you to discover the history of the place, the people and the architecture that have shaped this palace for nearly 180 years.",
+    "readMore": "Read more",
+    "altWinter": "Roszkowice Palace in winter",
+    "alt": "Roszkowice Palace"
+  },
+  "gallery": {
+    "subtitle": "These are our great works",
+    "title": "our gallery",
+    "all": "ALL",
+    "modern": "MODERN ART",
+    "vintage": "VINTAGE ART",
+    "statues": "ANCIENT STATUES",
+    "other": "OTHER",
+    "palace": "Roszkowice Palace",
+    "galleryLabel": "Gallery"
+  },
+  "latestBlog": {
+    "subtitle": "What our clients say",
+    "title": "LATEST NEWS",
+    "comments": "{{count}} comments",
+    "readMore": "Read more",
+    "monthApril": "April"
+  }
+}

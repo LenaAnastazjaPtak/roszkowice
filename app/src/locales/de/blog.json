@@ -1,0 +1,28 @@
+{
+  "title": "Blog",
+  "readMore": "Weiterlesen",
+  "comments": "{{count}} Kommentare",
+  "searchPlaceholder": "Suchen...",
+  "categories": "Kategorien",
+  "latestPosts": "Neueste Beiträge",
+  "popularTags": "Beliebte Tags",
+  "coverTitle": "Beitragscover",
+  "months": {
+    "march": "März",
+    "april": "April",
+    "may": "Mai",
+    "june": "Juni"
+  },
+  "share": "Teilen",
+  "commentsSection": "Kommentare",
+  "reply": "Antworten",
+  "addComment": "Kommentar hinzufügen",
+  "namePlaceholder": "Name *",
+  "emailPlaceholder": "E-Mail-Adresse *",
+  "phonePlaceholder": "Telefonnummer",
+  "subjectPlaceholder": "Betreff",
+  "messagePlaceholder": "Nachricht",
+  "submit": "Nachricht senden",
+  "commentAlt": "Kommentar",
+  "postAlt": "Beitrag"
+}

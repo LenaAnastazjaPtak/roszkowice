@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 
 const slideData = [
   { img: '/images/roszkowice/zima.jpg', layerIds: ['slide-layer-1', 'slide-layer-2', 'slide-layer-3', 'slide-layer-4'] },
@@ -97,6 +98,8 @@ function dataAttrs(obj) {
 }
 
 function SliderSection() {
+  const { t } = useTranslation('home')
+
   useEffect(() => {
     const initSlider = () => {
       if (typeof window.$ === 'undefined' || !document.getElementById('home-slider1')) return
@@ -145,16 +148,16 @@ function SliderSection() {
                   data-no-retina
                 />
                 <div id={slide.layerIds[0]} className={layerAttrs.title.className} {...dataAttrs(layerAttrs.title.data)} style={layerAttrs.title.style}>
-                  Pomysły kształtują prawdziwy bieg
+                  {t('slider.title')}
                 </div>
                 <div id={slide.layerIds[1]} className={layerAttrs.subTitle.className} {...dataAttrs(layerAttrs.subTitle.data)} style={layerAttrs.subTitle.style}>
-                  historii
+                  {t('slider.subtitle')}
                 </div>
                 <div id={slide.layerIds[2]} className={layerAttrs.btn.className} {...dataAttrs(layerAttrs.btn.data)} style={layerAttrs.btn.style}>
-                  <a style={{ fontWeight: 700, padding: '12px 37px', fontFamily: "'Poppins', sans-serif" }} href="#" title="CO U NAS">CO U NAS</a>
+                  <a style={{ fontWeight: 700, padding: '12px 37px', fontFamily: "'Poppins', sans-serif" }} href="#" title={t('slider.cta')}>{t('slider.cta')}</a>
                 </div>
                 <div id={slide.layerIds[3]} className={layerAttrs.icon.className} {...dataAttrs(layerAttrs.icon.data)} style={layerAttrs.icon.style}>
-                  <span>zał.<img src="/images/slider.png" alt="slider" />1980</span>
+                  <span>{t('slider.since')}<img src="/images/slider.png" alt="slider" />1980</span>
                 </div>
               </li>
             ))}

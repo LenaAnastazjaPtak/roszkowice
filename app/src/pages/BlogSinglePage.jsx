@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 const categories = [
   { title: 'Muzeum', count: '09' },
@@ -26,11 +27,13 @@ const comments = [
 const commentText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
 
 function BlogSinglePage() {
+  const { t } = useTranslation('blog')
+
   return (
     <>
       <div className="page-banner">
         <div className="container">
-          <h3>Blog</h3>
+          <h3>{t('title')}</h3>
         </div>
       </div>
       <div className="section-padding"></div>
@@ -43,13 +46,13 @@ function BlogSinglePage() {
                 <div className="entry-header">
                   <div className="post-date">
                     <b>05</b>
-                    <span>kwiecień</span>
+                    <span>{t('months.april')}</span>
                     <span>2016</span>
                   </div>
                   <h3 className="entry-title"><Link to="#" title="Lorem ipsum dolor sit amet">Lorem ipsum dolor sit amet</Link></h3>
                   <div className="entry-meta">
                     <div className="byline"><Link to="#" title="Tomasz Antoni">Tomasz Antoni</Link></div>
-                    <div className="post-comment"><Link to="#"><i className="fa fa-commenting-o"></i>17 komentarzy</Link></div>
+                    <div className="post-comment"><Link to="#"><i className="fa fa-commenting-o"></i>{t('comments', { count: 17 })}</Link></div>
                   </div>
                 </div>
                 <div className="entry-content">
@@ -60,7 +63,7 @@ function BlogSinglePage() {
                   </blockquote>
                   <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
                   <div className="social">
-                    <h3>Udostępnij</h3>
+                    <h3>{t('share')}</h3>
                     <ul>
                       <li><a href="https://www.facebook.com/p/Pa%C5%82ac-Roszkowice-100084550065108/?locale=pl_PL" target="_blank" rel="noopener noreferrer"><i className="fa fa-facebook"></i></a></li>
                       <li><a href="#"><i className="fa fa-twitter"></i></a></li>
@@ -72,14 +75,14 @@ function BlogSinglePage() {
                 </div>
               </article>
               <div className="comment-section">
-                <h3>Komentarze<span>(3)</span></h3>
+                <h3>{t('commentsSection')}<span>(3)</span></h3>
                 <ul className="media-list">
                   {comments.map((c, index) => (
                     <li key={index} className="media">
-                      <div className="media-left"><Link to="#" title={c.author}><img src={c.img} alt="Komentarz" /></Link></div>
+                      <div className="media-left"><Link to="#" title={c.author}><img src={c.img} alt={t('commentAlt')} /></Link></div>
                       <div className="media-body">
                         <div className="media-content">
-                          <h4 className="media-heading"><b>{c.author}</b> <span>{c.date}</span><Link to="#" title="Odpowiedz"><i className="fa fa-reply-all"></i>Odpowiedz</Link></h4>
+                          <h4 className="media-heading"><b>{c.author}</b> <span>{c.date}</span><Link to="#" title={t('reply')}><i className="fa fa-reply-all"></i>{t('reply')}</Link></h4>
                           <p>{commentText}</p>
                         </div>
                       </div>
@@ -88,25 +91,25 @@ function BlogSinglePage() {
                 </ul>
               </div>
               <div className="comment-form">
-                <h3>Dodaj komentarz</h3>
+                <h3>{t('addComment')}</h3>
                 <form className="row">
                   <div className="form-group col-md-6">
-                    <input type="text" required placeholder="Imię *" className="form-control" />
+                    <input type="text" required placeholder={t('namePlaceholder')} className="form-control" />
                   </div>
                   <div className="form-group col-md-6">
-                    <input type="text" required placeholder="Adres e-mail *" className="form-control" />
+                    <input type="text" required placeholder={t('emailPlaceholder')} className="form-control" />
                   </div>
                   <div className="form-group col-md-6">
-                    <input type="text" required placeholder="Numer telefonu" className="form-control" />
+                    <input type="text" required placeholder={t('phonePlaceholder')} className="form-control" />
                   </div>
                   <div className="form-group col-md-6">
-                    <input type="text" required placeholder="Temat" className="form-control" />
+                    <input type="text" required placeholder={t('subjectPlaceholder')} className="form-control" />
                   </div>
                   <div className="form-group col-md-12">
-                    <textarea placeholder="Wiadomość" rows={8} className="form-control"></textarea>
+                    <textarea placeholder={t('messagePlaceholder')} rows={8} className="form-control"></textarea>
                   </div>
                   <div className="col-md-12">
-                    <input type="submit" title="Wyślij" value="Wyślij wiadomość" name="submit" />
+                    <input type="submit" title="Wyślij" value={t('submit')} name="submit" />
                   </div>
                 </form>
               </div>
@@ -114,14 +117,14 @@ function BlogSinglePage() {
             <div className="col-md-3 col-sm-5 col-xs-5 widget-area">
               <aside className="widget widget_search">
                 <div className="input-group">
-                  <input type="text" className="form-control" placeholder="Szukaj..." />
+                  <input type="text" className="form-control" placeholder={t('searchPlaceholder')} />
                   <span className="input-group-btn">
                     <button className="btn btn-default" type="button"><i className="fa fa-search"></i></button>
                   </span>
                 </div>
               </aside>
               <aside className="widget widget_categories">
-                <h3 className="widget-title">Kategorie</h3>
+                <h3 className="widget-title">{t('categories')}</h3>
                 <ul>
                   {categories.map((cat) => (
                     <li key={cat.title}><Link to="#" title={cat.title}><span>{cat.count}</span>{cat.title}</Link></li>
@@ -129,17 +132,17 @@ function BlogSinglePage() {
                 </ul>
               </aside>
               <aside className="widget widget_latestpost">
-                <h3 className="widget-title">Ostatnie wpisy</h3>
+                <h3 className="widget-title">{t('latestPosts')}</h3>
                 {latestPosts.map((item, index) => (
                   <div key={index} className="latestpost-content">
-                    <Link to="#" title="Okładka wpisu"><img src={item.img} alt="Wpis" /></Link>
+                    <Link to="#" title={t('coverTitle')}><img src={item.img} alt={t('postAlt')} /></Link>
                     <h3><Link to="#" title={item.title}>{item.title}</Link></h3>
                     <span>{item.date}</span>
                   </div>
                 ))}
               </aside>
               <aside className="widget widget_tag">
-                <h3 className="widget-title">Popularne tagi</h3>
+                <h3 className="widget-title">{t('popularTags')}</h3>
                 <div className="tags">
                   {tags.map((tag) => (
                     <Link key={tag} to="#" title={tag}>{tag}</Link>

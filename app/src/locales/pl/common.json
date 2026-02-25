@@ -1,0 +1,39 @@
+{
+  "nav": {
+    "toggle": "Przełącz nawigację",
+    "home": "Strona główna",
+    "home1": "strona główna 1",
+    "home2": "strona główna 2",
+    "about": "O nas",
+    "events": "Wydarzenia",
+    "event": "Wydarzenie",
+    "gallery": "Galeria",
+    "pages": "Strony",
+    "blog": "Blog",
+    "blogPost": "Wpis na blogu",
+    "contact": "Kontakt"
+  },
+  "search": {
+    "title": "Szukaj",
+    "placeholder": "Wpisz słowo kluczowe i naciśnij Enter..."
+  },
+  "hours": "GODZINY OTWARCIA: PONIEDZIAŁEK - NIEDZIELA: 10:00 - 20:00",
+  "footer": {
+    "about": "Dziewiętnastowieczna rezydencja ziemiańska odzyskująca dawny blask.",
+    "info": "INFORMACJE",
+    "aboutLink": "O nas",
+    "onExhibition": "Na wystawie",
+    "history": "Historia",
+    "gallery": "Galeria",
+    "services": "Usługi",
+    "contact": "Kontakt",
+    "resources": "Zasoby",
+    "terms": "Regulamin",
+    "privacy": "Polityka prywatności",
+    "sitemap": "Mapa strony",
+    "newsletter": "Newsletter",
+    "emailPlaceholder": "Twój adres e-mail",
+    "subscribe": "Subskrybuj",
+    "copyright": "wszelkie prawa zastrzeżone"
+  }
+}
