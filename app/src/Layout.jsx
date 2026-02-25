@@ -90,10 +90,10 @@ function Layout() {
                   <ul className="dropdown-menu">
                     <li><Link to="/blog" title={t('nav.blog')}>{t('nav.blog')}</Link></li>
                     <li><Link to="/blog/post" title={t('nav.blogPost')}>{t('nav.blogPost')}</Link></li>
-                    <li><a href="#" title="404">404</a></li>
+                    <li><Link to="/404" title="404">404</Link></li>
                   </ul>
                 </li>
-                <li><a href="#" title={t('nav.contact')}>{t('nav.contact')}</a></li>
+                <li><Link to="/contact" title={t('nav.contact')}>{t('nav.contact')}</Link></li>
               </ul>
             </div>
             <div className="search-box">
@@ -131,7 +131,7 @@ function Layout() {
                   <li className="col-md-6 col-sm-6 col-xs-6"><a href="#" title={t('footer.history')}>{t('footer.history')}</a></li>
                   <li className="col-md-6 col-sm-6 col-xs-6"><a href="#" title={t('footer.gallery')}>{t('footer.gallery')}</a></li>
                   <li className="col-md-6 col-sm-6 col-xs-6"><a href="#" title={t('footer.services')}>{t('footer.services')}</a></li>
-                  <li className="col-md-6 col-sm-6 col-xs-6"><a href="#" title={t('footer.contact')}>{t('footer.contact')}</a></li>
+                  <li className="col-md-6 col-sm-6 col-xs-6"><Link to="/contact" title={t('footer.contact')}>{t('footer.contact')}</Link></li>
                 </ul>
               </aside>
             </div>

@@ -1,0 +1,17 @@
+{
+  "title": "Kontakt",
+  "contactInfoAlt": "Informacje kontaktowe",
+  "locationTitle": "Nasza Lokalizacja",
+  "contactTitle": "Skontaktuj się z nami",
+  "emailTitle": "E-mail",
+  "formTitle": "Zostaw wiadomość",
+  "formSubtitle": "Napisz do nas",
+  "firstName": "Imię *",
+  "lastName": "Nazwisko *",
+  "email": "Adres e-mail *",
+  "subject": "Temat",
+  "message": "Twoja wiadomość",
+  "submit": "Wyślij wiadomość",
+  "fillAll": "Proszę wypełnić wszystkie pola.",
+  "error": "Wystąpił błąd. Spróbuj ponownie później."
+}

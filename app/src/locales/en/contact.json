@@ -1,0 +1,17 @@
+{
+  "title": "Contact",
+  "contactInfoAlt": "Contact information",
+  "locationTitle": "Our Location",
+  "contactTitle": "Contact us",
+  "emailTitle": "Email",
+  "formTitle": "Leave a message",
+  "formSubtitle": "Write to us",
+  "firstName": "First name *",
+  "lastName": "Last name *",
+  "email": "Email address *",
+  "subject": "Subject",
+  "message": "Your message",
+  "submit": "Send message",
+  "fillAll": "Please fill in all fields.",
+  "error": "An error occurred. Please try again later."
+}

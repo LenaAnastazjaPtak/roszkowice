@@ -3,6 +3,8 @@ import Layout from './Layout'
 import HomePage from './pages/HomePage'
 import BlogPage from './pages/BlogPage'
 import BlogSinglePage from './pages/BlogSinglePage'
+import ContactPage from './pages/ContactPage'
+import NotFoundPage from './pages/NotFoundPage'
 
 function App() {
   return (
@@ -12,6 +14,9 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="blog" element={<BlogPage />} />
           <Route path="blog/post" element={<BlogSinglePage />} />
+          <Route path="contact" element={<ContactPage />} />
+          <Route path="404" element={<NotFoundPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
