@@ -83,8 +83,8 @@ function Layout() {
                   <a href="#" className="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false" title="Strony">Strony</a>
                   <i className="ddl-switch fa fa-angle-down"></i>
                   <ul className="dropdown-menu">
-                    <li><a href="#" title="Blog">Blog</a></li>
-                    <li><a href="#" title="Wpis na blogu">Wpis na blogu</a></li>
+                    <li><Link to="/blog" title="Blog">Blog</Link></li>
+                    <li><Link to="/blog/post" title="Wpis na blogu">Wpis na blogu</Link></li>
                     <li><a href="#" title="404">404</a></li>
                   </ul>
                 </li>
