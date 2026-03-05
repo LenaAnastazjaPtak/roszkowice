@@ -13,5 +13,6 @@
   "message": "Twoja wiadomość",
   "submit": "Wyślij wiadomość",
   "fillAll": "Proszę wypełnić wszystkie pola.",
-  "error": "Wystąpił błąd. Spróbuj ponownie później."
+  "error": "Wystąpił błąd. Spróbuj ponownie później.",
+  "openInGoogleMaps": "Otwórz w Google Maps"
 }

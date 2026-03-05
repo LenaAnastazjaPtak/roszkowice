@@ -13,5 +13,6 @@
   "message": "Your message",
   "submit": "Send message",
   "fillAll": "Please fill in all fields.",
-  "error": "An error occurred. Please try again later."
+  "error": "An error occurred. Please try again later.",
+  "openInGoogleMaps": "Open in Google Maps"
 }

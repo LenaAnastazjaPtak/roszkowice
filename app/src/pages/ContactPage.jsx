@@ -1,14 +1,45 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
-const MAP_SCRIPT_URL = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCf0dPCQ0C7oVF0WFKhuyz7v7oWei3vFPI'
+const DEFAULT_MAP_ADDRESS = 'Roszkowice 57, 46-220 Roszkowice'
+const DEFAULT_MAP_LAT = 50.3636
+const DEFAULT_MAP_LNG = 18.4236
+const DEFAULT_MAP_ZOOM = 15
+
+function getMapConfig() {
+  const address = import.meta.env.VITE_MAP_ADDRESS ?? DEFAULT_MAP_ADDRESS
+  const lat = parseFloat(import.meta.env.VITE_MAP_LAT, 10)
+  const lng = parseFloat(import.meta.env.VITE_MAP_LNG, 10)
+  const zoom = parseInt(import.meta.env.VITE_MAP_ZOOM, 10)
+  return {
+    address,
+    lat: Number.isNaN(lat) ? DEFAULT_MAP_LAT : lat,
+    lng: Number.isNaN(lng) ? DEFAULT_MAP_LNG : lng,
+    zoom: Number.isNaN(zoom) ? DEFAULT_MAP_ZOOM : zoom
+  }
+}
+
+function getMapScriptUrl() {
+  const key = import.meta.env.VITE_GOOGLE_MAPS_API_KEY
+  if (!key) return null
+  return `https://maps.googleapis.com/maps/api/js?key=${key}`
+}
 
 function ContactPage() {
   const { t } = useTranslation('contact')
   const [submitStatus, setSubmitStatus] = useState(null)
   const [loading, setLoading] = useState(false)
+  const [mapError, setMapError] = useState(false)
+
+  const mapConfig = getMapConfig()
 
   useEffect(() => {
+    const scriptUrl = getMapScriptUrl()
+    if (!scriptUrl) {
+      setMapError(true)
+      return
+    }
+
     const initMap = () => {
       if (window.initContactMap) {
         window.initContactMap()
@@ -16,40 +47,27 @@ function ContactPage() {
       }
       const el = document.getElementById('map-canvas-contact')
       if (!el || !window.google) return
-      const lat = parseFloat(el.getAttribute('data-lat'))
-      const lng = parseFloat(el.getAttribute('data-lng'))
+      const lat = parseFloat(el.getAttribute('data-lat'), 10)
+      const lng = parseFloat(el.getAttribute('data-lng'), 10)
+      if (Number.isNaN(lat) || Number.isNaN(lng)) return
       const contentString = el.getAttribute('data-string')
-      const zoom = parseInt(el.getAttribute('data-zoom'), 10)
+      const zoom = parseInt(el.getAttribute('data-zoom'), 10) || mapConfig.zoom
       const myLatlng = new window.google.maps.LatLng(lat, lng)
-      const styles = [
-        { featureType: 'landscape', stylers: [{ saturation: -100 }, { lightness: 65 }, { visibility: 'on' }] },
-        { featureType: 'poi', stylers: [{ saturation: -100 }, { lightness: 51 }, { visibility: 'simplified' }] },
-        { featureType: 'road.highway', stylers: [{ saturation: -100 }, { visibility: 'simplified' }] },
-        { featureType: 'road.arterial', stylers: [{ saturation: -100 }, { lightness: 30 }, { visibility: 'on' }] },
-        { featureType: 'road.local', stylers: [{ saturation: -100 }, { lightness: 40 }, { visibility: 'on' }] },
-        { featureType: 'transit', stylers: [{ saturation: -100 }, { visibility: 'simplified' }] },
-        { featureType: 'administrative.province', stylers: [{ visibility: 'off' }] },
-        { featureType: 'water', elementType: 'labels', stylers: [{ visibility: 'on' }, { lightness: -25 }, { saturation: -100 }] },
-        { featureType: 'water', elementType: 'geometry', stylers: [{ hue: '#ffff00' }, { lightness: -25 }, { saturation: -97 }] }
-      ]
-      const styledMap = new window.google.maps.StyledMapType(styles, { name: 'Styled Map' })
       const mapOptions = {
         zoom,
-        disableDefaultUI: true,
         center: myLatlng,
-        scrollwheel: false,
-        mapTypeControlOptions: {
-          mapTypeIds: [window.google.maps.MapTypeId.ROADMAP, 'map_style']
-        }
+        scrollwheel: true,
+        zoomControl: true,
+        mapTypeControl: false,
+        scaleControl: false,
+        streetViewControl: false,
+        fullscreenControl: false
       }
       const map = new window.google.maps.Map(el, mapOptions)
-      map.mapTypes.set('map_style', styledMap)
-      map.setMapTypeId('map_style')
       const infowindow = new window.google.maps.InfoWindow({ content: contentString })
       const marker = new window.google.maps.Marker({
         position: myLatlng,
-        map,
-        icon: '/images/marker.png'
+        map
       })
       window.google.maps.event.addListener(marker, 'click', () => infowindow.open(map, marker))
     }
@@ -59,12 +77,15 @@ function ContactPage() {
       return
     }
     const script = document.createElement('script')
-    script.src = MAP_SCRIPT_URL
+    script.src = scriptUrl
     script.async = true
     script.defer = true
     script.onload = () => setTimeout(initMap, 100)
+    script.onerror = () => setMapError(true)
+    window.gm_authFailure = () => setMapError(true)
     document.head.appendChild(script)
     return () => {
+      delete window.gm_authFailure
       if (script.parentNode) script.parentNode.removeChild(script)
     }
   }, [])
@@ -117,8 +138,7 @@ function ContactPage() {
             <div className="col-md-4 col-sm-4 col-xs-12">
               <i><img src="/images/contact-info1.png" alt={t('contactInfoAlt')} /></i>
               <h3>{t('locationTitle')}</h3>
-              <p>Roszkowice 57,</p>
-              <p>46-220 Roszkowice</p>
+              <p>{mapConfig.address}</p>
             </div>
             <div className="col-md-4 col-sm-4 col-xs-12">
               <i><img src="/images/contact-info2.png" alt={t('contactInfoAlt')} /></i>
@@ -158,7 +178,15 @@ function ContactPage() {
       </div>
       <div className="padding-100"></div>
       <div className="container-fluid no-padding map-section">
-        <div id="map-canvas-contact" className="map-canvas" data-lat="50.3419" data-lng="18.2125" data-string="Roszkowice" data-zoom="12"></div>
+        {mapError ? (
+          <div className="map-canvas" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 300, background: '#e8e8e8' }}>
+            <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapConfig.address)}`} target="_blank" rel="noopener noreferrer">
+              {t('openInGoogleMaps')}: {mapConfig.address}
+            </a>
+          </div>
+        ) : (
+          <div id="map-canvas-contact" className="map-canvas" data-lat={mapConfig.lat} data-lng={mapConfig.lng} data-string={mapConfig.address} data-zoom={mapConfig.zoom}></div>
+        )}
       </div>
     </>
   )
