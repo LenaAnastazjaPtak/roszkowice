@@ -135,18 +135,11 @@ function Header() {
                   {t("nav.gallery")}
                 </Link>
               </li>
-              <li className="dropdown">
-                <a
-                  href="#"
-                  className="dropdown-toggle"
-                  role="button"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                  title={t("nav.pages")}
-                >
-                  {t("nav.pages")}
-                </a>
-                <i className="ddl-switch fa fa-angle-down"></i>
+              <li>
+                <Link to="/blog" title={t("nav.blog")}>
+                  {t("nav.blog")}
+                </Link>
+                {/* <i className="ddl-switch fa fa-angle-down"></i>
                 <ul className="dropdown-menu">
                   <li>
                     <Link to="/blog" title={t("nav.blog")}>
@@ -173,7 +166,7 @@ function Header() {
                       404
                     </Link>
                   </li>
-                </ul>
+                </ul> */}
               </li>
               <li>
                 <Link to="/contact" title={t("nav.contact")}>
