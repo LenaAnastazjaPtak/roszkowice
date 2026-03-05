@@ -22,10 +22,10 @@ function Footer() {
             <aside className="ftr-widget widget_link">
               <h3 className="widget-title">{t('footer.info')}</h3>
               <ul>
-                <li className="col-md-6 col-sm-6 col-xs-6"><a href="#" title={t('footer.aboutLink')}>{t('footer.aboutLink')}</a></li>
-                <li className="col-md-6 col-sm-6 col-xs-6"><a href="/gallery" title={t('footer.gallery')}>{t('footer.gallery')}</a></li>
-                <li className="col-md-6 col-sm-6 col-xs-6"><a href="#" title={t('footer.camera')}>{t('footer.camera')}</a></li>
-                <li className="col-md-6 col-sm-6 col-xs-6"><Link to="/contact" title={t('footer.contact')}>{t('footer.contact')}</Link></li>
+                <li><a href="#" title={t('footer.aboutLink')}>{t('footer.aboutLink')}</a></li>
+                <li><a href="/gallery" title={t('footer.gallery')}>{t('footer.gallery')}</a></li>
+                <li><a href="#" title={t('footer.camera')}>{t('footer.camera')}</a></li>
+                <li><Link to="/contact" title={t('footer.contact')}>{t('footer.contact')}</Link></li>
               </ul>
             </aside>
           </div>
