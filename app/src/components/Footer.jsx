@@ -33,8 +33,8 @@ function Footer() {
             <aside className="ftr-widget widget_link">
               <h3 className="widget-title">{t('footer.resources')}</h3>
               <ul>
-                <li><a href="#" title={t('footer.terms')}>{t('footer.terms')}</a></li>
-                <li><a href="#" title={t('footer.privacy')}>{t('footer.privacy')}</a></li>
+                <li><Link to="/regulamin" title={t('footer.terms')}>{t('footer.terms')}</Link></li>
+                <li><Link to="/polityka-prywatnosci" title={t('footer.privacy')}>{t('footer.privacy')}</Link></li>
                 <li><a href="#" title={t('footer.sitemap')}>{t('footer.sitemap')}</a></li>
               </ul>
             </aside>
@@ -42,7 +42,7 @@ function Footer() {
         </div>
       </div>
       <div className="container-fluid no-padding copyright">
-        <p>{t('footer.copyright')} <i className="fa fa-copyright"></i> 2016</p>
+        <p>{t('footer.copyright')} <i className="fa fa-copyright"></i> 2026</p>
       </div>
     </footer>
   )

@@ -159,6 +159,16 @@ function Header() {
                     </Link>
                   </li>
                   <li>
+                    <Link to="/regulamin" title={t('footer.terms')}>
+                      {t('footer.terms')}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/polityka-prywatnosci" title={t('footer.privacy')}>
+                      {t('footer.privacy')}
+                    </Link>
+                  </li>
+                  <li>
                     <Link to="/404" title="404">
                       404
                     </Link>
