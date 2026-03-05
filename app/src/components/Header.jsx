@@ -131,9 +131,9 @@ function Header() {
                 </a>
               </li>
               <li>
-                <a href="#" title={t("nav.gallery")}>
+                <Link to="/gallery" title={t("nav.gallery")}>
                   {t("nav.gallery")}
-                </a>
+                </Link>
               </li>
               <li className="dropdown">
                 <a
@@ -159,12 +159,12 @@ function Header() {
                     </Link>
                   </li>
                   <li>
-                    <Link to="/regulamin" title={t('footer.terms')}>
+                    <Link to="/terms" title={t('footer.terms')}>
                       {t('footer.terms')}
                     </Link>
                   </li>
                   <li>
-                    <Link to="/polityka-prywatnosci" title={t('footer.privacy')}>
+                    <Link to="/privacy-policy" title={t('footer.privacy')}>
                       {t('footer.privacy')}
                     </Link>
                   </li>

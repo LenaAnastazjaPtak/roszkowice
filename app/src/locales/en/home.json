@@ -17,9 +17,9 @@
     "subtitle": "These are our great works",
     "title": "our gallery",
     "all": "ALL",
-    "modern": "MODERN ART",
-    "vintage": "VINTAGE ART",
-    "statues": "ANCIENT STATUES",
+    "exterior": "PALACE EXTERIOR",
+    "interior": "PALACE INTERIOR",
+    "park": "PARK",
     "other": "OTHER",
     "palace": "Roszkowice Palace",
     "galleryLabel": "Gallery"

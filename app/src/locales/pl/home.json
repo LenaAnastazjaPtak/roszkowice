@@ -17,9 +17,9 @@
     "subtitle": "To nasze wielkie dzieła",
     "title": "nasza galeria",
     "all": "WSZYSTKO",
-    "modern": "SZTUKA NOWOCZESNA",
-    "vintage": "SZTUKA VINTAGE",
-    "statues": "STAROŻYTNE POSĄGI",
+    "exterior": "PAŁAC Z ZEWNĄTRZ",
+    "interior": "WNĘTRZE PAŁACU",
+    "park": "PARK",
     "other": "INNE",
     "palace": "Pałac Roszkowice",
     "galleryLabel": "Galeria"

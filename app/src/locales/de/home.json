@@ -17,9 +17,9 @@
     "subtitle": "Das sind unsere großen Werke",
     "title": "unsere Galerie",
     "all": "ALLES",
-    "modern": "MODERNE KUNST",
-    "vintage": "VINTAGE-KUNST",
-    "statues": "ANTIKE STATUEN",
+    "exterior": "SCHLOSS VON AUSSEN",
+    "interior": "SCHLOSSINNENRAUM",
+    "park": "PARK",
     "other": "SONSTIGES",
     "palace": "Schloss Roszkowice",
     "galleryLabel": "Galerie"

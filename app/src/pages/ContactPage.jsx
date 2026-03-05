@@ -123,14 +123,12 @@ function ContactPage() {
             <div className="col-md-4 col-sm-4 col-xs-12">
               <i><img src="/images/contact-info2.png" alt={t('contactInfoAlt')} /></i>
               <h3>{t('contactTitle')}</h3>
-              <p><a href="tel:+1800433633">+48 800 433 633</a></p>
-              <p><a href="tel:+1800123456">+48 800 123 456</a></p>
+              <p><a href="tel:+48795000596">+48 795 000 596</a></p>
             </div>
             <div className="col-md-4 col-sm-4 col-xs-12">
               <i><img src="/images/contact-info3.png" alt={t('contactInfoAlt')} /></i>
               <h3>{t('emailTitle')}</h3>
-              <p><a href="mailto:info@palacroszkowice.pl">info@palacroszkowice.pl</a></p>
-              <p><a href="mailto:support@palacroszkowice.pl">support@palacroszkowice.pl</a></p>
+              <p><a href="mailto:palac.roszkowice@gmail.com">palac.roszkowice@gmail.com</a></p>
             </div>
           </div>
           <div className="contact-form">
