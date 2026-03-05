@@ -10,7 +10,7 @@ function Header() {
         <div className="col-md-7 col-sm-12 col-xs-12 top-content no-padding">
           <a href="tel:1800234567890">
             <i className="fa fa-phone"></i>
-            <b>456 482 099</b>
+            <b>+48 795 000 596</b>
           </a>
           <div className="top-icons">
             <ul>
@@ -25,13 +25,12 @@ function Header() {
                 </a>
               </li>
               <li>
-                <a href="#" title="Twitter">
-                  <i className="fa fa-twitter"></i>
-                </a>
-              </li>
-              <li>
-                <a href="#" title="Google+">
-                  <i className="fa fa-google-plus"></i>
+                <a
+                  href="https://www.instagram.com/palac_roszkowice/ "
+                  title="Instagram"
+                  target="_blank"
+                >
+                  <i className="fa fa-instagram"></i>
                 </a>
               </li>
             </ul>
@@ -63,7 +62,11 @@ function Header() {
                 DE
               </button>
             </div>
-            <h5 className="hours-line"><span className="hours-text">{t("hoursBefore")}</span><span className="hours-palace">{t("hoursPalace")}</span><span className="hours-text">{t("hoursAfter")}</span></h5>
+            <h5 className="hours-line">
+              <span className="hours-text">{t("hoursBefore")}</span>
+              <span className="hours-palace">{t("hoursPalace")}</span>
+              <span className="hours-text">{t("hoursAfter")}</span>
+            </h5>
           </div>
         </div>
       </div>

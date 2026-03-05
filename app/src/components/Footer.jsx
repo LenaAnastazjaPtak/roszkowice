@@ -14,10 +14,7 @@ function Footer() {
               <p>{t('footer.about')}</p>
               <ul>
                 <li><a href="https://www.facebook.com/p/Pa%C5%82ac-Roszkowice-100084550065108/?locale=pl_PL" title="Facebook" target="_blank" rel="noopener noreferrer"><i className="fa fa-facebook"></i></a></li>
-                <li><a href="#" title="Twitter"><i className="fa fa-twitter"></i></a></li>
-                <li><a href="#" title="Google"><i className="fa fa-google-plus"></i></a></li>
-                <li><a href="#" title="Instagram"><i className="fa fa-instagram"></i></a></li>
-                <li><a href="#" title="Linkedin"><i className="fa fa-linkedin"></i></a></li>
+                <li><a href="https://www.instagram.com/palac_roszkowice/ " title="Instagram" target="_blank"><i className="fa fa-instagram"></i></a></li>
               </ul>
             </aside>
           </div>
