@@ -17,7 +17,7 @@ function AboutPage() {
           <div className="row">
             <div className="col-md-6 col-sm-6 img-block">
               <i>
-                <img src="/images/roszkowice/logo.jpg" alt={t('welcome.imgAlt')} style={{ maxWidth: '100%', height: 'auto', objectFit: 'contain' }} />
+                <img src="/images/roszkowice/logo_with_white_background.png" alt={t('welcome.imgAlt')} style={{ maxWidth: '100%', height: 'auto', objectFit: 'contain' }} />
               </i>
             </div>
             <div className="col-md-6 col-sm-6 content-block">

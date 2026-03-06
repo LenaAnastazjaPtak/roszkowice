@@ -99,7 +99,7 @@ function Header() {
             </button>
             <Link to="/" className="navbar-brand">
               <img
-                src="/images/roszkowice/logo.jpg"
+                src="/images/roszkowice/logo_with_white_background.png"
                 alt="Logo"
                 style={{
                   maxWidth: "100px",
