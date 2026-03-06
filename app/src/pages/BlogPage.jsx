@@ -2,13 +2,58 @@ import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 
 const posts = [
-  { img: '/images/blog1.jpg', day: '05', monthKey: 'months.april', year: '2016', title: 'Lorem ipsum dolor sit amet', author: 'Tomasz Antoni', comments: 17 },
-  { img: '/images/blog2.jpg', day: '24', monthKey: 'months.march', year: '2016', title: 'Consectetur adipiscing elit', author: 'Tomasz Antoni', comments: 6 },
-  { img: '/images/blog3.jpg', day: '09', monthKey: 'months.may', year: '2016', title: 'Sed do eiusmod tempor', author: 'Tomasz Antoni', comments: 13 },
-  { img: '/images/blog4.jpg', day: '20', monthKey: 'months.june', year: '2016', title: 'Ut enim ad minim veniam', author: 'Tomasz Antoni', comments: 26 }
+  {
+    img: '/images/roszkowice/park/park.jpg',
+    day: '19',
+    monthKey: 'months.october',
+    year: '2025',
+    title: 'Złota jesień w parku pałacowym',
+    author: 'Pałac Roszkowice',
+    comments: 0,
+    content: `Tak pięknie jest w naszym parku jesienią! ☀️ Drzewa w Roszkowicach skąpane w ciepłym słońcu.
+Prace renowacyjne trwają, a my z każdym dniem zbliżamy się do celu: ponownego otwarcia tego niezwykłego miejsca. Dziękujemy, że jesteście z nami! 🍁
+#Pałac #Roszkowice #HistoryczneMiejsca #Park #ZłotaJesień`
+  },
+  {
+    img: '/images/roszkowice/slider/zima.jpg',
+    day: '24',
+    monthKey: 'months.december',
+    year: '2025',
+    title: 'Wigilijny wieczór w Roszkowicach',
+    author: 'Pałac Roszkowice',
+    comments: 0,
+    content: `Dziś, w ten wyjątkowy Wigilijny wieczór, w Roszkowicach panuje cisza i oczekiwanie na pierwszą gwiazdkę ⭐, a my z niecierpliwością oczekujemy – gdy to miejsce znów będzie tętniło życiem, światłem i radością odwiedzających. 🕯️
+Czekamy na moment, w którym będziemy mogli otworzyć Pałac dla Was! ❤️
+#PałacRoszkowice #Wigilia #BożeNarodzenie #ŻyczeniaŚwiąteczne #Zabytek`
+  },
+  {
+    img: '/images/roszkowice/zewn/pionowa_zima.jpg',
+    day: '01',
+    monthKey: 'months.january',
+    year: '2026',
+    title: 'Nowy Rok 2026 – plany i przyspieszenie renowacji',
+    author: 'Pałac Roszkowice',
+    comments: 0,
+    content: `Nowy Rok w Pałacu Roszkowice to czas wielkich zmian i przyspieszenia prac renowacyjnych. Mamy ambitne plany, dotyczące otworzenia dla Was Pałacu i parku! 🌳🔑
+Możemy obiecać jedno: będzie się działo! 🛠️🔥 Nasza misja, by przywrócić pałacowi dawny blask i otworzyć go dla Was, wkracza w decydującą fazę.
+Nie możemy się doczekać, aż wszystko zobaczycie na własne oczy 👀 i przejdziecie się odnowionymi salami oraz parkowymi alejami. Śledźcie nas – będziemy regularnie dzielić się postępami! 👇
+#PałacRoszkowice #NowyRok2026 #PlanyNaNowyRok #Renowacja #Odbudowa #Zabytek #Wizja #Rewitalizacja`
+  },
+  {
+    img: '/images/roszkowice/zewn/IMG-20251021-WA0011.jpg',
+    day: '20',
+    monthKey: 'months.january',
+    year: '2026',
+    title: 'Jesteśmy na Instagramie!',
+    author: 'Pałac Roszkowice',
+    comments: 0,
+    content: `Jesteśmy na Instagramie! 📸🏰
+Chcesz widzieć Pałac Roszkowice w najlepszym wydaniu? Zapraszamy na nasz nowy profil, gdzie królować będą piękne zdjęcia.
+Bądź na bieżąco i wspieraj naszą działalność ✨ 👇
+https://www.instagram.com/palac_roszkowice/
+#Pałac #Instagram #FollowUs #PolskaJestPiękna`
+  }
 ]
-
-const excerpt = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.'
 
 const categories = [
   { title: 'Muzeum', count: '09' },
@@ -20,9 +65,9 @@ const categories = [
 ]
 
 const latestPosts = [
-  { img: '/images/latest-post1.jpg', title: 'Lorem ipsum dolor sit amet', date: '09 lip 2015' },
-  { img: '/images/latest-post2.jpg', title: 'Consectetur adipiscing elit', date: '09 lip 2015' },
-  { img: '/images/latest-post3.jpg', title: 'Sed do eiusmod tempor', date: '09 lip 2015' }
+  { img: '/images/roszkowice/zewn/IMG-20251021-WA0011.jpg', title: 'Jesteśmy na Instagramie!', date: '20 sty 2026' },
+  { img: '/images/roszkowice/zewn/pionowa_zima.jpg', title: 'Nowy Rok 2026 – plany i przyspieszenie renowacji', date: '01 sty 2026' },
+  { img: '/images/roszkowice/slider/zima.jpg', title: 'Wigilijny wieczór w Roszkowicach', date: '24 gru 2025' }
 ]
 
 const tags = ['Niesamowite', 'Posągi', 'Motywy', 'Czyste', 'Responsywność', 'sztuka', 'nowoczesne', 'ios', 'płaskie', 'Design']
@@ -58,8 +103,7 @@ function BlogPage() {
                     </div>
                   </div>
                   <div className="entry-content">
-                    <p>{excerpt}</p>
-                    <Link to="#" title={t('readMore')}>{t('readMore')}</Link>
+                    <div style={{ whiteSpace: 'pre-line' }}>{post.content}</div>
                   </div>
                 </article>
               ))}

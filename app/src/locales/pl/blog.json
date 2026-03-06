@@ -11,7 +11,10 @@
     "march": "marzec",
     "april": "kwiecień",
     "may": "maj",
-    "june": "czerwiec"
+    "june": "czerwiec",
+    "october": "październik",
+    "december": "grudzień",
+    "january": "styczeń"
   },
   "share": "Udostępnij",
   "commentsSection": "Komentarze",
