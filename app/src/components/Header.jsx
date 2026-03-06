@@ -29,8 +29,19 @@ function Header() {
                   href="https://www.instagram.com/palac_roszkowice/ "
                   title="Instagram"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <i className="fa fa-instagram"></i>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.youtube.com/@ptasznik97"
+                  title="YouTube"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i className="fa fa-youtube"></i>
                 </a>
               </li>
             </ul>
@@ -126,9 +137,9 @@ function Header() {
                 </ul>
               </li>
               <li>
-                <a href="#" title={t("nav.about")}>
+                <Link to="/about" title={t("nav.about")}>
                   {t("nav.about")}
-                </a>
+                </Link>
               </li>
               <li>
                 <Link to="/gallery" title={t("nav.gallery")}>

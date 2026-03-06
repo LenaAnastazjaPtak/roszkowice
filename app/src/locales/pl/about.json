@@ -1,0 +1,36 @@
+{
+  "title": "O nas",
+  "welcome": {
+    "welcomeIn": "Witaj w",
+    "palaceName": "Pałacu Roszkowice",
+    "imgAlt": "Pałac Roszkowice",
+    "paragraph1": "Pałac Roszkowice to XIX-wieczna rezydencja ziemiańska, która przez dziesięciolecia była sercem lokalnego życia społecznego i kulturalnego. Wzniesiony jako siedziba rodowa, łączy w sobie elegancję dawnej architektury z historią ludzi, którzy tworzyli to miejsce.",
+    "paragraph2": "Na przestrzeni lat pałac przechodził różne etapy – od prywatnej rezydencji, przez okres powojennych zmian funkcji budynku, aż po współczesne działania mające na celu przywrócenie mu dawnego charakteru."
+  },
+  "seePhotos": "Zobacz zdjęcia",
+  "onview": {
+    "sectionLabel": "O nas",
+    "heading": "Pałac dziś",
+    "imgAlt": "Pałac Roszkowice",
+    "paragraph1": "Dziś Pałac Roszkowice staje się przestrzenią spotkania historii z kulturą. Odwiedzający mogą odkrywać dawne wnętrza, poznawać historię regionu oraz uczestniczyć w wystawach i wydarzeniach inspirowanych dziedzictwem miejsca.",
+    "paragraph2": "Naszą misją jest zachowanie historycznego charakteru pałacu oraz udostępnienie go kolejnym pokoleniom jako miejsca, które łączy przeszłość z teraźniejszością.",
+    "invite": "Zapraszamy do odkrywania historii Pałacu Roszkowice."
+  },
+  "exhibition": {
+    "africanArt": "Sztuka Afryki",
+    "decorativeArt": "Sztuka dekoracyjna",
+    "decorativeArt2": "Sztuka dekoracyjna",
+    "americanArt": "Sztuka amerykańska",
+    "gardens": "Ogrody",
+    "gardens2": "Ogrody",
+    "asianArt": "Sztuka Azji",
+    "warHistory": "Historia wojen",
+    "warHistory2": "Historia wojen",
+    "classicalArt": "Sztuka klasyczna",
+    "historyKings": "Królowie historii",
+    "historyKings2": "Królowie historii",
+    "germanArt": "Sztuka niemiecka",
+    "vintageArt": "Sztuka vintage",
+    "vintageArt2": "Sztuka vintage"
+  }
+}

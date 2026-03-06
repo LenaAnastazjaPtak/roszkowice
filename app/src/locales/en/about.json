@@ -1,0 +1,36 @@
+{
+  "title": "About us",
+  "welcome": {
+    "welcomeIn": "Welcome to",
+    "palaceName": "Palace Roszkowice",
+    "imgAlt": "Palace Roszkowice",
+    "paragraph1": "Palace Roszkowice is a 19th-century manor house that for decades was the heart of local social and cultural life. Built as a family seat, it combines the elegance of historic architecture with the history of the people who shaped this place.",
+    "paragraph2": "Over the years the palace has gone through many phases – from a private residence, through the post-war period of changing uses, to present-day efforts to restore its former character."
+  },
+  "seePhotos": "See photos",
+  "onview": {
+    "sectionLabel": "About us",
+    "heading": "Palace today",
+    "imgAlt": "Palace Roszkowice",
+    "paragraph1": "Today Palace Roszkowice is becoming a space where history meets culture. Visitors can explore the historic interiors, learn about the region's history, and take part in exhibitions and events inspired by the heritage of the place.",
+    "paragraph2": "Our mission is to preserve the palace's historic character and pass it on to future generations as a place that connects the past with the present.",
+    "invite": "We invite you to discover the history of Palace Roszkowice."
+  },
+  "exhibition": {
+    "africanArt": "African art",
+    "decorativeArt": "Decorative art",
+    "decorativeArt2": "Decorative art",
+    "americanArt": "American art",
+    "gardens": "Gardens",
+    "gardens2": "Gardens",
+    "asianArt": "Asian art",
+    "warHistory": "War history",
+    "warHistory2": "War history",
+    "classicalArt": "Classical art",
+    "historyKings": "History kings",
+    "historyKings2": "History kings",
+    "germanArt": "German art",
+    "vintageArt": "Vintage art",
+    "vintageArt2": "Vintage art"
+  }
+}

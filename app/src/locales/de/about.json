@@ -1,0 +1,36 @@
+{
+  "title": "Über uns",
+  "welcome": {
+    "welcomeIn": "Willkommen im",
+    "palaceName": "Schloss Roszkowice",
+    "imgAlt": "Schloss Roszkowice",
+    "paragraph1": "Das Schloss Roszkowice ist ein Landhaus aus dem 19. Jahrhundert, das über Jahrzehnte das Zentrum des lokalen gesellschaftlichen und kulturellen Lebens war. Als Familiensitz erbaut, verbindet es die Eleganz der historischen Architektur mit der Geschichte der Menschen, die diesen Ort geprägt haben.",
+    "paragraph2": "Im Lauf der Zeit durchlief das Schloss verschiedene Phasen – vom privaten Wohnsitz über die Nachkriegszeit mit wechselnden Nutzungen bis zu den heutigen Bemühungen um die Wiederherstellung seines früheren Charakters."
+  },
+  "seePhotos": "Fotos ansehen",
+  "onview": {
+    "sectionLabel": "Über uns",
+    "heading": "Schloss heute",
+    "imgAlt": "Schloss Roszkowice",
+    "paragraph1": "Heute wird das Schloss Roszkowice zu einem Ort, an dem Geschichte und Kultur zusammentreffen. Besucher können die historischen Innenräume erkunden, die Geschichte der Region kennenlernen und an Ausstellungen und Veranstaltungen teilnehmen, die vom Erbe des Ortes inspiriert sind.",
+    "paragraph2": "Unser Anliegen ist es, den historischen Charakter des Schlosses zu bewahren und es künftigen Generationen als einen Ort zu erhalten, der Vergangenheit und Gegenwart verbindet.",
+    "invite": "Wir laden Sie ein, die Geschichte des Schlosses Roszkowice zu entdecken."
+  },
+  "exhibition": {
+    "africanArt": "Afrikanische Kunst",
+    "decorativeArt": "Dekorative Kunst",
+    "decorativeArt2": "Dekorative Kunst",
+    "americanArt": "Amerikanische Kunst",
+    "gardens": "Gärten",
+    "gardens2": "Gärten",
+    "asianArt": "Asiatische Kunst",
+    "warHistory": "Kriegsgeschichte",
+    "warHistory2": "Kriegsgeschichte",
+    "classicalArt": "Klassische Kunst",
+    "historyKings": "Geschichte der Könige",
+    "historyKings2": "Geschichte der Könige",
+    "germanArt": "Deutsche Kunst",
+    "vintageArt": "Vintage-Kunst",
+    "vintageArt2": "Vintage-Kunst"
+  }
+}

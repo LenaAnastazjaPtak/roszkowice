@@ -14,7 +14,8 @@ function Footer() {
               <p>{t('footer.about')}</p>
               <ul>
                 <li><a href="https://www.facebook.com/p/Pa%C5%82ac-Roszkowice-100084550065108/?locale=pl_PL" title="Facebook" target="_blank" rel="noopener noreferrer"><i className="fa fa-facebook"></i></a></li>
-                <li><a href="https://www.instagram.com/palac_roszkowice/ " title="Instagram" target="_blank"><i className="fa fa-instagram"></i></a></li>
+                <li><a href="https://www.instagram.com/palac_roszkowice/ " title="Instagram" target="_blank" rel="noopener noreferrer"><i className="fa fa-instagram"></i></a></li>
+                <li><a href="https://www.youtube.com/@ptasznik97" title="YouTube" target="_blank" rel="noopener noreferrer"><i className="fa fa-youtube"></i></a></li>
               </ul>
             </aside>
           </div>
@@ -22,8 +23,8 @@ function Footer() {
             <aside className="ftr-widget widget_link">
               <h3 className="widget-title">{t('footer.info')}</h3>
               <ul>
-                <li><a href="#" title={t('footer.aboutLink')}>{t('footer.aboutLink')}</a></li>
-                <li><a href="/gallery" title={t('footer.gallery')}>{t('footer.gallery')}</a></li>
+                <li><Link to="/about" title={t('footer.aboutLink')}>{t('footer.aboutLink')}</Link></li>
+                <li><Link to="/gallery" title={t('footer.gallery')}>{t('footer.gallery')}</Link></li>
                 <li><a href="#" title={t('footer.camera')}>{t('footer.camera')}</a></li>
                 <li><Link to="/contact" title={t('footer.contact')}>{t('footer.contact')}</Link></li>
               </ul>

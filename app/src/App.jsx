@@ -7,6 +7,7 @@ import ContactPage from './pages/ContactPage'
 import RegulaminPage from './pages/RegulaminPage'
 import PolitykaPrywatnosciPage from './pages/PolitykaPrywatnosciPage'
 import GalleryPage from './pages/GalleryPage'
+import AboutPage from './pages/AboutPage'
 import NotFoundPage from './pages/NotFoundPage'
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Route path="blog" element={<BlogPage />} />
           <Route path="blog/post" element={<BlogSinglePage />} />
           <Route path="contact" element={<ContactPage />} />
+          <Route path="about" element={<AboutPage />} />
           <Route path="gallery" element={<GalleryPage />} />
           <Route path="terms" element={<RegulaminPage />} />
           <Route path="privacy-policy" element={<PolitykaPrywatnosciPage />} />
