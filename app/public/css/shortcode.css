@@ -1470,7 +1470,7 @@
 
 /* - Blog Single */
 .blog-single .type-post {
-	border-bottom: 1px solid #e1e1e1;
+	/* border-bottom: 1px solid #e1e1e1; */
 }
 .type-post blockquote {
 	border-left: 2px solid #e2b13c;

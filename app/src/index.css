@@ -27,3 +27,23 @@ body {
 .top-header .hours-line .hours-palace {
   color: #c19a6b;
 }
+
+.entry-tags {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.entry-tags .tag {
+  font-size: 0.9em;
+  padding: 0.2em 0.5em;
+  background: #f5f5f5;
+  border-radius: 3px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.entry-tags .tag:hover {
+  background: #e8e8e8;
+}

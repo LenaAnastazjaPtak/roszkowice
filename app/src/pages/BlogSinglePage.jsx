@@ -1,9 +1,14 @@
-import { Link, useParams, Navigate } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
-import { posts, getLatestPosts, getTagsFromPosts } from '../data/blogPosts'
-import LatestPostsWidget from '../components/LatestPostsWidget'
-import PopularTagsWidget from '../components/PopularTagsWidget'
-import PageBanner from '../components/PageBanner'
+import { Link, useParams, Navigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import {
+  posts,
+  getLatestPosts,
+  getTagsFromPosts,
+} from "../data/blogPosts";
+import LatestPostsWidget from "../components/LatestPostsWidget";
+import PopularTagsWidget from "../components/PopularTagsWidget";
+import PageBanner from "../components/PageBanner";
+import BlogPost from "../components/BlogPost";
 
 // const categories = [
 //   { title: 'Muzeum', count: '09' },
@@ -14,57 +19,33 @@ import PageBanner from '../components/PageBanner'
 //   { title: 'Historia posągów', count: '07' }
 // ]
 
-const comments = [
-  { img: '/images/comment1.jpg', author: 'SHANE WILSON', date: 'Jan 27,2016' },
-  { img: '/images/comment2.jpg', author: 'mark luiz', date: '7 lut 2016' },
-  { img: '/images/comment3.jpg', author: 'DE MARIA', date: '12 mar 2016' }
-]
-
-const commentText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+// const comments = [
+//   { img: '/images/comment1.jpg', author: 'SHANE WILSON', date: 'Jan 27,2016' },
+//   { img: '/images/comment2.jpg', author: 'mark luiz', date: '7 lut 2016' },
+//   { img: '/images/comment3.jpg', author: 'DE MARIA', date: '12 mar 2016' }
+// ]
+//
+// const commentText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
 
 function BlogSinglePage() {
-  const { t } = useTranslation('blog')
-  const { id } = useParams()
-  const post = posts.find((p) => String(p.id) === id)
-  if (!post) return <Navigate to="/404" replace />
+  const { t } = useTranslation("blog");
+  const { id } = useParams();
+  const post = posts.find((p) => String(p.id) === id);
+  if (!post) return <Navigate to="/404" replace />;
 
   return (
     <>
-      <PageBanner title={t('title')} image="/images/roszkowice/slider/palac_dawniej.jpg" />
+      <PageBanner
+        title={t("title")}
+        image="/images/roszkowice/slider/palac_dawniej.jpg"
+      />
       <div className="section-padding"></div>
       <div className="container-fluid no-padding blog-single">
         <div className="container">
           <div className="row">
             <div className="col-md-9 col-sm-7 col-xs-7 content-area">
-              <article className="type-post">
-                <div className="entry-cover"><img src={post.img} alt="Blog" /></div>
-                <div className="entry-header">
-                  <div className="post-date">
-                    <b>{post.day}</b>
-                    <span>{t(post.monthKey)}</span>
-                    <span>{post.year}</span>
-                  </div>
-                  <h3 className="entry-title">{post.title}</h3>
-                  <div className="entry-meta">
-                    <div className="byline"><Link to="#" title={post.author}>{post.author}</Link></div>
-                    <div className="post-comment"><Link to="#"><i className="fa fa-commenting-o"></i>{t('comments', { count: post.comments })}</Link></div>
-                  </div>
-                </div>
-                <div className="entry-content">
-                  <div style={{ whiteSpace: 'pre-line' }}>{post.content}</div>
-                  <div className="social">
-                    <h3>{t('share')}</h3>
-                    <ul>
-                      <li><a href="https://www.facebook.com/p/Pa%C5%82ac-Roszkowice-100084550065108/?locale=pl_PL" target="_blank" rel="noopener noreferrer"><i className="fa fa-facebook"></i></a></li>
-                      <li><a href="#"><i className="fa fa-twitter"></i></a></li>
-                      <li><a href="#"><i className="fa fa-google-plus"></i></a></li>
-                      <li><a href="#"><i className="fa fa-instagram"></i></a></li>
-                      <li><a href="#"><i className="fa fa-linkedin"></i></a></li>
-                    </ul>
-                  </div>
-                </div>
-              </article>
-              <div className="comment-section">
+              <BlogPost post={post} variant="single" />
+              {/* <div className="comment-section">
                 <h3>{t('commentsSection')}<span>(3)</span></h3>
                 <ul className="media-list">
                   {comments.map((c, index) => (
@@ -102,12 +83,16 @@ function BlogSinglePage() {
                     <input type="submit" title="Wyślij" value={t('submit')} name="submit" />
                   </div>
                 </form>
-              </div>
+              </div> */}
             </div>
             <div className="col-md-3 col-sm-5 col-xs-5 widget-area">
               <aside className="widget widget_back_to_posts">
-                <Link to="/blog" className="back-to-posts-btn" title={t('backToAllPosts')}>
-                  {t('backToAllPosts')}
+                <Link
+                  to="/blog"
+                  className="back-to-posts-btn"
+                  title={t("backToAllPosts")}
+                >
+                  {t("backToAllPosts")}
                 </Link>
               </aside>
               {/* <aside className="widget widget_categories">
@@ -126,7 +111,7 @@ function BlogSinglePage() {
       </div>
       <div className="section-padding"></div>
     </>
-  )
+  );
 }
 
-export default BlogSinglePage
+export default BlogSinglePage;

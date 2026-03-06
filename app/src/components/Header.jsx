@@ -111,30 +111,10 @@ function Header() {
           </div>
           <div className="navbar-collapse collapse navbar-right" id="navbar">
             <ul className="nav navbar-nav">
-              <li className="active dropdown">
-                <Link
-                  to="/"
-                  title={t("nav.home")}
-                  className="dropdown-toggle"
-                  role="button"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
+              <li>
+                <Link to="/" title={t("nav.home")}>
                   {t("nav.home")}
                 </Link>
-                <i className="ddl-switch fa fa-angle-down"></i>
-                <ul className="dropdown-menu">
-                  <li>
-                    <Link to="/" title={t("nav.home1")}>
-                      {t("nav.home1")}
-                    </Link>
-                  </li>
-                  <li>
-                    <a href="#" title={t("nav.home2")}>
-                      {t("nav.home2")}
-                    </a>
-                  </li>
-                </ul>
               </li>
               <li>
                 <Link to="/about" title={t("nav.about")}>

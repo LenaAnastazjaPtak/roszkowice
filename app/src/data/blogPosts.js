@@ -23,7 +23,7 @@ Prace renowacyjne trwają, a my z każdym dniem zbliżamy się do celu: ponowneg
     comments: 0,
     content: `Dziś, w ten wyjątkowy Wigilijny wieczór, w Roszkowicach panuje cisza i oczekiwanie na pierwszą gwiazdkę ⭐, a my z niecierpliwością oczekujemy – gdy to miejsce znów będzie tętniło życiem, światłem i radością odwiedzających. 🕯️
 Czekamy na moment, w którym będziemy mogli otworzyć Pałac dla Was! ❤️
-#PałacRoszkowice #Wigilia #BożeNarodzenie #ŻyczeniaŚwiąteczne #Zabytek`
+#Pałac #Wigilia #BożeNarodzenie #ŻyczeniaŚwiąteczne #Zabytek`
   },
   {
     id: 2,
@@ -37,7 +37,7 @@ Czekamy na moment, w którym będziemy mogli otworzyć Pałac dla Was! ❤️
     content: `Nowy Rok w Pałacu Roszkowice to czas wielkich zmian i przyspieszenia prac renowacyjnych. Mamy ambitne plany, dotyczące otworzenia dla Was Pałacu i parku! 🌳🔑
 Możemy obiecać jedno: będzie się działo! 🛠️🔥 Nasza misja, by przywrócić pałacowi dawny blask i otworzyć go dla Was, wkracza w decydującą fazę.
 Nie możemy się doczekać, aż wszystko zobaczycie na własne oczy 👀 i przejdziecie się odnowionymi salami oraz parkowymi alejami. Śledźcie nas – będziemy regularnie dzielić się postępami! 👇
-#PałacRoszkowice #NowyRok2026 #PlanyNaNowyRok #Renowacja #Odbudowa #Zabytek #Wizja #Rewitalizacja`
+#Pałac #NowyRok2026 #PlanyNaNowyRok #Renowacja #Odbudowa #Zabytek #Wizja #Rewitalizacja`
   },
   {
     id: 3,
@@ -65,11 +65,23 @@ export function getLatestPosts(t) {
   }))
 }
 
+function extractTagNames(content) {
+  const matches = content.match(/#[^\s#]+/g) || []
+  return matches.map((m) => m.slice(1))
+}
+
+export function getPostTags(post) {
+  return extractTagNames(post.content)
+}
+
 export function getTagsFromPosts() {
   const tagSet = new Set()
-  posts.forEach((p) => {
-    const matches = p.content.match(/#[^\s#]+/g) || []
-    matches.forEach((m) => tagSet.add(m.slice(1)))
-  })
+  posts.forEach((p) => getPostTags(p).forEach((t) => tagSet.add(t)))
   return [...tagSet].sort()
+}
+
+export function getPostsByTag(tag) {
+  return posts.filter((p) =>
+    getPostTags(p).some((t) => t.toLowerCase() === tag.toLowerCase())
+  )
 }
