@@ -158,7 +158,7 @@ function Header() {
                     </Link>
                   </li>
                   <li>
-                    <Link to="/blog/post" title={t("nav.blogPost")}>
+                    <Link to="/blog/post/0" title={t("nav.blogPost")}>
                       {t("nav.blogPost")}
                     </Link>
                   </li>

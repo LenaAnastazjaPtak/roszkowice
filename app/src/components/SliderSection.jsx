@@ -1,11 +1,17 @@
 import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 
-const slideData = [
-  { img: '/images/roszkowice/zima.jpg', layerIds: ['slide-layer-1', 'slide-layer-2', 'slide-layer-3', 'slide-layer-4'] },
-  { img: '/images/roszkowice/kopula.jpg', layerIds: ['slide-layer-5', 'slide-layer-6', 'slide-layer-7', 'slide-layer-8'] },
-  { img: '/images/roszkowice/park.jpg', layerIds: ['slide-layer-9', 'slide-layer-10', 'slide-layer-11', 'slide-layer-12'] }
+const SLIDER_IMAGES = [
+  'DSC09468.JPG',
+  'kopula.jpg',
+  'zima.jpg',
+  'DJI_0520.JPG'
 ]
+
+const slideData = SLIDER_IMAGES.map((filename, i) => ({
+  img: `/images/roszkowice/slider/${filename}`,
+  layerIds: [`slide-layer-${i * 4 + 1}`, `slide-layer-${i * 4 + 2}`, `slide-layer-${i * 4 + 3}`, `slide-layer-${i * 4 + 4}`]
+}))
 
 const layerAttrs = {
   title: {
@@ -147,6 +153,7 @@ function SliderSection() {
                   className={imgData.className}
                   data-no-retina
                 />
+                <div className="slider-overlay" aria-hidden="true" />
                 <div id={slide.layerIds[0]} className={layerAttrs.title.className} {...dataAttrs(layerAttrs.title.data)} style={layerAttrs.title.style}>
                   {t('slider.title')}
                 </div>
@@ -157,7 +164,7 @@ function SliderSection() {
                   <a style={{ fontWeight: 700, padding: '12px 37px', fontFamily: "'Poppins', sans-serif" }} href="#" title={t('slider.cta')}>{t('slider.cta')}</a>
                 </div>
                 <div id={slide.layerIds[3]} className={layerAttrs.icon.className} {...dataAttrs(layerAttrs.icon.data)} style={layerAttrs.icon.style}>
-                  <span>{t('slider.since')}<img src="/images/slider.png" alt="slider" />1980</span>
+                  <span>{t('slider.since')}<img src="/images/slider.png" alt="slider" />1845</span>
                 </div>
               </li>
             ))}

@@ -1,17 +1,14 @@
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import YouTubeEmbed from '../components/YouTubeEmbed'
+import PageBanner from '../components/PageBanner'
 
 function AboutPage() {
   const { t } = useTranslation('about')
 
   return (
     <>
-      <div className="container-fluid no-padding page-banner">
-        <div className="container">
-          <h3>{t('title')}</h3>
-        </div>
-      </div>
+      <PageBanner title={t('title')} image="/images/roszkowice/park/IMG_0345.jpg" />
       <div className="container-fluid no-padding welcome-section2">
         <div className="container">
           <div className="row">

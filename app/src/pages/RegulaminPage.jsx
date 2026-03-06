@@ -1,15 +1,12 @@
 import { useTranslation } from 'react-i18next'
+import PageBanner from '../components/PageBanner'
 
 function RegulaminPage() {
   const { t } = useTranslation('common')
 
   return (
     <>
-      <div className="container-fluid no-padding page-banner">
-        <div className="container">
-          <h3>{t('footer.terms')}</h3>
-        </div>
-      </div>
+      <PageBanner title={t('footer.terms')} image="/images/roszkowice/park/20251019_161301.jpg" />
       <div className="section-padding"></div>
       <div className="container">
         <div className="row">

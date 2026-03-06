@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import PageBanner from '../components/PageBanner'
 
 const DEFAULT_MAP_ADDRESS = 'Roszkowice 57, 46-220 Roszkowice'
 const DEFAULT_MAP_LAT = 50.3636
@@ -126,11 +127,7 @@ function ContactPage() {
 
   return (
     <>
-      <div className="container-fluid no-padding page-banner">
-        <div className="container">
-          <h3>{t('title')}</h3>
-        </div>
-      </div>
+      <PageBanner title={t('title')} image="/images/roszkowice/zewn/jesien.jpg" />
       <div className="section-padding"></div>
       <div className="container-fluid no-padding contact-section">
         <div className="container">

@@ -27,5 +27,7 @@
   "messagePlaceholder": "Wiadomość",
   "submit": "Wyślij wiadomość",
   "commentAlt": "Komentarz",
-  "postAlt": "Wpis"
+  "postAlt": "Wpis",
+  "noPostsFound": "Nie znaleziono żadnych wpisów.",
+  "backToAllPosts": "Wróć do wszystkich wpisów"
 }

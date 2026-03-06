@@ -27,5 +27,7 @@
   "messagePlaceholder": "Nachricht",
   "submit": "Nachricht senden",
   "commentAlt": "Kommentar",
-  "postAlt": "Beitrag"
+  "postAlt": "Beitrag",
+  "noPostsFound": "Keine Beiträge gefunden.",
+  "backToAllPosts": "Zurück zu allen Beiträgen"
 }

@@ -1,15 +1,12 @@
 import { useTranslation } from 'react-i18next'
+import PageBanner from '../components/PageBanner'
 
 function PolitykaPrywatnosciPage() {
   const { t } = useTranslation('common')
 
   return (
     <>
-      <div className="container-fluid no-padding page-banner">
-        <div className="container">
-          <h3>{t('footer.privacy')}</h3>
-        </div>
-      </div>
+      <PageBanner title={t('footer.privacy')} image="/images/roszkowice/zewn/DSC09468.JPG" />
       <div className="section-padding"></div>
       <div className="container">
         <div className="row">

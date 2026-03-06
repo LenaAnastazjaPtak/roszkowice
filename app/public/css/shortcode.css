@@ -42,10 +42,40 @@
 */
 
 
+/* - Page banner overlay */
+.page-banner--image {
+	position: relative;
+}
+.page-banner--image .page-banner__overlay {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 1;
+	pointer-events: none;
+}
+.page-banner--image .container {
+	position: relative;
+	z-index: 2;
+}
+
 /* + Shortcodes */
 /* - Slider */
 .slider-section {
 	position: relative;
+}
+.slider-section .rev_slider_wrapper {
+	position: relative;
+}
+.slider-section .slider-overlay {
+	position: absolute;
+	inset: 0;
+	background: #000;
+	opacity: 0.6;
+	z-index: 1;
+	pointer-events: none;
 }
 .slider-section .slide-btn > a {
 	background-color: #000;
@@ -1111,6 +1141,27 @@
 	background-color: transparent;
 }
 
+.widget_back_to_posts .back-to-posts-btn {
+	display: block;
+	width: 100%;
+	background-color: #e2b13c;
+	border: none;
+	border-radius: 0;
+	color: #fff;
+	text-align: center;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-family: 'Poppins', sans-serif;
+	font-weight: bold;
+	font-size: 12px;
+	padding: 11px;
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+.widget_back_to_posts .back-to-posts-btn:hover {
+	background-color: #000;
+	color: #e2b13c;
+}
+
 /* - Widget : Categories */
 .widget_categories ul {
 	list-style: none;
@@ -1162,6 +1213,9 @@
 	position: absolute;
 	left: 0px;
 	top: 0;
+	width: 82px;
+	height: 82px;
+	object-fit: cover;
 }
 .widget_latestpost .latestpost-content h3{
 	font-size: 13px;
@@ -1913,7 +1967,7 @@
 	border: 3px solid transparent;
     border-radius: 100%;
     display: inline-block;
-	opacity: 0.7;
+	opacity: 1;
 }
 .testimonial-section .mis-slider li.mis-slide.mis-current img {
 	border: 3px solid #e2b13c;
