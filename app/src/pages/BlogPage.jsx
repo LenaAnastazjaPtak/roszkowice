@@ -1,5 +1,8 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+
+const POSTS_PER_PAGE = 3
 
 const posts = [
   {
@@ -74,6 +77,12 @@ const tags = ['Niesamowite', 'Posągi', 'Motywy', 'Czyste', 'Responsywność', '
 
 function BlogPage() {
   const { t } = useTranslation('blog')
+  const [currentPage, setCurrentPage] = useState(1)
+  const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE)
+  const visiblePosts = posts.slice(
+    (currentPage - 1) * POSTS_PER_PAGE,
+    currentPage * POSTS_PER_PAGE
+  )
 
   return (
     <>
@@ -87,8 +96,8 @@ function BlogPage() {
         <div className="container">
           <div className="row">
             <div className="col-md-9 col-sm-7 col-xs-7 content-area">
-              {posts.map((post, index) => (
-                <article key={index} className="type-post">
+              {visiblePosts.map((post) => (
+                <article key={post.title} className="type-post">
                   <div className="entry-cover"><Link to="#"><img src={post.img} alt="Blog" /></Link></div>
                   <div className="entry-header">
                     <div className="post-date">
@@ -107,15 +116,23 @@ function BlogPage() {
                   </div>
                 </article>
               ))}
-              <nav className="ow-pagination text-center">
-                <ul className="pagination">
-                  <li><Link to="#"><i className="fa fa-angle-double-left"></i></Link></li>
-                  <li><Link to="#">1</Link></li>
-                  <li><Link to="#">2</Link></li>
-                  <li><Link to="#">3</Link></li>
-                  <li><Link to="#"><i className="fa fa-angle-double-right"></i></Link></li>
-                </ul>
-              </nav>
+              {totalPages > 1 && (
+                <nav className="ow-pagination text-center">
+                  <ul className="pagination">
+                    <li className={currentPage === 1 ? 'disabled' : ''}>
+                      <Link to="#" onClick={(e) => { e.preventDefault(); if (currentPage > 1) setCurrentPage(1) }}><i className="fa fa-angle-double-left"></i></Link>
+                    </li>
+                    {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                      <li key={page} className={currentPage === page ? 'active' : ''}>
+                        <Link to="#" onClick={(e) => { e.preventDefault(); setCurrentPage(page) }}>{page}</Link>
+                      </li>
+                    ))}
+                    <li className={currentPage === totalPages ? 'disabled' : ''}>
+                      <Link to="#" onClick={(e) => { e.preventDefault(); if (currentPage < totalPages) setCurrentPage(totalPages) }}><i className="fa fa-angle-double-right"></i></Link>
+                    </li>
+                  </ul>
+                </nav>
+              )}
             </div>
             <div className="col-md-3 col-sm-5 col-xs-5 widget-area">
               <aside className="widget widget_search">
