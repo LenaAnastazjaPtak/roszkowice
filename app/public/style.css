@@ -153,6 +153,8 @@ a {
 /* + Header */
 .header-section {
 	background-color: var(--color-white);
+	border-bottom: none;
+	box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
 }
 .header-section .container {
 	position: relative;
@@ -243,7 +245,8 @@ a {
 	color: var(--color-white);
 }
 .header-section.navbar-fixed-top {
-	border-bottom: 1px solid var(--color-text-muted);
+	border-bottom: none;
+	box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
 	z-index: 301;
 }
 .header-section.navbar-fixed-top .top-header {
