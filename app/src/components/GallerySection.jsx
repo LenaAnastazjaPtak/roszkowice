@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next";
 
 const zewnFiles = [
   "11.jpg",
-  "20251019_153013.jpg",
   "22.png",
   "DJI_0520.JPG",
   "DSC09468.JPG",
@@ -74,15 +73,16 @@ const galleryItems = [
 ];
 
 const filters = [
-  { filter: "*", labelKey: "gallery.all", active: true },
-  { filter: ".exterior", labelKey: "gallery.exterior", active: false },
-  { filter: ".park", labelKey: "gallery.park", active: false },
-  { filter: ".remont", labelKey: "gallery.remont", active: false },
+  { filter: "*", labelKey: "gallery.all" },
+  { filter: ".exterior", labelKey: "gallery.exterior" },
+  { filter: ".park", labelKey: "gallery.park" },
+  { filter: ".remont", labelKey: "gallery.remont" },
 ];
 
 function GallerySection({ standalone = false }) {
   const { t } = useTranslation("home");
   const [selectedIndex, setSelectedIndex] = useState(null);
+  const [activeFilter, setActiveFilter] = useState("*");
 
   const close = useCallback(() => setSelectedIndex(null), []);
   const goPrev = useCallback(() => {
@@ -91,6 +91,12 @@ function GallerySection({ standalone = false }) {
   const goNext = useCallback(() => {
     setSelectedIndex((i) => (i === null ? null : (i + 1) % galleryItems.length));
   }, []);
+
+  const filteredWithIndex = activeFilter === "*"
+    ? galleryItems.map((item, index) => ({ item, index }))
+    : galleryItems
+        .map((item, index) => ({ item, index }))
+        .filter(({ item }) => item.classes.includes(activeFilter.slice(1)));
 
   useEffect(() => {
     if (selectedIndex === null) return;
@@ -109,9 +115,19 @@ function GallerySection({ standalone = false }) {
         {standalone ? (
           <div className="col-md-12 col-sm-12 col-xs-12 no-padding portfolio-categories">
             <ul id="filters">
-              {filters.map(({ filter, labelKey, active }) => (
+              {filters.map(({ filter, labelKey }) => (
                 <li key={filter}>
-                  {t(labelKey)}
+                  <a
+                    href="#"
+                    className={activeFilter === filter ? "active" : ""}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setActiveFilter(filter);
+                    }}
+                    data-filter={filter}
+                  >
+                    {t(labelKey)}
+                  </a>
                 </li>
               ))}
             </ul>
@@ -128,9 +144,19 @@ function GallerySection({ standalone = false }) {
             </div>
             <div className="col-md-7 portfolio-categories">
               <ul id="filters">
-                {filters.map(({ filter, labelKey, active }) => (
+                {filters.map(({ filter, labelKey }) => (
                   <li key={filter}>
-                    {t(labelKey)}
+                    <a
+                      href="#"
+                      className={activeFilter === filter ? "active" : ""}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setActiveFilter(filter);
+                      }}
+                      data-filter={filter}
+                    >
+                      {t(labelKey)}
+                    </a>
                   </li>
                 ))}
               </ul>
@@ -139,7 +165,7 @@ function GallerySection({ standalone = false }) {
         )}
       </div>
       <div className="portfolio-list">
-        {galleryItems.map((item, index) => (
+        {filteredWithIndex.map(({ item, index }) => (
           <div
             key={item.src}
             className={`portfolio-box no-padding ${item.classes}`}
