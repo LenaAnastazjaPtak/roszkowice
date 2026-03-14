@@ -1,34 +1,14 @@
 import { Link, useParams, Navigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import {
-  posts,
-  getLatestPosts,
-  getTagsFromPosts,
-} from "../data/blogPosts";
+import { useBlogPosts } from "../hooks/useBlogPosts";
 import LatestPostsWidget from "../components/LatestPostsWidget";
 import PopularTagsWidget from "../components/PopularTagsWidget";
 import PageBanner from "../components/PageBanner";
 import BlogPost from "../components/BlogPost";
 
-// const categories = [
-//   { title: 'Muzeum', count: '09' },
-//   { title: 'Galeria starożytności', count: '10' },
-//   { title: 'Sztuki walki', count: '07' },
-//   { title: 'Epoka kamienia', count: '11' },
-//   { title: 'Portfolio sztuki', count: '13' },
-//   { title: 'Historia posągów', count: '07' }
-// ]
-
-// const comments = [
-//   { img: '/images/comment1.jpg', author: 'SHANE WILSON', date: 'Jan 27,2016' },
-//   { img: '/images/comment2.jpg', author: 'mark luiz', date: '7 lut 2016' },
-//   { img: '/images/comment3.jpg', author: 'DE MARIA', date: '12 mar 2016' }
-// ]
-//
-// const commentText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-
 function BlogSinglePage() {
   const { t } = useTranslation("blog");
+  const { posts, getLatestPosts, getTagsFromPosts } = useBlogPosts();
   const { id } = useParams();
   const post = posts.find((p) => String(p.id) === id);
   if (!post) return <Navigate to="/404" replace />;

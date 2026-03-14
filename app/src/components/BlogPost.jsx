@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { getPostTags } from "../data/blogPosts";
+import { useBlogPosts } from "../hooks/useBlogPosts";
 
 function BlogPost({ post, variant = "listing" }) {
   const { t } = useTranslation("blog");
+  const { getPostTags } = useBlogPosts();
   const linkToPost = variant === "listing";
   const postUrl = `/blog/post/${post.id}`;
 

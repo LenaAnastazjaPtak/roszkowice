@@ -30,6 +30,7 @@ body {
 
 .entry-tags {
   margin-top: 0.5rem;
+  margin-bottom: 1.25rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.35rem;

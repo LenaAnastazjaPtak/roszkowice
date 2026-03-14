@@ -1,12 +1,7 @@
 import { useState, useMemo, useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import {
-  posts,
-  getLatestPosts,
-  getTagsFromPosts,
-  getPostsByTag,
-} from "../data/blogPosts";
+import { useBlogPosts } from "../hooks/useBlogPosts";
 import LatestPostsWidget from "../components/LatestPostsWidget";
 import PopularTagsWidget from "../components/PopularTagsWidget";
 import BlogSearchWidget from "../components/BlogSearchWidget";
@@ -14,15 +9,6 @@ import PageBanner from "../components/PageBanner";
 import BlogPost from "../components/BlogPost";
 
 const POSTS_PER_PAGE = 3;
-
-// const categories = [
-//   { title: 'Muzeum', count: '09' },
-//   { title: 'Galeria starożytności', count: '10' },
-//   { title: 'Sztuki walki', count: '07' },
-//   { title: 'Epoka kamienia', count: '11' },
-//   { title: 'Portfolio sztuki', count: '13' },
-//   { title: 'Historia posągów', count: '07' }
-// ]
 
 function filterPostsByPhrase(postsList, phrase) {
   const normalized = phrase.trim().toLowerCase();
@@ -36,13 +22,15 @@ function filterPostsByPhrase(postsList, phrase) {
 
 function BlogPage() {
   const { t } = useTranslation("blog");
+  const { posts, getLatestPosts, getTagsFromPosts, getPostsByTag } =
+    useBlogPosts();
   const [searchParams] = useSearchParams();
   const tagFromUrl = searchParams.get("tag");
   const [currentPage, setCurrentPage] = useState(1);
   const [searchPhrase, setSearchPhrase] = useState("");
   const basePosts = useMemo(
     () => (tagFromUrl ? getPostsByTag(tagFromUrl) : posts),
-    [tagFromUrl],
+    [tagFromUrl, getPostsByTag, posts],
   );
   const filteredPosts = filterPostsByPhrase(basePosts, searchPhrase);
 
