@@ -1,8 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 function Header() {
   const { t, i18n } = useTranslation("common");
+  const location = useLocation();
+  const isHome = location.pathname === "/";
 
   return (
     <header id="header" className="header-section container-fluid no-padding">
@@ -97,17 +99,31 @@ function Header() {
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <Link to="/" className="navbar-brand">
-              <img
-                src="/images/roszkowice/logo_with_white_background.png"
-                alt="Logo"
-                style={{
-                  maxWidth: "100px",
-                  height: "100px",
-                  objectFit: "contain",
-                }}
-              />
-            </Link>
+            {isHome ? (
+              <a href="/" className="navbar-brand">
+                <img
+                  src="/images/roszkowice/logo_with_white_background.png"
+                  alt="Logo"
+                  style={{
+                    maxWidth: "100px",
+                    height: "100px",
+                    objectFit: "contain",
+                  }}
+                />
+              </a>
+            ) : (
+              <Link to="/" className="navbar-brand">
+                <img
+                  src="/images/roszkowice/logo_with_white_background.png"
+                  alt="Logo"
+                  style={{
+                    maxWidth: "100px",
+                    height: "100px",
+                    objectFit: "contain",
+                  }}
+                />
+              </Link>
+            )}
           </div>
           <div className="navbar-collapse collapse navbar-right" id="navbar">
             <ul className="nav navbar-nav">
