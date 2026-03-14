@@ -53,7 +53,7 @@ function WelcomeSection() {
                     </a>
                   </div>
                   <div className="col-md-6 col-sm-6 img-block">
-                    <i>
+                    <i style={{ display: "block", width: "100%", height: "800px" }}>
                       <img
                         src={slide.img}
                         alt={t(slide.altKey)}
@@ -61,6 +61,7 @@ function WelcomeSection() {
                           objectFit: "cover",
                           width: "100%",
                           height: "100%",
+                          display: "block",
                         }}
                       />
                     </i>
@@ -71,7 +72,7 @@ function WelcomeSection() {
             <div className="wc-controls">
               <a
                 className="left carousel-control"
-                href="/about"
+                href="#welcome-carousel"
                 role="button"
                 data-slide="prev"
               >
@@ -79,7 +80,7 @@ function WelcomeSection() {
               </a>
               <a
                 className="right carousel-control"
-                href="/about"
+                href="#welcome-carousel"
                 role="button"
                 data-slide="next"
               >
