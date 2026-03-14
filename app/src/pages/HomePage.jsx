@@ -8,8 +8,8 @@ function HomePage() {
     <>
       <SliderSection />
       <WelcomeSection />
-      <GallerySection />
       <LatestBlogSection />
+      <GallerySection />
     </>
   )
 }
