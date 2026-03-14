@@ -79,6 +79,26 @@ body {
   margin-top: 0;
 }
 
+.latest-blog__cta {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.25rem;
+  background-color: #e2b13c;
+  border: none;
+  border-radius: 0;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.latest-blog__cta:hover {
+  background-color: #000;
+  color: #e2b13c;
+}
+
 .link-with-line {
   display: inline-block;
   margin-top: 1rem;

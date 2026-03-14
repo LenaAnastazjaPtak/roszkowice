@@ -11,6 +11,7 @@ function getExcerpt(content) {
 
 function LatestBlogSection() {
   const { t } = useTranslation("home");
+  const { t: tBlog } = useTranslation("blog");
   const { posts } = useBlogPosts();
   const latestPost = posts.length > 0 ? posts[posts.length - 1] : null;
 
@@ -18,7 +19,6 @@ function LatestBlogSection() {
 
   return (
     <div className="container-fluid no-padding latest-blog">
-      <div className="section-padding"></div>
       <div className="container">
         <div className="row">
           {/* <div className="col-md-4">
@@ -60,7 +60,7 @@ function LatestBlogSection() {
                 <div className="entry-header">
                   <div className="post-date">
                     <b>{latestPost.day}</b>
-                    <span>{t(latestPost.monthKey)}</span>
+                    <span>{tBlog(latestPost.monthKey)}</span>
                     <span>{latestPost.year}</span>
                   </div>
                   <h3 className="entry-title">
@@ -71,13 +71,15 @@ function LatestBlogSection() {
                 </div>
                 <div className="entry-content">
                   <p>{getExcerpt(latestPost.content)}</p>
+                  <a href="/blog" title={t("latestBlog.visitBlog")}>
+                    {t("latestBlog.visitBlog")}
+                  </a>
                 </div>
               </div>
             </article>
           </div>
         </div>
       </div>
-      <div className="section-padding"></div>
     </div>
   );
 }
