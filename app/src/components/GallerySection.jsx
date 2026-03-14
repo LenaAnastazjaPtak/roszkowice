@@ -1,3 +1,4 @@
+import { useState, useCallback, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
 const zewnFiles = [
@@ -81,6 +82,26 @@ const filters = [
 
 function GallerySection({ standalone = false }) {
   const { t } = useTranslation("home");
+  const [selectedIndex, setSelectedIndex] = useState(null);
+
+  const close = useCallback(() => setSelectedIndex(null), []);
+  const goPrev = useCallback(() => {
+    setSelectedIndex((i) => (i === null ? null : (i - 1 + galleryItems.length) % galleryItems.length));
+  }, []);
+  const goNext = useCallback(() => {
+    setSelectedIndex((i) => (i === null ? null : (i + 1) % galleryItems.length));
+  }, []);
+
+  useEffect(() => {
+    if (selectedIndex === null) return;
+    const onKey = (e) => {
+      if (e.key === "Escape") close();
+      if (e.key === "ArrowLeft") goPrev();
+      if (e.key === "ArrowRight") goNext();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [selectedIndex, close, goPrev, goNext]);
 
   return (
     <div className="container-fluid no-padding portfolio-section">
@@ -90,13 +111,7 @@ function GallerySection({ standalone = false }) {
             <ul id="filters">
               {filters.map(({ filter, labelKey, active }) => (
                 <li key={filter}>
-                  {/* <a
-                    data-filter={filter}
-                    className={active ? "active" : ""}
-                    href="#"
-                  > */}
-                    {t(labelKey)}
-                  {/* </a> */}
+                  {t(labelKey)}
                 </li>
               ))}
             </ul>
@@ -115,13 +130,7 @@ function GallerySection({ standalone = false }) {
               <ul id="filters">
                 {filters.map(({ filter, labelKey, active }) => (
                   <li key={filter}>
-                    {/* <a
-                      data-filter={filter}
-                      className={active ? "active" : ""}
-                      href="#"
-                    > */}
-                      {t(labelKey)}
-                    {/* </a> */}
+                    {t(labelKey)}
                   </li>
                 ))}
               </ul>
@@ -130,12 +139,18 @@ function GallerySection({ standalone = false }) {
         )}
       </div>
       <div className="portfolio-list">
-        {galleryItems.map((item) => (
+        {galleryItems.map((item, index) => (
           <div
             key={item.src}
             className={`portfolio-box no-padding ${item.classes}`}
           >
-            <a href={item.src}>
+            <a
+              href={item.src}
+              onClick={(e) => {
+                e.preventDefault();
+                setSelectedIndex(index);
+              }}
+            >
               <img src={item.src} alt="Roszkowice" />
               <div className="portfolio-content">
                 <i className="icon icon-Search"></i>
@@ -146,6 +161,52 @@ function GallerySection({ standalone = false }) {
           </div>
         ))}
       </div>
+      {selectedIndex !== null && (
+        <div
+          className="gallery-modal-overlay"
+          onClick={close}
+          role="dialog"
+          aria-modal="true"
+          aria-label={t("gallery.galleryLabel")}
+        >
+          <button
+            type="button"
+            className="gallery-modal-close"
+            onClick={close}
+            aria-label="Zamknij"
+          >
+            ×
+          </button>
+          <button
+            type="button"
+            className="gallery-modal-prev"
+            onClick={(e) => {
+              e.stopPropagation();
+              goPrev();
+            }}
+            aria-label="Poprzednie"
+          >
+            ‹
+          </button>
+          <button
+            type="button"
+            className="gallery-modal-next"
+            onClick={(e) => {
+              e.stopPropagation();
+              goNext();
+            }}
+            aria-label="Następne"
+          >
+            ›
+          </button>
+          <img
+            src={galleryItems[selectedIndex].src}
+            alt="Roszkowice"
+            className="gallery-modal-img"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
     </div>
   );
 }

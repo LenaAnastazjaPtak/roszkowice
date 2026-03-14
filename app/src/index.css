@@ -70,6 +70,57 @@ body {
   display: block;
 }
 
+.latest-blog {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.latest-blog .blog-carousel {
+  margin-top: 0;
+}
+
+.link-with-line {
+  display: inline-block;
+  margin-top: 1rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  position: relative;
+  padding-left: 80px;
+  color: #222222;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.link-with-line::before {
+  background-color: #e2b13c;
+  border-right: 4px solid #222222;
+  box-shadow: -3px 0 0 0 #fff inset;
+  content: "";
+  width: 0;
+  height: 2px;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(0%, -50%);
+  opacity: 0;
+  transition: all 1s ease 0s;
+}
+
+.link-with-line:hover::before {
+  width: 60px;
+  opacity: 1;
+}
+
+.link-with-line:hover {
+  color: #e2b13c;
+}
+
+.welcome-section .content-block .link-with-line {
+  margin-top: 0;
+}
+
 .latest-blog .latest-blog__thumb-col .entry-cover--square {
   max-width: 320px;
   aspect-ratio: 1;
@@ -81,4 +132,76 @@ body {
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+.gallery-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.gallery-modal-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.gallery-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-modal-close:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.gallery-modal-prev,
+.gallery-modal-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3rem;
+  height: 3rem;
+  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-modal-prev:hover,
+.gallery-modal-next:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.gallery-modal-prev {
+  left: 1rem;
+}
+
+.gallery-modal-next {
+  right: 1rem;
 }
