@@ -2,12 +2,12 @@ import { useTranslation } from "react-i18next";
 
 const slides = [
   {
-    img: "/images/roszkowice/pionowa_zima.jpg",
+    img: "/images/roszkowice/zewn/pionowa_zima.jpg",
     altKey: "welcome.altWinter",
     active: true,
   },
   {
-    img: "/images/roszkowice/pionowe.jpg",
+    img: "/images/roszkowice/zewn/pionowe.jpg",
     altKey: "welcome.alt",
     active: false,
   },

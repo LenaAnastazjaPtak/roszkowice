@@ -17,7 +17,7 @@ function BlogSinglePage() {
     <>
       <PageBanner
         title={t("title")}
-        image="/images/roszkowice/slider/palac_dawniej.jpg"
+        image="/images/roszkowice/park/park.jpg"
       />
       <div className="section-padding"></div>
       <div className="container-fluid no-padding blog-single">
