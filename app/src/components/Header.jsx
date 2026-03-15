@@ -10,7 +10,7 @@ function Header() {
     <header id="header" className="header-section container-fluid no-padding">
       <div className="top-header container-fluid no-padding">
         <div className="col-md-7 col-sm-12 col-xs-12 top-content no-padding">
-          <a href="tel:1800234567890">
+          <a href="tel:1800234567890" className="header-phone-link">
             <i className="fa fa-phone"></i>
             <b>+48 795 000 596</b>
           </a>

@@ -28,6 +28,14 @@ body {
   color: var(--color-accent-alt);
 }
 
+.top-header .header-phone-link {
+  transition: color 0.2s ease;
+}
+
+.top-header .header-phone-link:hover {
+  color: var(--color-accent);
+}
+
 @media (max-width: 767px) {
   .top-header .top-icons .lang-toggle {
     margin-top: 1rem;
@@ -265,6 +273,12 @@ body {
     height: 100%;
     object-fit: cover;
   }
+}
+
+.portfolio-section .portfolio-list::after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .gallery-modal-overlay {
