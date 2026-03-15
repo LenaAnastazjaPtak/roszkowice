@@ -15,7 +15,6 @@
 		- Testimonial Slider
 
 	## Window Load
-		- Site Loader
 */
 
 (function($) {
@@ -230,14 +229,6 @@
 	
 	/* - Window Load - Handler for load() called */
 	$(window).on("load",function() {  
-		/* - Site Loader */
-		if ( !$("html").is(".ie6, .ie7, .ie8") ) {
-			$("#site-loader").delay(1000).fadeOut("slow");
-		}
-		else {
-			$("#site-loader").css("display","none");
-		}
-		
 		/* - Portfolio Section */
 		var $container = $(".portfolio-section .portfolio-list");
 		$container.isotope({
