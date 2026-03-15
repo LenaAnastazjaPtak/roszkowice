@@ -1,0 +1,8 @@
+.footer-main .widget_about ul {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-main .widget_about ul li {
+  margin-right: 0;
+}

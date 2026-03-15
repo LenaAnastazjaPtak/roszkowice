@@ -2410,7 +2410,12 @@
 }
 
 /* - max-width: 767 */
-@media (max-width: 767px) {	
+@media (max-width: 767px) {
+	.slider-section .slide-btn > a {
+		padding: 6px 16px !important;
+		font-size: 11px !important;
+		line-height: 1.4 !important;
+	}
 	/* - Welcome section */
 	.welcome-section .img-block { 
 		margin-top: 50px;

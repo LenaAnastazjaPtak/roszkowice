@@ -1,0 +1,7 @@
+.contact-form .form-control {
+  color: #000;
+}
+
+.contact-form .form-control::placeholder {
+  color: #666;
+}

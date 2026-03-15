@@ -1,0 +1,34 @@
+.lang-toggle .lang-option {
+  border: none;
+  background: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+.top-header .hours-line .hours-text {
+  color: var(--color-white);
+}
+
+.top-header .hours-line .hours-palace {
+  color: var(--color-accent-alt);
+}
+
+.top-header .header-phone-link {
+  transition: color 0.2s ease;
+}
+
+.top-header .header-phone-link:hover {
+  color: var(--color-accent);
+}
+
+@media (max-width: 767px) {
+  .top-header .top-icons .lang-toggle {
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 639px) {
+  .top-header .top-icons ul {
+    display: none;
+  }
+}
