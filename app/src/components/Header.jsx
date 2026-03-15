@@ -28,7 +28,7 @@ function Header() {
               </li>
               <li>
                 <a
-                  href="https://www.instagram.com/palac_roszkowice/ "
+                  href="https://www.instagram.com/palac_roszkowice/"
                   title="Instagram"
                   target="_blank"
                   rel="noopener noreferrer"
