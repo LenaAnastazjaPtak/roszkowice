@@ -32,7 +32,7 @@
 	font-family: 'Work Sans', sans-serif;
 	font-size: 12px;
 	padding: 10px 18px;
-	color: #c1c1c1;
+	color: var(--color-text-input);
 }
 .widget_search .form-control::-webkit-input-placeholder {
    color: #c1c1c1; 

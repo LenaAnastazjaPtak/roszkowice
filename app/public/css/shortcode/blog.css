@@ -138,10 +138,10 @@
 	margin-bottom: 10px;
 }
 .latest-blog .type-post .entry-header .post-date {
-	margin-top: 40px;
+	margin-top: 0;
 }
 .latest-blog .blog-carousel {
-	margin-top: 60px;
+	margin-top: 0;
 }
 .latest-blog .row > .col-md-2 {
 	text-align: right;

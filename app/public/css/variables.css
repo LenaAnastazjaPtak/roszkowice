@@ -16,7 +16,7 @@
   --color-text-footer: #909090;
   --color-text-copyright: #8f8f8f;
   --color-text-placeholder: #777;
-  --color-text-input: #212121;
+  --color-text-input: var(--color-black);
   --color-border-light: #f0efef;
   --color-border-footer: #222222;
   --color-border-divider: #2d2d2d;

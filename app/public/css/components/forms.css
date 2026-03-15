@@ -1,5 +1,5 @@
 .contact-form .form-control {
-  color: #000;
+  color: var(--color-text-input);
 }
 
 .contact-form .form-control::placeholder {

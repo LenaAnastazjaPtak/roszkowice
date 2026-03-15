@@ -53,7 +53,7 @@
 .contact-form .form-control {
 	height: 40px;
 	border: 1px solid #e0e0e0;
-	color: #d0d0d0;
+	color: var(--color-text-input);
 	border-radius: 0;
 	font-size: 11px;
 	-webkit-box-shadow: none;
