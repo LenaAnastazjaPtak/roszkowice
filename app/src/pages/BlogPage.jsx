@@ -1,5 +1,5 @@
-import { useState, useMemo, useEffect } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { useState, useMemo, useEffect, useRef } from "react";
+import { Link, useSearchParams, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useBlogPosts } from "../hooks/useBlogPosts";
 import LatestPostsWidget from "../components/LatestPostsWidget";
@@ -24,28 +24,62 @@ function BlogPage() {
   const { t } = useTranslation("blog");
   const { posts, getLatestPosts, getTagsFromPosts, getPostsByTag } =
     useBlogPosts();
-  const [searchParams] = useSearchParams();
+  const location = useLocation();
+  const [searchParams, setSearchParams] = useSearchParams();
   const tagFromUrl = searchParams.get("tag");
-  const [currentPage, setCurrentPage] = useState(1);
   const [searchPhrase, setSearchPhrase] = useState("");
   const basePosts = useMemo(
     () => (tagFromUrl ? getPostsByTag(tagFromUrl) : posts),
     [tagFromUrl, getPostsByTag, posts],
   );
   const filteredPosts = filterPostsByPhrase(basePosts, searchPhrase);
-
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [tagFromUrl]);
-  const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE);
+  const totalPages = Math.max(
+    1,
+    Math.ceil(filteredPosts.length / POSTS_PER_PAGE),
+  );
+  const pageFromUrl = parseInt(searchParams.get("page"), 10);
+  const currentPage = Math.min(
+    Math.max(1, isNaN(pageFromUrl) ? 1 : pageFromUrl),
+    totalPages,
+  );
   const visiblePosts = filteredPosts.slice(
     (currentPage - 1) * POSTS_PER_PAGE,
     currentPage * POSTS_PER_PAGE,
   );
 
+  const prevTagRef = useRef(null);
+  useEffect(() => {
+    if (prevTagRef.current !== null && prevTagRef.current !== tagFromUrl) {
+      setSearchParams(
+        (prev) => {
+          const next = new URLSearchParams(prev);
+          next.delete("page");
+          return next;
+        },
+        { replace: true },
+      );
+    }
+    prevTagRef.current = tagFromUrl;
+  }, [tagFromUrl, setSearchParams]);
+
   const handleSearchChange = (e) => {
     setSearchPhrase(e.target.value);
-    setCurrentPage(1);
+    setSearchParams(
+      (prev) => {
+        const next = new URLSearchParams(prev);
+        next.delete("page");
+        return next;
+      },
+      { replace: true },
+    );
+  };
+
+  const pageUrl = (pageNum) => {
+    const next = new URLSearchParams(searchParams);
+    if (pageNum <= 1) next.delete("page");
+    else next.set("page", String(pageNum));
+    const search = next.toString();
+    return { pathname: location.pathname, search: search ? `?${search}` : "" };
   };
 
   return (
@@ -70,13 +104,7 @@ function BlogPage() {
                     <nav className="ow-pagination text-center">
                       <ul className="pagination">
                         <li className={currentPage === 1 ? "disabled" : ""}>
-                          <Link
-                            to="#"
-                            onClick={(e) => {
-                              e.preventDefault();
-                              if (currentPage > 1) setCurrentPage(1);
-                            }}
-                          >
+                          <Link to={pageUrl(1)}>
                             <i className="fa fa-angle-double-left"></i>
                           </Link>
                         </li>
@@ -88,15 +116,7 @@ function BlogPage() {
                             key={page}
                             className={currentPage === page ? "active" : ""}
                           >
-                            <Link
-                              to="#"
-                              onClick={(e) => {
-                                e.preventDefault();
-                                setCurrentPage(page);
-                              }}
-                            >
-                              {page}
-                            </Link>
+                            <Link to={pageUrl(page)}>{page}</Link>
                           </li>
                         ))}
                         <li
@@ -104,14 +124,7 @@ function BlogPage() {
                             currentPage === totalPages ? "disabled" : ""
                           }
                         >
-                          <Link
-                            to="#"
-                            onClick={(e) => {
-                              e.preventDefault();
-                              if (currentPage < totalPages)
-                                setCurrentPage(totalPages);
-                            }}
-                          >
+                          <Link to={pageUrl(totalPages)}>
                             <i className="fa fa-angle-double-right"></i>
                           </Link>
                         </li>
