@@ -23,7 +23,8 @@
     "remont": "RENOVATION",
     "other": "OTHER",
     "palace": "Roszkowice Palace",
-    "galleryLabel": "Gallery"
+    "galleryLabel": "Gallery",
+    "seeFullGallery": "See full gallery"
   },
   "latestBlog": {
     "subtitle": "What our clients say",

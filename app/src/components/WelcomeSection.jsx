@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import ContentBlockLink from "./ContentBlockLink";
 
 const slides = [
   {
@@ -48,12 +49,12 @@ function WelcomeSection() {
                       aliqua. Ut enim ad minim veniam, quis nostrud exercitation
                       ullamco laboris.
                     </p>
-                    <a href="/about" title={t("welcome.readMore")}>
+                    <ContentBlockLink href="/about" title={t("welcome.readMore")}>
                       {t("welcome.readMore")}
-                    </a>
+                    </ContentBlockLink>
                   </div>
                   <div className="col-md-6 col-sm-6 img-block">
-                    <i style={{ display: "block", width: "100%", height: "800px" }}>
+                    <i className="welcome-section__img-wrap">
                       <img
                         src={slide.img}
                         alt={t(slide.altKey)}

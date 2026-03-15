@@ -23,7 +23,8 @@
     "remont": "RENOVATION",
     "other": "SONSTIGES",
     "palace": "Schloss Roszkowice",
-    "galleryLabel": "Galerie"
+    "galleryLabel": "Galerie",
+    "seeFullGallery": "Galerie ansehen"
   },
   "latestBlog": {
     "subtitle": "Was unsere Kunden sagen",

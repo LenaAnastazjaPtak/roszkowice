@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useBlogPosts } from "../hooks/useBlogPosts";
+import ContentBlockLink from "./ContentBlockLink";
 
 const EXCERPT_LENGTH = 280;
 
@@ -71,9 +72,9 @@ function LatestBlogSection() {
                 </div>
                 <div className="entry-content">
                   <p>{getExcerpt(latestPost.content)}</p>
-                  <a href="/blog" title={t("latestBlog.visitBlog")}>
+                  <ContentBlockLink href="/blog" title={t("latestBlog.visitBlog")}>
                     {t("latestBlog.visitBlog")}
-                  </a>
+                  </ContentBlockLink>
                 </div>
               </div>
             </article>

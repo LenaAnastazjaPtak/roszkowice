@@ -1,5 +1,10 @@
 import { useState, useCallback, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import ContentBlockLink from "./ContentBlockLink";
+
+const MOBILE_BREAKPOINT = 768;
+const HOME_LIMIT_DESKTOP = 12;
+const HOME_LIMIT_MOBILE = 6;
 
 const zewnFiles = [
   "11.jpg",
@@ -82,20 +87,46 @@ function GallerySection({ standalone = false }) {
   const { t } = useTranslation("home");
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [activeFilter, setActiveFilter] = useState("*");
+  const [isMobile, setIsMobile] = useState(
+    () =>
+      typeof window !== "undefined" && window.innerWidth < MOBILE_BREAKPOINT,
+  );
+
+  useEffect(() => {
+    const mq = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`);
+    const handler = () => setIsMobile(mq.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
 
   const close = useCallback(() => setSelectedIndex(null), []);
   const goPrev = useCallback(() => {
-    setSelectedIndex((i) => (i === null ? null : (i - 1 + galleryItems.length) % galleryItems.length));
+    setSelectedIndex((i) =>
+      i === null ? null : (i - 1 + galleryItems.length) % galleryItems.length,
+    );
   }, []);
   const goNext = useCallback(() => {
-    setSelectedIndex((i) => (i === null ? null : (i + 1) % galleryItems.length));
+    setSelectedIndex((i) =>
+      i === null ? null : (i + 1) % galleryItems.length,
+    );
   }, []);
 
-  const filteredWithIndex = activeFilter === "*"
-    ? galleryItems.map((item, index) => ({ item, index }))
-    : galleryItems
-        .map((item, index) => ({ item, index }))
-        .filter(({ item }) => item.classes.includes(activeFilter.slice(1)));
+  const filteredWithIndex =
+    activeFilter === "*"
+      ? galleryItems.map((item, index) => ({ item, index }))
+      : galleryItems
+          .map((item, index) => ({ item, index }))
+          .filter(({ item }) => item.classes.includes(activeFilter.slice(1)));
+
+  const displayLimit = standalone
+    ? undefined
+    : isMobile
+      ? HOME_LIMIT_MOBILE
+      : HOME_LIMIT_DESKTOP;
+  const displayedItems =
+    displayLimit === undefined
+      ? filteredWithIndex
+      : filteredWithIndex.slice(0, displayLimit);
 
   useEffect(() => {
     if (selectedIndex === null) return;
@@ -164,7 +195,7 @@ function GallerySection({ standalone = false }) {
         )}
       </div>
       <div className="portfolio-list">
-        {filteredWithIndex.map(({ item, index }) => (
+        {displayedItems.map(({ item, index }) => (
           <div
             key={item.src}
             className={`portfolio-box no-padding ${item.classes}`}
@@ -186,6 +217,16 @@ function GallerySection({ standalone = false }) {
           </div>
         ))}
       </div>
+      {!standalone && (
+        <div
+          className="container text-center"
+          style={{ marginTop: "4rem", marginBottom: "4rem" }}
+        >
+          <ContentBlockLink href="/gallery" title={t("gallery.seeFullGallery")}>
+            {t("gallery.seeFullGallery")}
+          </ContentBlockLink>
+        </div>
+      )}
       {selectedIndex !== null && (
         <div
           className="gallery-modal-overlay"
