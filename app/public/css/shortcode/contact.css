@@ -1,0 +1,127 @@
+.contact-info {
+	text-align: center;
+	float: left;
+	width: 100%;
+}
+.contact-info .col-md-4 + .col-md-4 {
+	border-left: 1px dotted #777777;
+}
+.contact-info .col-md-4 > i { 
+	width: 65px;
+	height: 65px;
+	border: 2px solid #e2b13c;
+	border-radius: 100%;
+	display: block;
+	margin: 0 auto;
+	line-height: 61px;
+}
+.contact-info .col-md-4 > h3 { 
+	letter-spacing: 1.26px;
+	font-family: 'Poppins', sans-serif;
+	font-size: 18px;
+	font-weight: 600;
+	color: #222222;
+	text-transform: uppercase;
+	margin-bottom: 20px;
+}
+.contact-info .col-md-4 > p,
+.contact-info .col-md-4 > p > a {
+	color: #777777;
+}
+.contact-form {
+	float: left;
+	width: 100%;
+	margin-top: 90px;
+	text-align: center;
+}
+.contact-form h3 {
+	font-family: 'Poppins', sans-serif;
+	font-size: 32px;
+	font-weight: 600;
+	text-transform: uppercase;
+	margin-bottom: 15px;
+	color: #222222;
+}
+.contact-form p {
+	text-transform: uppercase;
+	letter-spacing: 2.6px;
+	color: #777777;
+}
+.contact-form form {
+	margin-top: 40px;
+}
+.contact-form .form-control {
+	height: 40px;
+	border: 1px solid #e0e0e0;
+	color: #d0d0d0;
+	border-radius: 0;
+	font-size: 11px;
+	-webkit-box-shadow: none;
+	-webkit-appearance: none;
+	box-shadow: none;
+	outline: none;
+	margin-bottom: 30px;
+	padding-left: 20px;
+	padding-right: 20px;
+	letter-spacing: 0.77px;
+}
+.contact-form .form-control:last-child {
+	margin-bottom: 0;
+}
+.contact-form textarea.form-control {
+	height: 180px;
+	margin-bottom: 30px;
+}
+.contact-form button {
+	width: 100%;
+	background-color: #e2b13c;
+	border-radius: 0;
+	outline: none;
+	-webkit-box-shadow: none;
+	-webkit-appearance: none;
+	box-shadow: none;	
+	border: none;
+	color: #fff;
+	text-transform: uppercase;
+	font-family: 'Poppins', sans-serif;
+	font-weight: bold;
+	font-size: 12px;
+	padding: 11px;
+}
+.contact-form button:hover {
+	background-color: #000;
+}
+.contact-form .form-control::-webkit-input-placeholder {
+	color: #d0d0d0;
+	text-transform: uppercase;
+}
+.contact-form .form-control:-moz-placeholder {
+	color: #d0d0d0;
+	text-transform: uppercase;
+}
+.contact-form .form-control::-moz-placeholder {
+	color: #d0d0d0;
+	text-transform: uppercase;
+}
+.contact-form .form-control:-ms-input-placeholder {  
+	color: #d0d0d0;
+	text-transform: uppercase;
+}
+.alert-msg {
+	color: #ccc;
+	width: 100%;
+	margin: 10px 15px;
+	text-align: left;
+	display: inline-block;
+	z-index: 1;
+}
+.alert-msg-success {
+	color: #50B948;
+}
+.alert-msg-failure {
+	color: #FF0000;
+}
+.map-section .map-canvas {
+	width: 100%;
+	height: 650px;
+}

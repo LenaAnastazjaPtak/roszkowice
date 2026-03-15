@@ -1,0 +1,81 @@
+.call-out {
+	background-image: url("../../images/callout-bg.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: #fff;
+	position: relative;
+	z-index: 1;
+}
+.call-out::before {
+	background-color: rgba(0, 0, 0,0.8);
+    bottom: 0;
+    content: "";
+    display: inline-block;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;	
+	z-index: -1;
+}
+.call-out .call-out-content {
+	display: inline-block;
+	padding: 100px 0;
+}
+.call-out .call-out-content h3 {
+	font-family: 'Poppins', sans-serif;
+	font-size: 20px;
+	letter-spacing: 0.8px;
+	text-transform: uppercase;
+	margin: 0;
+}
+.call-out .call-out-content h5 {
+	color: #e2b13c;
+	font-family: 'Poppins', sans-serif;
+	font-size: 16px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 1.12px;
+	margin-bottom: 32px;
+	margin-top: 32px;
+}
+.call-out .call-out-content p {
+	display: inline-block;
+	padding-right: 20px;
+	font-family: 'PT Serif', serif;
+	font-size: 15px;
+	letter-spacing: 0.68px;
+}
+.call-out .call-out-content p > a {
+	color: #e2b13c;
+	font-size: 17px;
+	font-weight: 700;
+}
+.call-out .call-out-content a.callout-info {
+	color: #fff;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 600;
+	font-size: 12px;
+	text-transform: uppercase;
+	text-decoration: none;
+	position: relative;
+	padding-left: 80px;
+	letter-spacing: 1.8px;
+}
+.call-out .call-out-content a.callout-info::after {
+	background-color: #e2b13c;
+    border-right: 4px solid #fff;
+    box-shadow: -3px 0 0 0 #111 inset;
+    content: "";
+    display: inline-block;
+    height: 2px;
+    left: 0;
+    position: absolute;
+    top: 50%;
+    transform: translate(0%, -50%);
+    width: 60px;
+}
+.call-out .call-out-img img {
+	position: absolute;
+    top: -65px;
+	right: -100px;
+}

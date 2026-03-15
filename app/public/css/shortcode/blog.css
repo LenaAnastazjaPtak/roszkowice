@@ -1,0 +1,206 @@
+.type-post,
+.type-post .entry-cover{
+	margin-bottom: 40px;	
+}
+.type-post,
+.type-post .entry-cover,
+.type-post .entry-header,
+.type-post .entry-content  {
+	float: left;
+	width: 100%;
+}
+.type-post .entry-cover a {
+	float: left;
+}
+.type-post .entry-header,
+.type-post .entry-content  {
+	padding-left: 40px;
+}
+.type-post .entry-header .post-date {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	padding-left: 100px;
+}
+.type-post .entry-header .post-date b {
+	font-family: 'Poppins', sans-serif;
+	font-size: 70px;
+	font-weight: 300;
+	letter-spacing: 1.4px;
+	line-height: 65px;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.type-post .entry-header .post-date span {
+	color: #777777;
+	display: block;
+	font-size: 20px;
+	font-style: italic;
+	letter-spacing: 0.4px;
+	text-transform: capitalize;
+}
+.type-post .entry-title {
+	font-family: 'Poppins', sans-serif;
+	color: #222222;
+	font-size: 20px;
+	font-weight: 600;
+	letter-spacing: 0.4px;
+	text-transform: uppercase;
+	margin-bottom: 15px;
+	margin-top: 15px;
+	line-height: 35px;
+}
+.type-post .entry-title a {
+	color: #222222;
+	text-decoration: none;
+}
+.type-post .entry-meta {
+	display: inline-block;
+	margin-bottom: 25px;
+	width: 100%;
+}
+.type-post .entry-meta > div {
+	float: left;
+	margin-right: 20px;
+}
+.type-post .entry-meta > div a {
+	color: #222222;
+	text-transform: capitalize;
+	letter-spacing: 0.56px;
+	text-decoration: none;
+}
+.type-post .entry-meta > div a i {
+	color: #e2b13c;
+	margin-right: 10px;
+}
+.type-post .entry-title:hover a, 
+.type-post .entry-meta > div a:hover {
+	color: #e2b13c;
+}
+.type-post .entry-content p {
+	color: #777777;
+	line-height: 26px;
+	letter-spacing: 0.28px;
+	margin-bottom: 20px;
+}
+.type-post .entry-content > a {
+	font-family: 'Poppins', sans-serif;
+	font-size: 12px;
+	font-weight: 600;
+	position: relative;
+	padding-left: 80px;
+	color: #222222;
+	text-transform: uppercase;
+	text-decoration: none;
+	margin-bottom: 5px;
+	display: inline-block;
+}
+.type-post .entry-content > a::before {
+	background-color: #e2b13c;
+	border-right: 4px solid #222222;
+	-webkit-box-shadow: -3px 0 0 0 #fff inset;
+	-moz-box-shadow: -3px 0 0 0 #fff inset;
+	box-shadow: -3px 0 0 0 #fff inset;
+	content: "";
+	width: 60px;
+	height: 2px;
+	display: inline-block;
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translate(0%, -50%);
+	-webkit-transform: translate(0%, -50%);
+	-moz-transform: translate(0%, -50%);
+	-ms-transform: translate(0%, -50%);	
+}
+.type-post .entry-content > a:hover {
+	color: #e2b13c;
+}
+.latest-blog {
+	background-color: #fafafa;
+}
+.latest-blog .row > .col-md-6 > p {
+	color: #777777;
+	letter-spacing: 0.28px;
+	line-height: 26px;
+	margin-top: 10px;
+}
+.latest-blog .type-post,
+.latest-blog .type-post .entry-cover {
+	margin-bottom: 0;
+}
+.latest-blog .type-post .entry-header,
+.latest-blog .type-post .entry-content {
+	padding-left: 0;
+}
+.latest-blog .type-post .entry-header {
+	margin-bottom: 10px;
+}
+.latest-blog .type-post .entry-header .post-date {
+	margin-top: 40px;
+}
+.latest-blog .blog-carousel {
+	margin-top: 60px;
+}
+.latest-blog .row > .col-md-2 {
+	text-align: right;
+}
+.latest-blog .wc-controls {
+	position: relative;
+	margin-left: 15px;
+	display: inline-block;
+	background-color: #333333;
+}
+.latest-blog .wc-controls::before {
+	background-color: #4e4e4e;
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 50%;
+	transform: translate(0%, -50%);
+	-webkit-transform: translate(0%, -50%);
+	-moz-transform: translate(0%, -50%);
+	-ms-transform: translate(0%, -50%);
+	width: 1px;
+	height: 11px;
+	margin: 0 auto;
+	display: block;
+	z-index: 1;
+}
+.latest-blog .row > .col-md-2 .wc-controls a {
+	top: auto;
+	left: 0;
+	width: auto;
+	position: relative;
+	width: 60px;
+	height: 50px;
+	background-color: #333333;
+	opacity: 1;
+	text-align: center;
+	display: inline-block;
+	line-height: 50px;
+}
+.latest-blog a span {
+	width: 10px;
+	height: 12px;
+	background-image: url("../../images/wc-arrow.png");
+	background-repeat: no-repeat;
+	display: inline-block;
+}
+.latest-blog a.left span {
+	background-position: top left;
+}
+.latest-blog a.right {
+	right: auto;
+}
+.latest-blog a.right span {
+	background-position: top right;
+}
+.latest-blog a.left:hover span {
+	background-position: bottom left;
+}
+.latest-blog a.right:hover span {
+	background-position: bottom right;
+}

@@ -1,0 +1,155 @@
+.onview-section {
+	background-image: url("../../images/roszkowice/zewn/DSC09459 — kopia.JPG");
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+	padding-bottom: 84px;
+	padding-top: 84px;
+}
+.onview-section::before{
+	background-color: rgba(255,255,255,0.9);
+	content: "";
+	position: absolute;
+	bottom: 0;
+	top: 0;
+	left: 0;
+	right: 0;
+	display: inline-block;
+}
+.onview-section .container {
+	position: relative;
+}
+.onview-section .container::before {
+	content: "";
+	border: 6px solid #e2b13c;
+	position: absolute;
+	left: 15px;
+	right: 15px;
+	top: 66px;
+	bottom: 90px;
+	display: inline-block;
+}
+.onview-section .img-block {
+	text-align: center;
+}
+.onview-content {
+	padding-top: 110px;
+	padding-bottom: 110px;
+}
+.onview-content .section-header .section-title-border::before {
+	border-color: #e4e4e4;
+}
+.onview-section .onview-content p {
+	color: #777777;
+	line-height: 26px;
+	letter-spacing: 0.28px;
+}
+.onview-section .onview-content ul {
+	padding-left: 0;
+	list-style: none;
+	margin-top: 15px;
+}
+.onview-section .onview-content ul li {
+	position: relative;
+	color: #777777;
+	padding-left: 20px;
+	line-height: 32px;
+	letter-spacing: 0.28px;
+}
+.onview-section .onview-content ul li::before {
+	font-family: FontAwesome;
+	content: "\f0e3";
+	position: absolute;
+	left: 0;
+	top: 2px;
+	font-size: 12px;
+	color: #e2b13c;
+}
+.onview-section2 {
+	background-color: #121212;
+}
+.onview-section2 .onview-left {
+	width: 39.0625%;
+	padding: 150px;
+	background-color: #121212;
+	text-align: center;
+	color: #fff;
+}
+.onview-section2 .section-header2 h2 {
+	color: #fff;
+}
+.onview-section2 .onview-left p {
+	line-height: 26px;
+	letter-spacing: 0.28px;
+	margin-bottom: 20px;
+}
+.onview-section2 .onview-left > a {
+	font-family: 'Poppins', sans-serif;
+	font-size: 12px;
+	font-weight: 600;
+	position: relative;
+	padding-left: 80px;
+	color: #fff;
+	text-transform: uppercase;
+	text-decoration: none;
+	letter-spacing: 1.8px;
+}
+.onview-section2 .onview-left > a::before {
+	background-color: #e2b13c;
+	border-right: 4px solid #ffffff;
+	-webkit-box-shadow: -3px 0 0 0 #121212 inset;
+	-moz-box-shadow: -3px 0 0 0 #121212 inset;
+	box-shadow: -3px 0 0 0 #121212 inset;
+	content: "";
+	width: 60px;
+	height: 2px;
+	display: inline-block;
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translate(0%, -50%);
+	-webkit-transform: translate(0%, -50%);
+	-moz-transform: translate(0%, -50%);
+	-ms-transform: translate(0%, -50%);	
+}
+.onview-section2 .onview-left > a:hover {
+	color: #e2b13c;
+}
+.onview-section2 .onview-right {
+	background-image: url("../../images/onview-bg2.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+	width: 60.9375%;
+	padding: 150px;
+}
+.onview-section2 .onview-right .onview-content {
+	padding: 15px;
+	border: 2px solid #e2b13c;
+	display: inline-block;
+	width: 100%;
+}
+.onview-section2 .onview-right .onview-content ul {
+	background-color: rgba(255,255,255,0.9);
+	display: inline-block;
+	width: 100%;
+	padding: 80px;
+	list-style: none;
+	margin-bottom: 0;
+}
+.onview-section2 .onview-right .onview-content ul li {
+	position: relative;
+	color: #222222;
+	padding-left: 20px;
+	line-height: 32px;
+	letter-spacing: 0.28px;
+}
+.onview-section2 .onview-right .onview-content ul li::before {
+	font-family: FontAwesome;
+	content: "\f0e3";
+	position: absolute;
+	left: 0;
+	top: 2px;
+	font-size: 12px;
+	color: #e2b13c;
+}
