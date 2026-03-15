@@ -49,7 +49,7 @@ function WelcomeSection() {
                       aliqua. Ut enim ad minim veniam, quis nostrud exercitation
                       ullamco laboris.
                     </p>
-                    <ContentBlockLink href="/about" title={t("welcome.readMore")}>
+                    <ContentBlockLink to="/about" title={t("welcome.readMore")}>
                       {t("welcome.readMore")}
                     </ContentBlockLink>
                   </div>

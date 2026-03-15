@@ -222,7 +222,7 @@ function GallerySection({ standalone = false }) {
           className="container text-center"
           style={{ marginTop: "4rem", marginBottom: "4rem" }}
         >
-          <ContentBlockLink href="/gallery" title={t("gallery.seeFullGallery")}>
+          <ContentBlockLink to="/gallery" title={t("gallery.seeFullGallery")}>
             {t("gallery.seeFullGallery")}
           </ContentBlockLink>
         </div>

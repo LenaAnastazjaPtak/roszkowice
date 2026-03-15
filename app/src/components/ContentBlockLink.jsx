@@ -1,8 +1,10 @@
-function ContentBlockLink({ href, title, children }) {
+import { Link } from "react-router-dom";
+
+function ContentBlockLink({ to, title, children }) {
   return (
-    <a href={href} className="content-block-link" title={title}>
+    <Link to={to} className="content-block-link" title={title}>
       {children}
-    </a>
+    </Link>
   );
 }
 

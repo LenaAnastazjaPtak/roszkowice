@@ -72,7 +72,7 @@ function LatestBlogSection() {
                 </div>
                 <div className="entry-content">
                   <p>{getExcerpt(latestPost.content)}</p>
-                  <ContentBlockLink href="/blog" title={t("latestBlog.visitBlog")}>
+                  <ContentBlockLink to="/blog" title={t("latestBlog.visitBlog")}>
                     {t("latestBlog.visitBlog")}
                   </ContentBlockLink>
                 </div>

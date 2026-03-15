@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
 import YouTubeEmbed from "../components/YouTubeEmbed";
 import PageBanner from "../components/PageBanner";
+import ContentBlockLink from "../components/ContentBlockLink";
 
 function AboutPage() {
   const { t } = useTranslation("about");
@@ -15,6 +15,17 @@ function AboutPage() {
       <div className="container-fluid no-padding welcome-section2">
         <div className="container">
           <div className="row">
+            <div className="col-md-6 col-sm-6 content-block">
+              <div className="section-header2">
+                <span>{t("welcome.welcomeIn")}</span>
+                <h2>{t("welcome.palaceName")}</h2>
+              </div>
+              <p>{t("welcome.paragraph1")}</p>
+              <p>{t("welcome.paragraph2")}</p>
+              <ContentBlockLink to="/gallery" title={t("seePhotos")}>
+                {t("seePhotos")}
+              </ContentBlockLink>
+            </div>
             <div className="col-md-6 col-sm-6 img-block">
               <i>
                 <img
@@ -27,17 +38,6 @@ function AboutPage() {
                   }}
                 />
               </i>
-            </div>
-            <div className="col-md-6 col-sm-6 content-block">
-              <div className="section-header2">
-                <span>{t("welcome.welcomeIn")}</span>
-                <h2>{t("welcome.palaceName")}</h2>
-              </div>
-              <p>{t("welcome.paragraph1")}</p>
-              <p>{t("welcome.paragraph2")}</p>
-              <Link to="/gallery" className="btn-link" title={t("seePhotos")}>
-                {t("seePhotos")}
-              </Link>
             </div>
           </div>
         </div>
