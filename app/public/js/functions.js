@@ -8,7 +8,6 @@
 		- Responsive Caret
 		- Search
 		- Back To Top
-		- Rev Slider
 		- Portfolio Section
 		- Client Carousel
 		- Blog Carousel
@@ -129,38 +128,6 @@
 				scrollTop : 0 /* Scroll to top of body */
 			},800);
 		});
-		
-		/* - Rev Slider */
-		if($(".slider-section").length){
-			$("#home-slider1").revolution({
-				sliderType:"standard",
-				sliderLayout:"auto",
-				delay:6000,
-				navigation: {
-					arrows:{
-						enable:true,
-						style:"uranus"
-					}
-				},
-				gridwidth:1900,
-				gridheight:980 ,
-			
-			}); 
-			$("#home-slider2").revolution({
-				sliderType:"standard",
-				sliderLayout:"auto",
-				delay:6000,
-				navigation: {
-					arrows:{
-						enable:true,
-						style:"uranus"
-					}
-				},
-				gridwidth:1900,
-				gridheight:980 ,
-			
-			});
-		}
 		
 		/* - Portfolio Section */
 		if($(".portfolio-section").length){
