@@ -194,39 +194,38 @@ function GallerySection({ standalone = false }) {
           </div>
         )}
       </div>
-      <div className="portfolio-list">
-        {displayedItems.map(({ item, index }) => (
-          <div
-            key={item.src}
-            className={`portfolio-box no-padding ${item.classes}`}
-          >
-            <a
-              href={item.src}
-              onClick={(e) => {
-                e.preventDefault();
-                setSelectedIndex(index);
-              }}
+      <div className="portfolio-section-gallery-wrap">
+        <div className="portfolio-list">
+          {displayedItems.map(({ item, index }) => (
+            <div
+              key={item.src}
+              className={`portfolio-box no-padding ${item.classes}`}
             >
-              <img src={item.src} alt="Roszkowice" />
-              <div className="portfolio-content">
-                <i className="icon icon-Search"></i>
-                <h3>{t("gallery.palace")}</h3>
-                <span>{t("gallery.galleryLabel")}</span>
-              </div>
-            </a>
-          </div>
-        ))}
-      </div>
-      {!standalone && (
-        <div
-          className="container text-center"
-          style={{ marginTop: "4rem", marginBottom: "4rem" }}
-        >
-          <ContentBlockLink to="/gallery" title={t("gallery.seeFullGallery")}>
-            {t("gallery.seeFullGallery")}
-          </ContentBlockLink>
+              <a
+                href={item.src}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setSelectedIndex(index);
+                }}
+              >
+                <img src={item.src} alt="Roszkowice" />
+                <div className="portfolio-content">
+                  <i className="icon icon-Search"></i>
+                  <h3>{t("gallery.palace")}</h3>
+                  <span>{t("gallery.galleryLabel")}</span>
+                </div>
+              </a>
+            </div>
+          ))}
         </div>
-      )}
+        {!standalone && (
+          <div className="container text-center portfolio-section-cta">
+            <ContentBlockLink to="/gallery" title={t("gallery.seeFullGallery")}>
+              {t("gallery.seeFullGallery")}
+            </ContentBlockLink>
+          </div>
+        )}
+      </div>
       {selectedIndex !== null && (
         <div
           className="gallery-modal-overlay"

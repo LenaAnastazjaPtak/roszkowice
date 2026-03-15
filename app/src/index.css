@@ -275,10 +275,19 @@ body {
   }
 }
 
+.portfolio-section-gallery-wrap {
+  overflow: auto;
+}
+
 .portfolio-section .portfolio-list::after {
   content: "";
   display: table;
   clear: both;
+}
+
+.portfolio-section-cta {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
 .gallery-modal-overlay {
