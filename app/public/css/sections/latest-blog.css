@@ -1,10 +1,6 @@
-.latest-blog {
+.container-fluid.latest-blog {
   padding-top: 60px;
   padding-bottom: 60px;
-}
-
-.latest-blog .blog-carousel {
-  margin-top: 0;
 }
 
 .latest-blog .latest-blog__thumb-col .entry-cover--square {
@@ -35,5 +31,9 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  .latest-blog .type-post .entry-header {
+    margin-top: 24px;
   }
 }
