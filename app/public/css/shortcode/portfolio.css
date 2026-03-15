@@ -10,7 +10,7 @@
 }
 .portfolio-categories ul {
 	display: inline-block;
-	border-bottom: 1px solid #e7e7e7;
+	border-bottom: 1px solid var(--color-border-cat);
 	padding-left: 0;
 	padding-bottom: 25px;
 	margin-top: 20px;
@@ -27,8 +27,8 @@
 	top: 0;
 }
 .portfolio-categories ul li a {
-	color: #777777;
-	font-family: 'Poppins', sans-serif;
+	color: var(--color-text-placeholder);
+	font-family: var(--font-heading);
 	font-weight: 600;
 	line-height: 26px;
 	text-decoration: none;
@@ -43,7 +43,7 @@
 	transition: all 1s ease 0s;
 }
 .portfolio-categories ul li a::before {
-	background-color: #e2b13c;
+	background-color: var(--color-accent);
 	content: "";
 	width: 7px;
 	height: 7px;
@@ -61,7 +61,7 @@
 }
 .portfolio-categories ul li a.active,
 .portfolio-categories ul li a:hover {
-	color: #e2b13c;
+	color: var(--color-accent);
 }
 .portfolio-box {
 	aspect-ratio: 1;
@@ -82,7 +82,7 @@
 	display: block;
 }
 .portfolio-box a::before {
-	background-color: rgba(255,255,255,0.9);
+	background-color: var(--color-overlay-white-90);
 	content: "";
 	position: absolute;
 	left: 0;
@@ -124,11 +124,11 @@
 }
 .portfolio-content i {
 	font-size: 25px;
-	color: #222222;
+	color: var(--color-text-dark);
 }
 .portfolio-content h3 {
-	color: #222222;
-	font-family: 'Poppins', sans-serif;
+	color: var(--color-text-dark);
+	font-family: var(--font-heading);
 	font-size: 20px;
 	font-weight: 600;
 	text-transform: uppercase;
@@ -143,7 +143,7 @@
 	font-size: 15px;
 	font-style: italic;
 	letter-spacing: 0.6px;
-	color: #777777;
+	color: var(--color-text-placeholder);
 }
 .portfolio-box a:hover .portfolio-content {
 	opacity: 1;

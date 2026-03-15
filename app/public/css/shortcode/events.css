@@ -1,5 +1,5 @@
 .event-block {
-	background-color: #fafafa;
+	background-color: var(--color-bg-event);
 	margin-bottom: 50px;
 }
 .event-block .event-cover {
@@ -18,13 +18,13 @@
 	width: 80px;
 	height: 80px;
 	text-align: center;
-	background-color: #e2b13c;
+	background-color: var(--color-accent);
 	padding: 18px 10px;
 }
 .event-block .event-content .post-date span {
-	font-family: 'Poppins', sans-serif;
+	font-family: var(--font-heading);
 	display: block;
-	color: #fff;
+	color: var(--color-white);
 	text-transform: uppercase;
 	font-size: 15px;
 	font-weight: 600;
@@ -35,8 +35,8 @@
 	font-size: 30px;
 }
 .event-block .event-content h3 { 
-	color: #222222;
-	font-family: 'Poppins', sans-serif;
+	color: var(--color-text-dark);
+	font-family: var(--font-heading);
 	font-size: 18px;
 	font-weight: 600;
 	text-transform: uppercase;
@@ -46,12 +46,12 @@
 }
 .event-block .event-content h3 a,
 .event-block .event-content h4 a { 
-	color: #222222;
+	color: var(--color-text-dark);
 	text-decoration: none;
 }
 .event-block .event-content h4 {
-	color: #222222;
-	font-family: 'Poppins', sans-serif;
+	color: var(--color-text-dark);
+	font-family: var(--font-heading);
 	font-size: 14px;
 	font-weight: 600;
 	text-transform: uppercase;
@@ -67,36 +67,36 @@
 	margin-left: 30px;
 }
 .event-block .event-content h4 a i {	
-	color: #e2b13c;
+	color: var(--color-accent);
 	margin-right: 10px;
 }
 .event-block .event-content h3 a:hover,
 .event-block .event-content h4 a:hover { 
-	color: #e2b13c;
+	color: var(--color-accent);
 }
 .event-block .event-content p {
-	color: #777777;
+	color: var(--color-text-placeholder);
 	line-height: 26px;
 	letter-spacing: 0.28px;
 	margin-bottom: 14px;
 }
 .event-block .event-content > a {
-	font-family: 'Poppins', sans-serif;
+	font-family: var(--font-heading);
 	font-size: 12px;
 	font-weight: 600;
 	position: relative;
 	padding-left: 80px;
-	color: #222222;
+	color: var(--color-text-dark);
 	text-transform: uppercase;
 	text-decoration: none;
 	letter-spacing: 1.8px;
 }
 .event-block .event-content > a::before {
-	background-color: #e2b13c;
-	border-right: 4px solid #222222;
-	-webkit-box-shadow: -3px 0 0 0 #fff inset;
-	-moz-box-shadow: -3px 0 0 0 #fff inset;
-	box-shadow: -3px 0 0 0 #fff inset;
+	background-color: var(--color-accent);
+	border-right: 4px solid var(--color-text-dark);
+	-webkit-box-shadow: -3px 0 0 0 var(--color-white) inset;
+	-moz-box-shadow: -3px 0 0 0 var(--color-white) inset;
+	box-shadow: -3px 0 0 0 var(--color-white) inset;
 	content: "";
 	width: 60px;
 	height: 2px;
@@ -110,7 +110,7 @@
 	-ms-transform: translate(0%, -50%);	
 }
 .event-block .event-content > a:hover {
-	color: #e2b13c;
+	color: var(--color-accent);
 }
 .upcoming-event {
 	position: relative;
@@ -145,7 +145,7 @@
 .upcoming-event .event-block .event-content {
 	padding-top: 30px;
 	padding-bottom: 20px;
-	background-color: rgba(0,0,0,0.8);
+	background-color: var(--color-overlay-black-80);
 }
 .upcoming-event .event-block .event-content .post-date {
 	left: -60px;
@@ -164,34 +164,34 @@
 }
 .upcoming-event .event-block .event-content h3 a,
 .upcoming-event .event-block .event-content h4 a {
-	color: #fff;
+	color: var(--color-white);
 }
 .upcoming-event .event-block .event-content h3 a:hover,
 .upcoming-event .event-block .event-content h4 a:hover {
-	color: #e2b13c;
+	color: var(--color-accent);
 }
 .upcoming-event .event-block .event-content p {
 	float: left;
 	width: 100%;
-	color: #ebebeb;
+	color: var(--color-text-light);
 }
 .upcoming-event .col-md-8 > a {
-	font-family: 'Poppins', sans-serif;
+	font-family: var(--font-heading);
 	font-size: 12px;
 	font-weight: 600;
 	position: relative;
 	padding-left: 80px;
-	color: #222222;
+	color: var(--color-text-dark);
 	text-transform: uppercase;
 	text-decoration: none;
 	letter-spacing: 1.8px;
 }
 .upcoming-event .col-md-8 > a::before {
-	background-color: #e2b13c;
-	border-right: 4px solid #222222;
-	-webkit-box-shadow: -3px 0 0 0 #fff inset;
-	-moz-box-shadow: -3px 0 0 0 #fff inset;
-	box-shadow: -3px 0 0 0 #fff inset;
+	background-color: var(--color-accent);
+	border-right: 4px solid var(--color-text-dark);
+	-webkit-box-shadow: -3px 0 0 0 var(--color-white) inset;
+	-moz-box-shadow: -3px 0 0 0 var(--color-white) inset;
+	box-shadow: -3px 0 0 0 var(--color-white) inset;
 	content: "";
 	width: 60px;
 	height: 2px;
@@ -205,7 +205,7 @@
 	-ms-transform: translate(0%, -50%);	
 }
 .upcoming-event .col-md-8 > a:hover {
-	color: #e2b13c;
+	color: var(--color-accent);
 }
 .upcoming-event2 {
 	background-image: url("../../images/event-section-bg.jpg");

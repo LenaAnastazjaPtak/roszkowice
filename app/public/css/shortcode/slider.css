@@ -7,15 +7,15 @@
 .slider-section .slider-overlay {
 	position: absolute;
 	inset: 0;
-	background: #000;
+	background: var(--color-black);
 	opacity: 0.6;
 	z-index: 1;
 	pointer-events: none;
 }
 .slider-section .slide-btn > a {
-	background-color: #000;
+	background-color: var(--color-black);
     border-radius: 0;
-    color: #fff;
+    color: var(--color-white);
     font-size: 12px !important;
     letter-spacing: 0.84px !important;
     padding: 12px 37px !important;
@@ -27,32 +27,32 @@
 	transition: all 1s ease 0s;
 }
 .slider-section .slide-btn > a:hover {
-	background-color: #fff;
-	color: #000;
+	background-color: var(--color-white);
+	color: var(--color-black);
 }
 .slider-section .icon-img > span > img{
 	padding: 0 20px;
 	margin-top: -16px;
 }
 .slider-section .uranus.tparrows {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: var(--color-overlay-white-90);
     border-radius: 100%;
     height: 72px;
     width: 72px;
 	line-height: 72px;
 }
 .slider-section .uranus.tparrows::before {
-	color: #000;
+	color: var(--color-black);
 	font-size: 30px;
 	height: 72px;
     width: 72px;
 	line-height: 72px;
 }
 .slider-section .uranus.tparrows:hover {
-	background-color: rgba(218, 168, 60, 0.9);
+	background-color: var(--color-overlay-accent-90);
 }
 .slider-section .uranus.tparrows:hover::before {
-	color: #fff;
+	color: var(--color-white);
 }
 .goto-next {
 	display: inline-block;
@@ -67,7 +67,7 @@
     width: 100%;
 }
 .goto-next a {
-	color: #fff;
+	color: var(--color-white);
 	text-decoration: none;
 }
 .goto-next a i {
@@ -128,8 +128,8 @@
 	animation: bounce 5s infinite;
 }
 .slider-section2 .icon-img > span {
-	border-top: 1px solid #fff;
-	border-bottom: 1px solid #fff;
+	border-top: 1px solid var(--color-white);
+	border-bottom: 1px solid var(--color-white);
 	margin: 0 40px;
 	padding: 5px 20px;
 }
@@ -137,14 +137,14 @@
 	margin-top: 0;
 }
 .slider-section2 .uranus.tparrows {
-	background-color: rgba(14, 20, 33, 0.9);
+	background-color: var(--color-overlay-slider-dark);
 	border-radius: 0;
 	height: 50px;
 	width: 50px;
 	line-height: 50px;
 }
 .slider-section2 .uranus.tparrows::before {
-	color: #fff;
+	color: var(--color-white);
 	font-size: 20px;
 	height: 50px;
     width: 50px;

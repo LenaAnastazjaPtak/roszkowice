@@ -1,7 +1,7 @@
 .blog-single .type-post {
 }
 .type-post blockquote {
-	border-left: 2px solid #e2b13c;
+	border-left: 2px solid var(--color-accent);
 	padding: 25px 20px;
 	margin-top: 45px;
 	margin-bottom: 40px;
@@ -11,12 +11,12 @@
 	font-size: 14px;
 	padding-left: 25px;
 	margin-bottom: 0;
-	color: #222222;
+	color: var(--color-text-dark);
 	font-style: italic;
 }
 .type-post blockquote p::before {
 	content: "\f10e";
-	color: #dedede;
+	color: var(--color-text-muted);
 	font-family: FontAwesome;
 	font-size: 20px;
 	position: absolute;
@@ -30,7 +30,7 @@
 }
 .type-post blockquote p::after {
 	content: "\f10e";
-	color: #dedede;
+	color: var(--color-text-muted);
 	font-family: FontAwesome;
 	font-size: 20px;
 	font-style: normal;
@@ -44,7 +44,7 @@
 	margin: 20px 0 35px;
 }
 .type-post .entry-content .social h3 {
-	font-family: 'Poppins', sans-serif;
+	font-family: var(--font-heading);
 	float: left;
 	text-transform: uppercase;
 	font-size: 13px;
@@ -66,14 +66,14 @@
 	height: 39px;
 	float: left;
 	border-radius: 100%;
-	background-color: #000;
+	background-color: var(--color-black);
 	text-align: center;
 	line-height: 39px;
-	color: #a5a5a5;
+	color: var(--color-text-muted);
 }
 .type-post .entry-content .social ul li a:hover {
-	background-color: #e2b13c;
-	color: #111111;
+	background-color: var(--color-accent);
+	color: var(--color-bg-dark);
 }
 .comment-section {
 	display: inline-block;	
@@ -83,11 +83,11 @@
 .comment-section h3,
 .comment-form h3 {
 	font-size: 20px;
-	color: #222222;
+	color: var(--color-text-dark);
 	margin: 0 0 35px;
 	text-transform: uppercase;
 	letter-spacing: 0.8px;
-	font-family: 'Poppins', sans-serif;
+	font-family: var(--font-heading);
 	font-weight: bold;
 }
 .comment-section .media-left {
@@ -102,9 +102,9 @@
 .comment-section .media-heading {
 	text-transform: uppercase;
 	font-size: 15px;
-	color: #111;
+	color: var(--color-bg-dark);
 	margin-right: 5px;
-	font-family: 'Poppins', sans-serif;
+	font-family: var(--font-heading);
 	letter-spacing: 0.6px;
 	display: inline-block;
 	width: 100%;
@@ -116,29 +116,29 @@
 	float: left;
 }
 .comment-section .media-heading span {
-	color: #777777;
+	color: var(--color-text-placeholder);
 	font-size: 14px;
 	text-transform: capitalize;
 	font-weight: 300;
 	letter-spacing: 0.847px;
-	font-family: 'PT Serif', serif;
+	font-family: var(--font-body);
 	margin-left: 12px;
 }
 .comment-section .media-heading a {
 	font-size: 14px;
-	color: #e2b13c;
+	color: var(--color-accent);
 	text-transform: capitalize;
 	text-decoration: none;
 	margin-left: 30px;
 	font-weight: 500;
-	font-family: 'PT Serif', serif;
+	font-family: var(--font-body);
 	float: right;
 }
 .comment-section .media-heading a i {
 	margin-right: 5px;
 }
 .comment-section .media-heading a:hover {
-	color: #777;
+	color: var(--color-text-placeholder);
 }
 .comment-section .media-list {
 	display: inline-block;
@@ -152,7 +152,7 @@
 	padding-bottom: 27px;
 }
 .comment-section .media-content p {
-    color: #777777;
+    color: var(--color-text-placeholder);
     font-size: 14px;
     letter-spacing: 0.28px;
     line-height: 26px;
@@ -175,7 +175,7 @@
 	 -webkit-appearance: none;
 	 box-shadow: none;
 	border-radius: 0;
-	border: 1px solid #cacaca;
+	border: 1px solid var(--color-border-comment);
 	background-color: transparent;
 	position: relative;
 	z-index: 1;
@@ -191,13 +191,13 @@
 	margin-bottom: 20px;
 }
 .blog-single .comment-form  input[type="submit"] { 
-	color: #fff;
+	color: var(--color-white);
 	font-size: 12px;
 	display: inline-block;
-	font-family: 'Poppins', sans-serif;
+	font-family: var(--font-heading);
 	width: 100%;
 	font-weight: 700;
-	background-color: #e2b13c;
+	background-color: var(--color-accent);
 	padding: 10px 26px 8px;
 	text-transform: uppercase;
 	border: none;
@@ -208,8 +208,8 @@
 	border: 2px solid transparent;
 }
 .blog-single .comment-form  input[type="submit"]:hover {
-	border-color: #e2b13c;
-	color: #e2b13c;
+	border-color: var(--color-accent);
+	color: var(--color-accent);
 	background-color: transparent;
 	-webkit-transition: all 1s ease 0s;
 	-moz-transition: all 1s ease 0s;
@@ -217,14 +217,14 @@
 	transition: all 1s ease 0s;
 }
 .blog-single .comment-form .form-control::-webkit-input-placeholder {
-   color: #898989;
+   color: var(--color-text-meta);
 }
 .blog-single .comment-form .form-control:-moz-placeholder {
-   color: #898989; 
+   color: var(--color-text-meta); 
 }
 .blog-single .comment-form .form-control::-moz-placeholder {
-   color: #898989;
+   color: var(--color-text-meta);
 }
 .blog-single .comment-form .form-control:-ms-input-placeholder {  
-   color: #898989; 
+   color: var(--color-text-meta); 
 }

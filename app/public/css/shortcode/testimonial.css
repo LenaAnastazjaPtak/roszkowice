@@ -5,30 +5,30 @@
 	padding: 50px 0 150px;
 }
 .testimonial-section .mis-content-block p {
-	color: #777;
+	color: var(--color-text-placeholder);
 	font-size: 16px;
 	font-style: italic;
-	font-family: 'PT Serif', serif;
+	font-family: var(--font-body);
 	padding: 30px 0;
 	line-height: 28px;
 	letter-spacing: 0.32px;
 }
 .testimonial-section .mis-content-block i {
-	color: #e2b13c;
+	color: var(--color-accent);
 	font-size: 30px;
 }
 .testimonial-section .mis-content-block h3 {
-	color: #222;
-	font-family: 'Poppins', sans-serif;
+	color: var(--color-text-dark);
+	font-family: var(--font-heading);
 	font-weight: 600;
 	font-size: 15px;
 	letter-spacing: 0.6px;
 	text-transform: uppercase;
 }
 .testimonial-section .mis-content-block span {
-	color: #777;
+	color: var(--color-text-placeholder);
 	display: block;
-	font-family: 'Poppins', sans-serif;
+	font-family: var(--font-heading);
 	font-weight: 600;
 	font-size: 12px;
 	letter-spacing: 0.84px;
@@ -67,7 +67,7 @@
 	opacity: 1;
 }
 .testimonial-section .mis-slider li.mis-slide.mis-current img {
-	border: 3px solid #e2b13c;
+	border: 3px solid var(--color-accent);
 	opacity: 1;
 }
 .testimonial-slider .mis-nav-list {
@@ -76,7 +76,7 @@
 .testimonial-slider .mis-nav-list li a {
 	border-radius: 100%;
 	border: none;
-	background-color: #e2b13c;
+	background-color: var(--color-accent);
 	border: 1px solid transparent;
 	box-shadow: none;
 	height: 9px;
@@ -92,8 +92,8 @@
 	top: 0;
 }
 .testimonial-slider .mis-nav-list li.mis-current a {
-	box-shadow: 0 0 0 1.5px #fff inset;
-	border: 1px solid #e2b13c;
+	box-shadow: 0 0 0 1.5px var(--color-white) inset;
+	border: 1px solid var(--color-accent);
 	height: 13px;
 	width: 13px;
 }

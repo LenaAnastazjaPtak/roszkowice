@@ -4,12 +4,12 @@
 	width: 100%;
 }
 .contact-info .col-md-4 + .col-md-4 {
-	border-left: 1px dotted #777777;
+	border-left: 1px dotted var(--color-border-dotted);
 }
 .contact-info .col-md-4 > i { 
 	width: 65px;
 	height: 65px;
-	border: 2px solid #e2b13c;
+	border: 2px solid var(--color-accent);
 	border-radius: 100%;
 	display: block;
 	margin: 0 auto;
@@ -17,16 +17,16 @@
 }
 .contact-info .col-md-4 > h3 { 
 	letter-spacing: 1.26px;
-	font-family: 'Poppins', sans-serif;
+	font-family: var(--font-heading);
 	font-size: 18px;
 	font-weight: 600;
-	color: #222222;
+	color: var(--color-text-dark);
 	text-transform: uppercase;
 	margin-bottom: 20px;
 }
 .contact-info .col-md-4 > p,
 .contact-info .col-md-4 > p > a {
-	color: #777777;
+	color: var(--color-text-placeholder);
 }
 .contact-form {
 	float: left;
@@ -35,24 +35,24 @@
 	text-align: center;
 }
 .contact-form h3 {
-	font-family: 'Poppins', sans-serif;
+	font-family: var(--font-heading);
 	font-size: 32px;
 	font-weight: 600;
 	text-transform: uppercase;
 	margin-bottom: 15px;
-	color: #222222;
+	color: var(--color-text-dark);
 }
 .contact-form p {
 	text-transform: uppercase;
 	letter-spacing: 2.6px;
-	color: #777777;
+	color: var(--color-text-placeholder);
 }
 .contact-form form {
 	margin-top: 40px;
 }
 .contact-form .form-control {
 	height: 40px;
-	border: 1px solid #e0e0e0;
+	border: 1px solid var(--color-border-input);
 	color: var(--color-text-input);
 	border-radius: 0;
 	font-size: 11px;
@@ -74,25 +74,25 @@
 }
 .contact-form button {
 	width: 100%;
-	background-color: #e2b13c;
+	background-color: var(--color-accent);
 	border-radius: 0;
 	outline: none;
 	-webkit-box-shadow: none;
 	-webkit-appearance: none;
 	box-shadow: none;	
 	border: none;
-	color: #fff;
+	color: var(--color-white);
 	text-transform: uppercase;
-	font-family: 'Poppins', sans-serif;
+	font-family: var(--font-heading);
 	font-weight: bold;
 	font-size: 12px;
 	padding: 11px;
 }
 .contact-form button:hover {
-	background-color: #000;
+	background-color: var(--color-black);
 }
 .contact-form .form-control::-webkit-input-placeholder {
-	color: #d0d0d0;
+	color: var(--color-text-placeholder-light);
 	text-transform: uppercase;
 }
 .contact-form .form-control:-moz-placeholder {
@@ -104,11 +104,11 @@
 	text-transform: uppercase;
 }
 .contact-form .form-control:-ms-input-placeholder {  
-	color: #d0d0d0;
+	color: var(--color-text-placeholder-light);
 	text-transform: uppercase;
 }
 .alert-msg {
-	color: #ccc;
+	color: var(--color-text-alert);
 	width: 100%;
 	margin: 10px 15px;
 	text-align: left;
@@ -116,10 +116,10 @@
 	z-index: 1;
 }
 .alert-msg-success {
-	color: #50B948;
+	color: var(--color-success);
 }
 .alert-msg-failure {
-	color: #FF0000;
+	color: var(--color-error);
 }
 .map-section .map-canvas {
 	width: 100%;
