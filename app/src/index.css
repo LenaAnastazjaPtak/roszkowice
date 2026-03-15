@@ -28,6 +28,27 @@ body {
   color: var(--color-accent-alt);
 }
 
+@media (max-width: 767px) {
+  .top-header .top-icons .lang-toggle {
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 639px) {
+  .top-header .top-icons ul {
+    display: none;
+  }
+}
+
+.footer-main .widget_about ul {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-main .widget_about ul li {
+  margin-right: 0;
+}
+
 .entry-tags {
   margin-top: 0.5rem;
   margin-bottom: 1.25rem;
