@@ -127,11 +127,11 @@ function Header() {
           </div>
           <div className="navbar-collapse collapse navbar-right" id="navbar">
             <ul className="nav navbar-nav">
-              <li>
+              {/* <li>
                 <Link to="/" title={t("nav.home")}>
                   {t("nav.home")}
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link to="/about" title={t("nav.about")}>
                   {t("nav.about")}
