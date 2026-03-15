@@ -208,8 +208,8 @@ function SliderSection() {
         });
       }
     };
-    const t = setTimeout(initSlider, 150);
-    return () => clearTimeout(t);
+    const timeoutId = setTimeout(initSlider, 150);
+    return () => clearTimeout(timeoutId);
   }, []);
 
   return (
