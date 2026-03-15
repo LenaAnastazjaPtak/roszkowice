@@ -39,7 +39,6 @@ const remontFiles = [
   "IMG_0287.jpg",
   "IMG_0288.jpg",
   "IMG_0289.jpg",
-  "IMG_0302.jpg",
   "IMG_0304.jpg",
   "IMG_0307.jpg",
   "IMG_0308.jpg",
