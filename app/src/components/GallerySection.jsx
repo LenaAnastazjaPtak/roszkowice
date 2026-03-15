@@ -238,7 +238,7 @@ function GallerySection({ standalone = false }) {
             type="button"
             className="gallery-modal-close"
             onClick={close}
-            aria-label="Zamknij"
+            aria-label={t("gallery.close")}
           >
             ×
           </button>
@@ -249,7 +249,7 @@ function GallerySection({ standalone = false }) {
               e.stopPropagation();
               goPrev();
             }}
-            aria-label="Poprzednie"
+            aria-label={t("gallery.previous")}
           >
             ‹
           </button>
@@ -260,7 +260,7 @@ function GallerySection({ standalone = false }) {
               e.stopPropagation();
               goNext();
             }}
-            aria-label="Następne"
+            aria-label={t("gallery.next")}
           >
             ›
           </button>

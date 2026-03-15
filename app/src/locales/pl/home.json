@@ -24,7 +24,10 @@
     "other": "INNE",
     "palace": "Pałac Roszkowice",
     "galleryLabel": "Galeria",
-    "seeFullGallery": "Zobacz całą galerię"
+    "seeFullGallery": "Zobacz całą galerię",
+    "close": "Zamknij",
+    "previous": "Poprzednie",
+    "next": "Następne"
   },
   "latestBlog": {
     "subtitle": "Co mówią nasi klienci",

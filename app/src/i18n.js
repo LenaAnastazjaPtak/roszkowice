@@ -35,4 +35,10 @@ i18n
     interpolation: { escapeValue: false }
   })
 
+const setHtmlLang = (lng) => {
+  document.documentElement.lang = lng || i18n.language
+}
+i18n.on('initialized', () => setHtmlLang())
+i18n.on('languageChanged', setHtmlLang)
+
 export default i18n

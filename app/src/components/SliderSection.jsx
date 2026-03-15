@@ -102,7 +102,7 @@ const layerAttrs = {
       lineheight: "['70','70','70','90']",
       width: "none",
       height: "none",
-      whitespace: "noraml",
+      whitespace: "normal",
       transform_idle: "o:1;",
       transform_in:
         "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;",

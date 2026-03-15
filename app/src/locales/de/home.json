@@ -24,7 +24,10 @@
     "other": "SONSTIGES",
     "palace": "Schloss Roszkowice",
     "galleryLabel": "Galerie",
-    "seeFullGallery": "Galerie ansehen"
+    "seeFullGallery": "Galerie ansehen",
+    "close": "Schließen",
+    "previous": "Vorherige",
+    "next": "Nächste"
   },
   "latestBlog": {
     "subtitle": "Was unsere Kunden sagen",

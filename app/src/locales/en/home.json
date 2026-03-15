@@ -24,7 +24,10 @@
     "other": "OTHER",
     "palace": "Roszkowice Palace",
     "galleryLabel": "Gallery",
-    "seeFullGallery": "See full gallery"
+    "seeFullGallery": "See full gallery",
+    "close": "Close",
+    "previous": "Previous",
+    "next": "Next"
   },
   "latestBlog": {
     "subtitle": "What our clients say",
