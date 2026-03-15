@@ -154,6 +154,24 @@ body {
   display: block;
 }
 
+@media (max-width: 991px) {
+  .latest-blog .latest-blog__thumb-col {
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+
+  .latest-blog .latest-blog__thumb-col .entry-cover--square {
+    max-width: none;
+    aspect-ratio: 16 / 9;
+  }
+
+  .latest-blog .latest-blog__thumb-col .entry-cover--square img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
 .gallery-modal-overlay {
   position: fixed;
   inset: 0;
