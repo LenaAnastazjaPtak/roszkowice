@@ -29,7 +29,7 @@ function AboutPage() {
             <div className="col-md-6 col-sm-6 img-block">
               <i>
                 <img
-                  src="/images/roszkowice/logo_with_white_background.png"
+                  src="/images/roszkowice/logo_with_transparent_background.png"
                   alt={t("welcome.imgAlt")}
                   style={{
                     maxWidth: "100%",

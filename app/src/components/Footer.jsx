@@ -10,7 +10,7 @@ function Footer() {
         <div className="row">
           <div className="col-md-4 col-sm-6 col-xs-6">
             <aside className="ftr-widget widget_about">
-              <Link to="/" title="Logo" className="navbar-brand"><img src="/images/roszkowice/logo_with_white_background.png" alt="logo" style={{ maxWidth: '100px', height: '100px', objectFit: 'contain' }} /></Link>
+              <Link to="/" title="Logo" className="navbar-brand"><img src="/images/roszkowice/logo_with_transparent_background.png" alt="logo" style={{ maxWidth: '100px', height: '100px', objectFit: 'contain' }} /></Link>
               <p>{t('footer.about')}</p>
               <ul>
                 <li><a href="https://www.facebook.com/p/Pa%C5%82ac-Roszkowice-100084550065108/?locale=pl_PL" title="Facebook" target="_blank" rel="noopener noreferrer"><i className="fa fa-facebook"></i></a></li>

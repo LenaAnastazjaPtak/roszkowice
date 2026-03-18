@@ -1,13 +1,24 @@
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+
+const SCROLL_HEIGHT_STICKY = typeof window !== "undefined" ? window.innerHeight : 600;
 
 function Header() {
   const { t, i18n } = useTranslation("common");
   const location = useLocation();
   const isHome = location.pathname === "/";
+  const [sticky, setSticky] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setSticky(window.scrollY >= SCROLL_HEIGHT_STICKY);
+    window.addEventListener("scroll", onScroll);
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header id="header" className="header-section container-fluid no-padding">
+    <header id="header" className={`header-section container-fluid no-padding${sticky ? " navbar-fixed-top animated fadeInDown" : ""}`}>
       <div className="top-header container-fluid no-padding">
         <div className="col-md-7 col-sm-12 col-xs-12 top-content no-padding">
           <a href="tel:+48795000596" className="header-phone-link">
@@ -102,7 +113,7 @@ function Header() {
             {isHome ? (
               <a href="/" className="navbar-brand">
                 <img
-                  src="/images/roszkowice/logo_with_white_background.png"
+                  src="/images/roszkowice/logo_with_transparent_background.png"
                   alt="Logo"
                   style={{
                     maxWidth: "100px",
@@ -114,7 +125,7 @@ function Header() {
             ) : (
               <Link to="/" className="navbar-brand">
                 <img
-                  src="/images/roszkowice/logo_with_white_background.png"
+                  src="/images/roszkowice/logo_with_transparent_background.png"
                   alt="Logo"
                   style={{
                     maxWidth: "100px",
