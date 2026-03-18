@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Outlet } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import BackToTop from './components/BackToTop'
 
 function Layout() {
   useEffect(() => {
@@ -32,6 +33,7 @@ function Layout() {
         <Outlet />
       </main>
       <Footer />
+      <BackToTop />
     </div>
   )
 }

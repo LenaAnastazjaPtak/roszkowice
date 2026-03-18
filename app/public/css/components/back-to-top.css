@@ -1,0 +1,35 @@
+.back-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: none;
+  border-radius: 4px;
+  background: var(--color-bg-header);
+  color: var(--color-accent-alt);
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.back-to-top.back-to-top-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.back-to-top:hover {
+  color: var(--color-accent);
+}
+
+.back-to-top:focus {
+  outline: 2px solid var(--color-accent-alt);
+  outline-offset: 2px;
+}
