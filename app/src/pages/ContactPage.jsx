@@ -31,6 +31,10 @@ function ContactPage() {
   const [mapError, setMapError] = useState(false)
 
   const mapConfig = getMapConfig()
+  const formspreeEndpoint = import.meta.env.VITE_FORMSPREE_ENDPOINT
+  if (!formspreeEndpoint) {
+    throw new Error('Missing required env var: VITE_FORMSPREE_ENDPOINT')
+  }
 
   useEffect(() => {
     const scriptUrl = getMapScriptUrl()
@@ -115,7 +119,7 @@ function ContactPage() {
           <div className="contact-form">
             <h3>{t('formTitle')}</h3>
             <p>{t('formSubtitle')}</p>
-            <form action="https://formspree.io/f/mzdjaybz" method="POST">
+            <form action={formspreeEndpoint} method="POST">
               <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" className="form-control" style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px' }} aria-hidden="true" />
               <div className="row">
                 <div className="form-group col-md-6 col-sm-6 col-xs-12">
