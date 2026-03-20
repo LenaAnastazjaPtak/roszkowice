@@ -660,6 +660,8 @@ a {
 /* -- min-width: 992 to max-width: 1199 */
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
 	.top-header .top-content {
+		width: 100%;
+		float: none;
 		padding-right: 15px;
 	}
 }
