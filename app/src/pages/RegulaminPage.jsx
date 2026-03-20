@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import PageBanner from '../components/PageBanner'
 
-function RegulaminPage() {
+function TermsAndConditionsPage() {
   const { t } = useTranslation('common')
 
   return (
@@ -45,4 +45,4 @@ function RegulaminPage() {
   )
 }
 
-export default RegulaminPage
+export default TermsAndConditionsPage

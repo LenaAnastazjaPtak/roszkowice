@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import PageBanner from '../components/PageBanner'
 
-function PolitykaPrywatnosciPage() {
+function PrivacyPolicyPage() {
   const { t } = useTranslation('common')
 
   return (
@@ -45,4 +45,4 @@ function PolitykaPrywatnosciPage() {
   )
 }
 
-export default PolitykaPrywatnosciPage
+export default PrivacyPolicyPage

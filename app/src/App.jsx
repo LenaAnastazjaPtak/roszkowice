@@ -5,8 +5,8 @@ import HomePage from './pages/HomePage'
 import BlogPage from './pages/BlogPage'
 import BlogSinglePage from './pages/BlogSinglePage'
 import ContactPage from './pages/ContactPage'
-import RegulaminPage from './pages/RegulaminPage'
-import PolitykaPrywatnosciPage from './pages/PolitykaPrywatnosciPage'
+import TermsAndConditionsPage from './pages/RegulaminPage'
+import PrivacyPolicyPage from './pages/PolitykaPrywatnosciPage'
 import GalleryPage from './pages/GalleryPage'
 import AboutPage from './pages/AboutPage'
 import NotFoundPage from './pages/NotFoundPage'
@@ -23,8 +23,8 @@ function App() {
           <Route path="contact" element={<ContactPage />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="gallery" element={<GalleryPage />} />
-          <Route path="terms" element={<RegulaminPage />} />
-          <Route path="privacy-policy" element={<PolitykaPrywatnosciPage />} />
+          <Route path="terms" element={<TermsAndConditionsPage />} />
+          <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="404" element={<NotFoundPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
