@@ -191,26 +191,58 @@ function SliderSection() {
   const { t } = useTranslation("home");
 
   useEffect(() => {
-    const initSlider = () => {
-      if (
-        typeof window.$ === "undefined" ||
-        !document.getElementById("home-slider1")
-      )
-        return;
-      const $el = window.$("#home-slider1");
-      if ($el.length && !$el.hasClass("revslider-initialised")) {
-        $el.revolution({
-          sliderType: "standard",
-          sliderLayout: "auto",
-          delay: 6000,
-          navigation: { arrows: { enable: true, style: "uranus" } },
-          gridwidth: 1900,
-          gridheight: 980,
-        });
-      }
+    const sliderId = "home-slider1";
+    const sliderElement = document.getElementById(sliderId);
+    if (!sliderElement) return;
+
+    const options = {
+      sliderType: "standard",
+      sliderLayout: "auto",
+      delay: 6000,
+      navigation: { arrows: { enable: true, style: "uranus" } },
+      gridwidth: 1900,
+      gridheight: 980,
     };
-    const timeoutId = setTimeout(initSlider, 150);
-    return () => clearTimeout(timeoutId);
+
+    const maxWaitMs = 8000;
+    const pollIntervalMs = 150;
+
+    let cancelled = false;
+    let intervalId;
+    const startedAt = Date.now();
+
+    const tryInit = () => {
+      if (cancelled) return true;
+      const $ = window.$;
+      if (typeof $ === "undefined") return false;
+
+      const $el = $(`#${sliderId}`);
+      if (!$el.length) return false;
+      if ($el.hasClass("revslider-initialised")) return true;
+
+      const canInit =
+        typeof $el.revolution === "function" ||
+        (typeof $.fn !== "undefined" && typeof $.fn.revolution === "function");
+
+      if (!canInit) return false;
+
+      $el.revolution(options);
+      return true;
+    };
+
+    intervalId = setInterval(() => {
+      const done = tryInit() || Date.now() - startedAt >= maxWaitMs;
+      if (done) {
+        clearInterval(intervalId);
+      }
+    }, pollIntervalMs);
+
+    tryInit();
+
+    return () => {
+      cancelled = true;
+      if (intervalId) clearInterval(intervalId);
+    };
   }, []);
 
   return (
