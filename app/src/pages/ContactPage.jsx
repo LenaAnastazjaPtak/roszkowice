@@ -101,17 +101,17 @@ function ContactPage() {
         <div className="container">
           <div className="contact-info">
             <div className="col-md-4 col-sm-4 col-xs-12">
-              <i><img src="/images/other/contact-info1.png" alt={t('contactInfoAlt')} /></i>
+              <i><img src="/images/roszkowice/other/contact-info1.png" alt={t('contactInfoAlt')} /></i>
               <h3>{t('locationTitle')}</h3>
               <p>{mapConfig.address}</p>
             </div>
             <div className="col-md-4 col-sm-4 col-xs-12">
-              <i><img src="/images/other/contact-info2.png" alt={t('contactInfoAlt')} /></i>
+              <i><img src="/images/roszkowice/other/contact-info2.png" alt={t('contactInfoAlt')} /></i>
               <h3>{t('contactTitle')}</h3>
               <p><a href="tel:+48795000596">+48 795 000 596</a></p>
             </div>
             <div className="col-md-4 col-sm-4 col-xs-12">
-              <i><img src="/images/other/contact-info3.png" alt={t('contactInfoAlt')} /></i>
+              <i><img src="/images/roszkowice/other/contact-info3.png" alt={t('contactInfoAlt')} /></i>
               <h3>{t('emailTitle')}</h3>
               <p><a href="mailto:palac.roszkowice@gmail.com">palac.roszkowice@gmail.com</a></p>
             </div>

@@ -286,7 +286,7 @@ function SliderSection() {
                 >
                   <span>
                     {t("slider.since")}
-                    <img src="/images/other/slider.png" alt="slider" />
+                    <img src="/images/roszkowice/other/slider.png" alt="slider" />
                     1845
                   </span>
                 </div>
