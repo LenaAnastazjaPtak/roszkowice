@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 const SLIDER_IMAGES = [
@@ -266,17 +267,17 @@ function SliderSection() {
                   {...dataAttrs(layerAttrs.btn.data)}
                   style={layerAttrs.btn.style}
                 >
-                  <a
+                  <Link
                     style={{
                       fontWeight: 700,
                       padding: "12px 37px",
                       fontFamily: "'Poppins', sans-serif",
                     }}
-                    href="/about"
+                    to="/about"
                     title={t("slider.cta")}
                   >
                     {t("slider.cta")}
-                  </a>
+                  </Link>
                 </div>
                 <div
                   id={slide.layerIds[3]}
