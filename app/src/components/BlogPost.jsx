@@ -36,9 +36,7 @@ function BlogPost({ post, variant = "listing" }) {
         </h3>
         <div className="entry-meta">
           <div className="byline">
-            <Link to="#" title={post.author}>
-              {post.author}
-            </Link>
+            <span title={post.author}>{post.author}</span>
           </div>
         </div>
         {getPostTags(post).length > 0 && (
