@@ -296,7 +296,12 @@ function SliderSection() {
         </div>
       </div>
       <span className="goto-next">
-        <a href="/about">
+        <a
+          href="#"
+          onClick={(e) => {
+            e.preventDefault()
+          }}
+        >
           <i className="icon icon-Mouse bounce" aria-hidden="true"></i>
         </a>
       </span>
