@@ -37,27 +37,28 @@ function ContactPage() {
   }
 
   useEffect(() => {
-    const scriptUrl = getMapScriptUrl()
-    if (!scriptUrl) {
+    let cancelled = false
+    const setErrorOnce = () => {
+      if (cancelled) return
       setMapError(true)
+    }
+
+    const scriptBaseUrl = getMapScriptUrl()
+    if (!scriptBaseUrl) {
+      setErrorOnce()
       return
     }
 
+    const callbackName = 'initContactMap'
+
     const initMap = () => {
-      if (window.initContactMap) {
-        window.initContactMap()
-        return
-      }
+      if (!window.google?.maps) return
       const el = document.getElementById('map-canvas-contact')
-      if (!el || !window.google) return
-      const lat = parseFloat(el.getAttribute('data-lat'), 10)
-      const lng = parseFloat(el.getAttribute('data-lng'), 10)
-      if (Number.isNaN(lat) || Number.isNaN(lng)) return
-      const contentString = el.getAttribute('data-string')
-      const zoom = parseInt(el.getAttribute('data-zoom'), 10) || mapConfig.zoom
-      const myLatlng = new window.google.maps.LatLng(lat, lng)
+      if (!el) return
+
+      const myLatlng = new window.google.maps.LatLng(mapConfig.lat, mapConfig.lng)
       const mapOptions = {
-        zoom,
+        zoom: mapConfig.zoom,
         center: myLatlng,
         scrollwheel: true,
         zoomControl: true,
@@ -66,8 +67,9 @@ function ContactPage() {
         streetViewControl: false,
         fullscreenControl: false
       }
+
       const map = new window.google.maps.Map(el, mapOptions)
-      const infowindow = new window.google.maps.InfoWindow({ content: contentString })
+      const infowindow = new window.google.maps.InfoWindow({ content: mapConfig.address })
       const marker = new window.google.maps.Marker({
         position: myLatlng,
         map
@@ -75,20 +77,37 @@ function ContactPage() {
       window.google.maps.event.addListener(marker, 'click', () => infowindow.open(map, marker))
     }
 
-    if (window.google && window.google.maps) {
+    if (window.google?.maps) {
       initMap()
       return
     }
+
+    const prevGmAuthFailure = window.gm_authFailure
+    window[callbackName] = () => {
+      if (cancelled) return
+      initMap()
+    }
+    window.gm_authFailure = () => setErrorOnce()
+
+    const scriptUrl = scriptBaseUrl.includes('callback=')
+      ? scriptBaseUrl
+      : `${scriptBaseUrl}&callback=${callbackName}`
+
     const script = document.createElement('script')
     script.src = scriptUrl
     script.async = true
     script.defer = true
-    script.onload = () => setTimeout(initMap, 100)
-    script.onerror = () => setMapError(true)
-    window.gm_authFailure = () => setMapError(true)
+    script.onload = () => {
+      if (cancelled) return
+      initMap()
+    }
+    script.onerror = () => setErrorOnce()
     document.head.appendChild(script)
+
     return () => {
-      delete window.gm_authFailure
+      cancelled = true
+      window[callbackName] = undefined
+      window.gm_authFailure = prevGmAuthFailure
       if (script.parentNode) script.parentNode.removeChild(script)
     }
   }, [])
