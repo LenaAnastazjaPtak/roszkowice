@@ -185,7 +185,7 @@
 .latest-blog a span {
 	width: 10px;
 	height: 12px;
-	background-image: url("../../images/wc-arrow.png");
+	background-image: url("../../images/other/wc-arrow.png");
 	background-repeat: no-repeat;
 	display: inline-block;
 }

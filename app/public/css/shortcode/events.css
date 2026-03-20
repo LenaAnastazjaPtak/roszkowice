@@ -114,7 +114,7 @@
 }
 .upcoming-event {
 	position: relative;
-	background-image: url("../../images/upcoming-event-bg.jpg");
+	background-image: url("../../images/other/upcoming-event-bg.jpg");
 	background-size: cover;
 	background-position: center center;
 }
@@ -208,7 +208,7 @@
 	color: var(--color-accent);
 }
 .upcoming-event2 {
-	background-image: url("../../images/event-section-bg.jpg");
+	background-image: url("../../images/other/event-section-bg.jpg");
 	background-position: left bottom;
 	background-repeat: no-repeat;
 	padding: 150px 0;

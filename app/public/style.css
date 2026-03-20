@@ -540,7 +540,7 @@ a {
 
 /* + Page Banner */
 .page-banner {
-	background-image: url("images/page-banner-bg.jpg");
+	background-image: url("images/other/page-banner-bg.jpg");
 	background-position: center center;
 	background-size: cover;
 	background-repeat: no-repeat;

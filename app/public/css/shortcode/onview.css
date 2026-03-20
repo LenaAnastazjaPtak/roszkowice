@@ -116,7 +116,7 @@
 	color: var(--color-accent);
 }
 .onview-section2 .onview-right {
-	background-image: url("../../images/onview-bg2.jpg");
+	background-image: url("../../images/other/onview-bg2.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 	position: relative;
