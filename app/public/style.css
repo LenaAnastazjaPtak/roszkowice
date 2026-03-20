@@ -660,9 +660,25 @@ a {
 /* -- min-width: 992 to max-width: 1199 */
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
 	.top-header .top-content {
+		padding: 0;
+		text-align: center;
 		width: 100%;
+	}
+	.top-header .top-content > a {
 		float: none;
-		padding-right: 15px;
+		display: inline-block;
+		padding-left: 35px;
+	}
+	.top-header .top-content::after,
+	.top-header .top-content::before {
+		display: none;
+	}
+	.top-header .top-icons {
+		width: 100%;
+	}
+	.top-header .top-icons h5 {
+		margin-left: 15px;
+		margin-right: 15px;
 	}
 }
 
