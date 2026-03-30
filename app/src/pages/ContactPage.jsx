@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import PageBanner from '../components/PageBanner'
 
@@ -29,6 +29,26 @@ function getMapScriptUrl() {
 function ContactPage() {
   const { t } = useTranslation('contact')
   const [mapError, setMapError] = useState(false)
+
+  const handleInvalid = useCallback(
+    (e) => {
+      const el = e.target
+      if (el.validity.valueMissing) {
+        el.setCustomValidity(t('validationRequired'))
+      } else if (el.validity.typeMismatch) {
+        el.setCustomValidity(t('validationEmail'))
+      } else if (el.validity.tooLong) {
+        el.setCustomValidity(t('validationTooLong'))
+      } else {
+        el.setCustomValidity('')
+      }
+    },
+    [t]
+  )
+
+  const handleInput = useCallback((e) => {
+    e.target.setCustomValidity('')
+  }, [])
 
   const mapConfig = getMapConfig()
   const formspreeEndpoint = import.meta.env.VITE_FORMSPREE_ENDPOINT
@@ -142,13 +162,13 @@ function ContactPage() {
               <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" className="form-control" style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px' }} aria-hidden="true" />
               <div className="row">
                 <div className="form-group col-md-6 col-sm-6 col-xs-12">
-                  <input type="text" name="contact-fname" id="input_fname" required placeholder={t('firstName')} className="form-control" maxLength={100} autoComplete="given-name" />
-                  <input type="text" name="contact-lname" id="input_lname" required placeholder={t('lastName')} className="form-control" maxLength={100} autoComplete="family-name" />
-                  <input type="email" name="contact-email" id="input_email" required placeholder={t('email')} className="form-control" maxLength={254} autoComplete="email" />
-                  <input type="text" name="contact-subject" id="input_subject" required placeholder={t('subject')} className="form-control" maxLength={200} />
+                  <input type="text" name="contact-fname" id="input_fname" required placeholder={t('firstName')} className="form-control" maxLength={100} autoComplete="given-name" onInvalid={handleInvalid} onInput={handleInput} />
+                  <input type="text" name="contact-lname" id="input_lname" required placeholder={t('lastName')} className="form-control" maxLength={100} autoComplete="family-name" onInvalid={handleInvalid} onInput={handleInput} />
+                  <input type="email" name="contact-email" id="input_email" required placeholder={t('email')} className="form-control" maxLength={254} autoComplete="email" onInvalid={handleInvalid} onInput={handleInput} />
+                  <input type="text" name="contact-subject" id="input_subject" required placeholder={t('subject')} className="form-control" maxLength={200} onInvalid={handleInvalid} onInput={handleInput} />
                 </div>
                 <div className="form-group col-md-6 col-sm-6 col-xs-12">
-                  <textarea name="contact-message" id="textarea_message" placeholder={t('message')} rows="4" className="form-control" required maxLength={5000}></textarea>
+                  <textarea name="contact-message" id="textarea_message" placeholder={t('message')} rows="4" className="form-control" required maxLength={5000} onInvalid={handleInvalid} onInput={handleInput}></textarea>
                   <button id="btn_submit" type="submit" title={t('submit')}>{t('submit')}</button>
                 </div>
               </div>

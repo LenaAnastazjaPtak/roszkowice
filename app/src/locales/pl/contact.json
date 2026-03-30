@@ -14,5 +14,8 @@
   "submit": "Wyślij wiadomość",
   "fillAll": "Proszę wypełnić wszystkie pola.",
   "error": "Wystąpił błąd. Spróbuj ponownie później.",
-  "openInGoogleMaps": "Otwórz w Google Maps"
+  "openInGoogleMaps": "Otwórz w Google Maps",
+  "validationRequired": "Wypełnij to pole.",
+  "validationEmail": "Podaj prawidłowy adres e-mail.",
+  "validationTooLong": "Ten tekst jest za długi."
 }
