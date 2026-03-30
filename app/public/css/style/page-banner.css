@@ -1,0 +1,49 @@
+.page-banner {
+	background-image: url("images/roszkowice/other/page-banner-bg.jpg");
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	text-align: center;
+	padding: 100px 0 90px;
+}
+
+.page-banner h3 {
+	color: var(--color-white);
+	font-family: var(--font-heading);
+	font-size: 50px;
+	font-weight: bold;
+	letter-spacing: 2px;
+	margin-bottom: 0;
+	margin-top: 0;
+	line-height: 85px;
+	text-transform: uppercase;
+	word-wrap: break-word;
+}
+
+.page-banner--image {
+	position: relative;
+	height: 270px;
+	padding: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.page-banner--image .page-banner__overlay {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 1;
+}
+
+.page-banner--image .container {
+	position: relative;
+	z-index: 2;
+	width: 100%;
+}

@@ -1,0 +1,143 @@
+@media (min-width: 1200px) {
+	.container {
+		width: 1200px;
+	}
+}
+
+@media (min-width: 992px) {
+}
+
+@media (min-width: 768px) {
+}
+
+@media (max-width: 1200px) {
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+	.top-header .top-content {
+		padding: 0;
+		text-align: center;
+		width: 100%;
+	}
+
+	.top-header .top-content > a {
+		float: none;
+		display: inline-block;
+		padding-left: 35px;
+	}
+
+	.top-header .top-content::after,
+	.top-header .top-content::before {
+		display: none;
+	}
+
+	.top-header .top-icons {
+		width: 100%;
+	}
+
+	.top-header .top-icons h5 {
+		margin-left: 15px;
+		margin-right: 15px;
+	}
+}
+
+@media (max-width: 991px) {
+	.top-header .top-content {
+		padding: 0;
+		text-align: center;
+		width: 100%;
+	}
+
+	.top-header .top-content > a {
+		float: none;
+		display: inline-block;
+		padding-left: 35px;
+	}
+
+	.top-header .top-content::after,
+	.top-header .top-content::before {
+		display: none;
+	}
+
+	.top-header .top-icons {
+		width: 100%;
+	}
+
+	.top-header .top-icons h5 {
+		margin-left: 15px;
+		margin-right: 15px;
+	}
+
+	.footer-main .row > .col-md-4:nth-child(2n + 1) {
+		clear: both;
+	}
+
+	.footer-main .ftr-widget {
+		margin-bottom: 40px;
+	}
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	.top-header .top-icons {
+		text-align: right;
+	}
+}
+
+@media (max-width: 767px) {
+	.page-banner h3 {
+		font-size: 40px;
+	}
+}
+
+@media (max-width: 639px) {
+	.section-header h2 {
+		font-size: 25px;
+		margin-bottom: 5px;
+	}
+
+	.top-header .top-icons {
+		text-align: center;
+	}
+
+	.top-header .top-icons ul {
+		width: 100%;
+		border-bottom: 1px solid var(--color-text-muted);
+	}
+
+	.top-header .top-icons ul li {
+		float: none;
+		display: inline-block;
+	}
+
+	.top-header .top-icons ul li:first-child {
+		border-left: 1px solid var(--color-text-muted);
+	}
+
+	.top-header .top-icons ul li a {
+		display: block;
+		float: none;
+	}
+
+	.search-box {
+		left: 0;
+	}
+
+	.footer-main .widget_about p {
+		padding-right: 0;
+	}
+
+	.footer-main .widget_about ul li {
+		margin-right: 0;
+	}
+
+	.section-padding {
+		padding-top: 25px;
+		padding-bottom: 25px;
+	}
+}
+
+@media (max-width: 479px) {
+	.footer-main .row .col-xs-6 {
+		width: 100%;
+	}
+}
