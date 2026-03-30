@@ -1,80 +1,10 @@
 {
   "title": "Blog",
   "readMore": "Weiterlesen",
-  "comments": "{{count}} Kommentare",
   "searchPlaceholder": "Suchen...",
-  "categories": "Kategorien",
   "latestPosts": "Neueste Beiträge",
-  "popularTags": "Beliebte Tags",
   "coverTitle": "Beitragscover",
-  "months": {
-    "march": "März",
-    "april": "April",
-    "may": "Mai",
-    "june": "Juni",
-    "october": "Oktober",
-    "december": "Dezember",
-    "january": "Januar"
-  },
-  "share": "Teilen",
-  "commentsSection": "Kommentare",
-  "reply": "Antworten",
-  "addComment": "Kommentar hinzufügen",
-  "namePlaceholder": "Name *",
-  "emailPlaceholder": "E-Mail-Adresse *",
-  "phonePlaceholder": "Telefonnummer",
-  "subjectPlaceholder": "Betreff",
-  "messagePlaceholder": "Nachricht",
-  "submit": "Nachricht senden",
-  "commentAlt": "Kommentar",
   "postAlt": "Beitrag",
   "noPostsFound": "Keine Beiträge gefunden.",
-  "backToAllPosts": "Zurück zu allen Beiträgen",
-  "posts": {
-    "0": {
-      "title": "Goldener Herbst im Schlosspark",
-      "author": "Schloss Roszkowice",
-      "content": "So schön ist unser Park im Herbst! ☀️ Die Bäume in Roszkowice baden im warmen Sonnenlicht.\nDie Renovierungsarbeiten laufen weiter, und mit jedem Tag kommen wir unserem Ziel näher: der Wiedereröffnung dieses besonderen Ortes. Danke, dass ihr bei uns seid! 🍁",
-      "tags": [
-        "Schloss",
-        "Roszkowice",
-        "HistorischeOrte",
-        "Park",
-        "GoldenerHerbst"
-      ]
-    },
-    "1": {
-      "title": "Heiligabend in Roszkowice",
-      "author": "Schloss Roszkowice",
-      "content": "Heute, an diesem besonderen Heiligabend, liegt in Roszkowice Stille und die Erwartung des ersten Sterns in der Luft ⭐, und wir warten voller Vorfreude auf den Moment, in dem dieser Ort wieder von Leben, Licht und der Freude der Besucher erfüllt sein wird. 🕯️\nWir warten auf den Moment, in dem wir das Schloss für euch öffnen können! ❤️",
-      "tags": [
-        "Schloss",
-        "Heiligabend",
-        "Weihnachten",
-        "Weihnachtsgrüße",
-        "Denkmal"
-      ]
-    },
-    "2": {
-      "title": "Neujahr 2026 - Pläne und beschleunigte Renovierung",
-      "author": "Schloss Roszkowice",
-      "content": "Das neue Jahr im Schloss Roszkowice ist eine Zeit großer Veränderungen und beschleunigter Renovierungsarbeiten. Wir haben ehrgeizige Pläne, das Schloss und den Park für euch zu öffnen! 🌳🔑\nEines können wir versprechen: Es wird viel passieren! 🛠️🔥 Unsere Mission, dem Schloss seinen früheren Glanz zurückzugeben und es für euch zu öffnen, tritt in die entscheidende Phase ein.\nWir können es kaum erwarten, dass ihr alles mit eigenen Augen seht 👀 und durch die renovierten Säle und Parkalleen spaziert. Folgt uns - wir werden regelmäßig über die Fortschritte berichten! 👇",
-      "tags": [
-        "Schloss",
-        "Neujahr2026",
-        "Neujahrspläne",
-        "Renovierung",
-        "Wiederaufbau",
-        "Denkmal",
-        "Vision",
-        "Revitalisierung"
-      ]
-    },
-    "3": {
-      "title": "Wir sind auf Instagram!",
-      "author": "Schloss Roszkowice",
-      "content": "Wir sind auf Instagram! 📸🏰\nMöchtest du das Schloss Roszkowice von seiner schönsten Seite sehen? Besuche unser neues Profil, auf dem wunderschöne Fotos im Mittelpunkt stehen.\nBleib auf dem Laufenden und unterstütze unsere Arbeit ✨ 👇\nhttps://www.instagram.com/palac_roszkowice/",
-      "tags": ["Schloss", "Instagram", "FolgtUns", "PolenIstSchön"]
-    }
-  }
+  "backToAllPosts": "Zurück zu allen Beiträgen"
 }

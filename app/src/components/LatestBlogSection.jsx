@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useBlogPosts } from "../hooks/useBlogPosts";
+import { formatPostDate } from "../shared/formatDate.js";
 import ContentBlockLink from "./ContentBlockLink";
 
 const EXCERPT_LENGTH = 280;
@@ -12,67 +13,52 @@ function getExcerpt(content) {
 
 function LatestBlogSection() {
   const { t } = useTranslation("home");
-  const { t: tBlog } = useTranslation("blog");
-  const { posts } = useBlogPosts();
-  const latestPost = posts.length > 0 ? posts[posts.length - 1] : null;
+  const { i18n } = useTranslation();
+  const { posts, loading } = useBlogPosts();
+  const latestPost = posts.length > 0 ? posts[0] : null;
 
-  if (!latestPost) return null;
+  if (loading || !latestPost) return null;
+
+  const { day, month, year } = formatPostDate(
+    latestPost.publishedAt,
+    i18n.language,
+  );
 
   return (
     <div className="container-fluid no-padding latest-blog">
       <div className="container">
         <div className="row">
-          {/* <div className="col-md-4">
-            <div className="section-header">
-              <div className="section-title-border">
-                <span>{t("latestBlog.subtitle")}</span>
-                <h2>{t("latestBlog.title")}</h2>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-6">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
-            </p>
-          </div> 
-          <div className="col-md-2">
-            <div className="wc-controls">
-              <a href="javascript:void(0)" className="left">
-                <span></span>
-              </a>
-              <a href="javascript:void(0)" className="right">
-                <span></span>
-              </a>
-            </div>
-          </div> */}
           <div className="blog-carousel col-md-12 no-padding">
             <article className="type-post">
               <div className="col-md-4 latest-blog__thumb-col">
                 <div className="entry-cover entry-cover--square">
                   <Link to={`/blog/post/${latestPost.id}`}>
-                    <img src={latestPost.img} alt="Blog" />
+                    <img src={latestPost.image} alt="Blog" />
                   </Link>
                 </div>
               </div>
               <div className="col-md-8">
                 <div className="entry-header">
                   <div className="post-date">
-                    <b>{latestPost.day}</b>
-                    <span>{tBlog(latestPost.monthKey)}</span>
-                    <span>{latestPost.year}</span>
+                    <b>{day}</b>
+                    <span>{month}</span>
+                    <span>{year}</span>
                   </div>
                   <h3 className="entry-title">
-                    <Link to={`/blog/post/${latestPost.id}`} title={latestPost.title}>
+                    <Link
+                      to={`/blog/post/${latestPost.id}`}
+                      title={latestPost.title}
+                    >
                       {latestPost.title}
                     </Link>
                   </h3>
                 </div>
                 <div className="entry-content">
                   <p>{getExcerpt(latestPost.content)}</p>
-                  <ContentBlockLink to="/blog" title={t("latestBlog.visitBlog")}>
+                  <ContentBlockLink
+                    to="/blog"
+                    title={t("latestBlog.visitBlog")}
+                  >
                     {t("latestBlog.visitBlog")}
                   </ContentBlockLink>
                 </div>

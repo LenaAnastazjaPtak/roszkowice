@@ -1,53 +1,51 @@
-import { useMemo } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import {
-  postDefinitions,
-  getLatestPosts,
-  getTagsFromPosts,
-  getPostsByTag,
-  getPostTags,
-} from "../data/blogPosts";
+
+const VITE_API_URL = import.meta.env.VITE_API_URL;
+if (!VITE_API_URL) {
+  throw new Error("Missing required env variable: VITE_API_URL");
+}
 
 export function useBlogPosts() {
-  const { t } = useTranslation("blog");
-  const posts = useMemo(
-    () =>
-      postDefinitions.map((post) => {
-        const titleKey = `posts.${post.id}.title`;
-        const authorKey = `posts.${post.id}.author`;
-        const contentKey = `posts.${post.id}.content`;
-        const tagsKey = `posts.${post.id}.tags`;
+  const { i18n } = useTranslation();
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-        const title = t(titleKey);
-        const author = t(authorKey);
-        const content = t(contentKey);
-        const tags = t(tagsKey, { returnObjects: true });
+  const locale = i18n.language?.slice(0, 2) ?? "pl";
 
-        if (
-          title === titleKey ||
-          author === authorKey ||
-          content === contentKey ||
-          !Array.isArray(tags)
-        ) {
-          throw new Error(`Missing blog translation for post id ${post.id}`);
+  useEffect(() => {
+    let cancelled = false;
+    setLoading(true);
+    setError(null);
+
+    fetch(`${VITE_API_URL}/api/posts?locale=${locale}`)
+      .then((res) => {
+        if (!res.ok) throw new Error(`API responded with ${res.status}`);
+        return res.json();
+      })
+      .then((data) => {
+        if (!cancelled) {
+          setPosts(data);
+          setLoading(false);
         }
+      })
+      .catch((err) => {
+        if (!cancelled) {
+          setError(err);
+          setLoading(false);
+        }
+      });
 
-        return {
-          ...post,
-          title,
-          author,
-          content,
-          tags,
-        };
-      }),
-    [t],
+    return () => {
+      cancelled = true;
+    };
+  }, [locale]);
+
+  const getLatestPosts = useCallback(
+    (count = 3) => posts.slice(0, count),
+    [posts],
   );
 
-  return {
-    posts,
-    getLatestPosts: (translationFn) => getLatestPosts(posts, translationFn),
-    getTagsFromPosts: () => getTagsFromPosts(posts),
-    getPostsByTag: (tag) => getPostsByTag(posts, tag),
-    getPostTags,
-  };
+  return { posts, loading, error, getLatestPosts };
 }
