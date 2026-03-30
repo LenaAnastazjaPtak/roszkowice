@@ -29,5 +29,52 @@
   "commentAlt": "Komentarz",
   "postAlt": "Wpis",
   "noPostsFound": "Nie znaleziono żadnych wpisów.",
-  "backToAllPosts": "Wróć do wszystkich wpisów"
+  "backToAllPosts": "Wróć do wszystkich wpisów",
+  "posts": {
+    "0": {
+      "title": "Złota jesień w parku pałacowym",
+      "author": "Pałac Roszkowice",
+      "content": "Tak pięknie jest w naszym parku jesienią! ☀️ Drzewa w Roszkowicach skąpane w ciepłym słońcu.\nPrace renowacyjne trwają, a my z każdym dniem zbliżamy się do celu: ponownego otwarcia tego niezwykłego miejsca. Dziękujemy, że jesteście z nami! 🍁",
+      "tags": [
+        "Pałac",
+        "Roszkowice",
+        "HistoryczneMiejsca",
+        "Park",
+        "ZłotaJesień"
+      ]
+    },
+    "1": {
+      "title": "Wigilijny wieczór w Roszkowicach",
+      "author": "Pałac Roszkowice",
+      "content": "Dziś, w ten wyjątkowy Wigilijny wieczór, w Roszkowicach panuje cisza i oczekiwanie na pierwszą gwiazdkę ⭐, a my z niecierpliwością oczekujemy – gdy to miejsce znów będzie tętniło życiem, światłem i radością odwiedzających. 🕯️\nCzekamy na moment, w którym będziemy mogli otworzyć Pałac dla Was! ❤️",
+      "tags": [
+        "Pałac",
+        "Wigilia",
+        "BożeNarodzenie",
+        "ŻyczeniaŚwiąteczne",
+        "Zabytek"
+      ]
+    },
+    "2": {
+      "title": "Nowy Rok 2026 – plany i przyspieszenie renowacji",
+      "author": "Pałac Roszkowice",
+      "content": "Nowy Rok w Pałacu Roszkowice to czas wielkich zmian i przyspieszenia prac renowacyjnych. Mamy ambitne plany, dotyczące otworzenia dla Was Pałacu i parku! 🌳🔑\nMożemy obiecać jedno: będzie się działo! 🛠️🔥 Nasza misja, by przywrócić pałacowi dawny blask i otworzyć go dla Was, wkracza w decydującą fazę.\nNie możemy się doczekać, aż wszystko zobaczycie na własne oczy 👀 i przejdziecie się odnowionymi salami oraz parkowymi alejami. Śledźcie nas – będziemy regularnie dzielić się postępami! 👇",
+      "tags": [
+        "Pałac",
+        "NowyRok2026",
+        "PlanyNaNowyRok",
+        "Renowacja",
+        "Odbudowa",
+        "Zabytek",
+        "Wizja",
+        "Rewitalizacja"
+      ]
+    },
+    "3": {
+      "title": "Jesteśmy na Instagramie!",
+      "author": "Pałac Roszkowice",
+      "content": "Jesteśmy na Instagramie! 📸🏰\nChcesz widzieć Pałac Roszkowice w najlepszym wydaniu? Zapraszamy na nasz nowy profil, gdzie królować będą piękne zdjęcia.\nBądź na bieżąco i wspieraj naszą działalność ✨ 👇\nhttps://www.instagram.com/palac_roszkowice/",
+      "tags": ["Pałac", "Instagram", "FollowUs", "PolskaJestPiękna"]
+    }
+  }
 }
