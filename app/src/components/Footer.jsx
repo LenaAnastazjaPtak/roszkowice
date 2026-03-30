@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { scrollToTop } from '../shared/scrollToTop'
 
 function Footer() {
   const { t } = useTranslation('common')
@@ -23,10 +24,10 @@ function Footer() {
             <aside className="ftr-widget widget_link">
               <h3 className="widget-title">{t('footer.info')}</h3>
               <ul>
-                <li><Link to="/about" title={t('footer.aboutLink')}>{t('footer.aboutLink')}</Link></li>
-                <li><Link to="/gallery" title={t('footer.gallery')}>{t('footer.gallery')}</Link></li>
+                <li><Link to="/about" title={t('footer.aboutLink')} onClick={scrollToTop}>{t('footer.aboutLink')}</Link></li>
+                <li><Link to="/gallery" title={t('footer.gallery')} onClick={scrollToTop}>{t('footer.gallery')}</Link></li>
                 <li><a href="#" title={t('footer.camera')}>{t('footer.camera')}</a></li>
-                <li><Link to="/contact" title={t('footer.contact')}>{t('footer.contact')}</Link></li>
+                <li><Link to="/contact" title={t('footer.contact')} onClick={scrollToTop}>{t('footer.contact')}</Link></li>
               </ul>
             </aside>
           </div>
@@ -34,8 +35,8 @@ function Footer() {
             <aside className="ftr-widget widget_link">
               <h3 className="widget-title">{t('footer.resources')}</h3>
               <ul>
-                <li><Link to="/terms" title={t('footer.terms')}>{t('footer.terms')}</Link></li>
-                <li><Link to="/privacy-policy" title={t('footer.privacy')}>{t('footer.privacy')}</Link></li>
+                <li><Link to="/terms" title={t('footer.terms')} onClick={scrollToTop}>{t('footer.terms')}</Link></li>
+                <li><Link to="/privacy-policy" title={t('footer.privacy')} onClick={scrollToTop}>{t('footer.privacy')}</Link></li>
               </ul>
             </aside>
           </div>

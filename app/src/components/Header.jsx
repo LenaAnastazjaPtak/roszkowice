@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { scrollToTop } from "../shared/scrollToTop";
 
 const SCROLL_HEIGHT_STICKY = typeof window !== "undefined" ? window.innerHeight : 600;
 
 function Header() {
   const { t, i18n } = useTranslation("common");
-  const location = useLocation();
-  const isHome = location.pathname === "/";
   const [sticky, setSticky] = useState(false);
 
   useEffect(() => {
@@ -110,31 +109,17 @@ function Header() {
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            {isHome ? (
-              <a href="/" className="navbar-brand">
-                <img
-                  src="/images/roszkowice/logo_with_transparent_background.png"
-                  alt="Logo"
-                  style={{
-                    maxWidth: "100px",
-                    height: "100px",
-                    objectFit: "contain",
-                  }}
-                />
-              </a>
-            ) : (
-              <Link to="/" className="navbar-brand">
-                <img
-                  src="/images/roszkowice/logo_with_transparent_background.png"
-                  alt="Logo"
-                  style={{
-                    maxWidth: "100px",
-                    height: "100px",
-                    objectFit: "contain",
-                  }}
-                />
-              </Link>
-            )}
+            <Link to="/" className="navbar-brand" onClick={scrollToTop}>
+              <img
+                src="/images/roszkowice/logo_with_transparent_background.png"
+                alt="Logo"
+                style={{
+                  maxWidth: "100px",
+                  height: "100px",
+                  objectFit: "contain",
+                }}
+              />
+            </Link>
           </div>
           <div className="navbar-collapse collapse navbar-right" id="navbar">
             <ul className="nav navbar-nav">
@@ -144,17 +129,17 @@ function Header() {
                 </Link>
               </li> */}
               <li>
-                <Link to="/about" title={t("nav.about")}>
+                <Link to="/about" title={t("nav.about")} onClick={scrollToTop}>
                   {t("nav.about")}
                 </Link>
               </li>
               <li>
-                <Link to="/gallery" title={t("nav.gallery")}>
+                <Link to="/gallery" title={t("nav.gallery")} onClick={scrollToTop}>
                   {t("nav.gallery")}
                 </Link>
               </li>
               <li>
-                <Link to="/blog" title={t("nav.blog")}>
+                <Link to="/blog" title={t("nav.blog")} onClick={scrollToTop}>
                   {t("nav.blog")}
                 </Link>
                 {/* <i className="ddl-switch fa fa-angle-down"></i>
@@ -187,7 +172,7 @@ function Header() {
                 </ul> */}
               </li>
               <li>
-                <Link to="/contact" title={t("nav.contact")}>
+                <Link to="/contact" title={t("nav.contact")} onClick={scrollToTop}>
                   {t("nav.contact")}
                 </Link>
               </li>
