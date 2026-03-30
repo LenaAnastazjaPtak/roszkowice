@@ -1,7 +1,7 @@
-@import url("/css/style/global.css");
-@import url("/css/style/header.css");
-@import url("/css/style/footer.css");
-@import url("/css/style/section-header.css");
-@import url("/css/style/page-banner.css");
-@import url("/css/style/pagination.css");
-@import url("/css/style/responsive.css");
+@import url("/css/layout/global.css");
+@import url("/css/layout/header.css");
+@import url("/css/layout/footer.css");
+@import url("/css/layout/section-header.css");
+@import url("/css/layout/page-banner.css");
+@import url("/css/layout/pagination.css");
+@import url("/css/layout/responsive.css");
