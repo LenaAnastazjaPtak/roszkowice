@@ -1,0 +1,29 @@
+{
+  "title": "Geschichte",
+  "intro": {
+    "sectionLabel": "Geschichte",
+    "heading": "Die Geschichte des Schlosses Roszkowice",
+    "paragraph1": "Die Geschichte des Schlosses Roszkowice reicht bis ins 19. Jahrhundert zurück, als die Residenz als Sitz einer lokalen Adelsfamilie errichtet wurde. Über Jahrzehnte hinweg war das Schloss das Zentrum des gesellschaftlichen und kulturellen Lebens in der Umgebung.",
+    "paragraph2": "In der Blütezeit war das Anwesen von einem weitläufigen Landschaftspark umgeben, und das Schloss empfing Vertreter benachbarter Familien und war ein lebendiger Treffpunkt."
+  },
+  "timeline": {
+    "sectionLabel": "Zeitleiste",
+    "heading": "Wichtige Ereignisse",
+    "period1": {
+      "year": "19. Jahrhundert",
+      "title": "Bau des Schlosses",
+      "description": "Ein Herrenhaus als Familiensitz erbaut, umgeben von einem Landschaftspark."
+    },
+    "period2": {
+      "year": "1945",
+      "title": "Nachkriegsveränderungen",
+      "description": "Nach dem Krieg wechselte das Schloss seine Funktion — es diente als Staatsgut und verfiel nach und nach."
+    },
+    "period3": {
+      "year": "Gegenwart",
+      "title": "Restaurierung und Renovierung",
+      "description": "Die Renovierungsarbeiten haben begonnen, um das Schloss in seinem früheren Glanz erstrahlen zu lassen und für Besucher zu öffnen."
+    }
+  },
+  "seeAbout": "Mehr über uns erfahren"
+}

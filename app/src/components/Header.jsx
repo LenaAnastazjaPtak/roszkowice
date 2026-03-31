@@ -134,6 +134,11 @@ function Header() {
                 </Link>
               </li>
               <li>
+                <Link to="/history" title={t("nav.history")} onClick={scrollToTop}>
+                  {t("nav.history")}
+                </Link>
+              </li>
+              <li>
                 <Link to="/gallery" title={t("nav.gallery")} onClick={scrollToTop}>
                   {t("nav.gallery")}
                 </Link>

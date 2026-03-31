@@ -1,0 +1,29 @@
+{
+  "title": "History",
+  "intro": {
+    "sectionLabel": "History",
+    "heading": "The story of Palace Roszkowice",
+    "paragraph1": "The history of Palace Roszkowice dates back to the 19th century, when the residence was built as the seat of a local noble family. For decades, the palace served as the centre of social and cultural life in the surrounding lands.",
+    "paragraph2": "During its prosperous years, the estate was surrounded by an extensive landscape park, and the palace hosted members of neighbouring families and was a vibrant social gathering place."
+  },
+  "timeline": {
+    "sectionLabel": "Timeline",
+    "heading": "Key events",
+    "period1": {
+      "year": "19th century",
+      "title": "Construction of the palace",
+      "description": "A manor residence built as a family seat, surrounded by a landscape park."
+    },
+    "period2": {
+      "year": "1945",
+      "title": "Post-war changes",
+      "description": "After the war the palace changed functions — it served as a state farm headquarters and gradually fell into disrepair."
+    },
+    "period3": {
+      "year": "Present day",
+      "title": "Restoration and renovation",
+      "description": "Renovation work has begun to restore the palace to its former glory and open it to visitors."
+    }
+  },
+  "seeAbout": "Learn more about us"
+}

@@ -25,6 +25,7 @@ function Footer() {
               <h3 className="widget-title">{t('footer.info')}</h3>
               <ul>
                 <li><Link to="/about" title={t('footer.aboutLink')} onClick={scrollToTop}>{t('footer.aboutLink')}</Link></li>
+                <li><Link to="/history" title={t('footer.history')} onClick={scrollToTop}>{t('footer.history')}</Link></li>
                 <li><Link to="/gallery" title={t('footer.gallery')} onClick={scrollToTop}>{t('footer.gallery')}</Link></li>
                 <li><a href="#" title={t('footer.camera')}>{t('footer.camera')}</a></li>
                 <li><Link to="/contact" title={t('footer.contact')} onClick={scrollToTop}>{t('footer.contact')}</Link></li>

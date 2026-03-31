@@ -1,0 +1,29 @@
+{
+  "title": "Historia",
+  "intro": {
+    "sectionLabel": "Historia",
+    "heading": "Dzieje Pałacu Roszkowice",
+    "paragraph1": "Historia Pałacu Roszkowice sięga XIX wieku, kiedy to rezydencja została wzniesiona jako siedziba lokalnego rodu ziemiańskiego. Przez kolejne dekady pałac pełnił funkcję centrum życia społecznego i kulturalnego okolicznych ziem.",
+    "paragraph2": "W okresie prosperity majątek otaczał rozległy park krajobrazowy, a pałac gościł przedstawicieli okolicznych rodów i był miejscem spotkań towarzyskich."
+  },
+  "timeline": {
+    "sectionLabel": "Oś czasu",
+    "heading": "Najważniejsze wydarzenia",
+    "period1": {
+      "year": "XIX wiek",
+      "title": "Budowa pałacu",
+      "description": "Rezydencja ziemiańska wzniesiona jako siedziba rodowa, otoczona parkiem krajobrazowym."
+    },
+    "period2": {
+      "year": "1945",
+      "title": "Zmiany powojenne",
+      "description": "Po wojnie pałac zmienił funkcję — był kolejno siedzibą PGR, a następnie ulegał stopniowej degradacji."
+    },
+    "period3": {
+      "year": "Współcześnie",
+      "title": "Odbudowa i renowacja",
+      "description": "Rozpoczęcie prac renowacyjnych mających na celu przywrócenie pałacowi dawnego blasku i otwarcie go dla zwiedzających."
+    }
+  },
+  "seeAbout": "Dowiedz się więcej o nas"
+}
