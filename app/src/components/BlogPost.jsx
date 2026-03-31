@@ -12,7 +12,7 @@ function BlogPost({ post, variant = "listing" }) {
     <article className="type-post">
       <div className="entry-cover">
         {linkToPost ? (
-          <Link to={postUrl}>
+          <Link to={postUrl} className="img-hover-zoom">
             <img src={post.img} alt="Blog" />
           </Link>
         ) : (

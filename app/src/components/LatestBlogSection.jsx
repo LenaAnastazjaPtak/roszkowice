@@ -22,37 +22,11 @@ function LatestBlogSection() {
     <div className="container-fluid no-padding latest-blog">
       <div className="container">
         <div className="row">
-          {/* <div className="col-md-4">
-            <div className="section-header">
-              <div className="section-title-border">
-                <span>{t("latestBlog.subtitle")}</span>
-                <h2>{t("latestBlog.title")}</h2>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-6">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
-            </p>
-          </div> 
-          <div className="col-md-2">
-            <div className="wc-controls">
-              <a href="javascript:void(0)" className="left">
-                <span></span>
-              </a>
-              <a href="javascript:void(0)" className="right">
-                <span></span>
-              </a>
-            </div>
-          </div> */}
           <div className="blog-carousel col-md-12 no-padding">
             <article className="type-post">
               <div className="col-md-4 latest-blog__thumb-col">
                 <div className="entry-cover entry-cover--square">
-                  <Link to={`/blog/post/${latestPost.id}`}>
+                  <Link to={`/blog/post/${latestPost.id}`} className="img-hover-zoom">
                     <img src={latestPost.img} alt="Blog" />
                   </Link>
                 </div>

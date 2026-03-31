@@ -8,7 +8,7 @@ function LatestPostsWidget({ posts }) {
       <h3 className="widget-title">{t('latestPosts')}</h3>
       {posts.map((item) => (
         <div key={item.id} className="latestpost-content">
-          <Link to={item.id !== undefined ? `/blog/post/${item.id}` : '#'} title={t('coverTitle')}>
+          <Link to={item.id !== undefined ? `/blog/post/${item.id}` : '#'} title={t('coverTitle')} className="img-hover-zoom">
             <img src={item.img} alt={t('postAlt')} />
           </Link>
           <h3>

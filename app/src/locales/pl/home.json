@@ -1,14 +1,30 @@
 {
   "slider": {
-    "title": "Pomysły kształtują prawdziwy bieg",
-    "subtitle": "historii",
+    "slides": [
+      {
+        "title": "Zatrzymany czas,",
+        "subtitle": "Niewypowiedziane historie."
+      },
+      {
+        "title": "Odkryj to, co przez lata",
+        "subtitle": "pozostawało w cieniu."
+      },
+      {
+        "title": "Pomysły kształtują prawdziwy bieg",
+        "subtitle": "historii"
+      },
+      {
+        "title": "Pomysły kształtują prawdziwy bieg",
+        "subtitle": "historii"
+      }
+    ],
     "cta": "CO U NAS",
     "since": "zał."
   },
   "welcome": {
     "welcomeTo": "Witamy w",
     "title": "Pałacu w Roszkowicach",
-    "text": "Pałac w Roszkowicach powstał w połowie XIX wieku jako siedziba rodu von Cramon-Taubadel.\nPrzez dekady był centrum życia majątku — miejscem pracy, spotkań i wydarzeń rodzinnych.\n\nPo wojnie budynek pełnił różne funkcje użytkowe, stopniowo tracąc swój reprezentacyjny charakter.\nDziś trwa jego renowacja, której celem jest zachowanie zabytku i przywrócenie historycznego wyglądu.\n\nZapraszamy do poznania historii miejsca, ludzi i architektury, które tworzyły ten pałac przez blisko 180 lat.",
+    "text": "Pałac w Roszkowicach to perła XIX-wiecznej architektury, która przez stulecia stanowiła serce tętniącego życiem majątku ziemskiego. Od ziem będących własnością wrocławskich biskupów, po zniszczenia dokonane przez hordę tatarską, przez wielką bitwę pod Byczyną, aż po czasy świetności rodu von Cramon-Taubadel — ziemia ta i mury skrywają fascynujące historie, które ukształtowały tożsamość regionu.\n\nDziś, po latach zapomnienia, pałac przechodzi gruntowną renowację. Przywracamy blask zabytkowego charakteru i dbamy o każdy detal, by to wyjątkowe miejsce znów mogło zachwycać swoim eklektycznym stylem.",
     "readMore": "Czytaj więcej",
     "altWinter": "Pałac Roszkowice zimą",
     "alt": "Pałac Roszkowice"

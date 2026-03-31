@@ -3,14 +3,9 @@ import ContentBlockLink from "./ContentBlockLink";
 
 const slides = [
   {
-    img: "/images/roszkowice/zewn/pionowa_zima.jpg",
-    altKey: "welcome.altWinter",
-    active: true,
-  },
-  {
     img: "/images/roszkowice/zewn/pionowe.jpg",
     altKey: "welcome.alt",
-    active: false,
+    active: true,
   },
 ];
 
@@ -43,12 +38,6 @@ function WelcomeSection() {
                 >
                   <div className="col-md-6 col-sm-6 content-block">
                     <p>{t("welcome.text")}</p>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                      ullamco laboris.
-                    </p>
                     <ContentBlockLink to="/about" title={t("welcome.readMore")}>
                       {t("welcome.readMore")}
                     </ContentBlockLink>
@@ -70,7 +59,7 @@ function WelcomeSection() {
                 </div>
               ))}
             </div>
-            <div className="wc-controls">
+            {/* <div className="wc-controls">
               <a
                 className="left carousel-control"
                 href="#welcome-carousel"
@@ -87,7 +76,7 @@ function WelcomeSection() {
               >
                 <span></span>
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

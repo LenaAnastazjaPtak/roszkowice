@@ -8,6 +8,9 @@
 .welcome-section .carousel .carousel-inner {
 	padding-bottom: 20px;
 }
+.welcome-section .content-block {
+	padding-right: 50px;
+}
 .welcome-section .content-block p {
 	color: var(--color-text-placeholder);
 	line-height: 26px;

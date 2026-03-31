@@ -203,6 +203,7 @@ function GallerySection({ standalone = false }) {
             >
               <a
                 href={item.src}
+                className="img-hover-zoom"
                 onClick={(e) => {
                   e.preventDefault();
                   setSelectedIndex(index);

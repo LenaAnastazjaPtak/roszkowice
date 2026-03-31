@@ -33,7 +33,7 @@ function Footer() {
           </div>
           <div className="col-md-2 col-sm-6 col-xs-6">
             <aside className="ftr-widget widget_link">
-              <h3 className="widget-title">{t('footer.resources')}</h3>
+              <h3 className="widget-title" style={{ visibility: 'hidden' }}>{t('footer.resources')}</h3>
               <ul>
                 <li><Link to="/terms" title={t('footer.terms')} onClick={scrollToTop}>{t('footer.terms')}</Link></li>
                 <li><Link to="/privacy-policy" title={t('footer.privacy')} onClick={scrollToTop}>{t('footer.privacy')}</Link></li>

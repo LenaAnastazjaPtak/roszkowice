@@ -239,6 +239,9 @@
 		font-size: 11px !important;
 		line-height: 1.4 !important;
 	}
+	.welcome-section .content-block {
+		padding-right: 15px;
+	}
 	.welcome-section .img-block { 
 		margin-top: 50px;
 		text-align: center;

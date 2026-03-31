@@ -1,14 +1,30 @@
 {
   "slider": {
-    "title": "Ideas shape the true course",
-    "subtitle": "of history",
+    "slides": [
+      {
+        "title": "Frozen in time,",
+        "subtitle": "Untold stories."
+      },
+      {
+        "title": "Discover what for years",
+        "subtitle": "remained in the shadows."
+      },
+      {
+        "title": "Ideas shape the true course",
+        "subtitle": "of history"
+      },
+      {
+        "title": "Ideas shape the true course",
+        "subtitle": "of history"
+      }
+    ],
     "cta": "WHAT WE OFFER",
     "since": "est."
   },
   "welcome": {
     "welcomeTo": "Welcome to",
     "title": "Roszkowice Palace",
-    "text": "The palace in Roszkowice was built in the mid-19th century as the seat of the von Cramon-Taubadel family.\nFor decades it was the centre of estate life — a place of work, meetings and family events.\n\nAfter the war the building served various utilitarian functions, gradually losing its representative character.\nToday it is under renovation, aimed at preserving the monument and restoring its historical appearance.\n\nWe invite you to discover the history of the place, the people and the architecture that have shaped this palace for nearly 180 years.",
+    "text": "Roszkowice Palace is a gem of 19th-century architecture that for centuries served as the heart of a thriving landed estate. From lands owned by the bishops of Wrocław, through the devastation wrought by the Tatar horde and the great Battle of Byczyna, to the golden age of the von Cramon-Taubadel family — this land and these walls conceal fascinating stories that shaped the identity of the region.\n\nToday, after years of neglect, the palace is undergoing a thorough renovation. We are restoring the splendour of its historic character, caring for every detail so that this exceptional place can once again captivate with its eclectic style.",
     "readMore": "Read more",
     "altWinter": "Roszkowice Palace in winter",
     "alt": "Roszkowice Palace"

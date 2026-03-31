@@ -11,6 +11,8 @@ const SLIDER_IMAGES = [
 
 const slideData = SLIDER_IMAGES.map((filename, i) => ({
   img: `/images/roszkowice/slider/${filename}`,
+  titleKey: `slider.slides.${i}.title`,
+  subtitleKey: `slider.slides.${i}.subtitle`,
   layerIds: [
     `slide-layer-${i * 4 + 1}`,
     `slide-layer-${i * 4 + 2}`,
@@ -125,7 +127,7 @@ const layerAttrs = {
       x: "['center','center','center','center']",
       hoffset: "['0','0','0','0']",
       y: "['middle','middle','middle','middle']",
-      voffset: "['-90','-90','-90','-90']",
+      voffset: "['-150','-150','-150','-150']",
       fontsize: "['20','60','60','60']",
       lineheight: "['70','70','70','90']",
       width: "none",
@@ -283,7 +285,7 @@ function SliderSection() {
                   {...dataAttrs(layerAttrs.title.data)}
                   style={layerAttrs.title.style}
                 >
-                  {t("slider.title")}
+                  {t(slide.titleKey)}
                 </div>
                 <div
                   id={slide.layerIds[1]}
@@ -291,7 +293,7 @@ function SliderSection() {
                   {...dataAttrs(layerAttrs.subTitle.data)}
                   style={layerAttrs.subTitle.style}
                 >
-                  {t("slider.subtitle")}
+                  {t(slide.subtitleKey)}
                 </div>
                 <div
                   id={slide.layerIds[2]}
@@ -317,11 +319,28 @@ function SliderSection() {
                   {...dataAttrs(layerAttrs.icon.data)}
                   style={layerAttrs.icon.style}
                 >
-                  <span>
-                    {t("slider.since")}
-                    <img src="/images/roszkowice/other/slider.png" alt="slider" />
-                    1845
-                  </span>
+                  <svg
+                    viewBox="0 0 400 120"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="arc-text-svg"
+                  >
+                    <defs>
+                      <path
+                        id={`arcPath-${slide.layerIds[3]}`}
+                        d="M 10,100 Q 200,0 390,100"
+                        fill="none"
+                      />
+                    </defs>
+                    <text>
+                      <textPath
+                        href={`#arcPath-${slide.layerIds[3]}`}
+                        startOffset="50%"
+                        textAnchor="middle"
+                      >
+                        PAŁAC ROSZKOWICE
+                      </textPath>
+                    </text>
+                  </svg>
                 </div>
               </li>
             ))}

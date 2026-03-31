@@ -38,9 +38,16 @@
 	background-color: var(--color-white);
 	color: var(--color-black);
 }
-.slider-section .icon-img > span > img{
-	padding: 0 20px;
-	margin-top: -16px;
+.slider-section .icon-img .arc-text-svg {
+	width: 500px;
+	height: auto;
+}
+.slider-section .icon-img .arc-text-svg text {
+	fill: var(--color-white);
+	font-family: 'Playfair Display', serif;
+	font-size: 28px;
+	font-weight: 400;
+	letter-spacing: 6px;
 }
 .slider-section .uranus.tparrows {
     background-color: var(--color-overlay-white-90);
