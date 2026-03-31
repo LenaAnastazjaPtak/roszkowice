@@ -3,7 +3,7 @@ import ContentBlockLink from "./ContentBlockLink";
 
 const slides = [
   {
-    img: "/images/roszkowice/zewn/pionowe.jpg",
+    img: "/images/roszkowice/zewn/pionowa_zima.jpg",
     altKey: "welcome.alt",
     active: true,
   },
@@ -38,7 +38,7 @@ function WelcomeSection() {
                 >
                   <div className="col-md-6 col-sm-6 content-block">
                     <p>{t("welcome.text")}</p>
-                    <ContentBlockLink to="/about" title={t("welcome.readMore")}>
+                    <ContentBlockLink to="/history" title={t("welcome.readMore")}>
                       {t("welcome.readMore")}
                     </ContentBlockLink>
                   </div>

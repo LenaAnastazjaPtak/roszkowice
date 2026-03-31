@@ -4,56 +4,73 @@ import ContentBlockLink from "../components/ContentBlockLink";
 
 function HistoryPage() {
   const { t } = useTranslation("history");
+  const section1 = t("section1", { returnObjects: true });
+  const section2 = t("section2", { returnObjects: true });
 
   return (
     <>
       <PageBanner
         title={t("title")}
-        image="/images/roszkowice/park/IMG_0345.jpg"
+        image="/images/roszkowice/remont/20231011_135743.jpg"
       />
       <div className="container-fluid no-padding welcome-section2">
         <div className="container">
-          <div className="row">
-            <div className="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 content-block">
+          <div className="row" style={{ display: "flex", alignItems: "center", flexWrap: "wrap" }}>
+            <div className="col-md-6 col-sm-6 content-block">
               <div className="section-header2">
                 <span>{t("intro.sectionLabel")}</span>
                 <h2>{t("intro.heading")}</h2>
               </div>
-              <p>{t("intro.paragraph1")}</p>
-              <p>{t("intro.paragraph2")}</p>
+              <p>{t("welcome.text", { ns: "home" })}</p>
+            </div>
+            <div className="col-md-6 col-sm-6 img-block">
+              <i>
+                <img
+                  src="/images/roszkowice/zewn/palac_dawniej.jpg"
+                  alt={t("intro.heading")}
+                  style={{ width: "100%", height: "400px", objectFit: "cover" }}
+                />
+              </i>
             </div>
           </div>
         </div>
       </div>
-      <div className="container-fluid no-padding onview-section">
+      <div className="container-fluid no-padding onview-section onview-section--compact">
+        <div className="container" style={{ display: "flex", alignItems: "center", flexWrap: "wrap" }}>
+          <div className="col-md-5 col-sm-5 col-xs-12 img-block">
+            <img
+              src="/images/roszkowice/zewn/pocztowki.jpg"
+              alt={t("title")}
+              style={{ width: "100%", height: "400px", objectFit: "cover" }}
+            />
+          </div>
+          <div className="col-md-7 col-sm-7 col-xs-12 onview-content">
+            {section1.map((text, i) => (
+              <p key={i}>{text}</p>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div className="container-fluid no-padding welcome-section2">
         <div className="container">
-          <div className="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 onview-content">
-            <div className="section-header">
-              <div className="section-title-border">
-                <span>{t("timeline.sectionLabel")}</span>
-                <h2>{t("timeline.heading")}</h2>
-              </div>
+          <div className="row" style={{ display: "flex", alignItems: "center", flexWrap: "wrap" }}>
+            <div className="col-md-6 col-sm-6 content-block">
+              {section2.map((text, i) => (
+                <p key={i}>{text}</p>
+              ))}
+              <ContentBlockLink to="/about" title={t("seeAbout")}>
+                {t("seeAbout")}
+              </ContentBlockLink>
             </div>
-            <div className="history-timeline">
-              <div className="history-period">
-                <h4>{t("timeline.period1.year")}</h4>
-                <h3>{t("timeline.period1.title")}</h3>
-                <p>{t("timeline.period1.description")}</p>
-              </div>
-              <div className="history-period">
-                <h4>{t("timeline.period2.year")}</h4>
-                <h3>{t("timeline.period2.title")}</h3>
-                <p>{t("timeline.period2.description")}</p>
-              </div>
-              <div className="history-period">
-                <h4>{t("timeline.period3.year")}</h4>
-                <h3>{t("timeline.period3.title")}</h3>
-                <p>{t("timeline.period3.description")}</p>
-              </div>
+            <div className="col-md-6 col-sm-6 img-block">
+              <i>
+                <img
+                  src="/images/roszkowice/zewn/jesien.jpg"
+                  alt={t("title")}
+                  style={{ width: "100%", height: "400px", objectFit: "cover" }}
+                />
+              </i>
             </div>
-            <ContentBlockLink to="/about" title={t("seeAbout")}>
-              {t("seeAbout")}
-            </ContentBlockLink>
           </div>
         </div>
       </div>

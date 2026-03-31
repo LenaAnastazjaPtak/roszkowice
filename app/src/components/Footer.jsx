@@ -26,18 +26,20 @@ function Footer() {
               <ul>
                 <li><Link to="/about" title={t('footer.aboutLink')} onClick={scrollToTop}>{t('footer.aboutLink')}</Link></li>
                 <li><Link to="/history" title={t('footer.history')} onClick={scrollToTop}>{t('footer.history')}</Link></li>
-                <li><Link to="/gallery" title={t('footer.gallery')} onClick={scrollToTop}>{t('footer.gallery')}</Link></li>
-                <li><a href="#" title={t('footer.camera')}>{t('footer.camera')}</a></li>
+                {/* <li><Link to="/gallery" title={t('footer.gallery')} onClick={scrollToTop}>{t('footer.gallery')}</Link></li> */}
+                {/* <li><Link to="/blog" title={t('footer.blog')} onClick={scrollToTop}>{t('footer.blog')}</Link></li> */}
                 <li><Link to="/contact" title={t('footer.contact')} onClick={scrollToTop}>{t('footer.contact')}</Link></li>
               </ul>
             </aside>
           </div>
           <div className="col-md-2 col-sm-6 col-xs-6">
             <aside className="ftr-widget widget_link">
-              <h3 className="widget-title" style={{ visibility: 'hidden' }}>{t('footer.resources')}</h3>
+              <h3 className="widget-title">{t('footer.resources')}</h3>
               <ul>
                 <li><Link to="/terms" title={t('footer.terms')} onClick={scrollToTop}>{t('footer.terms')}</Link></li>
                 <li><Link to="/privacy-policy" title={t('footer.privacy')} onClick={scrollToTop}>{t('footer.privacy')}</Link></li>
+                <li><a href="#" title={t('footer.camera')}>{t('footer.camera')}</a></li>
+
               </ul>
             </aside>
           </div>

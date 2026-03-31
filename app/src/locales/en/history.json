@@ -2,28 +2,18 @@
   "title": "History",
   "intro": {
     "sectionLabel": "History",
-    "heading": "The story of Palace Roszkowice",
-    "paragraph1": "The history of Palace Roszkowice dates back to the 19th century, when the residence was built as the seat of a local noble family. For decades, the palace served as the centre of social and cultural life in the surrounding lands.",
-    "paragraph2": "During its prosperous years, the estate was surrounded by an extensive landscape park, and the palace hosted members of neighbouring families and was a vibrant social gathering place."
+    "heading": "The story of Palace Roszkowice"
   },
-  "timeline": {
-    "sectionLabel": "Timeline",
-    "heading": "Key events",
-    "period1": {
-      "year": "19th century",
-      "title": "Construction of the palace",
-      "description": "A manor residence built as a family seat, surrounded by a landscape park."
-    },
-    "period2": {
-      "year": "1945",
-      "title": "Post-war changes",
-      "description": "After the war the palace changed functions — it served as a state farm headquarters and gradually fell into disrepair."
-    },
-    "period3": {
-      "year": "Present day",
-      "title": "Restoration and renovation",
-      "description": "Renovation work has begun to restore the palace to its former glory and open it to visitors."
-    }
-  },
+  "section1": [
+    "Roszkowice is a village of medieval origin. The first mentions of a settlement on the site of the present-day village date from 1231. Initially the village was the property of the bishops of Wrocław and later of the dukes of Brzeg. Under unknown circumstances, the settlement passed into the hands of knightly families. In 1241 it was plundered and destroyed by the Tatar horde. At the turn of the 13th and 14th centuries, the ruined village was rebuilt and resettled.",
+    "During the time the estate was held by the Frankenberg family, in 1588 the famous Battle of Byczyna took place in Roszkowice, in which Hetman Jan Zamoyski attacked the forces of Archduke Maximilian of Habsburg. The battle unfolded within the bounds of Roszkowice and then shifted westward to the defensive walls of Byczyna. As a result of the battle, Roszkowice was burned and its reconstruction dragged on for years.",
+    "At the end of the 18th century the estate in Roszkowice belonged to Major von Kleist. In 1791 the owner built a farmstead near Roszkowice called Albertmenhof in honour of his wife Albertyna von Kleist. From the 18th century onward the owners of Roszkowice changed many times; among them were Germans and most likely Germanised Poles. In 1842 von Falkenheyn sold the Roszkowice estate to Landrat Wilhelm von Taubadel, who passed the property to his daughter Katharine and son-in-law Friedrich Hans von Cramon. Hans von Cramon joined the family in 1882 and, with official approval, adopted the Taubadel family name in 1896; from that time the estate owners bore the name von Cramon-Taubadel."
+  ],
+  "section2": [
+    "The palace was built in 1845 on the commission of Landrat Wilhelm von Taubadel. For 100 years it remained the residence of the Taubadel family, who from the end of the 19th century bore the double surname von Cramon–Taubadel. The palace was remodelled in 1914 by Bertram von Cramon–Taubadel. After the remodelling the palace acquired an eclectic character with Renaissance, Mannerist and Classicist features.",
+    "At that time a distillery and a cooperative dairy operated here, in which the estate owner held shares. Horses were bred, as well as Red Silesian and Oldenburg cattle, and pigs were raised. In the early 20th century the estate slightly expanded its acreage to 1 567 ha. Besides the distillery and cooperative dairy, a brickworks and lime kilns were in operation. Horses, Red Silesian cattle and an improved breed of domestic pigs were raised; cultivation at that time focused on rapeseed and beet. The owner remained Bertram von Cramon-Taubadel, at that time a cavalry captain in the reserve of the 1st Bodyguard Regiment, county deputy and head of the District Office.",
+    "After 1945 the palace, together with the rest of the estate, was nationalised and placed under the management of the State Agricultural Enterprise Roszkowice. The palace housed workers' flats and PGR offices, guest rooms and a kindergarten. There were also medical surgeries and a café.",
+    "Today we are the owners and we continue writing the history of this place."
+  ],
   "seeAbout": "Learn more about us"
 }

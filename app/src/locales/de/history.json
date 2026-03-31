@@ -2,28 +2,18 @@
   "title": "Geschichte",
   "intro": {
     "sectionLabel": "Geschichte",
-    "heading": "Die Geschichte des Schlosses Roszkowice",
-    "paragraph1": "Die Geschichte des Schlosses Roszkowice reicht bis ins 19. Jahrhundert zurück, als die Residenz als Sitz einer lokalen Adelsfamilie errichtet wurde. Über Jahrzehnte hinweg war das Schloss das Zentrum des gesellschaftlichen und kulturellen Lebens in der Umgebung.",
-    "paragraph2": "In der Blütezeit war das Anwesen von einem weitläufigen Landschaftspark umgeben, und das Schloss empfing Vertreter benachbarter Familien und war ein lebendiger Treffpunkt."
+    "heading": "Die Geschichte des Schlosses Roszkowice"
   },
-  "timeline": {
-    "sectionLabel": "Zeitleiste",
-    "heading": "Wichtige Ereignisse",
-    "period1": {
-      "year": "19. Jahrhundert",
-      "title": "Bau des Schlosses",
-      "description": "Ein Herrenhaus als Familiensitz erbaut, umgeben von einem Landschaftspark."
-    },
-    "period2": {
-      "year": "1945",
-      "title": "Nachkriegsveränderungen",
-      "description": "Nach dem Krieg wechselte das Schloss seine Funktion — es diente als Staatsgut und verfiel nach und nach."
-    },
-    "period3": {
-      "year": "Gegenwart",
-      "title": "Restaurierung und Renovierung",
-      "description": "Die Renovierungsarbeiten haben begonnen, um das Schloss in seinem früheren Glanz erstrahlen zu lassen und für Besucher zu öffnen."
-    }
-  },
+  "section1": [
+    "Roszkowice ist ein Dorf mittelalterlichen Ursprungs. Die ersten Erwähnungen einer Siedlung an der Stelle des heutigen Dorfes stammen aus dem Jahr 1231. Ursprünglich war das Dorf Eigentum der Breslauer Bischöfe und später der Herzöge von Brieg. Unter unbekannten Umständen gelangte die Siedlung in den Besitz von Ritterfamilien. Im Jahr 1241 wurde sie von der Tatarenhorde geplündert und zerstört. An der Wende vom 13. zum 14. Jahrhundert wurde das zerstörte Dorf wiederaufgebaut und neu besiedelt.",
+    "Zur Zeit der Herrschaft der Familie Frankenberg fand 1588 in Roszkowice die berühmte Schlacht bei Byczyna statt, in der Hetman Jan Zamoyski die Truppen von Erzherzog Maximilian von Habsburg angriff. Die Schlacht entfaltete sich im Gebiet von Roszkowice und verlagerte sich dann westwärts zu den Befestigungsmauern von Byczyna. Infolge der Schlacht wurde Roszkowice niedergebrannt, und der Wiederaufbau zog sich über Jahre hin.",
+    "Ende des 18. Jahrhunderts gehörte das Gut in Roszkowice Major von Kleist. 1791 errichtete der Eigentümer in der Nähe von Roszkowice ein Vorwerk namens Albertmenhof zu Ehren seiner Frau Albertyna von Kleist. Ab dem 18. Jahrhundert wechselten die Besitzer von Roszkowice mehrfach; unter ihnen waren Deutsche und vermutlich auch germanisierte Polen. 1842 verkaufte von Falkenheyn das Gut Roszkowice an Landrat Wilhelm von Taubadel, der den Besitz an seine Tochter Katharine und seinen Schwiegersohn Friedrich Hans von Cramon weitergab. Hans von Cramon heiratete 1882 in die Familie ein und übernahm 1896 mit behördlicher Genehmigung den Familiennamen Taubadel; seitdem trugen die Gutsbesitzer den Namen von Cramon-Taubadel."
+  ],
+  "section2": [
+    "Das Schloss wurde 1845 im Auftrag von Landrat Wilhelm von Taubadel erbaut. 100 Jahre lang blieb es der Wohnsitz der Familie Taubadel, die seit Ende des 19. Jahrhunderts den Doppelnamen von Cramon–Taubadel trug. 1914 wurde das Schloss von Bertram von Cramon–Taubadel umgebaut. Nach dem Umbau erhielt das Schloss einen eklektischen Charakter mit Renaissance-, manieristischen und klassizistischen Merkmalen.",
+    "Zu dieser Zeit waren hier eine Brennerei und eine genossenschaftliche Molkerei in Betrieb, an der der Gutsbesitzer Anteile hielt. Es wurden Pferde sowie Rotes Schlesisches und Oldenburger Rind gezüchtet und Schweine gehalten. Anfang des 20. Jahrhunderts vergrößerte das Gut seine Fläche geringfügig auf 1 567 ha. Neben der Brennerei und der genossenschaftlichen Molkerei waren eine Ziegelei und Kalköfen in Betrieb. Gezüchtet wurden Pferde, Rotes Schlesisches Rind und eine veredelte Landschweinrasse; der Anbau war zu dieser Zeit auf Raps und Rüben ausgerichtet. Eigentümer blieb Bertram von Cramon-Taubadel, zu dieser Zeit Rittmeister der Reserve des 1. Leibgarde-Regiments, Kreisdeputierter und Amtsvorsteher.",
+    "Nach 1945 wurde das Schloss zusammen mit dem übrigen Besitz verstaatlicht und der Verwaltung des Staatlichen Landwirtschaftsbetriebs Roszkowice unterstellt. Im Schloss befanden sich Arbeiterwohnungen und Büros des Staatsbetriebs, Gästezimmer und ein Kindergarten. Es gab dort auch Arztpraxen und ein Café.",
+    "Heute sind wir die Eigentümer und schreiben die Geschichte dieses Ortes weiter."
+  ],
   "seeAbout": "Mehr über uns erfahren"
 }

@@ -38,11 +38,31 @@
 	background-color: var(--color-white);
 	color: var(--color-black);
 }
-.slider-section .icon-img .arc-text-svg {
+@keyframes arcTitleFadeIn {
+	from {
+		opacity: 0;
+		transform: translateX(-50%) translateY(12px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(-50%) translateY(0);
+	}
+}
+.slider-arc-title {
+	position: absolute;
+	top: 18%;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 10;
+	pointer-events: none;
+	animation: arcTitleFadeIn 1.8s ease-out 1.5s both;
+}
+.slider-arc-title .arc-text-svg {
 	width: 500px;
 	height: auto;
+	display: block;
 }
-.slider-section .icon-img .arc-text-svg text {
+.slider-arc-title .arc-text-svg text {
 	fill: var(--color-white);
 	font-family: 'Playfair Display', serif;
 	font-size: 28px;

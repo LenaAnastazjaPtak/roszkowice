@@ -31,7 +31,7 @@ const parkFiles = [
 const remontFiles = [
   "2007%20(1).jpg",
   "2007%20(2).jpg",
-  "2007%20(4).jpg",
+  "old.jpg",
   "2007%20(5).jpg",
   "2014%20(1).JPG",
   "20230716_134946.jpg",

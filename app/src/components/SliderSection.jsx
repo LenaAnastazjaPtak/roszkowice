@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 const SLIDER_IMAGES = [
+  "sliderFirst.jpg",
   "DSC09468.JPG",
   "kopula.jpg",
   "zima.jpg",
-  "DJI_0520.JPG",
+  // "DJI_0520.JPG",
 ];
 
 const slideData = SLIDER_IMAGES.map((filename, i) => ({
@@ -14,10 +15,9 @@ const slideData = SLIDER_IMAGES.map((filename, i) => ({
   titleKey: `slider.slides.${i}.title`,
   subtitleKey: `slider.slides.${i}.subtitle`,
   layerIds: [
-    `slide-layer-${i * 4 + 1}`,
-    `slide-layer-${i * 4 + 2}`,
-    `slide-layer-${i * 4 + 3}`,
-    `slide-layer-${i * 4 + 4}`,
+    `slide-layer-${i * 3 + 1}`,
+    `slide-layer-${i * 3 + 2}`,
+    `slide-layer-${i * 3 + 3}`,
   ],
 }));
 
@@ -119,43 +119,6 @@ const layerAttrs = {
       responsive_offset: "on",
     },
     style: { zIndex: 6, position: "relative" },
-  },
-  icon: {
-    className:
-      "tp-caption NotGeneric-Icon tp-resizeme rs-parallaxlevel-1 icon-img",
-    data: {
-      x: "['center','center','center','center']",
-      hoffset: "['0','0','0','0']",
-      y: "['middle','middle','middle','middle']",
-      voffset: "['-150','-150','-150','-150']",
-      fontsize: "['20','60','60','60']",
-      lineheight: "['70','70','70','90']",
-      width: "none",
-      height: "none",
-      whitespace: "nowrap",
-      transform_idle: "o:1;",
-      style_hover: "cursor:default;",
-      transform_in:
-        "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power4.easeInOut;",
-      transform_out:
-        "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
-      mask_in: "x:0px;y:[100%];s:inherit;e:inherit;",
-      mask_out: "x:inherit;y:inherit;s:inherit;e:inherit;",
-      start: "2000",
-      splitin: "none",
-      splitout: "none",
-      responsive_offset: "on",
-    },
-    style: {
-      zIndex: 7,
-      whiteSpace: "nowrap",
-      fontWeight: 500,
-      color: "#fff",
-      letterSpacing: "1.4px",
-      fontFamily: "'Poppins', sans-serif",
-      textTransform: "uppercase",
-      lineHeight: "30px",
-    },
   },
 };
 
@@ -313,39 +276,30 @@ function SliderSection() {
                     {t("slider.cta")}
                   </Link>
                 </div>
-                <div
-                  id={slide.layerIds[3]}
-                  className={layerAttrs.icon.className}
-                  {...dataAttrs(layerAttrs.icon.data)}
-                  style={layerAttrs.icon.style}
-                >
-                  <svg
-                    viewBox="0 0 400 120"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="arc-text-svg"
-                  >
-                    <defs>
-                      <path
-                        id={`arcPath-${slide.layerIds[3]}`}
-                        d="M 10,100 Q 200,0 390,100"
-                        fill="none"
-                      />
-                    </defs>
-                    <text>
-                      <textPath
-                        href={`#arcPath-${slide.layerIds[3]}`}
-                        startOffset="50%"
-                        textAnchor="middle"
-                      >
-                        PAŁAC ROSZKOWICE
-                      </textPath>
-                    </text>
-                  </svg>
-                </div>
               </li>
             ))}
           </ul>
         </div>
+      </div>
+      <div className="slider-arc-title" aria-hidden="true">
+        <svg
+          viewBox="0 0 400 120"
+          xmlns="http://www.w3.org/2000/svg"
+          className="arc-text-svg"
+        >
+          <defs>
+            <path id="arcPath-overlay" d="M 10,100 Q 200,0 390,100" fill="none" />
+          </defs>
+          <text>
+            <textPath
+              href="#arcPath-overlay"
+              startOffset="50%"
+              textAnchor="middle"
+            >
+              PAŁAC ROSZKOWICE
+            </textPath>
+          </text>
+        </svg>
       </div>
       <span className="goto-next">
         <a

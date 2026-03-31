@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 import YouTubeEmbed from "../components/YouTubeEmbed";
 import PageBanner from "../components/PageBanner";
 import ContentBlockLink from "../components/ContentBlockLink";
+import OnviewSection from "../components/OnviewSection";
 
 function AboutPage() {
   const { t } = useTranslation("about");
@@ -29,7 +30,7 @@ function AboutPage() {
             <div className="col-md-6 col-sm-6 img-block">
               <i>
                 <img
-                  src="/images/roszkowice/logo_with_transparent_background.png"
+                  src="/images/roszkowice/zewn/pionowa_zima.jpg"
                   alt={t("welcome.imgAlt")}
                   style={{
                     maxWidth: "100%",
@@ -42,28 +43,7 @@ function AboutPage() {
           </div>
         </div>
       </div>
-      <div className="container-fluid no-padding onview-section">
-        <div className="container">
-          <div className="col-md-5 col-sm-5 col-xs-12 img-block">
-            <img
-              src="/images/roszkowice/zewn/pionowe.jpg"
-              alt={t("onview.imgAlt")}
-              style={{ width: "100%", height: "auto", objectFit: "cover" }}
-            />
-          </div>
-          <div className="col-md-7 col-sm-7 col-xs-12 onview-content">
-            <div className="section-header">
-              <div className="section-title-border">
-                <span>{t("onview.sectionLabel")}</span>
-                <h2>{t("onview.heading")}</h2>
-              </div>
-            </div>
-            <p>{t("onview.paragraph1")}</p>
-            <p>{t("onview.paragraph2")}</p>
-            <p>{t("onview.invite")}</p>
-          </div>
-        </div>
-      </div>
+      <OnviewSection />
       <YouTubeEmbed url="https://www.youtube.com/watch?v=gPcxPDInHqg" />
     </>
   );

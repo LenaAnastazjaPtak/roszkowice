@@ -2,28 +2,18 @@
   "title": "Historia",
   "intro": {
     "sectionLabel": "Historia",
-    "heading": "Dzieje Pałacu Roszkowice",
-    "paragraph1": "Historia Pałacu Roszkowice sięga XIX wieku, kiedy to rezydencja została wzniesiona jako siedziba lokalnego rodu ziemiańskiego. Przez kolejne dekady pałac pełnił funkcję centrum życia społecznego i kulturalnego okolicznych ziem.",
-    "paragraph2": "W okresie prosperity majątek otaczał rozległy park krajobrazowy, a pałac gościł przedstawicieli okolicznych rodów i był miejscem spotkań towarzyskich."
+    "heading": "Dzieje Pałacu Roszkowice"
   },
-  "timeline": {
-    "sectionLabel": "Oś czasu",
-    "heading": "Najważniejsze wydarzenia",
-    "period1": {
-      "year": "XIX wiek",
-      "title": "Budowa pałacu",
-      "description": "Rezydencja ziemiańska wzniesiona jako siedziba rodowa, otoczona parkiem krajobrazowym."
-    },
-    "period2": {
-      "year": "1945",
-      "title": "Zmiany powojenne",
-      "description": "Po wojnie pałac zmienił funkcję — był kolejno siedzibą PGR, a następnie ulegał stopniowej degradacji."
-    },
-    "period3": {
-      "year": "Współcześnie",
-      "title": "Odbudowa i renowacja",
-      "description": "Rozpoczęcie prac renowacyjnych mających na celu przywrócenie pałacowi dawnego blasku i otwarcie go dla zwiedzających."
-    }
-  },
+  "section1": [
+    "Roszkowice to wieś o średniowiecznej metryce. Pierwsze wzmianki o osadzie w miejscu dzisiejszej wsi pochodzą z roku 1231. Początkowo wieś była własnością biskupów wrocławskich, a następnie książąt brzeskich. W nieznanych okolicznościach osada przeszła w posiadanie rodów rycerskich. W roku 1241 osada ta została splądrowana i zniszczona przez hordę tatarską. Na przełomie XIII i XIV w. zniszczoną wieś odbudowano i na nowo zasiedlono.",
+    "W czasach władania majątkiem przez Frankenbergów w roku 1588 w Roszkowicach miała miejsce znana w historii bitwa pod Byczyną, w której Hetman Jan Zamojski zaatakował wojska arcyksięcia Maksymiliana Habsburga, rozegrał się w obrębie Roszkowic a następnie walka przesunęła się na zachód pod mury obronne Byczyny. W wyniku bitwy Roszkowice zostały spalone a odbudowa ciągnęła się przez kolejne lata.",
+    "W końcu XVIII w. majątek w Roszkowicach należał do Majora von Kleista. W roku 1791 właściciel wybudował w pobliżu Roszkowic folwark nazwany Albertmenhof na cześć żony Albertyny von Kleist. Od XVIII w. właściciele Roszkowic zmieniali się wielokrotnie, byli wśród nich Niemcy oraz prawdopodobnie zniemczeni Polacy. W 1842 roku von Falkenheyn sprzedał majętność Roszkowice landratowi Wilhelmowi von Taubadel, który przekazał posiadłość swojej córce Katharinie i zięciowi Fryderykowi Hans von Cramon. Hans von Cramon wszedł do rodziny w roku 1882 i za zgodą władz w 1896 r. przejął rodowe nazwisko Taubadel, od tego czasu właściciele majątku nosili nazwisko von Cramon -Taubadel."
+  ],
+  "section2": [
+    "Pałac zbudowany został w roku 1845 na zlecenie landrata Wilhelma von Taubadel. Przez 100 lat pozostawał rezydencją rodziny Taubadel noszącej od końca XIX w. podwójne nazwisko von Cramon –Taubadel. Pałac przebudowany w roku 1914 przez Bertrama von Cramon–Taubadel. Po przebudowie pałac nabył charakter eklektyczny z cechami renesansowymi, manierystycznymi i klasycystycznymi.",
+    "W tym czasie działała tu gorzelnia oraz spółdzielcza mleczarnia, w której właściciel majątku miał swoje udziały. Prowadzona była hodowla koni oraz bydła czerwonego śląskiego i oldenburskiego, a ponadto chów świń. W pocz. XX w. majątek nieznacznie powiększył swój areał do wielkości 1567 ha. Obok gorzelni i spółkowej mleczarni czynna była cegielnia i wapienniki. Hodowano konie, bydło czerwone śląskie i uszlachetnioną odmianę świń krajowych, uprawa w tym czasie nastawiona była na rzepak i buraki. Właścicielem nadal pozostawał Bertram von Cramon - Taubadel w tym czasie rotmistrz rezerwy Gwardii Przybocznej Regimentu nr 1, deputowany Powiatu i naczelnik Urzędu.",
+    "Po 1945 r. pałac wraz z resztą posiadłości został upaństwowiony i przekazany w zarząd Państwowemu Przedsiębiorstwu Rolnemu Roszkowice. W pałacu znajdowały się mieszkania pracownicze i biura PGR, pokoje gościnne oraz przedszkole. Były tam też gabinety lekarskie i kawiarnia.",
+    "Dziś właścicielami jesteśmy my i piszemy historię tego miejsca dalej."
+  ],
   "seeAbout": "Dowiedz się więcej o nas"
 }
