@@ -209,11 +209,6 @@ function GallerySection({ standalone = false }) {
                 }}
               >
                 <img src={item.src} alt="Roszkowice" />
-                <div className="portfolio-content">
-                  <i className="icon icon-Search"></i>
-                  <h3>{t("gallery.palace")}</h3>
-                  <span>{t("gallery.galleryLabel")}</span>
-                </div>
               </a>
             </div>
           ))}
