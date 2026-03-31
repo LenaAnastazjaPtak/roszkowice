@@ -37,7 +37,7 @@
 	padding-bottom: 110px;
 }
 .onview-content .section-header .section-title-border::before {
-	border-color: var(--color-border-mid);
+	display: none;
 }
 .onview-section .onview-content p {
 	color: var(--color-text-placeholder);
@@ -45,8 +45,7 @@
 	letter-spacing: 0.28px;
 }
 .onview-section .onview-content .content-block-link {
-	margin-top: 30px;
-	margin-bottom: 30px;
+	display: inline-block;
 }
 .onview-section .onview-content ul {
 	padding-left: 0;

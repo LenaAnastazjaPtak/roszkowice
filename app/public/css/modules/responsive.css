@@ -36,6 +36,10 @@
 	.onview-section .onview-content ul li:nth-child(3n+1) {
 		clear: both;
 	}
+	.onview-section .onview-content .content-block-link {
+		margin-top: 30px;
+		margin-bottom: 30px;
+	}
 	.client-section2 .client-carousel.owl-theme .owl-controls .owl-nav [class*="owl-"] {
 		position: absolute;
 		top: 50%;
@@ -271,6 +275,10 @@
 	.onview-section .onview-content {
 		padding-top: 30px;
 		padding-bottom: 30px;
+	}
+	.onview-section .onview-content .content-block-link {
+		margin-top: 30px;
+		margin-bottom: 30px;
 	}
 	.onview-section--compact .onview-content {
 		margin-top: 40px;
