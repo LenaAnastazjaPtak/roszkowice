@@ -58,8 +58,8 @@ function HistoryPage() {
               {section2.map((text, i) => (
                 <p key={i}>{text}</p>
               ))}
-              <ContentBlockLink to="/about" title={t("seeAbout")}>
-                {t("seeAbout")}
+              <ContentBlockLink to="/blog" title={t("seeBlog")}>
+                {t("seeBlog")}
               </ContentBlockLink>
             </div>
             <div className="col-md-6 col-sm-6 img-block">
