@@ -23,7 +23,9 @@ function OnviewSection({ showReadMore }) {
           </div>
           <p>{t("onview.paragraph1")}</p>
           <p>{t("onview.paragraph2")}</p>
-          <p>{t("onview.invite")}</p>
+          <p>{t("onview.paragraph3")}</p>
+          <p>{t("onview.paragraph4")}</p>
+          <p>{t("onview.paragraph5")}</p>
           {showReadMore && (
             <ContentBlockLink to="/about" title="Dowiedz się co u nas">
               DOWIEDZ SIĘ CO U NAS

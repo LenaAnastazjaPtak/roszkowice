@@ -13,7 +13,7 @@ function AboutPage() {
         title={t("title")}
         image="/images/roszkowice/park/IMG_0345.jpg"
       />
-      <div className="container-fluid no-padding welcome-section2">
+      {/* <div className="container-fluid no-padding welcome-section2">
         <div className="container">
           <div className="row">
             <div className="col-md-6 col-sm-6 content-block">
@@ -42,7 +42,7 @@ function AboutPage() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       <OnviewSection />
       <YouTubeEmbed url="https://www.youtube.com/watch?v=2OQFaQRg9-4" />
     </>
