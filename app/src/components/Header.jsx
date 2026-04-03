@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { scrollToTop } from "../shared/scrollToTop";
 
-const SCROLL_HEIGHT_STICKY = typeof window !== "undefined" ? window.innerHeight : 600;
+const SCROLL_HEIGHT_STICKY =
+  typeof window !== "undefined" ? window.innerHeight : 600;
 
 function Header() {
   const { t, i18n } = useTranslation("common");
@@ -17,7 +18,10 @@ function Header() {
   }, []);
 
   return (
-    <header id="header" className={`header-section container-fluid no-padding${sticky ? " navbar-fixed-top animated fadeInDown" : ""}`}>
+    <header
+      id="header"
+      className={`header-section container-fluid no-padding${sticky ? " navbar-fixed-top animated fadeInDown" : ""}`}
+    >
       <div className="top-header container-fluid no-padding">
         <div className="col-md-7 col-sm-12 col-xs-12 top-content no-padding">
           <a href="tel:+48795000596" className="header-phone-link">
@@ -134,12 +138,20 @@ function Header() {
                 </Link>
               </li>
               <li>
-                <Link to="/history" title={t("nav.history")} onClick={scrollToTop}>
+                <Link
+                  to="/history"
+                  title={t("nav.history")}
+                  onClick={scrollToTop}
+                >
                   {t("nav.history")}
                 </Link>
               </li>
               <li>
-                <Link to="/gallery" title={t("nav.gallery")} onClick={scrollToTop}>
+                <Link
+                  to="/gallery"
+                  title={t("nav.gallery")}
+                  onClick={scrollToTop}
+                >
                   {t("nav.gallery")}
                 </Link>
               </li>
@@ -160,11 +172,6 @@ function Header() {
                     </Link>
                   </li>
                   <li>
-                    <Link to="/terms" title={t('footer.terms')}>
-                      {t('footer.terms')}
-                    </Link>
-                  </li>
-                  <li>
                     <Link to="/privacy-policy" title={t('footer.privacy')}>
                       {t('footer.privacy')}
                     </Link>
@@ -177,7 +184,11 @@ function Header() {
                 </ul> */}
               </li>
               <li>
-                <Link to="/contact" title={t("nav.contact")} onClick={scrollToTop}>
+                <Link
+                  to="/contact"
+                  title={t("nav.contact")}
+                  onClick={scrollToTop}
+                >
                   {t("nav.contact")}
                 </Link>
               </li>

@@ -1,9 +1,9 @@
-import { Link } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
-import { scrollToTop } from '../shared/scrollToTop'
+import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { scrollToTop } from "../shared/scrollToTop";
 
 function Footer() {
-  const { t } = useTranslation('common')
+  const { t } = useTranslation("common");
 
   return (
     <footer className="footer-main container-fluid no-padding">
@@ -11,45 +11,118 @@ function Footer() {
         <div className="row">
           <div className="col-md-4 col-sm-6 col-xs-6">
             <aside className="ftr-widget widget_about">
-              <Link to="/" title="Logo" className="navbar-brand"><img src="/images/roszkowice/logo_with_transparent_background.png" alt="logo" style={{ maxWidth: '100px', height: '100px', objectFit: 'contain' }} /></Link>
-              <p>{t('footer.about')}</p>
+              <Link to="/" title="Logo" className="navbar-brand">
+                <img
+                  src="/images/roszkowice/logo_with_transparent_background.png"
+                  alt="logo"
+                  style={{
+                    maxWidth: "100px",
+                    height: "100px",
+                    objectFit: "contain",
+                  }}
+                />
+              </Link>
+              <p>{t("footer.about")}</p>
               <ul>
-                <li><a href="https://www.facebook.com/p/Pa%C5%82ac-Roszkowice-100084550065108/?locale=pl_PL" title="Facebook" target="_blank" rel="noopener noreferrer"><i className="fa fa-facebook"></i></a></li>
-                <li><a href="https://www.instagram.com/palac_roszkowice/" title="Instagram" target="_blank" rel="noopener noreferrer"><i className="fa fa-instagram"></i></a></li>
-                <li><a href="https://www.youtube.com/@PałacRoszkowice" title="YouTube" target="_blank" rel="noopener noreferrer"><i className="fa fa-youtube"></i></a></li>
+                <li>
+                  <a
+                    href="https://www.facebook.com/p/Pa%C5%82ac-Roszkowice-100084550065108/?locale=pl_PL"
+                    title="Facebook"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <i className="fa fa-facebook"></i>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.instagram.com/palac_roszkowice/"
+                    title="Instagram"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <i className="fa fa-instagram"></i>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.youtube.com/@PałacRoszkowice"
+                    title="YouTube"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <i className="fa fa-youtube"></i>
+                  </a>
+                </li>
               </ul>
             </aside>
           </div>
           <div className="col-md-3 col-sm-6 col-xs-6">
             <aside className="ftr-widget widget_link">
-              <h3 className="widget-title">{t('footer.info')}</h3>
+              <h3 className="widget-title">{t("footer.info")}</h3>
               <ul>
-                <li><Link to="/about" title={t('footer.aboutLink')} onClick={scrollToTop}>{t('footer.aboutLink')}</Link></li>
-                <li><Link to="/history" title={t('footer.history')} onClick={scrollToTop}>{t('footer.history')}</Link></li>
+                <li>
+                  <Link
+                    to="/about"
+                    title={t("footer.aboutLink")}
+                    onClick={scrollToTop}
+                  >
+                    {t("footer.aboutLink")}
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/history"
+                    title={t("footer.history")}
+                    onClick={scrollToTop}
+                  >
+                    {t("footer.history")}
+                  </Link>
+                </li>
                 {/* <li><Link to="/gallery" title={t('footer.gallery')} onClick={scrollToTop}>{t('footer.gallery')}</Link></li> */}
                 {/* <li><Link to="/blog" title={t('footer.blog')} onClick={scrollToTop}>{t('footer.blog')}</Link></li> */}
-                <li><Link to="/contact" title={t('footer.contact')} onClick={scrollToTop}>{t('footer.contact')}</Link></li>
+                <li>
+                  <Link
+                    to="/contact"
+                    title={t("footer.contact")}
+                    onClick={scrollToTop}
+                  >
+                    {t("footer.contact")}
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/privacy-policy"
+                    title={t("footer.privacy")}
+                    onClick={scrollToTop}
+                  >
+                    {t("footer.privacy")}
+                  </Link>
+                </li>
               </ul>
             </aside>
           </div>
-          <div className="col-md-2 col-sm-6 col-xs-6">
+          {/* <div className="col-md-2 col-sm-6 col-xs-6">
             <aside className="ftr-widget widget_link">
-              <h3 className="widget-title">{t('footer.resources')}</h3>
+              <h3 className="widget-title">{t("footer.resources")}</h3>
               <ul>
-                <li><Link to="/terms" title={t('footer.terms')} onClick={scrollToTop}>{t('footer.terms')}</Link></li>
-                <li><Link to="/privacy-policy" title={t('footer.privacy')} onClick={scrollToTop}>{t('footer.privacy')}</Link></li>
-                <li><a href="#" title={t('footer.camera')}>{t('footer.camera')}</a></li>
-
+                <li>
+                  <a href="#" title={t("footer.camera")}>
+                    {t("footer.camera")}
+                  </a>
+                </li>
               </ul>
             </aside>
-          </div>
+          </div> */}
         </div>
       </div>
       <div className="container-fluid no-padding copyright">
-        <p>{t('footer.copyright')} <i className="fa fa-copyright"></i> 2026</p>
+        <p>
+          {t("footer.copyright")} <i className="fa fa-copyright"></i> 2026
+        </p>
       </div>
     </footer>
-  )
+  );
 }
 
-export default Footer
+export default Footer;
