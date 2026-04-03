@@ -48,7 +48,7 @@ function Header() {
               </li>
               <li>
                 <a
-                  href="https://www.youtube.com/@ptasznik97"
+                  href="https://www.youtube.com/@PałacRoszkowice"
                   title="YouTube"
                   target="_blank"
                   rel="noopener noreferrer"

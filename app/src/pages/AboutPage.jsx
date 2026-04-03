@@ -44,7 +44,7 @@ function AboutPage() {
         </div>
       </div>
       <OnviewSection />
-      <YouTubeEmbed url="https://www.youtube.com/watch?v=gPcxPDInHqg" />
+      <YouTubeEmbed url="https://www.youtube.com/watch?v=2OQFaQRg9-4" />
     </>
   );
 }
