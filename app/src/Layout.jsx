@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Outlet } from 'react-router-dom'
+import { Outlet, ScrollRestoration } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import BackToTop from './components/BackToTop'
@@ -21,6 +21,7 @@ function Layout() {
 
   return (
     <div className="main-container">
+      <ScrollRestoration />
       <div id="site-loader" className="load-complete">
         <div className="loader">
           <div className="loader-inner ball-clip-rotate">

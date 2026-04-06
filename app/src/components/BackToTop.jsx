@@ -12,14 +12,14 @@ function BackToTop() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+  const goToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
     <button
       type="button"
       id="back-to-top"
       className={`back-to-top${visible ? " back-to-top-visible" : ""}`}
-      onClick={scrollToTop}
+      onClick={goToTop}
       aria-label="Przewiń do góry"
       aria-hidden={!visible}
     >

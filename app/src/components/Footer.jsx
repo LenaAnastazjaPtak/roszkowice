@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { scrollToTop } from "../shared/scrollToTop";
 
 function Footer() {
   const { t } = useTranslation("common");
@@ -62,40 +61,24 @@ function Footer() {
               <h3 className="widget-title">{t("footer.info")}</h3>
               <ul>
                 <li>
-                  <Link
-                    to="/about"
-                    title={t("footer.aboutLink")}
-                    onClick={scrollToTop}
-                  >
+                  <Link to="/about" title={t("footer.aboutLink")}>
                     {t("footer.aboutLink")}
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to="/history"
-                    title={t("footer.history")}
-                    onClick={scrollToTop}
-                  >
+                  <Link to="/history" title={t("footer.history")}>
                     {t("footer.history")}
                   </Link>
                 </li>
-                {/* <li><Link to="/gallery" title={t('footer.gallery')} onClick={scrollToTop}>{t('footer.gallery')}</Link></li> */}
-                {/* <li><Link to="/blog" title={t('footer.blog')} onClick={scrollToTop}>{t('footer.blog')}</Link></li> */}
+                {/* <li><Link to="/gallery" title={t('footer.gallery')}>{t('footer.gallery')}</Link></li> */}
+                {/* <li><Link to="/blog" title={t('footer.blog')}>{t('footer.blog')}</Link></li> */}
                 <li>
-                  <Link
-                    to="/contact"
-                    title={t("footer.contact")}
-                    onClick={scrollToTop}
-                  >
+                  <Link to="/contact" title={t("footer.contact")}>
                     {t("footer.contact")}
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to="/privacy-policy"
-                    title={t("footer.privacy")}
-                    onClick={scrollToTop}
-                  >
+                  <Link to="/privacy-policy" title={t("footer.privacy")}>
                     {t("footer.privacy")}
                   </Link>
                 </li>

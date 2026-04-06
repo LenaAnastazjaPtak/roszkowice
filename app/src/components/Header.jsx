@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { scrollToTop } from "../shared/scrollToTop";
 
 const SCROLL_HEIGHT_STICKY =
   typeof window !== "undefined" ? window.innerHeight : 600;
@@ -126,7 +125,7 @@ function Header() {
                 <span className="icon-bar"></span>
                 <span className="icon-bar"></span>
               </button>
-              <Link to="/" className="navbar-brand" onClick={scrollToTop}>
+              <Link to="/" className="navbar-brand">
                 <img
                   src="/images/roszkowice/logo_with_transparent_background.png"
                   alt="Logo"
@@ -146,34 +145,22 @@ function Header() {
                 </Link>
               </li> */}
                 <li>
-                  <Link
-                    to="/about"
-                    title={t("nav.about")}
-                    onClick={scrollToTop}
-                  >
+                  <Link to="/about" title={t("nav.about")}>
                     {t("nav.about")}
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to="/history"
-                    title={t("nav.history")}
-                    onClick={scrollToTop}
-                  >
+                  <Link to="/history" title={t("nav.history")}>
                     {t("nav.history")}
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to="/gallery"
-                    title={t("nav.gallery")}
-                    onClick={scrollToTop}
-                  >
+                  <Link to="/gallery" title={t("nav.gallery")}>
                     {t("nav.gallery")}
                   </Link>
                 </li>
                 <li>
-                  <Link to="/blog" title={t("nav.blog")} onClick={scrollToTop}>
+                  <Link to="/blog" title={t("nav.blog")}>
                     {t("nav.blog")}
                   </Link>
                   {/* <i className="ddl-switch fa fa-angle-down"></i>
@@ -201,11 +188,7 @@ function Header() {
                 </ul> */}
                 </li>
                 <li>
-                  <Link
-                    to="/contact"
-                    title={t("nav.contact")}
-                    onClick={scrollToTop}
-                  >
+                  <Link to="/contact" title={t("nav.contact")}>
                     {t("nav.contact")}
                   </Link>
                 </li>

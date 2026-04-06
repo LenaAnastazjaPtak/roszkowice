@@ -1,6 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./Layout";
-import ScrollToTop from "./components/ScrollToTop";
 import HomePage from "./pages/HomePage";
 import BlogPage from "./pages/BlogPage";
 import BlogSinglePage from "./pages/BlogSinglePage";
@@ -11,26 +10,27 @@ import AboutPage from "./pages/AboutPage";
 import HistoryPage from "./pages/HistoryPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      { index: true, element: <HomePage /> },
+      { path: "blog", element: <BlogPage /> },
+      { path: "blog/post/:id", element: <BlogSinglePage /> },
+      { path: "contact", element: <ContactPage /> },
+      { path: "about", element: <AboutPage /> },
+      { path: "history", element: <HistoryPage /> },
+      { path: "gallery", element: <GalleryPage /> },
+      { path: "privacy-policy", element: <PrivacyPolicyPage /> },
+      { path: "404", element: <NotFoundPage /> },
+      { path: "*", element: <NotFoundPage /> },
+    ],
+  },
+]);
+
 function App() {
-  return (
-    <BrowserRouter>
-      <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<HomePage />} />
-          <Route path="blog" element={<BlogPage />} />
-          <Route path="blog/post/:id" element={<BlogSinglePage />} />
-          <Route path="contact" element={<ContactPage />} />
-          <Route path="about" element={<AboutPage />} />
-          <Route path="history" element={<HistoryPage />} />
-          <Route path="gallery" element={<GalleryPage />} />
-          <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
-          <Route path="404" element={<NotFoundPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
