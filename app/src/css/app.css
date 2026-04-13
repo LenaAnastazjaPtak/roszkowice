@@ -4,6 +4,7 @@
 @import "components/forms.css";
 @import "components/back-to-top.css";
 @import "components/privacy-policy.css";
+@import "components/lang-toggle.css";
 @import "modules/latest-blog-section.css";
 @import "modules/welcome-section.css";
 @import "modules/gallery-section.css";
