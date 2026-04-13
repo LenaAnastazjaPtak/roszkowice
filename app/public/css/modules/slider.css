@@ -38,37 +38,6 @@
 	background-color: var(--color-white);
 	color: var(--color-black);
 }
-@keyframes arcTitleFadeIn {
-	from {
-		opacity: 0;
-		transform: translateX(-50%) translateY(12px);
-	}
-	to {
-		opacity: 1;
-		transform: translateX(-50%) translateY(0);
-	}
-}
-.slider-arc-title {
-	position: absolute;
-	top: 18%;
-	left: 50%;
-	transform: translateX(-50%);
-	z-index: 10;
-	pointer-events: none;
-	animation: arcTitleFadeIn 1.8s ease-out 1.5s both;
-}
-.slider-arc-title .arc-text-svg {
-	width: 500px;
-	height: auto;
-	display: block;
-}
-.slider-arc-title .arc-text-svg text {
-	fill: var(--color-white);
-	font-family: 'Playfair Display', serif;
-	font-size: 28px;
-	font-weight: 400;
-	letter-spacing: 6px;
-}
 .slider-section .uranus.tparrows {
     background-color: var(--color-overlay-white-90);
     border-radius: 100%;

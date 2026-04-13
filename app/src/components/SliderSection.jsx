@@ -12,25 +12,64 @@ const SLIDER_IMAGES = [
 
 const slideData = SLIDER_IMAGES.map((filename, i) => ({
   img: `/images/roszkowice/slider/${filename}`,
+  pretitleKey: `slider.slides.${i}.pretitle`,
   titleKey: `slider.slides.${i}.title`,
   subtitleKey: `slider.slides.${i}.subtitle`,
   layerIds: [
-    `slide-layer-${i * 3 + 1}`,
-    `slide-layer-${i * 3 + 2}`,
-    `slide-layer-${i * 3 + 3}`,
+    `slide-layer-${i * 4 + 1}`,
+    `slide-layer-${i * 4 + 2}`,
+    `slide-layer-${i * 4 + 3}`,
+    `slide-layer-${i * 4 + 4}`,
   ],
 }));
 
 const layerAttrs = {
+  preTitle: {
+    className:
+      "tp-caption NotGeneric-Title tp-resizeme rs-parallaxlevel-0 slider-pretitle",
+    data: {
+      x: "['center','center','center','center']",
+      hoffset: "['0','0','0','0']",
+      y: "['middle','middle','middle','middle']",
+      voffset: "['-132','-128','-120','-78']",
+      fontsize: "['96','92','88','50']",
+      lineheight: "['108','100','96','58']",
+      width: "none",
+      height: "none",
+      whitespace: "nowrap",
+      transform_idle: "o:1;",
+      transform_in:
+        "x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;",
+      transform_out:
+        "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
+      mask_in: "x:0px;y:0px;s:inherit;e:inherit;",
+      mask_out: "x:inherit;y:inherit;s:inherit;e:inherit;",
+      start: "700",
+      splitin: "chars",
+      splitout: "none",
+      responsive_offset: "on",
+      elementdelay: "0.05",
+    },
+    style: {
+      zIndex: 5,
+      whiteSpace: "nowrap",
+      position: "relative",
+      color: "#fff",
+      fontWeight: 700,
+      letterSpacing: "3.15px",
+      fontFamily: "'PT Serif', serif",
+      textTransform: "uppercase",
+    },
+  },
   title: {
     className: "tp-caption NotGeneric-Title tp-resizeme rs-parallaxlevel-0",
     data: {
       x: "['center','center','center','center']",
       hoffset: "['0','0','0','0']",
       y: "['middle','middle','middle','middle']",
-      voffset: "['0','0','0','0']",
-      fontsize: "['70','70','70','45']",
-      lineheight: "['100','70','70','60']",
+      voffset: "['42','38','34','22']",
+      fontsize: "['50','48','44','32']",
+      lineheight: "['60','56','52','40']",
       width: "none",
       height: "none",
       whitespace: "nowrap",
@@ -64,9 +103,9 @@ const layerAttrs = {
       x: "['center','center','center','center']",
       hoffset: "['0','0','0','0']",
       y: "['middle','middle','middle','middle']",
-      voffset: "['90','90','90','90']",
-      fontsize: "['70','70','70','45']",
-      lineheight: "['100','70','70','60']",
+      voffset: "['124','118','112','88']",
+      fontsize: "['44','42','38','30']",
+      lineheight: "['54','50','46','38']",
       width: "none",
       height: "none",
       whitespace: "nowrap",
@@ -244,6 +283,14 @@ function SliderSection() {
                 <div className="slider-overlay" aria-hidden="true" />
                 <div
                   id={slide.layerIds[0]}
+                  className={layerAttrs.preTitle.className}
+                  {...dataAttrs(layerAttrs.preTitle.data)}
+                  style={layerAttrs.preTitle.style}
+                >
+                  {t(slide.pretitleKey)}
+                </div>
+                <div
+                  id={slide.layerIds[1]}
                   className={layerAttrs.title.className}
                   {...dataAttrs(layerAttrs.title.data)}
                   style={layerAttrs.title.style}
@@ -251,7 +298,7 @@ function SliderSection() {
                   {t(slide.titleKey)}
                 </div>
                 <div
-                  id={slide.layerIds[1]}
+                  id={slide.layerIds[2]}
                   className={layerAttrs.subTitle.className}
                   {...dataAttrs(layerAttrs.subTitle.data)}
                   style={layerAttrs.subTitle.style}
@@ -259,7 +306,7 @@ function SliderSection() {
                   {t(slide.subtitleKey)}
                 </div>
                 <div
-                  id={slide.layerIds[2]}
+                  id={slide.layerIds[3]}
                   className={layerAttrs.btn.className}
                   {...dataAttrs(layerAttrs.btn.data)}
                   style={layerAttrs.btn.style}
@@ -281,31 +328,11 @@ function SliderSection() {
           </ul>
         </div>
       </div>
-      <div className="slider-arc-title" aria-hidden="true">
-        <svg
-          viewBox="0 0 400 120"
-          xmlns="http://www.w3.org/2000/svg"
-          className="arc-text-svg"
-        >
-          <defs>
-            <path id="arcPath-overlay" d="M 10,100 Q 200,0 390,100" fill="none" />
-          </defs>
-          <text>
-            <textPath
-              href="#arcPath-overlay"
-              startOffset="50%"
-              textAnchor="middle"
-            >
-              PAŁAC ROSZKOWICE
-            </textPath>
-          </text>
-        </svg>
-      </div>
       <span className="goto-next">
         <a
           href="#"
           onClick={(e) => {
-            e.preventDefault()
+            e.preventDefault();
           }}
         >
           <i className="icon icon-Mouse bounce" aria-hidden="true"></i>
