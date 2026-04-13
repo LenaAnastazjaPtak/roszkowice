@@ -1,7 +1,6 @@
 import { useTranslation } from "react-i18next";
 import YouTubeEmbed from "../components/YouTubeEmbed";
 import PageBanner from "../components/PageBanner";
-import ContentBlockLink from "../components/ContentBlockLink";
 import OnviewSection from "../components/OnviewSection";
 
 function AboutPage() {
@@ -43,7 +42,7 @@ function AboutPage() {
           </div>
         </div>
       </div> */}
-      <OnviewSection />
+      <OnviewSection showGalleryLink />
       <YouTubeEmbed url="https://www.youtube.com/watch?v=2OQFaQRg9-4" />
     </>
   );

@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import ContentBlockLink from "./ContentBlockLink";
 
-function OnviewSection({ showReadMore }) {
+function OnviewSection({ showReadMore, showGalleryLink }) {
   const { t } = useTranslation("about");
 
   return (
@@ -11,7 +11,6 @@ function OnviewSection({ showReadMore }) {
           <img
             src="/images/roszkowice/zewn/pionowe.jpg"
             alt={t("onview.imgAlt")}
-            style={{ width: "100%", height: "auto", objectFit: "cover" }}
           />
         </div>
         <div className="col-md-7 col-sm-7 col-xs-12 onview-content">
@@ -29,6 +28,11 @@ function OnviewSection({ showReadMore }) {
           {showReadMore && (
             <ContentBlockLink to="/about" title="Dowiedz się co u nas">
               DOWIEDZ SIĘ CO U NAS
+            </ContentBlockLink>
+          )}
+          {showGalleryLink && (
+            <ContentBlockLink to="/gallery" title={t("seePhotos")}>
+              {t("seePhotos")}
             </ContentBlockLink>
           )}
         </div>
