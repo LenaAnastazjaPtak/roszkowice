@@ -157,10 +157,6 @@
     line-height: 30px !important;
     padding: 8px 20px !important;
   }
-  .onview-section .container::before {
-    top: 0;
-    bottom: 0;
-  }
   .onview-section .container {
     display: flex;
     flex-wrap: wrap;
@@ -259,10 +255,6 @@
   .onview-section {
     padding-top: 50px;
     padding-bottom: 50px;
-  }
-  .onview-section .container::before {
-    top: 0;
-    bottom: 0;
   }
   .onview-section .img-block {
     padding-top: 35px;

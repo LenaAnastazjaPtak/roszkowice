@@ -19,16 +19,6 @@
 .onview-section .container {
 	position: relative;
 }
-.onview-section .container::before {
-	content: "";
-	border: 6px solid var(--color-accent);
-	position: absolute;
-	left: -15px;
-	right: -15px;
-	top: 80px;
-	bottom: 80px;
-	display: inline-block;
-}
 .onview-section .img-block {
 	text-align: center;
 	overflow: hidden;
@@ -189,5 +179,15 @@
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
+	}
+	.onview-section .container::before {
+		content: "";
+		border: 6px solid var(--color-accent);
+		position: absolute;
+		left: -15px;
+		right: -15px;
+		top: 80px;
+		bottom: 80px;
+		display: inline-block;
 	}
 }
