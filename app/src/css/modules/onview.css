@@ -68,20 +68,6 @@
 .onview-section--compact .container::before {
 	display: none;
 }
-.onview-section--compact .img-block {
-	position: relative;
-	z-index: 1;
-}
-.onview-section--compact .img-block::after {
-	content: "";
-	border: 6px solid var(--color-accent);
-	position: absolute;
-	left: 70px;
-	right: 70px;
-	top: -40px;
-	bottom: -20px;
-	z-index: -1;
-}
 .onview-section--compact .onview-content {
 	text-align: center;
 }
@@ -189,5 +175,8 @@
 		top: 80px;
 		bottom: 80px;
 		display: inline-block;
+	}
+	.onview-section--compact .container::before {
+		display: none;
 	}
 }
