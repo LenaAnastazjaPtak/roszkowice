@@ -1,3 +1,5 @@
+import HistoryFramedImage from "./HistoryFramedImage";
+
 function HistoryIntroSection({ sectionLabel, heading, welcomeText, imageSrc, imageAlt }) {
   return (
     <div className="container-fluid no-padding welcome-section2">
@@ -11,13 +13,7 @@ function HistoryIntroSection({ sectionLabel, heading, welcomeText, imageSrc, ima
             <p>{welcomeText}</p>
           </div>
           <div className="col-md-6 col-sm-6 img-block">
-            <i>
-              <img
-                src={imageSrc}
-                alt={imageAlt}
-                style={{ width: "100%", height: "400px", objectFit: "cover" }}
-              />
-            </i>
+            <HistoryFramedImage variant="muted" src={imageSrc} alt={imageAlt} />
           </div>
         </div>
       </div>

@@ -1,0 +1,55 @@
+.history-framed-image {
+  display: block;
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
+  width: 100%;
+}
+
+.history-framed-image::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  border-style: solid;
+  border-width: var(--history-frame-border-width);
+  border-color: var(--history-frame-border-color);
+  top: var(--history-frame-top);
+  right: var(--history-frame-right);
+  bottom: var(--history-frame-bottom);
+  left: var(--history-frame-left);
+}
+
+.history-framed-image--accent {
+  --history-frame-border-width: 6px;
+  --history-frame-border-color: var(--color-accent);
+  --history-frame-top: -30px;
+  --history-frame-right: 8%;
+  --history-frame-bottom: -30px;
+  --history-frame-left: 8%;
+}
+
+.history-framed-image--muted {
+  --history-frame-border-width: 6px;
+  --history-frame-border-color: var(--color-border-welcome-light);
+  --history-frame-top: 30px;
+  --history-frame-right: -8%;
+  --history-frame-bottom: 30px;
+  --history-frame-left: -8%;
+}
+
+.history-framed-image.history-framed-image--accent img,
+.history-framed-image.history-framed-image--muted img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+@media (max-width: 767px) {
+  .history-framed-image--accent::after {
+    display: none;
+  }
+}

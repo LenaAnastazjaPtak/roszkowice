@@ -1,4 +1,5 @@
 import ContentBlockLink from "./ContentBlockLink";
+import HistoryFramedImage from "./HistoryFramedImage";
 import HistoryParagraphList from "./HistoryParagraphList";
 
 function HistoryClosingSection({ paragraphs, seeBlogTitle, imageSrc, imageAlt }) {
@@ -13,13 +14,7 @@ function HistoryClosingSection({ paragraphs, seeBlogTitle, imageSrc, imageAlt })
             </ContentBlockLink>
           </div>
           <div className="col-md-6 col-sm-6 img-block">
-            <i>
-              <img
-                src={imageSrc}
-                alt={imageAlt}
-                style={{ width: "100%", height: "400px", objectFit: "cover" }}
-              />
-            </i>
+            <HistoryFramedImage variant="muted" src={imageSrc} alt={imageAlt} />
           </div>
         </div>
       </div>

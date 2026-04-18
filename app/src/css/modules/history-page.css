@@ -1,22 +1,27 @@
 @media (min-width: 768px) {
   .history-page .welcome-section2 .content-block {
     padding-top: 48px;
+    padding-inline-end: 40px;
   }
 
-  .history-page .welcome-section2 .img-block i {
-    padding-left: 32px;
-    padding-right: 32px;
+  .history-page .welcome-section2 .img-block {
+    padding-inline-start: 40px;
   }
 
   .history-page .history-postcards-section.onview-section--compact .onview-content {
     padding-top: 48px;
     padding-bottom: 48px;
+    padding-inline-start: 40px;
+  }
+
+  .history-page .history-postcards-section .img-block {
+    padding-inline-end: 40px;
   }
 }
 
 @media (max-width: 991px) {
   .history-page .history-postcards-section .onview-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 24px;
+    padding-right: 24px;
   }
 }

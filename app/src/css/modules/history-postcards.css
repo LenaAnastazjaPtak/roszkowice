@@ -17,37 +17,4 @@
   .history-postcards-section.onview-section .img-block {
     padding-top: 0;
   }
-
-  .history-postcards-section .history-postcards__media::after {
-    display: none;
-  }
-}
-
-.history-postcards-section .history-postcards__media {
-  display: block;
-  position: relative;
-  z-index: 0;
-  isolation: isolate;
-  width: 100%;
-}
-
-.history-postcards-section .history-postcards__media::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  left: 8%;
-  right: 8%;
-  top: -30px;
-  bottom: -30px;
-  border: 6px solid var(--color-accent);
-  pointer-events: none;
-}
-
-.history-postcards-section .history-postcards__media img {
-  position: relative;
-  z-index: 1;
-  display: block;
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
 }

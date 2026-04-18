@@ -1,3 +1,4 @@
+import HistoryFramedImage from "./HistoryFramedImage";
 import HistoryParagraphList from "./HistoryParagraphList";
 
 function HistoryPostcardsSection({ paragraphs, imageSrc, imageAlt }) {
@@ -6,9 +7,7 @@ function HistoryPostcardsSection({ paragraphs, imageSrc, imageAlt }) {
       <div className="container">
         <div className="row">
           <div className="col-md-6 col-sm-6 col-xs-12 img-block">
-            <div className="history-postcards__media">
-              <img src={imageSrc} alt={imageAlt} />
-            </div>
+            <HistoryFramedImage variant="accent" src={imageSrc} alt={imageAlt} />
           </div>
           <div className="col-md-6 col-sm-6 col-xs-12 onview-content">
             <HistoryParagraphList paragraphs={paragraphs} />
