@@ -12,24 +12,26 @@ function HistoryPage() {
   return (
     <>
       <PageBanner title={t("title")} image="/images/roszkowice/remont/20231011_135743.jpg" />
-      <HistoryIntroSection
-        sectionLabel={t("intro.sectionLabel")}
-        heading={t("intro.heading")}
-        welcomeText={t("welcome.text", { ns: "home" })}
-        imageSrc="/images/roszkowice/zewn/palac_dawniej.jpg"
-        imageAlt={t("intro.heading")}
-      />
-      <HistoryPostcardsSection
-        paragraphs={section1}
-        imageSrc="/images/roszkowice/zewn/pocztowki.jpg"
-        imageAlt={t("title")}
-      />
-      <HistoryClosingSection
-        paragraphs={section2}
-        seeBlogTitle={t("seeBlog")}
-        imageSrc="/images/roszkowice/zewn/jesien.jpg"
-        imageAlt={t("title")}
-      />
+      <div className="history-page">
+        <HistoryIntroSection
+          sectionLabel={t("intro.sectionLabel")}
+          heading={t("intro.heading")}
+          welcomeText={t("welcome.text", { ns: "home" })}
+          imageSrc="/images/roszkowice/zewn/palac_dawniej.jpg"
+          imageAlt={t("intro.heading")}
+        />
+        <HistoryPostcardsSection
+          paragraphs={section1}
+          imageSrc="/images/roszkowice/zewn/pocztowki.jpg"
+          imageAlt={t("title")}
+        />
+        <HistoryClosingSection
+          paragraphs={section2}
+          seeBlogTitle={t("seeBlog")}
+          imageSrc="/images/roszkowice/zewn/jesien.jpg"
+          imageAlt={t("title")}
+        />
+      </div>
     </>
   );
 }

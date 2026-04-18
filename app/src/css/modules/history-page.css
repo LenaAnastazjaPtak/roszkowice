@@ -1,0 +1,22 @@
+@media (min-width: 768px) {
+  .history-page .welcome-section2 .content-block {
+    padding-top: 48px;
+  }
+
+  .history-page .welcome-section2 .img-block i {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .history-page .history-postcards-section.onview-section--compact .onview-content {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+}
+
+@media (max-width: 991px) {
+  .history-page .history-postcards-section .onview-content {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
