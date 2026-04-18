@@ -263,9 +263,6 @@
     padding-top: 0;
     padding-bottom: 0;
   }
-  .onview-section--compact .img-block::after {
-    display: none;
-  }
   .slider-section .goto-next {
     display: none;
   }
