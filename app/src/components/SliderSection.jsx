@@ -7,7 +7,6 @@ const SLIDER_IMAGES = [
   "DSC09468.JPG",
   "kopula.jpg",
   "zima.jpg",
-  // "DJI_0520.JPG",
 ];
 
 const slideData = SLIDER_IMAGES.map((filename, i) => ({
@@ -23,143 +22,295 @@ const slideData = SLIDER_IMAGES.map((filename, i) => ({
   ],
 }));
 
-const layerAttrs = {
-  preTitle: {
-    className:
-      "tp-caption NotGeneric-Title tp-resizeme rs-parallaxlevel-0 slider-pretitle",
-    data: {
-      x: "['center','center','center','center']",
-      hoffset: "['0','0','0','0']",
-      y: "['middle','middle','middle','middle']",
-      voffset: "['-132','-128','-120','-78']",
-      fontsize: "['96','92','88','50']",
-      lineheight: "['108','100','96','58']",
-      width: "none",
-      height: "none",
-      whitespace: "nowrap",
-      transform_idle: "o:1;",
-      transform_in:
-        "x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;",
-      transform_out:
-        "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
-      mask_in: "x:0px;y:0px;s:inherit;e:inherit;",
-      mask_out: "x:inherit;y:inherit;s:inherit;e:inherit;",
-      start: "700",
-      splitin: "chars",
-      splitout: "none",
-      responsive_offset: "on",
-      elementdelay: "0.05",
+const SLIDER_CAPTION_ANIMATION_PRESET = "calm";
+
+const SLIDER_LAYER_ATTRS_BY_PRESET = {
+  calm: {
+    preTitle: {
+      className:
+        "tp-caption NotGeneric-Title tp-resizeme rs-parallaxlevel-0 slider-pretitle",
+      data: {
+        x: "['center','center','center','center']",
+        hoffset: "['0','0','0','0']",
+        y: "['middle','middle','middle','middle']",
+        voffset: "['-132','-128','-120','-78']",
+        fontsize: "['96','92','88','50']",
+        lineheight: "['108','100','96','58']",
+        width: "none",
+        height: "none",
+        whitespace: "nowrap",
+        transform_idle: "o:1;",
+        transform_in:
+          "y:[22%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2600;e:Power2.easeOut;",
+        transform_out:
+          "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
+        mask_in: "x:0px;y:0px;s:inherit;e:inherit;",
+        mask_out: "x:inherit;y:inherit;s:inherit;e:inherit;",
+        start: "650",
+        splitin: "none",
+        splitout: "none",
+        responsive_offset: "on",
+      },
+      style: {
+        zIndex: 5,
+        whiteSpace: "nowrap",
+        position: "relative",
+        color: "#fff",
+        fontWeight: 700,
+        letterSpacing: "3.15px",
+        fontFamily: "var(--font-body)",
+        textTransform: "uppercase",
+      },
     },
-    style: {
-      zIndex: 5,
-      whiteSpace: "nowrap",
-      position: "relative",
-      color: "#fff",
-      fontWeight: 700,
-      letterSpacing: "3.15px",
-      fontFamily: "var(--font-body)",
-      textTransform: "uppercase",
+    title: {
+      className: "tp-caption NotGeneric-Title tp-resizeme rs-parallaxlevel-0",
+      data: {
+        x: "['center','center','center','center']",
+        hoffset: "['0','0','0','0']",
+        y: "['middle','middle','middle','middle']",
+        voffset: "['42','38','34','22']",
+        fontsize: "['50','48','44','32']",
+        lineheight: "['60','56','52','40']",
+        width: "none",
+        height: "none",
+        whitespace: "nowrap",
+        transform_idle: "o:1;",
+        transform_in:
+          "y:[22%];z:0;rX:0deg;rY:0deg;rZ:0deg;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2600;e:Power2.easeOut;",
+        transform_out:
+          "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
+        mask_in: "x:0px;y:0px;s:inherit;e:inherit;",
+        mask_out: "x:inherit;y:inherit;s:inherit;e:inherit;",
+        start: "900",
+        splitin: "none",
+        splitout: "none",
+        responsive_offset: "on",
+      },
+      style: {
+        zIndex: 5,
+        whiteSpace: "nowrap",
+        position: "relative",
+        color: "#fff",
+        fontWeight: 700,
+        letterSpacing: "3.15px",
+        fontFamily: "var(--font-body)",
+        textTransform: "uppercase",
+      },
+    },
+    subTitle: {
+      className:
+        "tp-caption NotGeneric-SubTitle tp-resizeme rs-parallaxlevel-0",
+      data: {
+        x: "['center','center','center','center']",
+        hoffset: "['0','0','0','0']",
+        y: "['middle','middle','middle','middle']",
+        voffset: "['124','118','112','88']",
+        fontsize: "['44','42','38','30']",
+        lineheight: "['54','50','46','38']",
+        width: "none",
+        height: "none",
+        whitespace: "nowrap",
+        transform_idle: "o:1;",
+        transform_in:
+          "y:[42%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2400;e:Power2.easeOut;",
+        transform_out:
+          "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
+        mask_in: "x:0px;y:[100%];s:inherit;e:inherit;",
+        mask_out: "x:inherit;y:inherit;s:inherit;e:inherit;",
+        start: "1250",
+        splitin: "none",
+        splitout: "none",
+        responsive_offset: "on",
+      },
+      style: {
+        zIndex: 6,
+        whiteSpace: "nowrap",
+        position: "relative",
+        color: "#fff",
+        fontWeight: 700,
+        letterSpacing: "3.15px",
+        fontFamily: "var(--font-body)",
+        textTransform: "uppercase",
+      },
+    },
+    btn: {
+      className:
+        "tp-caption NotGeneric-Title tp-resizeme rs-parallaxlevel-0 slide-btn",
+      data: {
+        x: "['center','center','center','center']",
+        hoffset: "['0','0','0','0']",
+        y: "['top','top','top','top']",
+        voffset: "['625','625','625','625']",
+        fontsize: "['70','70','70','12']",
+        lineheight: "['70','70','70','90']",
+        width: "none",
+        height: "none",
+        whitespace: "normal",
+        transform_idle: "o:1;",
+        transform_in:
+          "y:[42%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2400;e:Power2.easeOut;",
+        transform_out:
+          "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
+        mask_in: "x:0px;y:[100%];s:inherit;e:inherit;",
+        mask_out: "x:inherit;y:inherit;s:inherit;e:inherit;",
+        start: "1400",
+        splitin: "none",
+        splitout: "none",
+        responsive_offset: "on",
+      },
+      style: { zIndex: 6, position: "relative" },
     },
   },
-  title: {
-    className: "tp-caption NotGeneric-Title tp-resizeme rs-parallaxlevel-0",
-    data: {
-      x: "['center','center','center','center']",
-      hoffset: "['0','0','0','0']",
-      y: "['middle','middle','middle','middle']",
-      voffset: "['42','38','34','22']",
-      fontsize: "['50','48','44','32']",
-      lineheight: "['60','56','52','40']",
-      width: "none",
-      height: "none",
-      whitespace: "nowrap",
-      transform_idle: "o:1;",
-      transform_in:
-        "x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;",
-      transform_out:
-        "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
-      mask_in: "x:0px;y:0px;s:inherit;e:inherit;",
-      mask_out: "x:inherit;y:inherit;s:inherit;e:inherit;",
-      start: "1000",
-      splitin: "chars",
-      splitout: "none",
-      responsive_offset: "on",
-      elementdelay: "0.05",
+  dramatic: {
+    preTitle: {
+      className:
+        "tp-caption NotGeneric-Title tp-resizeme rs-parallaxlevel-0 slider-pretitle",
+      data: {
+        x: "['center','center','center','center']",
+        hoffset: "['0','0','0','0']",
+        y: "['middle','middle','middle','middle']",
+        voffset: "['-132','-128','-120','-78']",
+        fontsize: "['96','92','88','50']",
+        lineheight: "['108','100','96','58']",
+        width: "none",
+        height: "none",
+        whitespace: "nowrap",
+        transform_idle: "o:1;",
+        transform_in:
+          "x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;",
+        transform_out:
+          "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
+        mask_in: "x:0px;y:0px;s:inherit;e:inherit;",
+        mask_out: "x:inherit;y:inherit;s:inherit;e:inherit;",
+        start: "700",
+        splitin: "chars",
+        splitout: "none",
+        responsive_offset: "on",
+        elementdelay: "0.05",
+      },
+      style: {
+        zIndex: 5,
+        whiteSpace: "nowrap",
+        position: "relative",
+        color: "#fff",
+        fontWeight: 700,
+        letterSpacing: "3.15px",
+        fontFamily: "var(--font-body)",
+        textTransform: "uppercase",
+      },
     },
-    style: {
-      zIndex: 5,
-      whiteSpace: "nowrap",
-      position: "relative",
-      color: "#fff",
-      fontWeight: 700,
-      letterSpacing: "3.15px",
-      fontFamily: "var(--font-body)",
-      textTransform: "uppercase",
+    title: {
+      className: "tp-caption NotGeneric-Title tp-resizeme rs-parallaxlevel-0",
+      data: {
+        x: "['center','center','center','center']",
+        hoffset: "['0','0','0','0']",
+        y: "['middle','middle','middle','middle']",
+        voffset: "['42','38','34','22']",
+        fontsize: "['50','48','44','32']",
+        lineheight: "['60','56','52','40']",
+        width: "none",
+        height: "none",
+        whitespace: "nowrap",
+        transform_idle: "o:1;",
+        transform_in:
+          "x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;",
+        transform_out:
+          "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
+        mask_in: "x:0px;y:0px;s:inherit;e:inherit;",
+        mask_out: "x:inherit;y:inherit;s:inherit;e:inherit;",
+        start: "1000",
+        splitin: "chars",
+        splitout: "none",
+        responsive_offset: "on",
+        elementdelay: "0.05",
+      },
+      style: {
+        zIndex: 5,
+        whiteSpace: "nowrap",
+        position: "relative",
+        color: "#fff",
+        fontWeight: 700,
+        letterSpacing: "3.15px",
+        fontFamily: "var(--font-body)",
+        textTransform: "uppercase",
+      },
     },
-  },
-  subTitle: {
-    className: "tp-caption NotGeneric-SubTitle tp-resizeme rs-parallaxlevel-0",
-    data: {
-      x: "['center','center','center','center']",
-      hoffset: "['0','0','0','0']",
-      y: "['middle','middle','middle','middle']",
-      voffset: "['124','118','112','88']",
-      fontsize: "['44','42','38','30']",
-      lineheight: "['54','50','46','38']",
-      width: "none",
-      height: "none",
-      whitespace: "nowrap",
-      transform_idle: "o:1;",
-      transform_in:
-        "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;",
-      transform_out:
-        "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
-      mask_in: "x:0px;y:[100%];s:inherit;e:inherit;",
-      mask_out: "x:inherit;y:inherit;s:inherit;e:inherit;",
-      start: "1500",
-      splitin: "none",
-      splitout: "none",
-      responsive_offset: "on",
+    subTitle: {
+      className:
+        "tp-caption NotGeneric-SubTitle tp-resizeme rs-parallaxlevel-0",
+      data: {
+        x: "['center','center','center','center']",
+        hoffset: "['0','0','0','0']",
+        y: "['middle','middle','middle','middle']",
+        voffset: "['124','118','112','88']",
+        fontsize: "['44','42','38','30']",
+        lineheight: "['54','50','46','38']",
+        width: "none",
+        height: "none",
+        whitespace: "nowrap",
+        transform_idle: "o:1;",
+        transform_in:
+          "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;",
+        transform_out:
+          "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
+        mask_in: "x:0px;y:[100%];s:inherit;e:inherit;",
+        mask_out: "x:inherit;y:inherit;s:inherit;e:inherit;",
+        start: "1500",
+        splitin: "none",
+        splitout: "none",
+        responsive_offset: "on",
+      },
+      style: {
+        zIndex: 6,
+        whiteSpace: "nowrap",
+        position: "relative",
+        color: "#fff",
+        fontWeight: 700,
+        letterSpacing: "3.15px",
+        fontFamily: "var(--font-body)",
+        textTransform: "uppercase",
+      },
     },
-    style: {
-      zIndex: 6,
-      whiteSpace: "nowrap",
-      position: "relative",
-      color: "#fff",
-      fontWeight: 700,
-      letterSpacing: "3.15px",
-      fontFamily: "var(--font-body)",
-      textTransform: "uppercase",
+    btn: {
+      className:
+        "tp-caption NotGeneric-Title tp-resizeme rs-parallaxlevel-0 slide-btn",
+      data: {
+        x: "['center','center','center','center']",
+        hoffset: "['0','0','0','0']",
+        y: "['top','top','top','top']",
+        voffset: "['625','625','625','625']",
+        fontsize: "['70','70','70','12']",
+        lineheight: "['70','70','70','90']",
+        width: "none",
+        height: "none",
+        whitespace: "normal",
+        transform_idle: "o:1;",
+        transform_in:
+          "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;",
+        transform_out:
+          "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
+        mask_in: "x:0px;y:[100%];s:inherit;e:inherit;",
+        mask_out: "x:inherit;y:inherit;s:inherit;e:inherit;",
+        start: "1500",
+        splitin: "none",
+        splitout: "none",
+        responsive_offset: "on",
+      },
+      style: { zIndex: 6, position: "relative" },
     },
-  },
-  btn: {
-    className:
-      "tp-caption NotGeneric-Title tp-resizeme rs-parallaxlevel-0 slide-btn",
-    data: {
-      x: "['center','center','center','center']",
-      hoffset: "['0','0','0','0']",
-      y: "['top','top','top','top']",
-      voffset: "['625','625','625','625']",
-      fontsize: "['70','70','70','12']",
-      lineheight: "['70','70','70','90']",
-      width: "none",
-      height: "none",
-      whitespace: "normal",
-      transform_idle: "o:1;",
-      transform_in:
-        "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;",
-      transform_out:
-        "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
-      mask_in: "x:0px;y:[100%];s:inherit;e:inherit;",
-      mask_out: "x:inherit;y:inherit;s:inherit;e:inherit;",
-      start: "1500",
-      splitin: "none",
-      splitout: "none",
-      responsive_offset: "on",
-    },
-    style: { zIndex: 6, position: "relative" },
   },
 };
+
+const layerAttrs = (() => {
+  const resolved =
+    SLIDER_LAYER_ATTRS_BY_PRESET[SLIDER_CAPTION_ANIMATION_PRESET];
+  if (resolved === undefined) {
+    throw new Error(
+      `Unknown SLIDER_CAPTION_ANIMATION_PRESET: ${SLIDER_CAPTION_ANIMATION_PRESET}`,
+    );
+  }
+  return resolved;
+})();
 
 const liData = {
   transition: "zoomout",
