@@ -311,15 +311,7 @@ function SliderSection() {
                   {...dataAttrs(layerAttrs.btn.data)}
                   style={layerAttrs.btn.style}
                 >
-                  <Link
-                    style={{
-                      fontWeight: 700,
-                      padding: "12px 37px",
-                      fontFamily: "'Poppins', sans-serif",
-                    }}
-                    to="/about"
-                    title={t("slider.cta")}
-                  >
+                  <Link to="/about" title={t("slider.cta")}>
                     {t("slider.cta")}
                   </Link>
                 </div>

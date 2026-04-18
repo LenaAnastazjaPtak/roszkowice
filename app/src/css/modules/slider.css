@@ -16,9 +16,11 @@
 	background-color: var(--color-black);
     border-radius: 0;
     color: var(--color-white);
+	font-family: var(--font-heading);
+	font-weight: 700;
     font-size: 12px !important;
     letter-spacing: 0.84px !important;
-    padding: 8px 37px !important;
+    padding: 12px 37px !important;
 	line-height: 1.2 !important;
 	display: inline-block;
 	white-space: nowrap;
