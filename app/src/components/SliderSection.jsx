@@ -23,6 +23,7 @@ function SliderSection() {
       sliderType: "standard",
       sliderLayout: "auto",
       delay: 6000,
+      spinner: "off",
       navigation: { arrows: { enable: true, style: "uranus" } },
       gridwidth: 1900,
       gridheight: 980,
