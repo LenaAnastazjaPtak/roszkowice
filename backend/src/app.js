@@ -3,7 +3,7 @@ import express from "express";
 import cors from "cors";
 import session from "express-session";
 import ConnectPgSimple from "connect-pg-simple";
-import AdminJS from "adminjs";
+import AdminJS, { locales } from "adminjs";
 import AdminJSExpress from "@adminjs/express";
 import { Database, Resource } from "@adminjs/prisma";
 import { PrismaClient } from "@prisma/client";
@@ -37,6 +37,10 @@ export async function createApp() {
   const admin = new AdminJS({
     resources: buildResources(prisma),
     rootPath: "/admin",
+    locale: {
+      language: "pl",
+      availableLanguages: Object.keys(locales),
+    },
   });
 
   const PgSession = ConnectPgSimple(session);
