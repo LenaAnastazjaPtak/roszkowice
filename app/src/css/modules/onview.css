@@ -170,10 +170,10 @@
 		content: "";
 		border: 6px solid var(--color-accent);
 		position: absolute;
-		left: -15px;
-		right: -15px;
-		top: 80px;
-		bottom: 80px;
+		left: -2%;
+		right: -2%;
+		top: 5%;
+		bottom: 5%;
 		display: inline-block;
 	}
 	.onview-section--compact .container::before {
