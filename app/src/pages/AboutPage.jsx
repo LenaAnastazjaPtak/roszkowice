@@ -12,38 +12,10 @@ function AboutPage() {
         title={t("title")}
         image="/images/roszkowice/park/IMG_0345.jpg"
       />
-      {/* <div className="container-fluid no-padding welcome-section2">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-6 col-sm-6 content-block">
-              <div className="section-header2">
-                <span>{t("welcome.welcomeIn")}</span>
-                <h2>{t("welcome.palaceName")}</h2>
-              </div>
-              <p>{t("welcome.paragraph1")}</p>
-              <p>{t("welcome.paragraph2")}</p>
-              <ContentBlockLink to="/gallery" title={t("seePhotos")}>
-                {t("seePhotos")}
-              </ContentBlockLink>
-            </div>
-            <div className="col-md-6 col-sm-6 img-block">
-              <i>
-                <img
-                  src="/images/roszkowice/zewn/pionowa_zima.jpg"
-                  alt={t("welcome.imgAlt")}
-                  style={{
-                    maxWidth: "100%",
-                    height: "auto",
-                    objectFit: "contain",
-                  }}
-                />
-              </i>
-            </div>
-          </div>
-        </div>
-      </div> */}
-      <OnviewSection showGalleryLink />
-      <YouTubeEmbed url="https://www.youtube.com/watch?v=2OQFaQRg9-4" />
+      <div className="about-page">
+        <OnviewSection showGalleryLink />
+        <YouTubeEmbed url="https://www.youtube.com/watch?v=2OQFaQRg9-4" />
+      </div>
     </>
   );
 }

@@ -1,27 +1,94 @@
+.history-page .welcome-section2,
+.history-page .onview-section {
+  padding-top: var(--page-section-padding-y);
+  padding-bottom: var(--page-section-padding-y);
+}
+
+.history-page .welcome-section2 .content-block {
+  display: block;
+}
+
+.history-page .onview-section .onview-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--page-prose-gap-y);
+}
+
+.history-page .welcome-section2 .content-block p,
+.history-page .onview-section .onview-content p {
+  margin-block: 0;
+}
+
+.history-page .welcome-section2 .content-block > p {
+  margin-bottom: var(--page-prose-gap-y);
+}
+
+.history-page .welcome-section2 .content-block > p:last-of-type {
+  margin-bottom: 0;
+}
+
+.history-page .welcome-section2 .content-block > a {
+  display: inline-block;
+  margin-top: var(--page-prose-gap-y);
+}
+
 @media (min-width: 768px) {
   .history-page .welcome-section2 .content-block {
-    padding-top: 48px;
-    padding-inline-end: 40px;
+    padding-top: var(--page-inner-padding-y);
+    padding-inline-end: var(--page-split-inline-gap);
   }
 
   .history-page .welcome-section2 .img-block {
-    padding-inline-start: 40px;
+    padding-inline-start: var(--page-split-inline-gap);
   }
 
   .history-page .history-postcards-section.onview-section--compact .onview-content {
-    padding-top: 48px;
-    padding-bottom: 48px;
-    padding-inline-start: 40px;
+    padding-top: var(--page-inner-padding-y);
+    padding-bottom: var(--page-inner-padding-y);
+    padding-inline-start: var(--page-split-inline-gap);
   }
 
   .history-page .history-postcards-section .img-block {
-    padding-inline-end: 40px;
+    padding-inline-end: var(--page-split-inline-gap);
   }
 }
 
 @media (max-width: 991px) {
-  .history-page .history-postcards-section .onview-content {
-    padding-left: 24px;
-    padding-right: 24px;
+  .history-page .welcome-section2 .content-block {
+    padding-inline: var(--page-split-inline-gap-sm);
+  }
+
+  .history-page .welcome-section2 .img-block {
+    padding-inline: var(--page-split-inline-gap-sm);
+  }
+
+  .history-page .history-postcards-section.onview-section--compact .onview-content {
+    padding-inline: var(--page-split-inline-gap-sm);
+  }
+
+  .history-page .history-postcards-section .img-block {
+    padding-inline: var(--page-split-inline-gap-sm);
+  }
+}
+
+@media (max-width: 767px) {
+  .history-page .welcome-section2,
+  .history-page .onview-section {
+    padding-top: var(--page-section-padding-y-sm);
+    padding-bottom: var(--page-section-padding-y-sm);
+  }
+
+  .history-page .welcome-section2 .content-block {
+    padding-top: 0;
+    padding-inline: var(--page-split-inline-gap-sm);
+  }
+
+  .history-page .welcome-section2 .img-block {
+    padding-inline: var(--page-split-inline-gap-sm);
+  }
+
+  .history-page .history-postcards-section.onview-section--compact .onview-content {
+    margin-top: var(--page-stack-after-split);
+    padding-inline: var(--page-split-inline-gap-sm);
   }
 }

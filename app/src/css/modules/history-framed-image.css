@@ -21,21 +21,21 @@
 }
 
 .history-framed-image--accent {
-  --history-frame-border-width: 6px;
+  --history-frame-border-width: var(--history-frame-border-weight);
   --history-frame-border-color: var(--color-accent);
-  --history-frame-top: -30px;
-  --history-frame-right: 8%;
-  --history-frame-bottom: -30px;
-  --history-frame-left: 8%;
+  --history-frame-top: var(--history-frame-accent-outset-y);
+  --history-frame-right: var(--history-frame-accent-inset-x);
+  --history-frame-bottom: var(--history-frame-accent-outset-y);
+  --history-frame-left: var(--history-frame-accent-inset-x);
 }
 
 .history-framed-image--muted {
-  --history-frame-border-width: 6px;
+  --history-frame-border-width: var(--history-frame-border-weight);
   --history-frame-border-color: var(--color-border-welcome-light);
-  --history-frame-top: 30px;
-  --history-frame-right: -8%;
-  --history-frame-bottom: 30px;
-  --history-frame-left: -8%;
+  --history-frame-top: var(--history-frame-muted-inset-y);
+  --history-frame-right: var(--history-frame-muted-outset-x);
+  --history-frame-bottom: var(--history-frame-muted-inset-y);
+  --history-frame-left: var(--history-frame-muted-outset-x);
 }
 
 .history-framed-image.history-framed-image--accent img,
@@ -44,12 +44,31 @@
   z-index: 1;
   display: block;
   width: 100%;
-  height: 400px;
+  height: var(--page-media-height);
+  object-fit: cover;
+}
+
+.history-page .welcome-section2 .img-block .history-framed-image img,
+.history-page .onview-section .img-block .history-framed-image img {
+  width: 100%;
+  height: var(--page-media-height);
+  min-height: var(--page-media-height);
+  max-height: var(--page-media-height);
   object-fit: cover;
 }
 
 @media (max-width: 767px) {
-  .history-framed-image--accent::after {
+  .history-framed-image.history-framed-image--accent img,
+  .history-framed-image.history-framed-image--muted img,
+  .history-page .welcome-section2 .img-block .history-framed-image img,
+  .history-page .onview-section .img-block .history-framed-image img {
+    height: var(--page-media-height-sm);
+    min-height: var(--page-media-height-sm);
+    max-height: var(--page-media-height-sm);
+  }
+
+  .history-framed-image--accent::after,
+  .history-framed-image--muted::after {
     display: none;
   }
 }

@@ -1,0 +1,23 @@
+.youtube-embed {
+  padding-block: var(--page-section-padding-y);
+}
+
+.youtube-embed__ratio {
+  position: relative;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+.youtube-embed__iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@media (max-width: 767px) {
+  .youtube-embed {
+    padding-block: var(--page-section-padding-y-sm);
+  }
+}
