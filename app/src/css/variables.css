@@ -1,9 +1,9 @@
 :root {
-  --font-body: 'Cormorant Garamond', serif;
-  --font-heading: 'Forum', serif;
-  --font-accent: 'Lora', serif;
-  --font-ui: 'Roboto', sans-serif;
-  --font-display: 'Roboto Slab', serif;
+  --font-body: "Cormorant Garamond", serif;
+  --font-heading: "Forum", serif;
+  --font-accent: "Lora", serif;
+  --font-ui: "Roboto", sans-serif;
+  --font-display: "Roboto Slab", serif;
 
   --color-white: #fff;
   --color-black: #000;
@@ -31,15 +31,51 @@
   --color-border-mid: #e4e4e4;
   --color-border-cat: #e7e7e7;
   --color-text-light: #ebebeb;
-  --color-overlay-white-90: color-mix(in srgb, var(--color-white) 90%, transparent);
-  --color-overlay-white-25: color-mix(in srgb, var(--color-white) 25%, transparent);
-  --color-overlay-white-15: color-mix(in srgb, var(--color-white) 15%, transparent);
-  --color-overlay-black-90: color-mix(in srgb, var(--color-black) 90%, transparent);
-  --color-overlay-black-80: color-mix(in srgb, var(--color-black) 80%, transparent);
-  --color-overlay-black-60: color-mix(in srgb, var(--color-black) 60%, transparent);
-  --color-overlay-black-50: color-mix(in srgb, var(--color-black) 50%, transparent);
-  --color-overlay-accent-90: color-mix(in srgb, var(--color-accent) 90%, transparent);
-  --color-overlay-slider-dark: color-mix(in srgb, var(--color-bg-slider-dark) 90%, transparent);
+  --color-overlay-white-90: color-mix(
+    in srgb,
+    var(--color-white) 90%,
+    transparent
+  );
+  --color-overlay-white-25: color-mix(
+    in srgb,
+    var(--color-white) 25%,
+    transparent
+  );
+  --color-overlay-white-15: color-mix(
+    in srgb,
+    var(--color-white) 15%,
+    transparent
+  );
+  --color-overlay-black-90: color-mix(
+    in srgb,
+    var(--color-black) 90%,
+    transparent
+  );
+  --color-overlay-black-80: color-mix(
+    in srgb,
+    var(--color-black) 80%,
+    transparent
+  );
+  --color-overlay-black-60: color-mix(
+    in srgb,
+    var(--color-black) 60%,
+    transparent
+  );
+  --color-overlay-black-50: color-mix(
+    in srgb,
+    var(--color-black) 50%,
+    transparent
+  );
+  --color-overlay-accent-90: color-mix(
+    in srgb,
+    var(--color-accent) 90%,
+    transparent
+  );
+  --color-overlay-slider-dark: color-mix(
+    in srgb,
+    var(--color-bg-slider-dark) 90%,
+    transparent
+  );
   --color-border-input: #e0e0e0;
   --color-border-widget: #e8e8e8;
   --color-text-muted-light: #c1c1c1;
@@ -47,8 +83,8 @@
   --color-bg-gray-light: #4e4e4e;
   --color-border-welcome: #d4d4d4;
   --color-border-welcome-light: #ededed;
-  --color-success: #50B948;
-  --color-error: #FF0000;
+  --color-success: #50b948;
+  --color-error: #ff0000;
   --color-bg-subtle: #f5f6f6;
   --color-border-nav: #e9e9e9;
   --color-border-form: #cdcdcd;
@@ -65,5 +101,46 @@
   --color-text-nav: #8a8a8a;
   --color-bg-loader-line: #eee;
   --color-loader-bar: #059664;
-  --color-text-loader: #4C4C4C;
+  --color-text-loader: #4c4c4c;
+
+  --layout-space-base: 0.25rem;
+  --layout-space-2: calc(var(--layout-space-base) * 2);
+  --layout-space-3: calc(var(--layout-space-base) * 3);
+  --layout-space-4: calc(var(--layout-space-base) * 4);
+  --layout-space-5: calc(var(--layout-space-base) * 5);
+  --layout-space-6: calc(var(--layout-space-base) * 6);
+  --layout-space-7: calc(var(--layout-space-base) * 7);
+  --layout-space-8: calc(var(--layout-space-base) * 8);
+  --layout-space-9: calc(var(--layout-space-base) * 9);
+  --layout-space-10: calc(var(--layout-space-base) * 10);
+  --layout-space-12: calc(var(--layout-space-base) * 12);
+  --layout-space-14: calc(var(--layout-space-base) * 14);
+  --layout-space-15: calc(var(--layout-space-base) * 15);
+  --layout-space-16: calc(var(--layout-space-base) * 16);
+  --layout-space-18: calc(var(--layout-space-base) * 18);
+  --layout-space-20: calc(var(--layout-space-base) * 20);
+  --layout-space-24: calc(var(--layout-space-base) * 24);
+  --layout-space-28: calc(var(--layout-space-base) * 28);
+  --layout-space-32: calc(var(--layout-space-base) * 32);
+  --layout-space-36: calc(var(--layout-space-base) * 36);
+
+  --layout-line-6: 0.375rem;
+
+  --page-section-padding-y: var(--layout-space-36);
+  --page-section-padding-y-sm: var(--layout-space-28);
+  --page-inner-padding-y: var(--layout-space-24);
+  --page-split-inline-gap: var(--layout-space-20);
+  --page-split-inline-gap-sm: var(--layout-space-14);
+  --page-prose-gap-y: var(--layout-space-8);
+  --page-stack-after-split: var(--layout-space-20);
+  --page-media-height: 40rem;
+  --page-media-height-sm: 23rem;
+
+  --slider-cta-chamfer: var(--layout-space-3);
+
+  --history-frame-border-weight: var(--layout-line-6);
+  --history-frame-accent-outset-y: -2rem;
+  --history-frame-muted-inset-y: 2rem;
+  --history-frame-accent-inset-x: 6%;
+  --history-frame-muted-outset-x: -6%;
 }

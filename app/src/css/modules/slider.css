@@ -37,6 +37,26 @@
 .slider-section .slide-btn > a {
   background-color: var(--color-black);
   border-radius: 0;
+  -webkit-clip-path: polygon(
+    var(--slider-cta-chamfer) 0,
+    calc(100% - var(--slider-cta-chamfer)) 0,
+    100% var(--slider-cta-chamfer),
+    100% calc(100% - var(--slider-cta-chamfer)),
+    calc(100% - var(--slider-cta-chamfer)) 100%,
+    var(--slider-cta-chamfer) 100%,
+    0 calc(100% - var(--slider-cta-chamfer)),
+    0 var(--slider-cta-chamfer)
+  );
+  clip-path: polygon(
+    var(--slider-cta-chamfer) 0,
+    calc(100% - var(--slider-cta-chamfer)) 0,
+    100% var(--slider-cta-chamfer),
+    100% calc(100% - var(--slider-cta-chamfer)),
+    calc(100% - var(--slider-cta-chamfer)) 100%,
+    var(--slider-cta-chamfer) 100%,
+    0 calc(100% - var(--slider-cta-chamfer)),
+    0 var(--slider-cta-chamfer)
+  );
   color: var(--color-white);
   font-family: var(--font-heading);
   font-weight: 700;

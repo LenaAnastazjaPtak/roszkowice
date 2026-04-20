@@ -145,8 +145,9 @@
 
 @media (max-width: 991px) {
   .slider-section .slide-btn > a {
-    line-height: 30px !important;
-    padding: 8px 20px !important;
+    line-height: 1.2 !important;
+    padding: 8px 18px !important;
+    font-size: 11px !important;
   }
   .onview-section .container {
     display: flex;
