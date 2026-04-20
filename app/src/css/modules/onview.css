@@ -19,6 +19,12 @@
 .onview-section .container {
 	position: relative;
 }
+.onview-section .container > .row {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	width: 100%;
+}
 .onview-section .img-block {
 	text-align: center;
 	overflow: hidden;
@@ -161,19 +167,14 @@
 }
 
 @media (min-width: 992px) {
-	.onview-section .container {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-	}
 	.onview-section .container::before {
 		content: "";
 		border: 6px solid var(--color-accent);
 		position: absolute;
 		left: -2%;
 		right: -2%;
-		top: 5%;
-		bottom: 5%;
+		top: 12%;
+		bottom: 12%;
 		display: inline-block;
 	}
 	.onview-section--compact .container::before {

@@ -12,10 +12,8 @@ function AboutPage() {
         title={t("title")}
         image="/images/roszkowice/park/IMG_0345.jpg"
       />
-      <div className="about-page">
-        <OnviewSection showGalleryLink />
-        <YouTubeEmbed url="https://www.youtube.com/watch?v=2OQFaQRg9-4" />
-      </div>
+      <OnviewSection showGalleryLink />
+      <YouTubeEmbed url="https://www.youtube.com/watch?v=2OQFaQRg9-4" />
     </>
   );
 }

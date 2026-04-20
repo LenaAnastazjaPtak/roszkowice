@@ -8,8 +8,8 @@ function YouTubeEmbed({ url, className }) {
   if (!videoId) return null;
 
   const rootClass = className
-    ? `container-fluid no-padding youtube-embed ${className}`.trim()
-    : "container-fluid no-padding youtube-embed";
+    ? `container-fluid youtube-embed ${className}`.trim()
+    : "container-fluid youtube-embed";
 
   return (
     <div className={rootClass}>
