@@ -6,7 +6,7 @@ import ConnectPgSimple from "connect-pg-simple";
 import { mkdirSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import AdminJS, { locales } from "adminjs";
+import AdminJS, { ComponentLoader, locales } from "adminjs";
 import AdminJSExpress from "@adminjs/express";
 import { Database, Resource } from "@adminjs/prisma";
 import { PrismaClient } from "@prisma/client";
@@ -16,6 +16,7 @@ import { createPostsRouter } from "./routes/posts.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const uploadsDirectory = path.resolve(__dirname, "../uploads");
+const componentLoader = new ComponentLoader();
 
 AdminJS.registerAdapter({ Database, Resource });
 
@@ -44,8 +45,9 @@ export async function createApp() {
   app.use("/uploads", express.static(uploadsDirectory));
 
   const admin = new AdminJS({
-    resources: buildResources(prisma),
+    resources: buildResources(prisma, componentLoader),
     rootPath: "/admin",
+    componentLoader,
     locale: {
       language: "pl",
       availableLanguages: Object.keys(locales),

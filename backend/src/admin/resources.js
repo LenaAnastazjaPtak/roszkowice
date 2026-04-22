@@ -1,5 +1,7 @@
 import { getModelByName } from "@adminjs/prisma";
 import uploadFeature from "@adminjs/upload";
+import path from "node:path";
+import { randomUUID } from "node:crypto";
 
 const LOCALES = ["pl", "en", "de"];
 const IMAGE_UPLOAD_MIME_TYPES = [
@@ -8,6 +10,7 @@ const IMAGE_UPLOAD_MIME_TYPES = [
   "image/webp",
   "image/avif",
 ];
+const IMAGE_UPLOAD_EXTENSIONS = new Set([".jpg", ".jpeg", ".png", ".webp", ".avif"]);
 const TRANSLATION_FIELDS = [
   { locale: "pl", key: "translationPl", label: "Polski" },
   { locale: "en", key: "translationEn", label: "Angielski" },
@@ -149,7 +152,15 @@ async function enrichRecordWithTranslations(prisma, record) {
   }
 }
 
-export function buildResources(prisma) {
+function buildUploadPath(filename) {
+  const extension = path.extname(String(filename)).toLowerCase();
+  if (!IMAGE_UPLOAD_EXTENSIONS.has(extension)) {
+    throw new Error("Nieprawidlowe rozszerzenie obrazka.");
+  }
+  return `posts/${Date.now()}-${randomUUID()}${extension}`;
+}
+
+export function buildResources(prisma, componentLoader) {
   const translationFieldKeys = getTranslationFieldKeys();
 
   return [
@@ -170,6 +181,7 @@ export function buildResources(prisma) {
         properties: getTranslationProperties(),
         features: [
           uploadFeature({
+            componentLoader,
             provider: {
               local: {
                 bucket: "uploads",
@@ -186,10 +198,7 @@ export function buildResources(prisma) {
               key: "image",
               file: "imageFile",
             },
-            uploadPath: (record, filename) => {
-              const safeFilename = String(filename).replaceAll(" ", "-");
-              return `posts/${Date.now()}-${safeFilename}`;
-            },
+            uploadPath: (record, filename) => buildUploadPath(filename),
           }),
         ],
         actions: {
