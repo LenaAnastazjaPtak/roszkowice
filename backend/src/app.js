@@ -6,7 +6,7 @@ import ConnectPgSimple from "connect-pg-simple";
 import { mkdirSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import AdminJS, { ComponentLoader, locales } from "adminjs";
+import AdminJS, { ComponentLoader } from "adminjs";
 import AdminJSExpress from "@adminjs/express";
 import { Database, Resource } from "@adminjs/prisma";
 import { PrismaClient } from "@prisma/client";
@@ -17,6 +17,10 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const uploadsDirectory = path.resolve(__dirname, "../uploads");
 const componentLoader = new ComponentLoader();
+const emptyDashboardComponent = componentLoader.add(
+  "EmptyDashboard",
+  path.join(__dirname, "admin", "components", "EmptyDashboard.js"),
+);
 
 AdminJS.registerAdapter({ Database, Resource });
 
@@ -47,10 +51,46 @@ export async function createApp() {
   const admin = new AdminJS({
     resources: buildResources(prisma, componentLoader),
     rootPath: "/admin",
+    dashboard: {
+      component: emptyDashboardComponent,
+    },
     componentLoader,
     locale: {
       language: "pl",
-      availableLanguages: Object.keys(locales),
+      availableLanguages: ["pl"],
+      translations: {
+        pl: {
+          labels: {
+            BlogPost: "Posty",
+            BlogPostTranslation: "Tlumaczenia postow",
+          },
+          resources: {
+            BlogPost: {
+              properties: {
+                id: "ID",
+                image: "Zdjecie",
+                imageFile: "Plik zdjecia",
+                imageThumb: "Miniaturka",
+                publishedAt: "Data publikacji",
+                createdAt: "Data utworzenia",
+                updatedAt: "Data aktualizacji",
+                translationPlTitle: "Polski - tytuł",
+                translationPlHeader: "Polski - nagłówek",
+                translationPlContent: "Polski - treść",
+                translationEnTitle: "Angielski - tytuł",
+                translationEnHeader: "Angielski - nagłówek",
+                translationEnContent: "Angielski - treść",
+                translationDeTitle: "Niemiecki - tytuł",
+                translationDeHeader: "Niemiecki - nagłówek",
+                translationDeContent: "Niemiecki - treść",
+              },
+            },
+          },
+          actions: {
+            openPost: "Zobacz post",
+          },
+        },
+      },
     },
   });
 

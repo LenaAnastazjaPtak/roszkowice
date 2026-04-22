@@ -2,6 +2,7 @@ import { getModelByName } from "@adminjs/prisma";
 import uploadFeature from "@adminjs/upload";
 import path from "node:path";
 import { randomUUID } from "node:crypto";
+import { fileURLToPath } from "node:url";
 
 const LOCALES = ["pl", "en", "de"];
 const IMAGE_UPLOAD_MIME_TYPES = [
@@ -16,6 +17,8 @@ const TRANSLATION_FIELDS = [
   { locale: "en", key: "translationEn", label: "Angielski" },
   { locale: "de", key: "translationDe", label: "Niemiecki" },
 ];
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 function getTranslationFieldKeys() {
   return TRANSLATION_FIELDS.flatMap(({ key }) => [
@@ -162,45 +165,65 @@ function buildUploadPath(filename) {
 
 export function buildResources(prisma, componentLoader) {
   const translationFieldKeys = getTranslationFieldKeys();
+  const openPostActionComponent = componentLoader.add(
+    "OpenPostAction",
+    path.join(__dirname, "components", "OpenPostAction.js"),
+  );
+  const imageThumbComponent = componentLoader.add(
+    "ImageThumb",
+    path.join(__dirname, "components", "ImageThumb.js"),
+  );
 
   return [
     {
       resource: { model: getModelByName("BlogPost"), client: prisma },
+      features: [
+        uploadFeature({
+          componentLoader,
+          provider: {
+            local: {
+              bucket: "uploads",
+              opts: {
+                baseUrl: "/uploads",
+              },
+            },
+          },
+          validation: {
+            mimeTypes: IMAGE_UPLOAD_MIME_TYPES,
+            maxSize: 15 * 1024 * 1024,
+          },
+          properties: {
+            key: "image",
+            file: "imageFile",
+          },
+          uploadPath: (record, filename) => buildUploadPath(filename),
+        }),
+      ],
       options: {
         navigation: { name: "Blog", icon: "DocumentText" },
-        listProperties: ["id", "image", "publishedAt", "createdAt"],
+        listProperties: ["id", "imageThumb", "publishedAt", "createdAt"],
         editProperties: ["imageFile", "publishedAt", ...translationFieldKeys],
         showProperties: [
           "id",
+          "imageThumb",
+          "imageFile",
           "image",
           "publishedAt",
           "createdAt",
           "updatedAt",
           ...translationFieldKeys,
         ],
-        properties: getTranslationProperties(),
-        features: [
-          uploadFeature({
-            componentLoader,
-            provider: {
-              local: {
-                bucket: "uploads",
-                opts: {
-                  baseUrl: "/uploads",
-                },
-              },
+        properties: {
+          ...getTranslationProperties(),
+          imageThumb: {
+            isVisible: { list: true, show: true, filter: false, edit: false },
+            components: {
+              list: imageThumbComponent,
+              show: imageThumbComponent,
             },
-            validation: {
-              mimeTypes: IMAGE_UPLOAD_MIME_TYPES,
-              maxSize: 15 * 1024 * 1024,
-            },
-            properties: {
-              key: "image",
-              file: "imageFile",
-            },
-            uploadPath: (record, filename) => buildUploadPath(filename),
-          }),
-        ],
+            label: "Miniaturka",
+          },
+        },
         actions: {
           new: {
             before: async (request, context) => {
@@ -270,6 +293,20 @@ export function buildResources(prisma, componentLoader) {
                 await enrichRecordWithTranslations(prisma, response.record);
               }
               return response;
+            },
+          },
+          openPost: {
+            actionType: "record",
+            icon: "ExternalLink",
+            showInDrawer: false,
+            component: openPostActionComponent,
+            handler: async (request, response, context) => {
+              if (!context.record) {
+                throw new Error("Nie znaleziono posta.");
+              }
+              return {
+                record: context.record.toJSON(context.currentAdmin),
+              };
             },
           },
         },

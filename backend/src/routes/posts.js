@@ -64,10 +64,13 @@ function normalizeImageUrl(image, publicBaseUrl) {
   if (image.startsWith("http://") || image.startsWith("https://")) {
     return image;
   }
+  if (image.startsWith("uploads/")) {
+    return `${publicBaseUrl}/${image}`;
+  }
   if (image.startsWith("/")) {
     return `${publicBaseUrl}${image}`;
   }
-  return image;
+  return `${publicBaseUrl}/uploads/${image}`;
 }
 
 function formatPost(post, translation, publicBaseUrl) {
