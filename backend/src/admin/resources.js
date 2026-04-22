@@ -1,6 +1,13 @@
 import { getModelByName } from "@adminjs/prisma";
+import uploadFeature from "@adminjs/upload";
 
 const LOCALES = ["pl", "en", "de"];
+const IMAGE_UPLOAD_MIME_TYPES = [
+  "image/jpeg",
+  "image/png",
+  "image/webp",
+  "image/avif",
+];
 const TRANSLATION_FIELDS = [
   { locale: "pl", key: "translationPl", label: "Polski" },
   { locale: "en", key: "translationEn", label: "Angielski" },
@@ -151,7 +158,7 @@ export function buildResources(prisma) {
       options: {
         navigation: { name: "Blog", icon: "DocumentText" },
         listProperties: ["id", "image", "publishedAt", "createdAt"],
-        editProperties: ["image", "publishedAt", ...translationFieldKeys],
+        editProperties: ["imageFile", "publishedAt", ...translationFieldKeys],
         showProperties: [
           "id",
           "image",
@@ -161,6 +168,30 @@ export function buildResources(prisma) {
           ...translationFieldKeys,
         ],
         properties: getTranslationProperties(),
+        features: [
+          uploadFeature({
+            provider: {
+              local: {
+                bucket: "uploads",
+                opts: {
+                  baseUrl: "/uploads",
+                },
+              },
+            },
+            validation: {
+              mimeTypes: IMAGE_UPLOAD_MIME_TYPES,
+              maxSize: 15 * 1024 * 1024,
+            },
+            properties: {
+              key: "image",
+              file: "imageFile",
+            },
+            uploadPath: (record, filename) => {
+              const safeFilename = String(filename).replaceAll(" ", "-");
+              return `posts/${Date.now()}-${safeFilename}`;
+            },
+          }),
+        ],
         actions: {
           new: {
             before: async (request, context) => {

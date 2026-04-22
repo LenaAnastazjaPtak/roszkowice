@@ -20,7 +20,7 @@ export function createPostsRouter(prisma) {
 
     const result = posts
       .filter((p) => p.translations.length > 0)
-      .map((p) => formatPost(p, p.translations[0]));
+      .map((p) => formatPost(p, p.translations[0], getPublicBaseUrl(req)));
 
     res.json(result);
   });
@@ -47,16 +47,33 @@ export function createPostsRouter(prisma) {
       return res.status(404).json({ error: "Post not found" });
     }
 
-    res.json(formatPost(post, post.translations[0]));
+    res.json(formatPost(post, post.translations[0], getPublicBaseUrl(req)));
   });
 
   return router;
 }
 
-function formatPost(post, translation) {
+function getPublicBaseUrl(req) {
+  return `${req.protocol}://${req.get("host")}`;
+}
+
+function normalizeImageUrl(image, publicBaseUrl) {
+  if (!image) {
+    return image;
+  }
+  if (image.startsWith("http://") || image.startsWith("https://")) {
+    return image;
+  }
+  if (image.startsWith("/")) {
+    return `${publicBaseUrl}${image}`;
+  }
+  return image;
+}
+
+function formatPost(post, translation, publicBaseUrl) {
   return {
     id: post.id,
-    image: post.image,
+    image: normalizeImageUrl(post.image, publicBaseUrl),
     publishedAt: post.publishedAt,
     title: translation.title,
     header: translation.header,

@@ -14,6 +14,7 @@
   "dependencies": {
     "@adminjs/express": "^6.1.1",
     "@adminjs/prisma": "^5.0.4",
+    "@adminjs/upload": "^4.0.2",
     "@prisma/client": "^5.22.0",
     "adminjs": "^7.8.17",
     "connect-pg-simple": "^10.0.0",
