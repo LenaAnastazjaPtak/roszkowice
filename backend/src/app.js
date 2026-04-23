@@ -11,6 +11,7 @@ import AdminJSExpress from "@adminjs/express";
 import { Database, Resource } from "@adminjs/prisma";
 import { PrismaClient } from "@prisma/client";
 import { buildResources } from "./admin/resources.js";
+import { createGalleryRouter } from "./routes/gallery.js";
 import { createPostsRouter } from "./routes/posts.js";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -63,6 +64,7 @@ export async function createApp() {
           labels: {
             BlogPost: "Posty",
             BlogPostTranslation: "Tlumaczenia postow",
+            GalleryImage: "Galeria",
           },
           resources: {
             BlogPost: {
@@ -85,9 +87,23 @@ export async function createApp() {
                 translationDeContent: "Niemiecki - treść",
               },
             },
+            GalleryImage: {
+              properties: {
+                id: "ID",
+                image: "Zdjecie",
+                imageFile: "Plik zdjecia",
+                imageThumb: "Miniaturka",
+                category: "Kategoria",
+                sortOrder: "Kolejnosc",
+                createdAt: "Data utworzenia",
+                updatedAt: "Data aktualizacji",
+              },
+            },
           },
           actions: {
             openPost: "Zobacz post",
+            moveUp: "Wyzej",
+            moveDown: "Nizej",
           },
         },
       },
@@ -131,6 +147,7 @@ export async function createApp() {
 
   app.use(admin.options.rootPath, adminRouter);
   app.use("/api/posts", createPostsRouter(prisma));
+  app.use("/api/gallery", createGalleryRouter(prisma));
 
   admin.watch();
 

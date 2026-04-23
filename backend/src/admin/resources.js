@@ -12,6 +12,11 @@ const IMAGE_UPLOAD_MIME_TYPES = [
   "image/avif",
 ];
 const IMAGE_UPLOAD_EXTENSIONS = new Set([".jpg", ".jpeg", ".png", ".webp", ".avif"]);
+const GALLERY_CATEGORIES = [
+  { value: "exterior", label: "Zewnatrz" },
+  { value: "park", label: "Park" },
+  { value: "remont", label: "Remont" },
+];
 const TRANSLATION_FIELDS = [
   { locale: "pl", key: "translationPl", label: "Polski" },
   { locale: "en", key: "translationEn", label: "Angielski" },
@@ -155,12 +160,50 @@ async function enrichRecordWithTranslations(prisma, record) {
   }
 }
 
-function buildUploadPath(filename) {
+function buildUploadPath(filename, directory) {
   const extension = path.extname(String(filename)).toLowerCase();
   if (!IMAGE_UPLOAD_EXTENSIONS.has(extension)) {
     throw new Error("Nieprawidlowe rozszerzenie obrazka.");
   }
-  return `posts/${Date.now()}-${randomUUID()}${extension}`;
+  return `${directory}/${Date.now()}-${randomUUID()}${extension}`;
+}
+
+async function getNextGallerySortOrder(prisma) {
+  const latest = await prisma.galleryImage.findFirst({
+    orderBy: [{ sortOrder: "desc" }, { id: "desc" }],
+    select: { sortOrder: true },
+  });
+  return latest ? latest.sortOrder + 1 : 1;
+}
+
+async function moveGalleryImage(prisma, galleryImageId, direction) {
+  const images = await prisma.galleryImage.findMany({
+    orderBy: [{ sortOrder: "asc" }, { id: "asc" }],
+    select: { id: true, sortOrder: true },
+  });
+
+  const currentIndex = images.findIndex((image) => image.id === galleryImageId);
+  if (currentIndex < 0) {
+    return;
+  }
+
+  const targetIndex = direction === "up" ? currentIndex - 1 : currentIndex + 1;
+  if (targetIndex < 0 || targetIndex >= images.length) {
+    return;
+  }
+
+  const reordered = [...images];
+  const [moved] = reordered.splice(currentIndex, 1);
+  reordered.splice(targetIndex, 0, moved);
+
+  await prisma.$transaction(
+    reordered.map((image, index) =>
+      prisma.galleryImage.update({
+        where: { id: image.id },
+        data: { sortOrder: index + 1 },
+      }),
+    ),
+  );
 }
 
 export function buildResources(prisma, componentLoader) {
@@ -196,7 +239,7 @@ export function buildResources(prisma, componentLoader) {
             key: "image",
             file: "imageFile",
           },
-          uploadPath: (record, filename) => buildUploadPath(filename),
+          uploadPath: (record, filename) => buildUploadPath(filename, "posts"),
         }),
       ],
       options: {
@@ -327,6 +370,135 @@ export function buildResources(prisma, componentLoader) {
           },
           content: {
             type: "textarea",
+          },
+        },
+      },
+    },
+    {
+      resource: { model: getModelByName("GalleryImage"), client: prisma },
+      features: [
+        uploadFeature({
+          componentLoader,
+          provider: {
+            local: {
+              bucket: "uploads",
+              opts: {
+                baseUrl: "/uploads",
+              },
+            },
+          },
+          validation: {
+            mimeTypes: IMAGE_UPLOAD_MIME_TYPES,
+            maxSize: 15 * 1024 * 1024,
+          },
+          properties: {
+            key: "image",
+            file: "imageFile",
+          },
+          uploadPath: (record, filename) => buildUploadPath(filename, "gallery"),
+        }),
+      ],
+      options: {
+        navigation: { name: "Galeria", icon: "Image" },
+        listProperties: [
+          "id",
+          "imageThumb",
+          "category",
+          "sortOrder",
+          "updatedAt",
+        ],
+        editProperties: ["imageFile", "category", "sortOrder"],
+        showProperties: [
+          "id",
+          "imageThumb",
+          "imageFile",
+          "image",
+          "category",
+          "sortOrder",
+          "createdAt",
+          "updatedAt",
+        ],
+        sort: {
+          sortBy: "sortOrder",
+          direction: "asc",
+        },
+        properties: {
+          imageThumb: {
+            isVisible: { list: true, show: true, filter: false, edit: false },
+            components: {
+              list: imageThumbComponent,
+              show: imageThumbComponent,
+            },
+            label: "Miniaturka",
+          },
+          category: {
+            availableValues: GALLERY_CATEGORIES,
+          },
+        },
+        actions: {
+          new: {
+            before: async (request) => {
+              if (request.method?.toLowerCase() !== "post") {
+                return request;
+              }
+
+              const payload = { ...(request.payload ?? {}) };
+              const rawSortOrder = payload.sortOrder;
+              const parsedSortOrder = Number(rawSortOrder);
+              if (!rawSortOrder || Number.isNaN(parsedSortOrder)) {
+                payload.sortOrder = await getNextGallerySortOrder(prisma);
+              }
+
+              return { ...request, payload };
+            },
+          },
+          moveUp: {
+            actionType: "record",
+            component: false,
+            icon: "ChevronUp",
+            label: "Wyzej",
+            guard: "",
+            handler: async (request, response, context) => {
+              if (!context.record) {
+                throw new Error("Nie znaleziono rekordu galerii.");
+              }
+              await moveGalleryImage(prisma, Number(context.record.id()), "up");
+              const record = await context.resource.findOne(
+                context.record.id(),
+                context.currentAdmin,
+              );
+              return {
+                record: record?.toJSON(context.currentAdmin),
+                redirectUrl: context.h.resourceActionUrl({
+                  resourceId: context.resource.id(),
+                  actionName: "list",
+                }),
+              };
+            },
+          },
+          moveDown: {
+            actionType: "record",
+            component: false,
+            icon: "ChevronDown",
+            label: "Nizej",
+            guard: "",
+            handler: async (request, response, context) => {
+              if (!context.record) {
+                throw new Error("Nie znaleziono rekordu galerii.");
+              }
+              await moveGalleryImage(prisma, Number(context.record.id()), "down");
+              const record = await context.resource.findOne(
+                context.record.id(),
+                context.currentAdmin,
+              );
+              return {
+                record: record?.toJSON(context.currentAdmin),
+                redirectUrl: context.h.resourceActionUrl({
+                  resourceId: context.resource.id(),
+                  actionName: "list",
+                }),
+              };
+            },
           },
         },
       },
