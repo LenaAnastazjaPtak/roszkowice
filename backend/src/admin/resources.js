@@ -243,7 +243,7 @@ export function buildResources(prisma, componentLoader) {
         }),
       ],
       options: {
-        navigation: { name: "Blog", icon: "DocumentText" },
+        navigation: null,
         listProperties: ["id", "imageThumb", "publishedAt", "createdAt"],
         editProperties: ["imageFile", "publishedAt", ...translationFieldKeys],
         showProperties: [
@@ -399,7 +399,7 @@ export function buildResources(prisma, componentLoader) {
         }),
       ],
       options: {
-        navigation: { name: "Galeria", icon: "Image" },
+        navigation: null,
         listProperties: [
           "id",
           "imageThumb",

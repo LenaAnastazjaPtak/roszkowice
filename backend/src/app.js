@@ -17,10 +17,11 @@ import { createPostsRouter } from "./routes/posts.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const uploadsDirectory = path.resolve(__dirname, "../uploads");
+const frontendImagesDirectory = path.resolve(__dirname, "../../app/public/images");
 const componentLoader = new ComponentLoader();
-const emptyDashboardComponent = componentLoader.add(
-  "EmptyDashboard",
-  path.join(__dirname, "admin", "components", "EmptyDashboard.js"),
+const adminDashboardComponent = componentLoader.add(
+  "AdminDashboard",
+  path.join(__dirname, "admin", "components", "AdminDashboard.js"),
 );
 
 AdminJS.registerAdapter({ Database, Resource });
@@ -48,12 +49,19 @@ export async function createApp() {
   app.use(express.json());
   mkdirSync(uploadsDirectory, { recursive: true });
   app.use("/uploads", express.static(uploadsDirectory));
+  app.use("/images", express.static(frontendImagesDirectory));
 
   const admin = new AdminJS({
     resources: buildResources(prisma, componentLoader),
-    rootPath: "/admin",
+    rootPath: "/",
     dashboard: {
-      component: emptyDashboardComponent,
+      component: adminDashboardComponent,
+    },
+    branding: {
+      companyName: "Pałac Roszkowice Panel administracyjny",
+      logo: "/images/roszkowice/logo_with_transparent_background.png",
+      favicon: "/images/roszkowice/logo_with_transparent_background.png",
+      withMadeWithLove: false,
     },
     componentLoader,
     locale: {
@@ -145,9 +153,9 @@ export async function createApp() {
     },
   );
 
-  app.use(admin.options.rootPath, adminRouter);
   app.use("/api/posts", createPostsRouter(prisma));
   app.use("/api/gallery", createGalleryRouter(prisma));
+  app.use(admin.options.rootPath, adminRouter);
 
   admin.watch();
 
