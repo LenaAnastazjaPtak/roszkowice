@@ -305,7 +305,8 @@
 	.portfolio-categories ul {
 		border-bottom: none;
 	}
-	.portfolio-categories ul li a::before {
+	.portfolio-categories ul li a::before,
+	.portfolio-categories ul li .portfolio-filter-link::before {
 		display: none;
 	}
 	.event-block .event-content {

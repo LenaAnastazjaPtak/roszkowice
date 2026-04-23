@@ -5,76 +5,10 @@ import ContentBlockLink from "./ContentBlockLink";
 const MOBILE_BREAKPOINT = 768;
 const HOME_LIMIT_DESKTOP = 12;
 const HOME_LIMIT_MOBILE = 6;
-
-const zewnFiles = [
-  "11.jpg",
-  "22.png",
-  "DJI_0520.JPG",
-  "DSC09468.JPG",
-  "IMG-20251021-WA0011.jpg",
-  "jesien.jpg",
-  "kopula.jpg",
-  "palac_dawniej.jpg",
-  "pionowa_zima.jpg",
-  "pionowe.jpg",
-  "pocztowki.jpg",
-  "zima.jpg",
-];
-const parkFiles = [
-  "20251019_140721.jpg",
-  "20251019_155511.jpg",
-  "20251019_161301.jpg",
-  "20251019_161848.jpg",
-  "IMG_0345.jpg",
-  "park.jpg",
-];
-const remontFiles = [
-  "2007%20(1).jpg",
-  "2007%20(2).jpg",
-  "2007%20(4).jpg",
-  "2007%20(5).jpg",
-  "2014%20(1).JPG",
-  "20230716_134946.jpg",
-  "20231011_135743.jpg",
-  "20251019_135913.jpg",
-  "20251214_142137.jpg",
-  "IMG_0284.jpg",
-  "IMG_0285-2.jpg",
-  "IMG_0286-2.jpg",
-  "IMG_0287.jpg",
-  "IMG_0288.jpg",
-  "IMG_0289.jpg",
-  "IMG_0304.jpg",
-  "IMG_0307.jpg",
-  "IMG_0308.jpg",
-  "IMG_0312.jpg",
-  "IMG_0313.jpg",
-  "IMG_0315.jpg",
-  "IMG_0316.jpg",
-  "IMG_0319.jpg",
-  "IMG_0323.jpg",
-  "IMG_0325.jpg",
-  "IMG_0338.jpg",
-  "IMG_0341.jpg",
-  "IMG_0346.jpg",
-  "IMG_0352.jpg",
-  "IMG_0363.jpg",
-];
-
-const galleryItems = [
-  ...zewnFiles.map((file) => ({
-    src: `/images/roszkowice/zewn/${file}`,
-    classes: "col-md-3 col-sm-3 exterior",
-  })),
-  ...parkFiles.map((file) => ({
-    src: `/images/roszkowice/park/${file}`,
-    classes: "col-md-3 col-sm-3 park",
-  })),
-  ...remontFiles.map((file) => ({
-    src: `/images/roszkowice/remont/${file}`,
-    classes: "col-md-3 col-sm-3 remont",
-  })),
-];
+const VITE_API_URL = import.meta.env.VITE_API_URL;
+if (!VITE_API_URL) {
+  throw new Error("Missing required env variable: VITE_API_URL");
+}
 
 const filters = [
   { filter: "*", labelKey: "gallery.all" },
@@ -85,12 +19,15 @@ const filters = [
 
 function GallerySection({ standalone = false }) {
   const { t } = useTranslation("home");
+  const [galleryItems, setGalleryItems] = useState([]);
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [activeFilter, setActiveFilter] = useState("*");
   const [isMobile, setIsMobile] = useState(
     () =>
       typeof window !== "undefined" && window.innerWidth < MOBILE_BREAKPOINT,
   );
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const mq = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`);
@@ -99,24 +36,64 @@ function GallerySection({ standalone = false }) {
     return () => mq.removeEventListener("change", handler);
   }, []);
 
+  useEffect(() => {
+    let cancelled = false;
+    setLoading(true);
+    setError(null);
+
+    fetch(`${VITE_API_URL}/api/gallery`)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`API responded with ${res.status}`);
+        }
+        return res.json();
+      })
+      .then((data) => {
+        if (cancelled) {
+          return;
+        }
+        const mapped = data.map((item) => ({
+          id: item.id,
+          src: item.src,
+          category: item.category,
+          classes: `col-md-3 col-sm-3 ${item.category}`,
+        }));
+        setGalleryItems(mapped);
+        setLoading(false);
+      })
+      .catch((err) => {
+        if (cancelled) {
+          return;
+        }
+        setError(err);
+        setLoading(false);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   const close = useCallback(() => setSelectedIndex(null), []);
   const goPrev = useCallback(() => {
     setSelectedIndex((i) =>
-      i === null ? null : (i - 1 + galleryItems.length) % galleryItems.length,
+      i === null || galleryItems.length === 0
+        ? null
+        : (i - 1 + galleryItems.length) % galleryItems.length,
     );
   }, []);
   const goNext = useCallback(() => {
     setSelectedIndex((i) =>
-      i === null ? null : (i + 1) % galleryItems.length,
+      i === null || galleryItems.length === 0 ? null : (i + 1) % galleryItems.length,
     );
-  }, []);
+  }, [galleryItems.length]);
 
   const filteredWithIndex =
     activeFilter === "*"
       ? galleryItems.map((item, index) => ({ item, index }))
       : galleryItems
           .map((item, index) => ({ item, index }))
-          .filter(({ item }) => item.classes.includes(activeFilter.slice(1)));
+          .filter(({ item }) => item.category === activeFilter.slice(1));
 
   const displayLimit = standalone
     ? undefined
@@ -147,9 +124,9 @@ function GallerySection({ standalone = false }) {
             <ul id="filters">
               {filters.map(({ filter, labelKey }) => (
                 <li key={filter}>
-                  <a
-                    href="#"
-                    className={activeFilter === filter ? "active" : ""}
+                  <button
+                    type="button"
+                    className={`portfolio-filter-link${activeFilter === filter ? " active" : ""}`}
                     onClick={(e) => {
                       e.preventDefault();
                       setActiveFilter(filter);
@@ -157,7 +134,7 @@ function GallerySection({ standalone = false }) {
                     data-filter={filter}
                   >
                     {t(labelKey)}
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -176,9 +153,9 @@ function GallerySection({ standalone = false }) {
               <ul id="filters">
                 {filters.map(({ filter, labelKey }) => (
                   <li key={filter}>
-                    <a
-                      href="#"
-                      className={activeFilter === filter ? "active" : ""}
+                    <button
+                      type="button"
+                      className={`portfolio-filter-link${activeFilter === filter ? " active" : ""}`}
                       onClick={(e) => {
                         e.preventDefault();
                         setActiveFilter(filter);
@@ -186,7 +163,7 @@ function GallerySection({ standalone = false }) {
                       data-filter={filter}
                     >
                       {t(labelKey)}
-                    </a>
+                    </button>
                   </li>
                 ))}
               </ul>
@@ -195,10 +172,16 @@ function GallerySection({ standalone = false }) {
         )}
       </div>
       <div className="portfolio-section-gallery-wrap">
+        {loading && <div className="container text-center">Ładowanie...</div>}
+        {error && (
+          <div className="container text-center">
+            Nie udało się załadować galerii.
+          </div>
+        )}
         <div className="portfolio-list">
           {displayedItems.map(({ item, index }) => (
             <div
-              key={item.src}
+              key={item.id}
               className={`portfolio-box no-padding ${item.classes}`}
             >
               <a
