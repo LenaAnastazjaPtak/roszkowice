@@ -57,7 +57,7 @@ export async function createApp() {
       component: adminDashboardComponent,
     },
     branding: {
-      companyName: "Pałac Roszkowice Panel administracyjny",
+      companyName: "Pałac Roszkowice Admin",
       logo: "/images/roszkowice/logo_admin_128.png",
       favicon: "/images/roszkowice/logo_with_transparent_background.png",
       withMadeWithLove: false,
