@@ -49,6 +49,7 @@ export async function createApp() {
   mkdirSync(uploadsDirectory, { recursive: true });
   app.use("/uploads", express.static(uploadsDirectory));
   app.use("/images", express.static(frontendImagesDirectory));
+  app.use("/admin-assets", express.static(path.resolve(__dirname, "admin", "assets")));
 
   const admin = new AdminJS({
     resources: buildResources(prisma, componentLoader),
@@ -61,6 +62,16 @@ export async function createApp() {
       logo: "/images/roszkowice/logo_admin_128.png",
       favicon: "/images/roszkowice/logo_with_transparent_background.png",
       withMadeWithLove: false,
+      theme: {
+        colors: {
+          primary100: "#c19a6b",
+          info: "#c19a6b",
+          love: "#c19a6b",
+        },
+      },
+    },
+    assets: {
+      scripts: ["/admin-assets/login-remove-illustration.js"],
     },
     componentLoader,
     locale: {
