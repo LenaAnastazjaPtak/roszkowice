@@ -1,16 +1,19 @@
+import { useMemo } from "react";
 import { Link, useParams, Navigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useBlogPosts } from "../hooks/useBlogPosts";
 import LatestPostsWidget from "../components/LatestPostsWidget";
-import PopularTagsWidget from "../components/PopularTagsWidget";
 import PageBanner from "../components/PageBanner";
 import BlogPost from "../components/BlogPost";
 
 function BlogSinglePage() {
   const { t } = useTranslation("blog");
-  const { posts, getLatestPosts, getTagsFromPosts } = useBlogPosts();
+  const { posts, loading, getLatestPosts } = useBlogPosts();
   const { id } = useParams();
   const post = posts.find((p) => String(p.id) === id);
+  const latestPosts = useMemo(() => getLatestPosts(3), [getLatestPosts]);
+
+  if (loading) return null;
   if (!post) return <Navigate to="/404" replace />;
 
   return (
@@ -25,45 +28,6 @@ function BlogSinglePage() {
           <div className="row">
             <div className="col-md-9 col-sm-7 col-xs-7 content-area">
               <BlogPost post={post} variant="single" />
-              {/* <div className="comment-section">
-                <h3>{t('commentsSection')}<span>(3)</span></h3>
-                <ul className="media-list">
-                  {comments.map((c, index) => (
-                    <li key={index} className="media">
-                      <div className="media-left"><Link to="#" title={c.author}><img src={c.img} alt={t('commentAlt')} /></Link></div>
-                      <div className="media-body">
-                        <div className="media-content">
-                          <h4 className="media-heading"><b>{c.author}</b> <span>{c.date}</span><Link to="#" title={t('reply')}><i className="fa fa-reply-all"></i>{t('reply')}</Link></h4>
-                          <p>{commentText}</p>
-                        </div>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="comment-form">
-                <h3>{t('addComment')}</h3>
-                <form className="row">
-                  <div className="form-group col-md-6">
-                    <input type="text" required placeholder={t('namePlaceholder')} className="form-control" />
-                  </div>
-                  <div className="form-group col-md-6">
-                    <input type="text" required placeholder={t('emailPlaceholder')} className="form-control" />
-                  </div>
-                  <div className="form-group col-md-6">
-                    <input type="text" required placeholder={t('phonePlaceholder')} className="form-control" />
-                  </div>
-                  <div className="form-group col-md-6">
-                    <input type="text" required placeholder={t('subjectPlaceholder')} className="form-control" />
-                  </div>
-                  <div className="form-group col-md-12">
-                    <textarea placeholder={t('messagePlaceholder')} rows={8} className="form-control"></textarea>
-                  </div>
-                  <div className="col-md-12">
-                    <input type="submit" title="Wyślij" value={t('submit')} name="submit" />
-                  </div>
-                </form>
-              </div> */}
             </div>
             <div className="col-md-3 col-sm-5 col-xs-5 widget-area">
               <aside className="widget widget_back_to_posts">
@@ -75,16 +39,7 @@ function BlogSinglePage() {
                   {t("backToAllPosts")}
                 </Link>
               </aside>
-              {/* <aside className="widget widget_categories">
-                <h3 className="widget-title">{t('categories')}</h3>
-                <ul>
-                  {categories.map((cat) => (
-                    <li key={cat.title}><Link to="#" title={cat.title}><span>{cat.count}</span>{cat.title}</Link></li>
-                  ))}
-                </ul>
-              </aside> */}
-              <LatestPostsWidget posts={getLatestPosts(t)} />
-              <PopularTagsWidget tags={getTagsFromPosts()} />
+              <LatestPostsWidget posts={latestPosts} />
             </div>
           </div>
         </div>

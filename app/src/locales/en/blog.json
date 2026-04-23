@@ -1,80 +1,10 @@
 {
   "title": "Blog",
   "readMore": "Read more",
-  "comments": "{{count}} comments",
   "searchPlaceholder": "Search...",
-  "categories": "Categories",
   "latestPosts": "Latest posts",
-  "popularTags": "Popular tags",
   "coverTitle": "Post cover",
-  "months": {
-    "march": "March",
-    "april": "April",
-    "may": "May",
-    "june": "June",
-    "october": "October",
-    "december": "December",
-    "january": "January"
-  },
-  "share": "Share",
-  "commentsSection": "Comments",
-  "reply": "Reply",
-  "addComment": "Add comment",
-  "namePlaceholder": "Name *",
-  "emailPlaceholder": "Email address *",
-  "phonePlaceholder": "Phone number",
-  "subjectPlaceholder": "Subject",
-  "messagePlaceholder": "Message",
-  "submit": "Send message",
-  "commentAlt": "Comment",
   "postAlt": "Post",
   "noPostsFound": "No posts found.",
-  "backToAllPosts": "Back to all posts",
-  "posts": {
-    "0": {
-      "title": "Golden Autumn in the Palace Park",
-      "author": "Roszkowice Palace",
-      "content": "Our park is so beautiful in autumn! ☀️ The trees in Roszkowice are bathed in warm sunlight.\nRenovation work is ongoing, and every day brings us closer to our goal: reopening this remarkable place. Thank you for being with us! 🍁",
-      "tags": [
-        "Palace",
-        "Roszkowice",
-        "HistoricalPlaces",
-        "Park",
-        "GoldenAutumn"
-      ]
-    },
-    "1": {
-      "title": "Christmas Eve in Roszkowice",
-      "author": "Roszkowice Palace",
-      "content": "Today, on this special Christmas Eve, Roszkowice is filled with silence and anticipation of the first star ⭐, and we are eagerly waiting for the moment when this place is alive again with life, light, and the joy of visitors. 🕯️\nWe are waiting for the moment when we can open the Palace for you! ❤️",
-      "tags": [
-        "Palace",
-        "ChristmasEve",
-        "Christmas",
-        "HolidayGreetings",
-        "Monument"
-      ]
-    },
-    "2": {
-      "title": "New Year 2026 - Plans and Faster Renovation",
-      "author": "Roszkowice Palace",
-      "content": "The New Year at Roszkowice Palace is a time of major changes and accelerated renovation work. We have ambitious plans to open the Palace and park for you! 🌳🔑\nWe can promise one thing: a lot is going to happen! 🛠️🔥 Our mission to restore the palace's former splendor and open it to you is entering a decisive phase.\nWe cannot wait for you to see everything with your own eyes 👀 and walk through the renovated halls and park alleys. Follow us - we will share updates regularly! 👇",
-      "tags": [
-        "Palace",
-        "NewYear2026",
-        "NewYearPlans",
-        "Renovation",
-        "Reconstruction",
-        "Monument",
-        "Vision",
-        "Revitalization"
-      ]
-    },
-    "3": {
-      "title": "We're on Instagram!",
-      "author": "Roszkowice Palace",
-      "content": "We're on Instagram! 📸🏰\nWant to see Roszkowice Palace at its best? Visit our new profile, where beautiful photos will take center stage.\nStay up to date and support our activities ✨ 👇\nhttps://www.instagram.com/palac_roszkowice/",
-      "tags": ["Palace", "Instagram", "FollowUs", "PolandIsBeautiful"]
-    }
-  }
+  "backToAllPosts": "Back to all posts"
 }

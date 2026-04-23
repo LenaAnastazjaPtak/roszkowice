@@ -26,7 +26,8 @@
 	left: -1px;
 	top: 0;
 }
-.portfolio-categories ul li a {
+.portfolio-categories ul li a,
+.portfolio-categories ul li .portfolio-filter-link {
 	color: var(--color-text-placeholder);
 	font-family: var(--font-heading);
 	font-weight: 600;
@@ -34,15 +35,24 @@
 	text-decoration: none;
 	letter-spacing: 0.56px;
 	position: relative;
+	background: transparent;
+	border: none;
+	padding: 0;
+	appearance: none;
+	-webkit-appearance: none;
+	cursor: pointer;
 }
 .portfolio-categories ul li a,
-.portfolio-categories ul li a::before {
+.portfolio-categories ul li a::before,
+.portfolio-categories ul li .portfolio-filter-link,
+.portfolio-categories ul li .portfolio-filter-link::before {
 	-webkit-transition: all 1s ease 0s;
 	-moz-transition: all 1s ease 0s;
 	-o-transition: all 1s ease 0s;
 	transition: all 1s ease 0s;
 }
-.portfolio-categories ul li a::before {
+.portfolio-categories ul li a::before,
+.portfolio-categories ul li .portfolio-filter-link::before {
 	background-color: var(--color-accent);
 	content: "";
 	width: 7px;
@@ -56,11 +66,15 @@
 	opacity: 0;
 }
 .portfolio-categories ul li a.active::before,
-.portfolio-categories ul li a:hover::before {
+.portfolio-categories ul li a:hover::before,
+.portfolio-categories ul li .portfolio-filter-link.active::before,
+.portfolio-categories ul li .portfolio-filter-link:hover::before {
 	opacity: 1;
 }
 .portfolio-categories ul li a.active,
-.portfolio-categories ul li a:hover {
+.portfolio-categories ul li a:hover,
+.portfolio-categories ul li .portfolio-filter-link.active,
+.portfolio-categories ul li .portfolio-filter-link:hover {
 	color: var(--color-accent);
 }
 .portfolio-box {

@@ -1,29 +1,32 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { useBlogPosts } from "../hooks/useBlogPosts";
+import { formatPostDate } from "../shared/formatDate.js";
 
 function BlogPost({ post, variant = "listing" }) {
-  const { t } = useTranslation("blog");
-  const { getPostTags } = useBlogPosts();
+  const { t, i18n } = useTranslation("blog");
   const linkToPost = variant === "listing";
   const postUrl = `/blog/post/${post.id}`;
+  const { day, month, year } = formatPostDate(
+    post.publishedAt,
+    i18n.language,
+  );
 
   return (
     <article className="type-post">
       <div className="entry-cover">
         {linkToPost ? (
-          <Link to={postUrl} className="img-hover-zoom">
-            <img src={post.img} alt="Blog" />
+          <Link to={postUrl}>
+            <img src={post.image} alt={t("postAlt")} />
           </Link>
         ) : (
-          <img src={post.img} alt="Blog" />
+          <img src={post.image} alt={t("postAlt")} />
         )}
       </div>
       <div className="entry-header">
         <div className="post-date">
-          <b>{post.day}</b>
-          <span>{t(post.monthKey)}</span>
-          <span>{post.year}</span>
+          <b>{day}</b>
+          <span>{month}</span>
+          <span>{year}</span>
         </div>
         <h3 className="entry-title">
           {linkToPost ? (
@@ -36,22 +39,9 @@ function BlogPost({ post, variant = "listing" }) {
         </h3>
         <div className="entry-meta">
           <div className="byline">
-            <span title={post.author}>{post.author}</span>
+            <span>{post.header}</span>
           </div>
         </div>
-        {getPostTags(post).length > 0 && (
-          <div className="entry-tags">
-            {getPostTags(post).map((tagName) => (
-              <Link
-                key={tagName}
-                to={`/blog?tag=${encodeURIComponent(tagName)}`}
-                className="tag"
-              >
-                {tagName}
-              </Link>
-            ))}
-          </div>
-        )}
       </div>
       <div className="entry-content">
         <div style={{ whiteSpace: "pre-line" }}>{post.content}</div>

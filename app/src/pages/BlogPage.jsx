@@ -1,9 +1,8 @@
-import { useState, useMemo, useEffect, useRef } from "react";
+import { useState, useMemo } from "react";
 import { Link, useSearchParams, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useBlogPosts } from "../hooks/useBlogPosts";
 import LatestPostsWidget from "../components/LatestPostsWidget";
-import PopularTagsWidget from "../components/PopularTagsWidget";
 import BlogSearchWidget from "../components/BlogSearchWidget";
 import PageBanner from "../components/PageBanner";
 import BlogPost from "../components/BlogPost";
@@ -22,17 +21,12 @@ function filterPostsByPhrase(postsList, phrase) {
 
 function BlogPage() {
   const { t } = useTranslation("blog");
-  const { posts, getLatestPosts, getTagsFromPosts, getPostsByTag } =
-    useBlogPosts();
+  const { posts, loading, getLatestPosts } = useBlogPosts();
   const location = useLocation();
-  const [searchParams, setSearchParams] = useSearchParams();
-  const tagFromUrl = searchParams.get("tag");
+  const [searchParams] = useSearchParams();
   const [searchPhrase, setSearchPhrase] = useState("");
-  const basePosts = useMemo(
-    () => (tagFromUrl ? getPostsByTag(tagFromUrl) : posts),
-    [tagFromUrl, getPostsByTag, posts],
-  );
-  const filteredPosts = filterPostsByPhrase(basePosts, searchPhrase);
+
+  const filteredPosts = filterPostsByPhrase(posts, searchPhrase);
   const totalPages = Math.max(
     1,
     Math.ceil(filteredPosts.length / POSTS_PER_PAGE),
@@ -47,31 +41,8 @@ function BlogPage() {
     currentPage * POSTS_PER_PAGE,
   );
 
-  const prevTagRef = useRef(null);
-  useEffect(() => {
-    if (prevTagRef.current !== null && prevTagRef.current !== tagFromUrl) {
-      setSearchParams(
-        (prev) => {
-          const next = new URLSearchParams(prev);
-          next.delete("page");
-          return next;
-        },
-        { replace: true },
-      );
-    }
-    prevTagRef.current = tagFromUrl;
-  }, [tagFromUrl, setSearchParams]);
-
   const handleSearchChange = (e) => {
     setSearchPhrase(e.target.value);
-    setSearchParams(
-      (prev) => {
-        const next = new URLSearchParams(prev);
-        next.delete("page");
-        return next;
-      },
-      { replace: true },
-    );
   };
 
   const pageUrl = (pageNum) => {
@@ -81,6 +52,10 @@ function BlogPage() {
     const search = next.toString();
     return { pathname: location.pathname, search: search ? `?${search}` : "" };
   };
+
+  const latestPosts = useMemo(() => getLatestPosts(3), [getLatestPosts]);
+
+  if (loading) return null;
 
   return (
     <>
@@ -139,16 +114,7 @@ function BlogPage() {
                 value={searchPhrase}
                 onChange={handleSearchChange}
               />
-              {/* <aside className="widget widget_categories">
-                <h3 className="widget-title">{t('categories')}</h3>
-                <ul>
-                  {categories.map((cat) => (
-                    <li key={cat.title}><Link to="#" title={cat.title}><span>{cat.count}</span>{cat.title}</Link></li>
-                  ))}
-                </ul>
-              </aside> */}
-              <LatestPostsWidget posts={getLatestPosts(t)} />
-              <PopularTagsWidget tags={getTagsFromPosts()} />
+              <LatestPostsWidget posts={latestPosts} />
             </div>
           </div>
         </div>
