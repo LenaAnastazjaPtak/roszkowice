@@ -46,7 +46,6 @@ export async function createApp() {
   const databaseUrl = getRequiredEnv("DATABASE_URL");
 
   app.use(cors({ origin: corsOrigin }));
-  app.use(express.json());
   mkdirSync(uploadsDirectory, { recursive: true });
   app.use("/uploads", express.static(uploadsDirectory));
   app.use("/images", express.static(frontendImagesDirectory));
@@ -59,7 +58,7 @@ export async function createApp() {
     },
     branding: {
       companyName: "Pałac Roszkowice Panel administracyjny",
-      logo: "/images/roszkowice/logo_with_transparent_background.png",
+      logo: "/images/roszkowice/logo_admin_128.png",
       favicon: "/images/roszkowice/logo_with_transparent_background.png",
       withMadeWithLove: false,
     },
@@ -70,9 +69,16 @@ export async function createApp() {
       translations: {
         pl: {
           labels: {
+            dashboard: "Panel",
             BlogPost: "Posty",
             BlogPostTranslation: "Tlumaczenia postow",
             GalleryImage: "Galeria",
+          },
+          components: {
+            Login: {
+              welcomeHeader: "Witamy",
+              welcomeMessage: "Panel logowania do systemu zarządzania treścią.",
+            },
           },
           resources: {
             BlogPost: {
@@ -112,6 +118,7 @@ export async function createApp() {
             openPost: "Zobacz post",
             moveUp: "Wyzej",
             moveDown: "Nizej",
+            reorderGallery: "Ułóż kolejność",
           },
         },
       },

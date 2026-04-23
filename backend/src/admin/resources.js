@@ -206,6 +206,31 @@ async function moveGalleryImage(prisma, galleryImageId, direction) {
   );
 }
 
+async function normalizeGallerySortOrder(prisma) {
+  const images = await prisma.galleryImage.findMany({
+    orderBy: [{ sortOrder: "asc" }, { id: "asc" }],
+    select: { id: true, sortOrder: true },
+  });
+
+  const requiresNormalization = images.some(
+    (image, index) => image.sortOrder !== index + 1,
+  );
+  if (!requiresNormalization) {
+    return images.map((image, index) => ({ id: image.id, sortOrder: index + 1 }));
+  }
+
+  await prisma.$transaction(
+    images.map((image, index) =>
+      prisma.galleryImage.update({
+        where: { id: image.id },
+        data: { sortOrder: index + 1 },
+      }),
+    ),
+  );
+
+  return images.map((image, index) => ({ id: image.id, sortOrder: index + 1 }));
+}
+
 export function buildResources(prisma, componentLoader) {
   const translationFieldKeys = getTranslationFieldKeys();
   const openPostActionComponent = componentLoader.add(
@@ -215,6 +240,10 @@ export function buildResources(prisma, componentLoader) {
   const imageThumbComponent = componentLoader.add(
     "ImageThumb",
     path.join(__dirname, "components", "ImageThumb.js"),
+  );
+  const galleryReorderActionComponent = componentLoader.add(
+    "GalleryReorderAction",
+    path.join(__dirname, "components", "GalleryReorderAction.js"),
   );
 
   return [
@@ -407,7 +436,7 @@ export function buildResources(prisma, componentLoader) {
           "sortOrder",
           "updatedAt",
         ],
-        editProperties: ["imageFile", "category", "sortOrder"],
+        editProperties: ["imageFile", "category"],
         showProperties: [
           "id",
           "imageThumb",
@@ -436,6 +465,75 @@ export function buildResources(prisma, componentLoader) {
           },
         },
         actions: {
+          reorderGallery: {
+            actionType: "resource",
+            icon: "Move",
+            label: "Ułóż kolejność",
+            component: galleryReorderActionComponent,
+            handler: async (request, response, context) => {
+              await normalizeGallerySortOrder(prisma);
+
+              if (request.method?.toLowerCase() === "post") {
+                const rawOrder = request.payload?.order;
+                let inputOrder = [];
+                if (Array.isArray(rawOrder)) {
+                  inputOrder = rawOrder;
+                } else if (typeof rawOrder === "string") {
+                  try {
+                    const parsed = JSON.parse(rawOrder);
+                    if (Array.isArray(parsed)) {
+                      inputOrder = parsed;
+                    }
+                  } catch {
+                    inputOrder = rawOrder.split(",").map((value) => value.trim());
+                  }
+                } else if (rawOrder && typeof rawOrder === "object") {
+                  inputOrder = Object.values(rawOrder);
+                }
+                const order = inputOrder
+                  .map((value) => Number(value))
+                  .filter((value) => Number.isInteger(value) && value > 0);
+
+                if (order.length > 0) {
+                  const existingImages = await prisma.galleryImage.findMany({
+                    orderBy: [{ sortOrder: "asc" }, { id: "asc" }],
+                    select: { id: true },
+                  });
+                  const existingIds = existingImages.map((image) => image.id);
+                  const submittedIds = order.filter((id) => existingIds.includes(id));
+                  const remainingIds = existingIds.filter(
+                    (id) => !submittedIds.includes(id),
+                  );
+                  const finalOrder = [...submittedIds, ...remainingIds];
+
+                  await prisma.$transaction(
+                    finalOrder.map((id, index) =>
+                      prisma.galleryImage.update({
+                        where: { id },
+                        data: { sortOrder: index + 1 },
+                      }),
+                    ),
+                  );
+                }
+              }
+
+              const allImages = await prisma.galleryImage.findMany({
+                orderBy: [{ sortOrder: "asc" }, { id: "asc" }],
+                select: { id: true },
+              });
+              const records = await Promise.all(
+                allImages.map((image) =>
+                  context.resource.findOne(String(image.id), context.currentAdmin),
+                ),
+              );
+
+              return {
+                records: records
+                  .filter(Boolean)
+                  .map((record) => record.toJSON(context.currentAdmin)),
+              };
+            },
+          },
           new: {
             before: async (request) => {
               if (request.method?.toLowerCase() !== "post") {
@@ -443,11 +541,7 @@ export function buildResources(prisma, componentLoader) {
               }
 
               const payload = { ...(request.payload ?? {}) };
-              const rawSortOrder = payload.sortOrder;
-              const parsedSortOrder = Number(rawSortOrder);
-              if (!rawSortOrder || Number.isNaN(parsedSortOrder)) {
-                payload.sortOrder = await getNextGallerySortOrder(prisma);
-              }
+              payload.sortOrder = await getNextGallerySortOrder(prisma);
 
               return { ...request, payload };
             },
