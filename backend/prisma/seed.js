@@ -102,8 +102,67 @@ const posts = [
   },
 ];
 
+const galleryImages = [
+  { image: "/images/roszkowice/zewn/kopula.jpg", category: "exterior", sortOrder: 1 },
+  { image: "/images/roszkowice/zewn/jesien.jpg", category: "exterior", sortOrder: 2 },
+  { image: "/images/roszkowice/zewn/pionowe.jpg", category: "exterior", sortOrder: 3 },
+  {
+    image: "/images/roszkowice/zewn/pionowa_zima.jpg",
+    category: "exterior",
+    sortOrder: 4,
+  },
+  { image: "/images/roszkowice/zewn/IMG-20251021-WA0011.jpg", category: "exterior", sortOrder: 5 },
+  { image: "/images/roszkowice/zewn/DSC09468.JPG", category: "exterior", sortOrder: 6 },
+  { image: "/images/roszkowice/park/park.jpg", category: "park", sortOrder: 7 },
+  { image: "/images/roszkowice/park/IMG_0345.jpg", category: "park", sortOrder: 8 },
+  { image: "/images/roszkowice/park/20251019_140721.jpg", category: "park", sortOrder: 9 },
+  { image: "/images/roszkowice/park/20251019_155511.jpg", category: "park", sortOrder: 10 },
+  { image: "/images/roszkowice/park/20251019_161301.jpg", category: "park", sortOrder: 11 },
+  { image: "/images/roszkowice/park/20251019_161848.jpg", category: "park", sortOrder: 12 },
+  { image: "/images/roszkowice/remont/2007 (1).jpg", category: "remont", sortOrder: 13 },
+  { image: "/images/roszkowice/remont/2007 (2).jpg", category: "remont", sortOrder: 14 },
+  { image: "/images/roszkowice/remont/2007 (4).jpg", category: "remont", sortOrder: 15 },
+  { image: "/images/roszkowice/remont/2007 (5).jpg", category: "remont", sortOrder: 16 },
+  { image: "/images/roszkowice/remont/2014 (1).JPG", category: "remont", sortOrder: 17 },
+  { image: "/images/roszkowice/remont/IMG_0284.jpg", category: "remont", sortOrder: 18 },
+];
+
 async function seed() {
+  for (const galleryImageData of galleryImages) {
+    const existingImage = await prisma.galleryImage.findFirst({
+      where: {
+        image: galleryImageData.image,
+        category: galleryImageData.category,
+      },
+      select: { id: true },
+    });
+    if (existingImage) {
+      continue;
+    }
+
+    const image = await prisma.galleryImage.create({
+      data: galleryImageData,
+    });
+    console.log(`Created gallery image #${image.id}: ${galleryImageData.image}`);
+  }
+
   for (const postData of posts) {
+    const existingPost = await prisma.blogPost.findFirst({
+      where: {
+        publishedAt: postData.publishedAt,
+        translations: {
+          some: {
+            locale: "pl",
+            title: postData.translations.pl.title,
+          },
+        },
+      },
+      select: { id: true },
+    });
+    if (existingPost) {
+      continue;
+    }
+
     const post = await prisma.blogPost.create({
       data: {
         image: postData.image,
