@@ -1,0 +1,25 @@
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block content_title %}Pałac Roszkowice Admin{% endblock %}
+
+{% block main %}
+    <div class="dashboard-tiles">
+        <a class="dashboard-tile" href="{{ ea_url().setController('App\\Controller\\Admin\\BlogPostCrudController').setAction('index') }}">
+            <i class="fa fa-newspaper dashboard-tile-icon" aria-hidden="true"></i>
+            <h2 class="dashboard-tile-title">Posty</h2>
+            <p class="dashboard-tile-description">Zarządzaj wpisami blogowymi i ich tłumaczeniami (PL / EN / DE).</p>
+        </a>
+
+        <a class="dashboard-tile" href="{{ ea_url().setController('App\\Controller\\Admin\\GalleryImageCrudController').setAction('index') }}">
+            <i class="fa fa-images dashboard-tile-icon" aria-hidden="true"></i>
+            <h2 class="dashboard-tile-title">Galeria</h2>
+            <p class="dashboard-tile-description">Dodawaj zdjęcia, przypisuj kategorie i porządkuj kolejność.</p>
+        </a>
+
+        <a class="dashboard-tile" href="{{ path('app_admin_dashboard_gallery_reorder') }}">
+            <i class="fa fa-arrows-up-down-left-right dashboard-tile-icon" aria-hidden="true"></i>
+            <h2 class="dashboard-tile-title">Ułóż galerię</h2>
+            <p class="dashboard-tile-description">Przeciągnij i upuść, aby zmienić kolejność wyświetlania zdjęć.</p>
+        </a>
+    </div>
+{% endblock %}

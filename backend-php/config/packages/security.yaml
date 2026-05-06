@@ -1,0 +1,30 @@
+security:
+    password_hashers:
+        Symfony\Component\Security\Core\User\InMemoryUser: 'plaintext'
+
+    providers:
+        admin_env_provider:
+            id: App\Security\EnvAdminUserProvider
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            lazy: true
+            provider: admin_env_provider
+            custom_authenticators:
+                - App\Security\EnvAdminAuthenticator
+            entry_point: App\Security\EnvAdminAuthenticator
+            logout:
+                path: app_admin_logout
+                target: app_admin_login
+
+    access_control:
+        - { path: ^/admin/login$, roles: PUBLIC_ACCESS }
+        - { path: ^/admin, roles: ROLE_ADMIN }
+
+when@test:
+    security:
+        password_hashers:
+            Symfony\Component\Security\Core\User\InMemoryUser: 'plaintext'

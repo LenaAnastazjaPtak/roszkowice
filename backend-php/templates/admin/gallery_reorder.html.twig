@@ -1,0 +1,89 @@
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block content_title %}Ułóż kolejność zdjęć galerii{% endblock %}
+
+{% block main %}
+    <p class="text-muted">Przeciągnij i upuść zdjęcia, a następnie kliknij „Zapisz kolejność".</p>
+
+    <div class="gallery-reorder-list" id="gallery-reorder-list" data-csrf-token="{{ csrf_token('gallery_reorder') }}" data-save-url="{{ path('app_admin_dashboard_gallery_reorder_save') }}">
+        {% if images is empty %}
+            <p>Brak zdjęć do ułożenia.</p>
+        {% endif %}
+        {% for image in images %}
+            <div class="gallery-reorder-item" draggable="true" data-id="{{ image.id }}">
+                <span class="gallery-reorder-position js-position">{{ loop.index }}</span>
+                {% if image.image %}
+                    <img class="gallery-reorder-thumb" src="{{ image.image }}" alt="" onerror="this.style.visibility='hidden';">
+                {% else %}
+                    <div class="gallery-reorder-thumb"></div>
+                {% endif %}
+                <span class="gallery-reorder-meta">{{ image.category }} · ID {{ image.id }}</span>
+            </div>
+        {% endfor %}
+    </div>
+
+    <button type="button" class="btn btn-primary" id="gallery-reorder-save" {{ images is empty ? 'disabled' : '' }}>
+        <i class="fa fa-save me-1"></i> Zapisz kolejność
+    </button>
+    <span id="gallery-reorder-status" class="ms-3"></span>
+
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.6/Sortable.min.js" defer></script>
+    <script defer>
+        document.addEventListener('DOMContentLoaded', () => {
+            const list = document.getElementById('gallery-reorder-list');
+            const saveBtn = document.getElementById('gallery-reorder-save');
+            const status = document.getElementById('gallery-reorder-status');
+            if (!list || !saveBtn || typeof Sortable === 'undefined') {
+                return;
+            }
+
+            const refreshPositions = () => {
+                list.querySelectorAll('.gallery-reorder-item').forEach((node, index) => {
+                    const positionEl = node.querySelector('.js-position');
+                    if (positionEl) {
+                        positionEl.textContent = String(index + 1);
+                    }
+                });
+            };
+
+            Sortable.create(list, {
+                animation: 150,
+                ghostClass: 'is-dragging',
+                onEnd: refreshPositions,
+            });
+
+            saveBtn.addEventListener('click', async () => {
+                const ids = Array.from(list.querySelectorAll('.gallery-reorder-item'))
+                    .map((node) => Number(node.dataset.id))
+                    .filter((id) => Number.isInteger(id) && id > 0);
+                if (ids.length === 0) {
+                    return;
+                }
+
+                saveBtn.disabled = true;
+                status.textContent = 'Zapisywanie...';
+
+                try {
+                    const formData = new FormData();
+                    formData.append('_csrf_token', list.dataset.csrfToken);
+                    ids.forEach((id) => formData.append('order[]', String(id)));
+
+                    const response = await fetch(list.dataset.saveUrl, {
+                        method: 'POST',
+                        body: formData,
+                        credentials: 'same-origin',
+                    });
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}`);
+                    }
+                    refreshPositions();
+                    status.textContent = 'Kolejność zapisana.';
+                } catch (error) {
+                    status.textContent = 'Błąd zapisu: ' + error.message;
+                } finally {
+                    saveBtn.disabled = false;
+                }
+            });
+        });
+    </script>
+{% endblock %}

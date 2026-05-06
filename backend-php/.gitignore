@@ -1,0 +1,16 @@
+
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/config/secrets/prod/prod.decrypt.private.php
+/public/bundles/
+/var/
+/vendor/
+###< symfony/framework-bundle ###
+
+# Uploaded files
+/public/uploads/posts/*
+/public/uploads/gallery/*
+!/public/uploads/posts/.gitkeep
+!/public/uploads/gallery/.gitkeep
