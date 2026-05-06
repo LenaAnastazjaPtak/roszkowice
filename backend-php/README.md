@@ -21,7 +21,7 @@ Migracja backendu z Node.js + Prisma + AdminJS na PHP 8.3 + Symfony 7.1 + Doctri
 - PHP 8.3+ z włączonymi rozszerzeniami: `intl`, `pdo_mysql`, `mbstring`, `openssl`, `fileinfo`.
 - Dla importu legacy z Prisma (PostgreSQL): dodatkowo `pdo_pgsql`.
 - Composer 2.x.
-- MariaDB 10.11+ (docelowo CyberFolks) lub MySQL 8.
+- MySQL 8 lub MariaDB 10.11+ (oba łączysz przez `mysql://` w `DATABASE_URL`). W panelu CyberFolks sekcja nazywa się zwykle **MySQL** — to normalne; pod spodem może być MariaDB lub MySQL, oba działają z tym samym driverem PDO.
 - [Symfony CLI](https://symfony.com/download) (opcjonalnie, dla `symfony serve`).
 
 ### Lokalna baza (Windows)
@@ -126,34 +126,148 @@ Copy-Item -Recurse ../backend/uploads/posts public/uploads/
 Copy-Item -Recurse ../backend/uploads/gallery public/uploads/
 ```
 
-## Deploy na CyberFolks (MariaDB)
+## Deploy produkcyjny (CyberFolks: frontend + backend)
 
-1. W panelu CyberFolks utwórz bazę MariaDB i użytkownika.
-2. Ustaw produkcyjny `DATABASE_URL` w `backend-php/.env.local` na serwerze:
+Poniżej model **jednej domeny** (np. `https://twojadomena.pl`): statyczny frontend Vite w `public_html`, Symfony obok, a żądania `/api`, `/admin`, `/images` (i uploady) trafiają do `backend-php/public/index.php`. W panelu CyberFolks widać często tylko **MySQL** — to ten sam protokół `mysql://` co dla MariaDB; wersję sprawdź w phpMyAdmin (`SELECT VERSION();`).
 
-```dotenv
-DATABASE_URL=mysql://user:pass@mysqlXX.cyber-folks.pl:3306/dbname?serverVersion=mariadb-10.11.0&charset=utf8mb4
+### 1. Baza MySQL
+
+1. **Utwórz nową bazę MySQL** (użytkownik, hasło). Zapisz host (często `localhost` dla skryptów na tym samym koncie), port (`3306`), nazwę bazy.
+2. W **phpMyAdmin** → SQL: `SELECT VERSION();` i ustaw w `DATABASE_URL` parametr `serverVersion` (MariaDB: `mariadb-10.11.0` itd., MySQL 8: `8.0.36` itd.).
+
+### 2. Układ katalogów na serwerze
+
+Typowo (nazwy mogą się różnić od panelu; ważne, żeby `public_html` i `backend-php` były **rodzeństwem** względem ścieżek w `.htaccess`):
+
+```text
+~/domains/twojadomena.pl/
+  public_html/                 ← tu trafia build frontu (app/dist)
+  backend-php/                 ← cały projekt Symfony
+    public/
+      index.php
+      uploads/                   ← musi być zapisywalny przez PHP
+    var/
+    .env.local
 ```
 
-3. Wgraj backend i uruchom:
+Jeśli hosting wymusza inne ścieżki, dopasuj reguły w `.htaccess` (krok 5) tak, by wskazywały na realny `backend-php/public/index.php`.
+
+### 3. Backend (Symfony) na serwerze
+
+1. Wgraj katalog `backend-php/` (np. SFTP/Git). Nie wgrywaj lokalnego `vendor/` ani `var/cache`, jeśli na serwerze uruchomisz Composer.
+2. Przez **SSH** (jeśli masz w panelu) w katalogu `backend-php`:
 
 ```bash
 composer install --no-dev --optimize-autoloader
+```
+
+3. Utwórz `backend-php/.env.local` **tylko na serwerze** (nie commituj). Minimalny zestaw:
+
+```dotenv
+APP_ENV=prod
+APP_DEBUG=0
+APP_SECRET=<losowy-sekret-produkcyjny>
+
+DATABASE_URL=mysql://user:pass@localhost:3306/nazwa_bazy?serverVersion=mariadb-10.11.0&charset=utf8mb4
+
+ADMIN_EMAIL=twoj@email.pl
+ADMIN_PASSWORD=<silne-haslo>
+
+CORS_ALLOW_ORIGIN=^https://twojadomena\.pl$
+
+DEFAULT_URI=https://twojadomena.pl
+
+FRONTEND_IMAGES_DIR=/pelna/sciezka/do/public_html/images
+LEGACY_DATABASE_URL=postgresql://...
+```
+
+- `CORS_ALLOW_ORIGIN` musi pasować do **dokładnego** originu strony (HTTPS + ewentualnie `www` — wtedy dopisz drugą domenę w regex lub uprość do listy w `nelmio_cors` jeśli kiedyś rozszerzysz konfigurację).
+- `FRONTEND_IMAGES_DIR` to **absolutna** ścieżka do katalogu z obrazami statycznymi frontu (np. `.../public_html/images`), bo backend serwuje `GET /images/...` z [`LegacyImagesController`](src/Controller/LegacyImagesController.php). Po buildzie Vite upewnij się, że katalog `images/` (np. z `app/public/images`) jest w `public_html` obok `assets/`.
+- `LEGACY_DATABASE_URL` jest potrzebne tylko jeśli na serwerze uruchamiasz `app:import-legacy` (zwykle import robisz lokalnie i wgrajesz dump — patrz sekcja importu niżej).
+
+4. Migracje i cache:
+
+```bash
 php bin/console doctrine:migrations:migrate --env=prod --no-interaction
 php bin/console cache:clear --env=prod
 ```
 
-4. Import danych ze starego Postgresa rekomendowany lokalnie:
-   - lokalnie: `php bin/console app:import-legacy` (wymaga `pdo_pgsql`)
-   - eksport do dumpa MariaDB:
+5. Uprawnienia (jeśli SSH):
 
 ```bash
-mysqldump -u user -p roszkowice_php > roszkowice_php.sql
+chmod -R ug+rwX var
+chmod -R ug+rwX public/uploads
 ```
 
-   - import dumpa na CyberFolks przez phpMyAdmin/CLI.
+### 4. Frontend (Vite) — build lokalnie, wgranie na hosting
 
-## Uruchomienie
+Aplikacja w [`app/`](../app/) woła API pod `${VITE_API_URL}/api/...`. Na produkcji `VITE_API_URL` to **tylko origin** (bez końcowego slasha), np. `https://twojadomena.pl`.
+
+1. Lokalnie utwórz np. `app/.env.production.local`:
+
+```dotenv
+VITE_API_URL=https://twojadomena.pl
+```
+
+(skopiuj też pozostałe zmienne z `app/.env`, których wymaga build.)
+
+2. Build:
+
+```bash
+cd app
+npm ci
+npm run build
+```
+
+3. Zawartość katalogu `app/dist/` wgraj do **`public_html/`** (tak by `index.html` był w korzeniu domeny).
+
+4. Upewnij się, że **statyczne obrazy** (np. `app/public/images/roszkowice/...`) trafiły do `public_html/images/...` — inaczej trasa `/images/...` z backendu nie znajdzie plików przy ustawionym `FRONTEND_IMAGES_DIR`.
+
+### 5. Apache: `public_html/.htaccess` (jedna domena)
+
+Docelowo: pliki z `dist` obsługuje Apache; ścieżki `/api`, `/admin` itd. przekazujesz do Symfony. **Ścieżka do `index.php` musi być zgodna z layoutem na koncie** — poniżej szablon, gdy `backend-php` leży obok `public_html`:
+
+```apache
+RewriteEngine On
+
+RewriteRule ^api(?:/(.*))?$ ../backend-php/public/index.php [QSA,L]
+RewriteRule ^admin(?:/(.*))?$ ../backend-php/public/index.php [QSA,L]
+RewriteRule ^uploads(?:/(.*))?$ ../backend-php/public/index.php [QSA,L]
+RewriteRule ^images(?:/(.*))?$ ../backend-php/public/index.php [QSA,L]
+
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+RewriteRule ^ index.html [L]
+```
+
+- Pierwsze reguły kierują ruch API, panel EasyAdmin, uploady z panelu oraz proxy `/images` do front controllera Symfony.
+- Ostatnia reguła to typowy fallback dla SPA (React router).
+- Jeśli hosting nie pozwala na `../` w `RewriteRule`, ustaw **subdomenę** (np. `api.twojadomena.pl`) z document root = `backend-php/public` i wtedy w `VITE_API_URL` daj `https://api.twojadomena.pl` — wtedy **nie** potrzebujesz przepisywania `/api` w `public_html` (patrz punkt 7).
+
+Plik [public/.htaccess](public/.htaccess) w `backend-php` musi pozostać na miejscu (standardowy front controller Symfony).
+
+### 6. Import danych i plików
+
+- **Baza:** najbezpieczniej lokalnie: `app:import-legacy` do MySQL, potem `mysqldump` i import w phpMyAdmin na CyberFolks (patrz sekcja [Import danych](#import-danych-ze-starego-backendu-prisma)).
+- **Uploady z panelu:** skopiuj zawartość `backend-php/public/uploads/` na serwer (zachowując `posts/` i `gallery/`).
+
+### 7. Alternatywa: subdomena tylko pod API
+
+- Ustaw w panelu **subdomenę** `api.twojadomena.pl` z document root = `backend-php/public`.
+- W `app/.env.production.local`: `VITE_API_URL=https://api.twojadomena.pl`.
+- W `CORS_ALLOW_ORIGIN` uwzględnij origin frontu: `^https://twojadomena\.pl$`.
+- W `public_html` zostaje wyłącznie statyczny front + ewentualnie SPA fallback; **nie** musisz wtedy przepisywać `/api` do `../backend-php`.
+
+### 8. Szybka weryfikacja po wdrożeniu
+
+- `https://twojadomena.pl` — strona główna SPA.
+- `https://twojadomena.pl/api/gallery` — JSON (lub z subdomeny: `https://api.../api/gallery`).
+- `https://twojadomena.pl/admin` — logowanie do EasyAdmin.
+- `https://twojadomena.pl/images/...` — obraz z katalogu `public_html/images` (przez backend).
+
+## Uruchomienie (lokalnie)
 
 ```bash
 symfony serve --no-tls --port=8000
