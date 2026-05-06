@@ -169,6 +169,7 @@ final class ImportLegacyDataCommand extends Command
 
     private function createLegacyConnection(): \PDO
     {
+        // Legacy source is Prisma on PostgreSQL; target DB is handled separately by Doctrine connection.
         $dsn = $this->buildDsn($this->legacyDatabaseUrl);
 
         return new \PDO(

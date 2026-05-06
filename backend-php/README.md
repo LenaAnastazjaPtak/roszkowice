@@ -18,20 +18,53 @@ Migracja backendu z Node.js + Prisma + AdminJS na PHP 8.3 + Symfony 7.1 + Doctri
 
 ## Wymagania
 
-- PHP 8.3+ z włączonymi rozszerzeniami: `intl`, `pdo_pgsql`, `pgsql`, `mbstring`, `openssl`, `fileinfo`.
+- PHP 8.3+ z włączonymi rozszerzeniami: `intl`, `pdo_mysql`, `mbstring`, `openssl`, `fileinfo`.
+- Dla importu legacy z Prisma (PostgreSQL): dodatkowo `pdo_pgsql`.
 - Composer 2.x.
-- PostgreSQL 14+ (zalecane 16).
+- MariaDB 10.11+ (docelowo CyberFolks) lub MySQL 8.
 - [Symfony CLI](https://symfony.com/download) (opcjonalnie, dla `symfony serve`).
 
-### Włączenie `pdo_pgsql` w Windows
+### Lokalna baza (Windows)
+
+Backend wymaga działającego serwera MariaDB lub MySQL na hoście i porcie zgodnym z `DATABASE_URL` (domyślnie `127.0.0.1:3306`). Jeśli w `services.msc` nie ma usługi MySQL/MariaDB, wybierz jedną z opcji:
+
+**A) Docker (szybki start)**
+
+```powershell
+docker run --name roszkowice-mariadb `
+  -e MARIADB_ROOT_PASSWORD=rootpass `
+  -e MARIADB_DATABASE=roszkowice_php `
+  -e MARIADB_USER=roszkowice `
+  -e MARIADB_PASSWORD=roszkowicepass `
+  -p 3306:3306 `
+  -d mariadb:10.11
+```
+
+W `.env.local` ustaw np.:
+
+```dotenv
+DATABASE_URL=mysql://roszkowice:roszkowicepass@127.0.0.1:3306/roszkowice_php?serverVersion=mariadb-10.11.0&charset=utf8mb4
+```
+
+**B) Instalacja natywna** — zainstaluj [MariaDB](https://mariadb.org/download/) lub [MySQL](https://dev.mysql.com/downloads/mysql/), utwórz bazę `utf8mb4` i użytkownika, potem dopasuj `DATABASE_URL`.
+
+Parametr `serverVersion` w URL musi odpowiadać wersji silnika (np. `mariadb-10.11.0` lub `8.0.36` dla MySQL 8). W `config/packages/doctrine.yaml` jest ustawione `mariadb-10.11.0` — przy innej wersji lokalnie ustaw spójnie oba miejsca albo polegaj na wartości z samego `DATABASE_URL` (Doctrine odczytuje ją z env).
+
+### Włączenie `pdo_mysql` w Windows
 
 W pliku `php.ini` (np. `C:\tools\php-8.3.11\php.ini`) odkomentuj wiersz:
 
 ```ini
-extension=pdo_pgsql
+extension=pdo_mysql
 ```
 
-Sprawdź, czy działa: `php -m | findstr pgsql`.
+Sprawdź, czy działa: `php -m | findstr pdo_mysql`.
+
+Jeśli planujesz uruchamiać `app:import-legacy` bezpośrednio z Postgresa, odkomentuj też:
+
+```ini
+extension=pdo_pgsql
+```
 
 ## Instalacja
 
@@ -45,7 +78,7 @@ Ustaw w `.env.local`:
 
 ```dotenv
 APP_SECRET=<32-znakowy losowy hex>
-DATABASE_URL=postgresql://user:pass@127.0.0.1:5432/roszkowice_php?serverVersion=16&charset=utf8
+DATABASE_URL=mysql://user:pass@127.0.0.1:3306/roszkowice_php?serverVersion=mariadb-10.11.0&charset=utf8mb4
 
 ADMIN_EMAIL=admin@example.com
 ADMIN_PASSWORD=changeme
@@ -56,13 +89,21 @@ LEGACY_DATABASE_URL=postgresql://user:pass@127.0.0.1:5432/roszkowice?serverVersi
 FRONTEND_IMAGES_DIR=%kernel.project_dir%/../app/public/images
 ```
 
-> Wszystkie powyższe zmienne są **wymagane** — aplikacja celowo nie używa fallbacków: brak wartości spowoduje wyjątek przy bootstrapowaniu kontenera.
+> Wszystkie powyższe zmienne są **wymagane** — aplikacja celowo nie używa fallbacków: brak wartości spowoduje wyjątek przy budowaniu kontenera usług Symfony.
 
 ## Migracja schematu
 
 ```bash
 php bin/console doctrine:database:create --if-not-exists
 php bin/console doctrine:migrations:migrate --no-interaction
+```
+
+### Błąd połączenia z bazą (`SQLSTATE[HY000] [2002]`)
+
+Komunikat w stylu „komputer docelowy aktywnie odmawia” oznacza, że na `host:port` z `DATABASE_URL` **nie nasłuchuje** MariaDB/MySQL albo port jest inny (np. XAMPP na `3307`). Sprawdź: działającą usługę lub kontener Docker, zgodność portu w URL, istnienie bazy i poprawność użytkownika/hasła. Test z CLI:
+
+```powershell
+mysql -h 127.0.0.1 -P 3306 -u twoj_user -p -e "SELECT 1"
 ```
 
 ## Import danych ze starego backendu (Prisma)
@@ -84,6 +125,33 @@ Uwaga: pliki obrazów z `backend/uploads/` nie są przenoszone — pole `image` 
 Copy-Item -Recurse ../backend/uploads/posts public/uploads/
 Copy-Item -Recurse ../backend/uploads/gallery public/uploads/
 ```
+
+## Deploy na CyberFolks (MariaDB)
+
+1. W panelu CyberFolks utwórz bazę MariaDB i użytkownika.
+2. Ustaw produkcyjny `DATABASE_URL` w `backend-php/.env.local` na serwerze:
+
+```dotenv
+DATABASE_URL=mysql://user:pass@mysqlXX.cyber-folks.pl:3306/dbname?serverVersion=mariadb-10.11.0&charset=utf8mb4
+```
+
+3. Wgraj backend i uruchom:
+
+```bash
+composer install --no-dev --optimize-autoloader
+php bin/console doctrine:migrations:migrate --env=prod --no-interaction
+php bin/console cache:clear --env=prod
+```
+
+4. Import danych ze starego Postgresa rekomendowany lokalnie:
+   - lokalnie: `php bin/console app:import-legacy` (wymaga `pdo_pgsql`)
+   - eksport do dumpa MariaDB:
+
+```bash
+mysqldump -u user -p roszkowice_php > roszkowice_php.sql
+```
+
+   - import dumpa na CyberFolks przez phpMyAdmin/CLI.
 
 ## Uruchomienie
 
@@ -143,7 +211,7 @@ Identyczna z poprzednim backendem Node — frontend `app/` nie wymaga zmian w ko
 - `src/Security/` — `EnvAdminUser`, `EnvAdminUserProvider`, `EnvAdminAuthenticator` (form_login z porównaniem 1:1 z ENV).
 - `src/Service/` — `ImageUrlNormalizer` (DRY dla obu kontrolerów API), `GalleryReorderService` (logika sortowania).
 - `src/Command/ImportLegacyDataCommand.php` — `app:import-legacy`.
-- `migrations/` — Doctrine migrations (manualne, bo `pdo_pgsql` było wyłączone podczas generowania).
+- `migrations/` — Doctrine migrations.
 - `templates/admin/` — login, dashboard, gallery_reorder (z Sortable.js z CDN).
 - `public/admin/branding.css` — kolor primary `#c19a6b` i style kafelków dashboardu.
 - `public/uploads/{posts,gallery}/` — pliki uploadowane przez panel.

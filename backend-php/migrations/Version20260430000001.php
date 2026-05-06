@@ -18,25 +18,25 @@ final class Version20260430000001 extends AbstractMigration
     {
         $this->addSql(<<<'SQL'
             CREATE TABLE blog_post (
-                id SERIAL NOT NULL,
+                id INT AUTO_INCREMENT NOT NULL,
                 image VARCHAR(1024) DEFAULT NULL,
-                published_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL,
-                created_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL,
-                updated_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL,
+                published_at DATETIME NOT NULL,
+                created_at DATETIME NOT NULL,
+                updated_at DATETIME NOT NULL,
                 PRIMARY KEY(id)
-            )
+            ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
         SQL);
 
         $this->addSql(<<<'SQL'
             CREATE TABLE blog_post_translation (
-                id SERIAL NOT NULL,
+                id INT AUTO_INCREMENT NOT NULL,
                 blog_post_id INT NOT NULL,
                 locale VARCHAR(8) NOT NULL,
                 title VARCHAR(255) NOT NULL,
                 header VARCHAR(255) NOT NULL,
                 content TEXT NOT NULL,
                 PRIMARY KEY(id)
-            )
+            ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
         SQL);
         $this->addSql('CREATE INDEX IDX_BLOG_POST_TRANSLATION_BLOG_POST_ID ON blog_post_translation (blog_post_id)');
         $this->addSql('CREATE UNIQUE INDEX blog_post_translation_unique ON blog_post_translation (blog_post_id, locale)');
@@ -45,25 +45,25 @@ final class Version20260430000001 extends AbstractMigration
             ALTER TABLE blog_post_translation
             ADD CONSTRAINT FK_BLOG_POST_TRANSLATION_BLOG_POST
             FOREIGN KEY (blog_post_id) REFERENCES blog_post(id)
-            ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE
+            ON DELETE CASCADE
         SQL);
 
         $this->addSql(<<<'SQL'
             CREATE TABLE gallery_image (
-                id SERIAL NOT NULL,
+                id INT AUTO_INCREMENT NOT NULL,
                 image VARCHAR(1024) DEFAULT NULL,
                 category VARCHAR(32) NOT NULL,
                 sort_order INT DEFAULT 0 NOT NULL,
-                created_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL,
-                updated_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL,
+                created_at DATETIME NOT NULL,
+                updated_at DATETIME NOT NULL,
                 PRIMARY KEY(id)
-            )
+            ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
         SQL);
     }
 
     public function down(Schema $schema): void
     {
-        $this->addSql('ALTER TABLE blog_post_translation DROP CONSTRAINT FK_BLOG_POST_TRANSLATION_BLOG_POST');
+        $this->addSql('ALTER TABLE blog_post_translation DROP FOREIGN KEY FK_BLOG_POST_TRANSLATION_BLOG_POST');
         $this->addSql('DROP TABLE gallery_image');
         $this->addSql('DROP TABLE blog_post_translation');
         $this->addSql('DROP TABLE blog_post');
