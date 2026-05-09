@@ -144,6 +144,17 @@
 }
 
 @media (max-width: 991px) {
+  .slider-section .uranus.tparrows {
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+  }
+  .slider-section .uranus.tparrows::before {
+    font-size: 16px;
+    height: 40px; 
+    width: 40px;
+    line-height: 40px;
+  }
   .slider-section .slide-btn > a {
     line-height: 1.2 !important;
     padding: 8px 18px !important;
@@ -406,6 +417,17 @@
 }
 
 @media (max-width: 479px) {
+  .slider-section .uranus.tparrows {
+    height: 25px;
+    width: 25px;
+    line-height: 25px;
+  }
+  .slider-section .uranus.tparrows::before {
+    font-size: 12px;
+    height: 25px;
+    width: 25px;
+    line-height: 25px;
+  }
   .slider-section
     .tp-caption.NotGeneric-Title:not(.slide-btn):not(.slider-pretitle),
   .slider-section .tp-caption.NotGeneric-SubTitle {
