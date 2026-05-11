@@ -182,7 +182,7 @@ function GallerySection({ standalone = false }) {
           {displayedItems.map(({ item, index }) => (
             <div
               key={item.id}
-              className={`portfolio-box no-padding ${item.classes}`}
+              className={`portfolio-box no-padding img-hover-zoom ${item.classes}`}
             >
               <a
                 href={item.src}
@@ -192,11 +192,6 @@ function GallerySection({ standalone = false }) {
                 }}
               >
                 <img src={item.src} alt="Roszkowice" />
-                <div className="portfolio-content">
-                  <i className="icon icon-Search"></i>
-                  <h3>{t("gallery.palace")}</h3>
-                  <span>{t("gallery.galleryLabel")}</span>
-                </div>
               </a>
             </div>
           ))}
