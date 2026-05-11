@@ -41,7 +41,7 @@ final class DashboardController extends AbstractDashboardController
     public function configureAssets(): Assets
     {
         return Assets::new()
-            ->addCssFile('admin/branding.css');
+            ->addCssFile('/palac-admin-branding.css');
     }
 
     public function configureUserMenu(UserInterface $user): UserMenu

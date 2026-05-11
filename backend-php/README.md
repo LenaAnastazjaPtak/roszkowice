@@ -126,6 +126,46 @@ Copy-Item -Recurse ../backend/uploads/posts public/uploads/
 Copy-Item -Recurse ../backend/uploads/gallery public/uploads/
 ```
 
+Na produkcję wygodnie jest zrobić zrzut MySQL po `app:import-legacy` (albo gdy lokalna baza jest już gotowa): jeden plik SQL importujesz w **phpMyAdmin** na koncie hostingowym (wybierz docelową bazę → **Import** → wskaż plik).
+
+Wartości `HOST`, `PORT`, użytkownika i nazwy bazy weź z `DATABASE_URL` (część przed `?`, np. z `mysql://user:pass@127.0.0.1:3306/nazwa_bazy` wynika host `127.0.0.1`, port `3306`, użytkownik `user`, baza `nazwa_bazy`):
+
+```bash
+mysqldump -h HOST -P PORT -u UŻYTKOWNIK -p \
+  --single-transaction \
+  --routines --triggers \
+  --default-character-set=utf8mb4 \
+  NAZWA_BAZY > dump.sql
+```
+
+Po `-p` **nie wpisuj hasła w tej samej linii** — narzędzie zapyta interaktywnie.
+
+Przykład jak przy MariaDB w Dockerze z tego README (użytkownik `roszkowice`, baza `roszkowice_php`, `127.0.0.1:3306`):
+
+```bash
+mysqldump -h 127.0.0.1 -P 3306 -u roszkowice -p \
+  --single-transaction \
+  --routines --triggers \
+  --default-character-set=utf8mb4 \
+  roszkowice_php > roszkowice_php.sql
+```
+
+Ten sam zrzut z CLI wewnątrz kontenera (nazwa jak w `docker run --name roszkowice-mariadb`):
+
+```bash
+docker exec roszkowice-mariadb mysqldump -u roszkowice -p \
+  --single-transaction \
+  --routines --triggers \
+  --default-character-set=utf8mb4 \
+  roszkowice_php > roszkowice_php.sql
+```
+
+Na Windows (PowerShell) wygodnie jedna linia; `-r` zapisuje plik w UTF-8 bez problemów z przekierowaniem:
+
+```powershell
+mysqldump -h 127.0.0.1 -P 3306 -u roszkowice -p --single-transaction --routines --triggers --default-character-set=utf8mb4 roszkowice_php -r roszkowice_php.sql
+```
+
 ## Deploy produkcyjny (CyberFolks: frontend + backend)
 
 Poniżej model **jednej domeny** (np. `https://twojadomena.pl`): statyczny frontend Vite w `public_html`, Symfony obok, a żądania `/api`, `/admin`, `/images` (i uploady) trafiają do `backend-php/public/index.php`. W panelu CyberFolks widać często tylko **MySQL** — to ten sam protokół `mysql://` co dla MariaDB; wersję sprawdź w phpMyAdmin (`SELECT VERSION();`).
@@ -137,20 +177,24 @@ Poniżej model **jednej domeny** (np. `https://twojadomena.pl`): statyczny front
 
 ### 2. Układ katalogów na serwerze
 
-Typowo (nazwy mogą się różnić od panelu; ważne, żeby `public_html` i `backend-php` były **rodzeństwem** względem ścieżek w `.htaccess`):
+Na wielu kontach **DirectAdmin / CyberFolks** PHP ma `open_basedir` ustawione wyłącznie na `.../domains/twojadomena.pl/public_html` (plus `/tmp` itd.). W takim przypadku **nie można** w `require` odwołać się do katalogu obok `public_html` (np. `../backend-php/...`) — PHP zwróci błąd „open_basedir restriction in effect”, a w logach Apache zobaczysz 500 bez sensownych wpisów w `var/log` Symfony.
+
+Domyślny układ w tym repozytorium (`[app/public/backend-proxy.php](../app/public/backend-proxy.php)` ładuje `backend-php/public/index.php` z **ścieżki względem `public_html`**):
 
 ```text
 ~/domains/twojadomena.pl/
-  public_html/                 ← tu trafia build frontu (app/dist)
-  backend-php/                 ← cały projekt Symfony
-    public/
-      index.php
-      uploads/                   ← musi być zapisywalny przez PHP
-    var/
-    .env.local
+  public_html/                 ← build frontu (app/dist) + .htaccess + backend-proxy.php
+    backend-php/               ← cały projekt Symfony (wewnątrz public_html)
+      public/
+        index.php
+        uploads/               ← musi być zapisywalny przez PHP
+      var/
+      .env.local
 ```
 
-Jeśli hosting wymusza inne ścieżki, dopasuj reguły w `.htaccess` (krok 5) tak, by wskazywały na realny `backend-php/public/index.php`.
+W repozytorium jest `[backend-php/.htaccess](.htaccess)` z `Require all denied`, żeby ograniczyć bezpośredni dostęp HTTP do plików projektu pod URL `/backend-php/...` (Symfony i tak jest wołany przez `backend-proxy.php`).
+
+Alternatywa bez przenoszenia projektu do `public_html`: w panelu hostingu rozszerz `open_basedir` o absolutną ścieżkę do katalogu z backendem (np. `.../domains/twojadomena.pl/backend-php`) i wtedy możesz trzymać Symfony jako rodzeństwo `public_html` — wtedy musisz też dopasować ścieżkę w `backend-proxy.php` (lub użyć przepisywania Apache bezpośrednio do `../backend-php/public/index.php` jak w starszym szablonie poniżej).
 
 ### 3. Backend (Symfony) na serwerze
 
@@ -161,7 +205,7 @@ Jeśli hosting wymusza inne ścieżki, dopasuj reguły w `.htaccess` (krok 5) ta
 composer install --no-dev --optimize-autoloader
 ```
 
-3. Utwórz `backend-php/.env.local` **tylko na serwerze** (nie commituj). Minimalny zestaw:
+1. Utwórz `backend-php/.env.local` **tylko na serwerze** (nie commituj). Minimalny zestaw:
 
 ```dotenv
 APP_ENV=prod
@@ -182,17 +226,17 @@ LEGACY_DATABASE_URL=postgresql://...
 ```
 
 - `CORS_ALLOW_ORIGIN` musi pasować do **dokładnego** originu strony (HTTPS + ewentualnie `www` — wtedy dopisz drugą domenę w regex lub uprość do listy w `nelmio_cors` jeśli kiedyś rozszerzysz konfigurację).
-- `FRONTEND_IMAGES_DIR` to **absolutna** ścieżka do katalogu z obrazami statycznymi frontu (np. `.../public_html/images`), bo backend serwuje `GET /images/...` z [`LegacyImagesController`](src/Controller/LegacyImagesController.php). Po buildzie Vite upewnij się, że katalog `images/` (np. z `app/public/images`) jest w `public_html` obok `assets/`.
-- `LEGACY_DATABASE_URL` jest potrzebne tylko jeśli na serwerze uruchamiasz `app:import-legacy` (zwykle import robisz lokalnie i wgrajesz dump — patrz sekcja importu niżej).
+- `FRONTEND_IMAGES_DIR` to **absolutna** ścieżka do katalogu z obrazami statycznymi frontu (np. `.../public_html/images`), bo backend serwuje `GET /images/...` z `[LegacyImagesController](src/Controller/LegacyImagesController.php)`. Po buildzie Vite upewnij się, że katalog `images/` (np. z `app/public/images`) jest w `public_html` obok `assets/`.
+- `LEGACY_DATABASE_URL` jest potrzebne tylko jeśli na serwerze uruchamiasz `app:import-legacy` (zwykle import robisz lokalnie, potem `mysqldump` i wgrywasz plik SQL w phpMyAdmin — komendy są w sekcji Import danych ze starego backendu, pod kopiowaniem uploadów z Node).
 
-4. Migracje i cache:
+1. Migracje i cache:
 
 ```bash
 php bin/console doctrine:migrations:migrate --env=prod --no-interaction
 php bin/console cache:clear --env=prod
 ```
 
-5. Uprawnienia (jeśli SSH):
+1. Uprawnienia (jeśli SSH):
 
 ```bash
 chmod -R ug+rwX var
@@ -201,7 +245,7 @@ chmod -R ug+rwX public/uploads
 
 ### 4. Frontend (Vite) — build lokalnie, wgranie na hosting
 
-Aplikacja w [`app/`](../app/) woła API pod `${VITE_API_URL}/api/...`. Na produkcji `VITE_API_URL` to **tylko origin** (bez końcowego slasha), np. `https://twojadomena.pl`.
+Aplikacja w `[app/](../app/)` woła API pod `${VITE_API_URL}/api/...`. Na produkcji `VITE_API_URL` to **tylko origin** (bez końcowego slasha), np. `https://twojadomena.pl`.
 
 1. Lokalnie utwórz np. `app/.env.production.local`:
 
@@ -211,7 +255,7 @@ VITE_API_URL=https://twojadomena.pl
 
 (skopiuj też pozostałe zmienne z `app/.env`, których wymaga build.)
 
-2. Build:
+1. Build:
 
 ```bash
 cd app
@@ -219,38 +263,45 @@ npm ci
 npm run build
 ```
 
-3. Zawartość katalogu `app/dist/` wgraj do **`public_html/`** (tak by `index.html` był w korzeniu domeny).
-
-4. Upewnij się, że **statyczne obrazy** (np. `app/public/images/roszkowice/...`) trafiły do `public_html/images/...` — inaczej trasa `/images/...` z backendu nie znajdzie plików przy ustawionym `FRONTEND_IMAGES_DIR`.
+1. Zawartość katalogu `app/dist/` wgraj do `**public_html/**` (tak by `index.html` był w korzeniu domeny).
+2. Upewnij się, że **statyczne obrazy** (np. `app/public/images/roszkowice/...`) trafiły do `public_html/images/...` — inaczej trasa `/images/...` z backendu nie znajdzie plików przy ustawionym `FRONTEND_IMAGES_DIR`.
 
 ### 5. Apache: `public_html/.htaccess` (jedna domena)
 
-Docelowo: pliki z `dist` obsługuje Apache; ścieżki `/api`, `/admin` itd. przekazujesz do Symfony. **Ścieżka do `index.php` musi być zgodna z layoutem na koncie** — poniżej szablon, gdy `backend-php` leży obok `public_html`:
+Docelowo: pliki z `dist` obsługuje Apache; ścieżki `/api`, `/admin` itd. trafiają do jednego skryptu PHP, który ładuje front controller Symfony (w repo: `[app/public/.htaccess](../app/public/.htaccess)` + `[app/public/backend-proxy.php](../app/public/backend-proxy.php)` — proxy woła `public_html/backend-php/public/index.php`, co jest zgodne z typowym `open_basedir` tylko na `public_html`).
 
 ```apache
 RewriteEngine On
-
-RewriteRule ^api(?:/(.*))?$ ../backend-php/public/index.php [QSA,L]
-RewriteRule ^admin(?:/(.*))?$ ../backend-php/public/index.php [QSA,L]
-RewriteRule ^uploads(?:/(.*))?$ ../backend-php/public/index.php [QSA,L]
-RewriteRule ^images(?:/(.*))?$ ../backend-php/public/index.php [QSA,L]
+RewriteBase /
 
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
-RewriteRule ^ index.html [L]
+RewriteRule ^(api|admin|uploads|images)(?:/(.*))?$ /backend-proxy.php [QSA,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ /index.html [L]
 ```
 
-- Pierwsze reguły kierują ruch API, panel EasyAdmin, uploady z panelu oraz proxy `/images` do front controllera Symfony.
+- Najpierw Apache serwuje **istniejące pliki i katalogi** w `public_html` (w tym statyczne `images/` z builda). Dopiero gdy pliku nie ma, `/images/...` trafia do Symfony (`FRONTEND_IMAGES_DIR` musi być poprawne przy braku pliku na dysku lub gdy hosting inaczej mapuje ścieżki).
+- Kolejne reguły kierują `/api`, panel EasyAdmin oraz `/uploads` do `backend-proxy.php`, który `require`uje `backend-php/public/index.php`.
 - Ostatnia reguła to typowy fallback dla SPA (React router).
-- Jeśli hosting nie pozwala na `../` w `RewriteRule`, ustaw **subdomenę** (np. `api.twojadomena.pl`) z document root = `backend-php/public` i wtedy w `VITE_API_URL` daj `https://api.twojadomena.pl` — wtedy **nie** potrzebujesz przepisywania `/api` w `public_html` (patrz punkt 7).
 
-Plik [public/.htaccess](public/.htaccess) w `backend-php` musi pozostać na miejscu (standardowy front controller Symfony).
+Starszy szablon z przepisaniem **bezpośrednio** do `../backend-php/public/index.php` działa tylko wtedy, gdy hosting pozwala na `../` w `RewriteRule` **oraz** gdy `open_basedir` obejmuje katalog z backendem (często nie obejmuje — wtedy 500):
+
+```apache
+RewriteRule ^api(?:/(.*))?$ ../backend-php/public/index.php [QSA,L]
+```
+
+Jeśli hosting nie pozwala na `../` albo masz `open_basedir` tylko na `public_html`, zostań przy `backend-proxy.php` i katalogu `public_html/backend-php/`. Inna opcja to **subdomena** (np. `api.twojadomena.pl`) z document root = `backend-php/public` i wtedy w `VITE_API_URL` daj `https://api.twojadomena.pl` — wtedy **nie** potrzebujesz przepisywania `/api` w `public_html` (patrz punkt 7).
+
+Plik [public/.htaccess](public/.htaccess) w `backend-php` musi pozostać na miejscu (standardowy front controller Symfony), jeśli go dodajesz na serwerze (np. z recipe Symfony dla Apache).
 
 ### 6. Import danych i plików
 
-- **Baza:** najbezpieczniej lokalnie: `app:import-legacy` do MySQL, potem `mysqldump` i import w phpMyAdmin na CyberFolks (patrz sekcja [Import danych](#import-danych-ze-starego-backendu-prisma)).
+- **Baza:** najbezpieczniej lokalnie: `app:import-legacy` do MySQL, potem `mysqldump` i import pliku SQL w phpMyAdmin na CyberFolks (instrukcja i przykłady poleceń w sekcji Import danych ze starego backendu, pod kopiowaniem uploadów z Node).
 - **Uploady z panelu:** skopiuj zawartość `backend-php/public/uploads/` na serwer (zachowując `posts/` i `gallery/`).
 
 ### 7. Alternatywa: subdomena tylko pod API
@@ -279,8 +330,8 @@ lub
 php -S 127.0.0.1:8000 -t public
 ```
 
-- Panel admina: <http://localhost:8000/admin>
-- API: <http://localhost:8000/api/posts?locale=pl>, <http://localhost:8000/api/gallery>
+- Panel admina: [http://localhost:8000/admin](http://localhost:8000/admin)
+- API: [http://localhost:8000/api/posts?locale=pl](http://localhost:8000/api/posts?locale=pl), [http://localhost:8000/api/gallery](http://localhost:8000/api/gallery)
 
 Frontend (`app/`) musi mieć w `app/.env`:
 
@@ -327,5 +378,6 @@ Identyczna z poprzednim backendem Node — frontend `app/` nie wymaga zmian w ko
 - `src/Command/ImportLegacyDataCommand.php` — `app:import-legacy`.
 - `migrations/` — Doctrine migrations.
 - `templates/admin/` — login, dashboard, gallery_reorder (z Sortable.js z CDN).
-- `public/admin/branding.css` — kolor primary `#c19a6b` i style kafelków dashboardu.
+- `palac-admin-branding.css` — ta sama treść w `[app/public/palac-admin-branding.css](../app/public/palac-admin-branding.css)` (trafia do `public_html` z buildem Vite) oraz w `[public/palac-admin-branding.css](public/palac-admin-branding.css)` (dla `symfony serve` z document root = `backend-php/public`); kolor primary `#c19a6b` i style kafelków dashboardu.
 - `public/uploads/{posts,gallery}/` — pliki uploadowane przez panel.
+

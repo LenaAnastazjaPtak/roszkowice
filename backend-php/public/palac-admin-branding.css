@@ -1,0 +1,115 @@
+:root,
+.ea-light-scheme,
+[data-bs-theme="light"] {
+    --ea-color-primary: #c19a6b;
+    --ea-color-primary-rgb: 193, 154, 107;
+    --ea-color-primary-hsl: 30 41% 59%;
+    --ea-color-primary-text: #ffffff;
+    --bs-primary: #c19a6b;
+    --bs-primary-rgb: 193, 154, 107;
+    --bs-link-color: #8a6b3f;
+    --bs-link-hover-color: #6f5530;
+}
+
+.btn-primary,
+.btn-primary:focus {
+    background-color: var(--ea-color-primary);
+    border-color: var(--ea-color-primary);
+}
+
+.btn-primary:hover {
+    background-color: #ad8857;
+    border-color: #ad8857;
+}
+
+.dashboard-tiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 16px 0;
+}
+
+.dashboard-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #1f2937;
+    padding: 32px 24px;
+    min-height: 220px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.dashboard-tile:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    border-color: var(--ea-color-primary);
+    color: #1f2937;
+    text-decoration: none;
+}
+
+.dashboard-tile-icon {
+    font-size: 36px;
+    color: var(--ea-color-primary);
+    margin-bottom: 16px;
+}
+
+.dashboard-tile-title {
+    margin: 0 0 8px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.dashboard-tile-description {
+    margin: 0;
+    color: #4b5563;
+    max-width: 320px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.gallery-reorder-list {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.gallery-reorder-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    background: #ffffff;
+    cursor: grab;
+    user-select: none;
+}
+
+.gallery-reorder-item.is-dragging {
+    opacity: 0.5;
+}
+
+.gallery-reorder-thumb {
+    width: 96px;
+    height: 64px;
+    object-fit: cover;
+    border-radius: 6px;
+    background: #f3f4f6;
+}
+
+.gallery-reorder-position {
+    min-width: 28px;
+    font-weight: 600;
+    color: var(--ea-color-primary);
+}
+
+.gallery-reorder-meta {
+    color: #4b5563;
+    font-size: 14px;
+}
