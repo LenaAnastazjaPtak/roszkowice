@@ -32,6 +32,15 @@
 	transition: all 0.5s ease 0s;
 }
 
+.ow-pagination ul.pagination > li.active > a,
+.ow-pagination ul.pagination > li.active > a:hover,
+.ow-pagination ul.pagination > li.active > a:focus {
+	background-color: var(--color-accent);
+	border-color: var(--color-accent);
+	color: var(--color-white);
+	cursor: default;
+}
+
 .ow-pagination ul li a:hover {
 	background-color: var(--color-accent);
 	border-color: var(--color-accent);
