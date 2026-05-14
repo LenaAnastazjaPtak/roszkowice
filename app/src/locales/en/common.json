@@ -25,6 +25,7 @@
     "title": "Search",
     "placeholder": "Enter keyword and press Enter..."
   },
+  "backToTopAriaLabel": "Scroll to top of page",
   "hoursBefore": "The ",
   "hoursPalace": "Roszkowice Palace",
   "hoursAfter": " will soon be open for visits!",

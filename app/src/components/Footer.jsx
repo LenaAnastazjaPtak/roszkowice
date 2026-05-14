@@ -65,8 +65,6 @@ function Footer() {
                     {t("footer.history")}
                   </Link>
                 </li>
-                {/* <li><Link to="/gallery" title={t('footer.gallery')}>{t('footer.gallery')}</Link></li> */}
-                {/* <li><Link to="/blog" title={t('footer.blog')}>{t('footer.blog')}</Link></li> */}
                 <li>
                   <Link to="/contact" title={t("footer.contact")}>
                     {t("footer.contact")}
@@ -80,18 +78,6 @@ function Footer() {
               </ul>
             </aside>
           </div>
-          {/* <div className="col-md-2 col-sm-6 col-xs-6">
-            <aside className="ftr-widget widget_link">
-              <h3 className="widget-title">{t("footer.resources")}</h3>
-              <ul>
-                <li>
-                  <a href="#" title={t("footer.camera")}>
-                    {t("footer.camera")}
-                  </a>
-                </li>
-              </ul>
-            </aside>
-          </div> */}
         </div>
       </div>
       <div className="container-fluid no-padding copyright">

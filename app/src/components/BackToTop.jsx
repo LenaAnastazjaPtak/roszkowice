@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const SCROLL_THRESHOLD = 50;
 
 function BackToTop() {
+  const { t } = useTranslation("common");
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -20,7 +22,7 @@ function BackToTop() {
       id="back-to-top"
       className={`back-to-top${visible ? " back-to-top-visible" : ""}`}
       onClick={goToTop}
-      aria-label="Przewiń do góry"
+      aria-label={t("backToTopAriaLabel")}
       aria-hidden={!visible}
     >
       <i className="fa fa-angle-up" aria-hidden="true" />

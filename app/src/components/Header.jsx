@@ -134,11 +134,6 @@ function Header() {
             </div>
             <div className="navbar-collapse collapse navbar-right" id="navbar">
               <ul className="nav navbar-nav">
-                {/* <li>
-                <Link to="/" title={t("nav.home")}>
-                  {t("nav.home")}
-                </Link>
-              </li> */}
                 <li>
                   <Link to="/about" title={t("nav.about")}>
                     {t("nav.about")}
@@ -158,29 +153,6 @@ function Header() {
                   <Link to="/blog" title={t("nav.blog")}>
                     {t("nav.blog")}
                   </Link>
-                  {/* <i className="ddl-switch fa fa-angle-down"></i>
-                <ul className="dropdown-menu">
-                  <li>
-                    <Link to="/blog" title={t("nav.blog")}>
-                      {t("nav.blog")}
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/blog/post/0" title={t("nav.blogPost")}>
-                      {t("nav.blogPost")}
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/privacy-policy" title={t('footer.privacy')}>
-                      {t('footer.privacy')}
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/404" title="404">
-                      404
-                    </Link>
-                  </li>
-                </ul> */}
                 </li>
                 <li>
                   <Link to="/contact" title={t("nav.contact")}>

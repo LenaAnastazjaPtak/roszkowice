@@ -11,6 +11,13 @@ import {
 
 const slideData = buildHomeSliderSlideData();
 
+function slideBackgroundAlt(t, slide) {
+  return [t(slide.titleKey), t(slide.subtitleKey)]
+    .map((s) => s.trim())
+    .filter(Boolean)
+    .join(" — ");
+}
+
 function SliderSection() {
   const { t } = useTranslation("home");
 
@@ -93,7 +100,7 @@ function SliderSection() {
               >
                 <img
                   src={slide.img}
-                  alt="slider"
+                  alt={slideBackgroundAlt(t, slide)}
                   data-bgposition={sliderSlideImgData.bgposition}
                   data-bgfit={sliderSlideImgData.bgfit}
                   data-bgrepeat={sliderSlideImgData.bgrepeat}
