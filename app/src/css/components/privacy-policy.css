@@ -15,7 +15,7 @@
 
 .privacy-policy-page .privacy-policy-inner ol,
 .privacy-policy-page .privacy-policy-inner ul {
-  line-height: 26px;
+  line-height: var(--text-body-line-height);
   letter-spacing: 0.28px;
 }
 

@@ -13,11 +13,13 @@
   border-radius: 4px;
   background: var(--color-bg-header);
   color: var(--color-accent-alt);
-  font-size: 20px;
+  font-size: var(--text-body-font-size);
   cursor: pointer;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.2s ease, color 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    color 0.2s ease;
 }
 
 .back-to-top.back-to-top-visible {

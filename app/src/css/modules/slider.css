@@ -207,7 +207,7 @@
 }
 .slider-section2 .uranus.tparrows::before {
   color: var(--color-white);
-  font-size: 20px;
+  font-size: var(--text-body-font-size);
   height: 50px;
   width: 50px;
   line-height: 50px;

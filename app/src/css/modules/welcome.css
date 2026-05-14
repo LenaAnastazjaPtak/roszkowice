@@ -13,7 +13,7 @@
 }
 .welcome-section .content-block p {
   color: var(--color-text-placeholder);
-  line-height: 26px;
+  line-height: var(--text-body-line-height);
   letter-spacing: 0.28px;
   margin-bottom: 30px;
 }
@@ -65,7 +65,7 @@
 }
 .welcome-section2 .content-block p {
   color: var(--color-text-placeholder);
-  line-height: 26px;
+  line-height: var(--text-body-line-height);
   letter-spacing: 0.28px;
   margin-bottom: 30px;
 }

@@ -1,5 +1,11 @@
 :root {
   --font-body: "Cormorant Garamond", serif;
+  --text-body-font-size: 1.8rem;
+  --text-body-line-height: 1.5;
+  --text-body-font-weight: 500;
+  --text-body-color: var(--color-black);
+  --text-body-letter-spacing: normal;
+  --text-prose-text-align: justify;
   --font-heading: "Forum", serif;
   --font-accent: "Lora", serif;
   --font-ui: "Roboto", sans-serif;
@@ -15,7 +21,7 @@
   --color-text-muted: #a5a5a5;
   --color-text-footer: #909090;
   --color-text-copyright: #8f8f8f;
-  --color-text-placeholder: #777;
+  --color-text-placeholder: #484848;
   --color-text-input: var(--color-black);
   --color-border-light: #f0efef;
   --color-border-footer: #222222;
@@ -135,6 +141,8 @@
   --page-stack-after-split: var(--layout-space-20);
   --page-media-height: 40rem;
   --page-media-height-sm: 23rem;
+
+  --site-logo-size: 140px;
 
   --slider-cta-chamfer: var(--layout-space-3);
 

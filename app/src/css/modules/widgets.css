@@ -96,7 +96,7 @@
   font-size: 14px;
   letter-spacing: 0.98px;
   text-transform: capitalize;
-  line-height: 26px;
+  line-height: var(--text-body-line-height);
   word-wrap: break-word;
 }
 .widget_categories span {

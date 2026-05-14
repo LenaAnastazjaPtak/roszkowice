@@ -151,7 +151,7 @@
   }
   .slider-section .uranus.tparrows::before {
     font-size: 16px;
-    height: 40px; 
+    height: 40px;
     width: 40px;
     line-height: 40px;
   }
@@ -353,7 +353,7 @@
     line-height: 50px;
   }
   .slider-section .uranus.tparrows::before {
-    font-size: 20px;
+    font-size: var(--text-body-font-size);
     height: 50px;
     width: 50px;
     line-height: 50px;
@@ -455,7 +455,7 @@
     bottom: 5px;
   }
   .goto-next a i {
-    font-size: 20px;
+    font-size: var(--text-body-font-size);
   }
   .events-single .event-block .event-content h4 a {
     width: 100%;
@@ -480,11 +480,11 @@
   .video-section-content > a {
     margin: 0;
     height: 60px;
-    font-size: 20px;
+    font-size: var(--text-body-font-size);
     width: 60px;
     line-height: 60px;
   }
   .video-section-content p {
-    line-height: 20px;
+    line-height: var(--text-body-line-height);
   }
 }
