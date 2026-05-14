@@ -29,7 +29,7 @@
 
 .footer-main .widget_about p {
   color: var(--color-text-muted);
-  font-size: 14px;
+  font-size: var(--text-nav-font-size);
   font-family: var(--font-body);
   letter-spacing: 0.28px;
   line-height: var(--text-body-line-height);
@@ -113,7 +113,7 @@
 .footer-main .widget_link ul li a {
   color: var(--color-text-footer);
   font-family: var(--font-body);
-  font-size: 15px;
+  font-size: var(--text-nav-font-size);
   letter-spacing: 0.3px;
   text-transform: capitalize;
   text-decoration: none;
@@ -133,7 +133,7 @@
 
 .footer-main .copyright p {
   font-family: var(--font-body);
-  font-size: 14px;
+  font-size: var(--text-nav-font-size);
   margin-bottom: 0;
   letter-spacing: 0.28px;
   text-transform: capitalize;

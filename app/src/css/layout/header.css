@@ -193,7 +193,6 @@
 .lang-toggle .lang-option {
   border: none;
   background: none;
-  font: inherit;
   cursor: pointer;
 }
 

@@ -10,8 +10,9 @@
   vertical-align: middle;
 }
 
-.lang-option {
+.lang-toggle .lang-option {
   color: rgba(255, 255, 255, 0.5);
+  font-family: var(--font-body);
   font-size: var(--text-ui-12);
   font-weight: 600;
   letter-spacing: 1px;
@@ -20,16 +21,16 @@
   padding: 2px 6px;
 }
 
-.lang-option:hover {
+.lang-toggle .lang-option:hover {
   color: rgba(255, 255, 255, 0.8);
 }
 
-.lang-option.active {
+.lang-toggle .lang-option.active {
   color: var(--color-accent-alt);
   text-shadow: 0 0 8px rgba(193, 154, 107, 0.5);
 }
 
-.lang-separator {
+.lang-toggle .lang-separator {
   color: rgba(193, 154, 107, 0.4);
   font-size: var(--text-ui-12);
   margin: 0 2px;
@@ -42,7 +43,7 @@
     padding: 4px 8px;
   }
 
-  .lang-option {
+  .lang-toggle .lang-option {
     font-size: var(--text-ui-11);
     padding: 2px 4px;
   }
