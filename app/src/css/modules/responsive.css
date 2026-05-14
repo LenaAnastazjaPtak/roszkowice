@@ -207,7 +207,7 @@
     float: none !important;
   }
   .upcoming-event2 .event-block .event-content {
-    background-color: #fafafa;
+    background-color: var(--color-bg-event);
   }
   .cta-section a {
     float: left;

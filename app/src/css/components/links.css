@@ -1,6 +1,4 @@
-.link-with-line {
-  display: inline-block;
-  margin-top: 1rem;
+:is(.link-with-line, .content-block-link) {
   font-family: var(--font-heading);
   font-size: 12px;
   font-weight: 600;
@@ -9,6 +7,11 @@
   color: var(--color-text-dark);
   text-transform: uppercase;
   text-decoration: none;
+}
+
+.link-with-line {
+  display: inline-block;
+  margin-top: 1rem;
 }
 
 .link-with-line::before {
@@ -32,23 +35,13 @@
   opacity: 1;
 }
 
-.link-with-line:hover {
+:is(.link-with-line, .content-block-link):hover {
   color: var(--color-accent);
+  text-decoration: none;
 }
 
 .welcome-section .content-block .link-with-line {
   margin-top: 0;
-}
-
-.content-block-link {
-  font-family: var(--font-heading);
-  font-size: 12px;
-  font-weight: 600;
-  position: relative;
-  padding-left: 80px;
-  color: var(--color-text-dark);
-  text-transform: uppercase;
-  text-decoration: none;
 }
 
 .content-block-link::before {
@@ -64,11 +57,6 @@
   top: 50%;
   transform: translate(0%, -50%);
   transition: width 0.9s ease;
-}
-
-.content-block-link:hover {
-  color: var(--color-accent);
-  text-decoration: none;
 }
 
 .content-block-link:hover::before {

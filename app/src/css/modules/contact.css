@@ -100,11 +100,11 @@
   text-transform: uppercase;
 }
 .contact-form .form-control:-moz-placeholder {
-  color: #d0d0d0;
+  color: var(--color-text-placeholder-light);
   text-transform: uppercase;
 }
 .contact-form .form-control::-moz-placeholder {
-  color: #d0d0d0;
+  color: var(--color-text-placeholder-light);
   text-transform: uppercase;
 }
 .contact-form .form-control:-ms-input-placeholder {
