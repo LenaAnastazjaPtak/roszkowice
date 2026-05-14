@@ -129,11 +129,6 @@ function Header() {
                 <img
                   src="/images/roszkowice/logo_with_transparent_background.png"
                   alt="Logo"
-                  style={{
-                    maxWidth: "100px",
-                    height: "100px",
-                    objectFit: "contain",
-                  }}
                 />
               </Link>
             </div>

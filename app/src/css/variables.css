@@ -6,9 +6,6 @@
   --text-body-color: var(--color-black);
   --text-body-letter-spacing: normal;
   --text-prose-text-align: justify;
-  --text-ui-11: 11px;
-  --text-ui-12: 12px;
-  --text-ui-13: 13px;
   --font-heading: "Forum", serif;
   --font-accent: "Lora", serif;
   --font-ui: "Roboto", sans-serif;
@@ -105,6 +102,7 @@
   --color-border-comment: #cacaca;
   --color-border-dotted: #777777;
   --color-text-placeholder-light: #d0d0d0;
+  --color-text-placeholder-soft: #666;
   --color-text-alert: #ccc;
   --color-border-search: #ddd;
   --color-text-nav: #8a8a8a;
@@ -146,9 +144,8 @@
   --page-media-height-sm: 23rem;
 
   --site-logo-size: 140px;
-  --header-logo-column-width: calc(
-    var(--site-logo-size) + var(--layout-space-16)
-  );
+  --header-top-bar-height: 6rem;
+  --header-logo-overlap-y: var(--header-top-bar-height);
 
   --slider-cta-chamfer: var(--layout-space-3);
 

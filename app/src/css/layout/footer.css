@@ -147,7 +147,7 @@
   display: inline-block;
   font-family: var(--font-body);
   font-style: italic;
-  font-size: var(--text-ui-12);
+  font-size: 12px;
   height: 45px;
   padding: 6px 30px;
   letter-spacing: 0.48px;
@@ -155,18 +155,9 @@
   width: 100%;
 }
 
-.footer-main .widget_subscribe .form-control::-webkit-input-placeholder {
-  color: var(--color-text-placeholder);
-}
-
-.footer-main .widget_subscribe .form-control:-moz-placeholder {
-  color: var(--color-text-placeholder);
-}
-
-.footer-main .widget_subscribe .form-control::-moz-placeholder {
-  color: var(--color-text-placeholder);
-}
-
+.footer-main .widget_subscribe .form-control::-webkit-input-placeholder,
+.footer-main .widget_subscribe .form-control:-moz-placeholder,
+.footer-main .widget_subscribe .form-control::-moz-placeholder,
 .footer-main .widget_subscribe .form-control:-ms-input-placeholder {
   color: var(--color-text-placeholder);
 }
@@ -182,7 +173,7 @@
   color: var(--color-bg-dark);
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: var(--text-ui-12);
+  font-size: 12px;
   letter-spacing: 0.84px;
   padding: 12px 0;
   text-transform: uppercase;
