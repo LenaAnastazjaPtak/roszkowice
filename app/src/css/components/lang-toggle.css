@@ -12,7 +12,7 @@
 
 .lang-option {
   color: rgba(255, 255, 255, 0.5);
-  font-size: 12px;
+  font-size: var(--text-ui-12);
   font-weight: 600;
   letter-spacing: 1px;
   cursor: pointer;
@@ -31,7 +31,7 @@
 
 .lang-separator {
   color: rgba(193, 154, 107, 0.4);
-  font-size: 12px;
+  font-size: var(--text-ui-12);
   margin: 0 2px;
   user-select: none;
 }
@@ -43,7 +43,7 @@
   }
 
   .lang-option {
-    font-size: 11px;
+    font-size: var(--text-ui-11);
     padding: 2px 4px;
   }
 }

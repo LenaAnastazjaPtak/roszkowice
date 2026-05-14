@@ -6,6 +6,9 @@
   --text-body-color: var(--color-black);
   --text-body-letter-spacing: normal;
   --text-prose-text-align: justify;
+  --text-ui-11: 11px;
+  --text-ui-12: 12px;
+  --text-ui-13: 13px;
   --font-heading: "Forum", serif;
   --font-accent: "Lora", serif;
   --font-ui: "Roboto", sans-serif;
@@ -143,6 +146,9 @@
   --page-media-height-sm: 23rem;
 
   --site-logo-size: 140px;
+  --header-logo-column-width: calc(
+    var(--site-logo-size) + var(--layout-space-16)
+  );
 
   --slider-cta-chamfer: var(--layout-space-3);
 

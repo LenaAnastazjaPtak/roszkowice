@@ -20,7 +20,7 @@
 .cta-section a {
   float: right;
   font-family: var(--font-heading);
-  font-size: 12px;
+  font-size: var(--text-ui-12);
   font-weight: 600;
   position: relative;
   padding-left: 80px;

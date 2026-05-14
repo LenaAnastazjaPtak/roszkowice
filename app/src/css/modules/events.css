@@ -82,7 +82,7 @@
 }
 .event-block .event-content > a {
   font-family: var(--font-heading);
-  font-size: 12px;
+  font-size: var(--text-ui-12);
   font-weight: 600;
   position: relative;
   padding-left: 80px;
@@ -177,7 +177,7 @@
 }
 .upcoming-event .col-md-8 > a {
   font-family: var(--font-heading);
-  font-size: 12px;
+  font-size: var(--text-ui-12);
   font-weight: 600;
   position: relative;
   padding-left: 80px;

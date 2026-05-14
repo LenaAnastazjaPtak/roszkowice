@@ -147,7 +147,7 @@
   display: inline-block;
   font-family: var(--font-body);
   font-style: italic;
-  font-size: 12px;
+  font-size: var(--text-ui-12);
   height: 45px;
   padding: 6px 30px;
   letter-spacing: 0.48px;
@@ -182,7 +182,7 @@
   color: var(--color-bg-dark);
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 12px;
+  font-size: var(--text-ui-12);
   letter-spacing: 0.84px;
   padding: 12px 0;
   text-transform: uppercase;
