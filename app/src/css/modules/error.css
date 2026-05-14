@@ -1,63 +1,57 @@
 .error-page .error-content {
-	text-align: center;
+  text-align: center;
 }
 .error-page .error-content h3 {
-	color: var(--color-text-dark);
-	font-family: var(--font-heading);
-	font-size: 50px;
-	margin-top: 0;
-	margin-bottom: 80px;
-	letter-spacing: 2px;
-	text-transform: uppercase;
+  color: var(--color-text-dark);
+  font-family: var(--font-heading);
+  font-size: 50px;
+  margin-top: 0;
+  margin-bottom: 80px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 .error-page .error-content h3 span {
-	font-weight: 600;
+  font-weight: 600;
 }
 .error-page .error-content .form-control {
-	border-color: var(--color-border-form);
-	color: var(--color-text-input);
-	border-radius: 0;
-	-webkit-box-shadow: none;
-	-webkit-appearance: none;
-	box-shadow: none;
-	font-family: var(--font-body);
-	font-style: italic;
-	font-size: 14px;
-	height: 50px;
-	padding: 6px 30px;
-	letter-spacing: 0.98px;
+  border-color: var(--color-border-form);
+  color: var(--color-text-input);
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  -webkit-appearance: none;
+  box-shadow: none;
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 14px;
+  height: 50px;
+  padding: 6px 30px;
+  letter-spacing: 0.98px;
 }
-.error-page .error-content .form-control::-webkit-input-placeholder {
-   color: var(--color-bg-form);
-}
-.error-page .error-content .form-control:-moz-placeholder {
-   color: var(--color-bg-form); 
-}
-.error-page .error-content .form-control::-moz-placeholder {
-   color: var(--color-bg-form);
-}
-.error-page .error-content .form-control:-ms-input-placeholder {  
-   color: var(--color-bg-form); 
+.error-page .error-content .form-control::-webkit-input-placeholder,
+.error-page .error-content .form-control:-moz-placeholder,
+.error-page .error-content .form-control::-moz-placeholder,
+.error-page .error-content .form-control:-ms-input-placeholder {
+  color: var(--color-bg-form);
 }
 .error-page .error-content .form-control:focus {
-	border-color: var(--color-border-form);
+  border-color: var(--color-border-form);
 }
 .error-content .input-group .input-group-btn button.btn {
-	background-color: var(--color-accent);
-	border: none;
-	border-radius: 0;
-	color: var(--color-white);
-	font-family: var(--font-heading);
-	font-size: 15px;
-	font-weight: 700;
-	padding: 14.5px 70px;
-	letter-spacing: 1.05px;
-	text-transform: uppercase;
-	-webkit-transition: all 1s ease 0s;
-	-moz-transition: all 1s ease 0s;
-	-o-transition: all 1s ease 0s;
-	transition: all 1s ease 0s;
+  background-color: var(--color-accent);
+  border: none;
+  border-radius: 0;
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  padding: 14.5px 70px;
+  letter-spacing: 1.05px;
+  text-transform: uppercase;
+  -webkit-transition: all 1s ease 0s;
+  -moz-transition: all 1s ease 0s;
+  -o-transition: all 1s ease 0s;
+  transition: all 1s ease 0s;
 }
 .error-content .input-group .input-group-btn button.btn:hover {
-	background-color: var(--color-bg-dark);
+  background-color: var(--color-bg-dark);
 }

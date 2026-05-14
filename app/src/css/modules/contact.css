@@ -95,18 +95,9 @@
 .contact-form button:hover {
   background-color: var(--color-black);
 }
-.contact-form .form-control::-webkit-input-placeholder {
-  color: var(--color-text-placeholder-light);
-  text-transform: uppercase;
-}
-.contact-form .form-control:-moz-placeholder {
-  color: var(--color-text-placeholder-light);
-  text-transform: uppercase;
-}
-.contact-form .form-control::-moz-placeholder {
-  color: var(--color-text-placeholder-light);
-  text-transform: uppercase;
-}
+.contact-form .form-control::-webkit-input-placeholder,
+.contact-form .form-control:-moz-placeholder,
+.contact-form .form-control::-moz-placeholder,
 .contact-form .form-control:-ms-input-placeholder {
   color: var(--color-text-placeholder-light);
   text-transform: uppercase;

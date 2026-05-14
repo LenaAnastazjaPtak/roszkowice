@@ -216,15 +216,9 @@
   -o-transition: all 1s ease 0s;
   transition: all 1s ease 0s;
 }
-.blog-single .comment-form .form-control::-webkit-input-placeholder {
-  color: var(--color-text-meta);
-}
-.blog-single .comment-form .form-control:-moz-placeholder {
-  color: var(--color-text-meta);
-}
-.blog-single .comment-form .form-control::-moz-placeholder {
-  color: var(--color-text-meta);
-}
+.blog-single .comment-form .form-control::-webkit-input-placeholder,
+.blog-single .comment-form .form-control:-moz-placeholder,
+.blog-single .comment-form .form-control::-moz-placeholder,
 .blog-single .comment-form .form-control:-ms-input-placeholder {
   color: var(--color-text-meta);
 }

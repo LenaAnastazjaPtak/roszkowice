@@ -3,5 +3,5 @@
 }
 
 .contact-form .form-control::placeholder {
-  color: #666;
+  color: var(--color-text-placeholder-soft);
 }
