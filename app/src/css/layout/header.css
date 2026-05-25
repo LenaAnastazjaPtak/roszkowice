@@ -194,6 +194,11 @@
   border: none;
   background: none;
   cursor: pointer;
+  min-width: 30px;
+  min-height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .top-header .hours-line .hours-text {
@@ -212,14 +217,14 @@
   color: var(--color-accent);
 }
 
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .top-header .top-icons .lang-toggle {
-    margin-top: 1rem;
+    display: none;
   }
 }
 
-@media (max-width: 639px) {
-  .top-header .top-icons ul {
+@media (max-width: 767px) {
+  .top-header .top-icons {
     display: none;
   }
 }

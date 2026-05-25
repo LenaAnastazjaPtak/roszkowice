@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import LangToggle from "./LangToggle";
 
 const SCROLL_HEIGHT_STICKY =
   typeof window !== "undefined" ? window.innerHeight : 600;
 
 function Header() {
-  const { t, i18n } = useTranslation("common");
+  const { t } = useTranslation("common");
   const [sticky, setSticky] = useState(false);
   const headerRef = useRef(null);
   const headerHeightRef = useRef(0);
@@ -73,34 +74,7 @@ function Header() {
                   </a>
                 </li>
               </ul>
-              <div className="lang-toggle">
-                <button
-                  type="button"
-                  className={`lang-option${i18n.language === "pl" ? " active" : ""}`}
-                  onClick={() => i18n.changeLanguage("pl")}
-                  aria-label="Polski"
-                >
-                  PL
-                </button>
-                <span className="lang-separator">|</span>
-                <button
-                  type="button"
-                  className={`lang-option${i18n.language === "en" ? " active" : ""}`}
-                  onClick={() => i18n.changeLanguage("en")}
-                  aria-label="English"
-                >
-                  EN
-                </button>
-                <span className="lang-separator">|</span>
-                <button
-                  type="button"
-                  className={`lang-option${i18n.language === "de" ? " active" : ""}`}
-                  onClick={() => i18n.changeLanguage("de")}
-                  aria-label="Deutsch"
-                >
-                  DE
-                </button>
-              </div>
+              <LangToggle />
               <h5 className="hours-line">
                 <span className="hours-text">{t("hoursBefore")}</span>
                 <span className="hours-palace">{t("hoursPalace")}</span>
@@ -160,6 +134,9 @@ function Header() {
                   </Link>
                 </li>
               </ul>
+              <div className="nav-menu-lang">
+                <LangToggle />
+              </div>
             </div>
           </nav>
         </div>
