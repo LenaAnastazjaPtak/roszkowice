@@ -3,11 +3,14 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import {
   buildHomeSliderSlideData,
-  SLIDER_REVOLUTION_OPTIONS,
+  buildSliderRevolutionOptions,
+  getSliderSlideTransition,
+  isSliderMobileViewport,
   sliderLayerAttrs,
   sliderRevolutionDataAttrs,
   sliderSlideImgData,
   sliderSlideLiData,
+  syncSliderMobileBackgroundFill,
 } from "./sliderSectionConfig";
 import SliderSlideMobileCaption from "./SliderSlideMobileCaption";
 
@@ -35,6 +38,10 @@ function SliderSection() {
     let intervalId;
     const startedAt = Date.now();
 
+    const syncMobileFill = () => {
+      syncSliderMobileBackgroundFill(sliderElement);
+    };
+
     const tryInit = () => {
       if (cancelled) return true;
       const $ = window.$;
@@ -50,7 +57,15 @@ function SliderSection() {
 
       if (!canInit) return false;
 
-      $el.revolution(SLIDER_REVOLUTION_OPTIONS);
+      $el.revolution(buildSliderRevolutionOptions());
+
+      if (isSliderMobileViewport()) {
+        syncMobileFill();
+        $el.on(
+          "revolution.slide.onloaded revolution.slide.onbeforeswap revolution.slide.onafterswap",
+          syncMobileFill,
+        );
+      }
 
       return true;
     };
@@ -67,6 +82,16 @@ function SliderSection() {
     return () => {
       cancelled = true;
       if (intervalId) clearInterval(intervalId);
+      const $ = window.$;
+      if (typeof $ !== "undefined") {
+        const $el = $(`#${sliderId}`);
+        if ($el.length) {
+          $el.off(
+            "revolution.slide.onloaded revolution.slide.onbeforeswap revolution.slide.onafterswap",
+            syncMobileFill,
+          );
+        }
+      }
     };
   }, []);
 
@@ -81,7 +106,7 @@ function SliderSection() {
             {slideData.map((slide) => (
               <li
                 key={slide.img}
-                data-transition={sliderSlideLiData.transition}
+                data-transition={getSliderSlideTransition()}
                 data-slotamount={sliderSlideLiData.slotamount}
                 data-easein={sliderSlideLiData.easein}
                 data-easeout={sliderSlideLiData.easeout}

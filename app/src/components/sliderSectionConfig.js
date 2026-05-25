@@ -265,8 +265,78 @@ export function sliderRevolutionDataAttrs(obj) {
   );
 }
 
+const SLIDER_DESKTOP_TRANSITION = "zoomout";
+const SLIDER_MOBILE_TRANSITION = "fade";
+const SLIDER_MOBILE_MAX_WIDTH_PX = 767;
+
+export function isSliderMobileViewport() {
+  if (typeof window === "undefined") {
+    throw new Error("isSliderMobileViewport requires window");
+  }
+  return window.matchMedia(`(max-width: ${SLIDER_MOBILE_MAX_WIDTH_PX}px)`)
+    .matches;
+}
+
+export function getSliderSlideTransition() {
+  return isSliderMobileViewport()
+    ? SLIDER_MOBILE_TRANSITION
+    : SLIDER_DESKTOP_TRANSITION;
+}
+
+export function getSliderMobileMinHeightPx() {
+  if (typeof document === "undefined") {
+    throw new Error("getSliderMobileMinHeightPx requires document");
+  }
+  const probe = document.createElement("div");
+  probe.style.cssText =
+    "position:absolute;visibility:hidden;pointer-events:none;height:var(--slider-mobile-min-height)";
+  document.documentElement.append(probe);
+  const heightPx = probe.offsetHeight;
+  probe.remove();
+  if (heightPx <= 0) {
+    throw new Error("getSliderMobileMinHeightPx: invalid height");
+  }
+  return heightPx;
+}
+
+export function buildSliderRevolutionOptions() {
+  const options = { ...SLIDER_REVOLUTION_OPTIONS };
+  if (isSliderMobileViewport()) {
+    options.minHeight = getSliderMobileMinHeightPx();
+  }
+  return options;
+}
+
+export function syncSliderMobileBackgroundFill(sliderElement) {
+  if (!isSliderMobileViewport()) {
+    return;
+  }
+  const $ = window.$;
+  if (typeof $ === "undefined") {
+    throw new Error("syncSliderMobileBackgroundFill requires jQuery");
+  }
+  const $el = $(sliderElement);
+  const $wrapper = $el.closest(".rev_slider_wrapper");
+  if (!$wrapper.length) {
+    throw new Error("syncSliderMobileBackgroundFill: missing rev_slider_wrapper");
+  }
+  const heightPx = $wrapper.outerHeight();
+  if (heightPx <= 0) {
+    throw new Error("syncSliderMobileBackgroundFill: invalid wrapper height");
+  }
+  const fillCss = {
+    width: "100%",
+    height: heightPx,
+    minHeight: heightPx,
+    opacity: 1,
+  };
+  $el
+    .find(".slotholder, .tp-bgimg.defaultimg")
+    .css(fillCss);
+}
+
 export const sliderSlideLiData = {
-  transition: "zoomout",
+  transition: SLIDER_DESKTOP_TRANSITION,
   slotamount: "default",
   easein: "easeInOut",
   easeout: "easeInOut",
