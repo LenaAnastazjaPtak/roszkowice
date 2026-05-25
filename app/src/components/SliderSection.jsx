@@ -3,19 +3,21 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import {
   buildHomeSliderSlideData,
+  SLIDER_REVOLUTION_OPTIONS,
   sliderLayerAttrs,
   sliderRevolutionDataAttrs,
   sliderSlideImgData,
   sliderSlideLiData,
 } from "./sliderSectionConfig";
+import SliderSlideMobileCaption from "./SliderSlideMobileCaption";
 
 const slideData = buildHomeSliderSlideData();
 
-function slideBackgroundAlt(t, slide) {
+function slideTitleSubtitleText(t, slide, separator) {
   return [t(slide.titleKey), t(slide.subtitleKey)]
     .map((s) => s.trim())
     .filter(Boolean)
-    .join(" — ");
+    .join(separator);
 }
 
 function SliderSection() {
@@ -25,16 +27,6 @@ function SliderSection() {
     const sliderId = "home-slider1";
     const sliderElement = document.getElementById(sliderId);
     if (!sliderElement) return;
-
-    const options = {
-      sliderType: "standard",
-      sliderLayout: "auto",
-      delay: 6000,
-      spinner: "off",
-      navigation: { arrows: { enable: true, style: "uranus" } },
-      gridwidth: 1900,
-      gridheight: 980,
-    };
 
     const maxWaitMs = 8000;
     const pollIntervalMs = 150;
@@ -58,7 +50,8 @@ function SliderSection() {
 
       if (!canInit) return false;
 
-      $el.revolution(options);
+      $el.revolution(SLIDER_REVOLUTION_OPTIONS);
+
       return true;
     };
 
@@ -100,7 +93,7 @@ function SliderSection() {
               >
                 <img
                   src={slide.img}
-                  alt={slideBackgroundAlt(t, slide)}
+                  alt={slideTitleSubtitleText(t, slide, " — ")}
                   data-bgposition={sliderSlideImgData.bgposition}
                   data-bgfit={sliderSlideImgData.bgfit}
                   data-bgrepeat={sliderSlideImgData.bgrepeat}
@@ -109,30 +102,36 @@ function SliderSection() {
                   data-no-retina
                 />
                 <div className="slider-overlay" aria-hidden="true" />
+                <SliderSlideMobileCaption
+                  pretitle={t(slide.pretitleKey)}
+                  tagline={slideTitleSubtitleText(t, slide, " ")}
+                  ctaLabel={t("slider.cta")}
+                  ctaTitle={t("slider.cta")}
+                />
                 <div
                   id={slide.layerIds[0]}
-                  className={sliderLayerAttrs.preTitle.className}
+                  className={`${sliderLayerAttrs.preTitle.className} slider-layer-desktop`}
                   {...sliderRevolutionDataAttrs(sliderLayerAttrs.preTitle.data)}
                 >
                   {t(slide.pretitleKey)}
                 </div>
                 <div
                   id={slide.layerIds[1]}
-                  className={sliderLayerAttrs.title.className}
+                  className={`${sliderLayerAttrs.title.className} slider-layer-desktop`}
                   {...sliderRevolutionDataAttrs(sliderLayerAttrs.title.data)}
                 >
                   {t(slide.titleKey)}
                 </div>
                 <div
                   id={slide.layerIds[2]}
-                  className={sliderLayerAttrs.subTitle.className}
+                  className={`${sliderLayerAttrs.subTitle.className} slider-layer-desktop`}
                   {...sliderRevolutionDataAttrs(sliderLayerAttrs.subTitle.data)}
                 >
                   {t(slide.subtitleKey)}
                 </div>
                 <div
                   id={slide.layerIds[3]}
-                  className={sliderLayerAttrs.btn.className}
+                  className={`${sliderLayerAttrs.btn.className} slider-layer-desktop`}
                   {...sliderRevolutionDataAttrs(sliderLayerAttrs.btn.data)}
                 >
                   <Link to="/about" title={t("slider.cta")}>
