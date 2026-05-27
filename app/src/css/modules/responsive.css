@@ -255,6 +255,7 @@
   .onview-section .onview-content {
     padding-top: 30px;
     padding-bottom: 30px;
+    text-align: left;
   }
   .onview-section .onview-content .content-block-link {
     margin-top: 30px;
