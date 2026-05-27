@@ -321,7 +321,7 @@
   }
 }
 
-@media (max-width: 639px) {
+@media (max-width: 645px) {
   .slider-section .uranus.tparrows {
     height: 50px;
     width: 50px;
@@ -340,7 +340,8 @@
   .portfolio-categories ul {
     border-bottom: none;
   }
-  .portfolio-categories ul li a::before {
+  .portfolio-categories ul li a::before,
+  .portfolio-categories ul li .portfolio-filter-link::before {
     display: none;
   }
   .event-block .event-content {
