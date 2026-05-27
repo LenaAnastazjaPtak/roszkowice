@@ -112,7 +112,7 @@
     padding-right: 10px;
   }
   .event-block .event-content {
-    padding: 50px 15px 30px;
+    padding: 50px var(--layout-inline-padding) 30px;
   }
   .event-block .event-content .post-date {
     width: 60px;
@@ -168,8 +168,7 @@
   .onview-section .onview-content {
     padding-top: 60px;
     padding-bottom: 60px;
-    padding-left: 25px;
-    padding-right: 25px;
+    padding-inline: var(--layout-inline-padding);
   }
   .onview-section .onview-content ul li:nth-child(2n + 1) {
     clear: both;
@@ -270,7 +269,7 @@
     display: none;
   }
   .welcome-section .content-block {
-    padding-right: 15px;
+    padding-right: var(--layout-inline-padding);
   }
   .welcome-section .img-block {
     margin-top: 50px;
@@ -281,12 +280,10 @@
   }
   .onview-section2 .onview-left,
   .onview-section2 .onview-right {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-inline: var(--layout-inline-padding);
   }
   .portfolio-categories ul li {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-inline: var(--layout-inline-padding);
   }
   .portfolio-box {
     position: relative !important;
@@ -346,8 +343,7 @@
     display: none;
   }
   .event-block .event-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-inline: var(--layout-inline-padding);
   }
   .content-area,
   .widget-area {

@@ -1,0 +1,11 @@
+.container {
+  padding-inline: var(--layout-inline-padding);
+}
+
+.row {
+  margin-inline: calc(-1 * var(--layout-inline-padding));
+}
+
+.row > [class*="col-"] {
+  padding-inline: var(--layout-inline-padding);
+}

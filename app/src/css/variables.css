@@ -167,6 +167,7 @@
   --layout-space-36: calc(var(--layout-space-base) * 36);
 
   --layout-line-6: 0.375rem;
+  --layout-inline-padding: calc(var(--layout-space-base) * 3.75);
 
   --page-section-padding-y: var(--layout-space-36);
   --page-section-padding-y-sm: var(--layout-space-28);
@@ -231,6 +232,8 @@
     --header-nav-toggle-icon-width: 1.125rem;
     --header-nav-toggle-icon-height: 2px;
     --header-nav-toggle-icon-gap: 3px;
+    --layout-inline-padding: var(--layout-space-12);
+    --page-split-inline-gap-sm: var(--layout-inline-padding);
   }
 }
 
