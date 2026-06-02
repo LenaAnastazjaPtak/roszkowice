@@ -627,10 +627,6 @@
 @media only screen and (min-width: 768px) and (max-width: 991px) {
 }
 
-.nav-menu-lang {
-  display: none;
-}
-
 /* - Navigation Menu Switch < 991 RES */
 @media (max-width: 991px) {
   .ow-navigation {
@@ -654,10 +650,10 @@
   }
   .navbar-toggle {
     display: block;
-    border: 1px solid var(--color-white);
+    border: 1px solid var(--color-accent);
   }
   .navbar-toggle .icon-bar {
-    background-color: var(--color-white);
+    background-color: var(--color-accent);
     width: var(--header-nav-toggle-icon-width);
     height: var(--header-nav-toggle-icon-height);
   }
@@ -667,22 +663,30 @@
   .navbar-nav.navbar-right:last-child {
     margin: 0;
   }
-  .navbar-collapse.in {
-    overflow-y: auto !important;
-  }
   .navbar-collapse {
     border-top: medium none;
     box-shadow: none;
-    overflow: auto !important;
-    padding-bottom: 10px;
     width: 100%;
     margin: 0;
   }
-  .navbar-collapse.collapse {
-    display: none !important;
+  .ow-navigation .navbar-collapse {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+    transition: max-height var(--header-mobile-panel-transition);
   }
-  .collapse.in {
-    display: block !important;
+  .ow-navigation .navbar-collapse.is-open {
+    max-height: 300px;
+  }
+  .ow-navigation .navbar-collapse > .navbar-nav {
+    margin: 0;
+    padding: 0;
+  }
+  .ow-navigation .navbar-collapse > .navbar-nav > li:first-child {
+    padding-top: 15px;
+  }
+  .ow-navigation .navbar-collapse > .navbar-nav > li:last-child {
+    padding-bottom: 10px;
   }
   .navbar-nav {
     width: 100%;
@@ -691,15 +695,6 @@
   .navbar-nav > li {
     min-height: 0;
     float: none;
-  }
-
-  /* since 3.1.0 */
-  .ow-navigation .navbar-collapse.collapse.in {
-    display: block !important;
-    width: 100%;
-  }
-  .ow-navigation .collapsing {
-    overflow: hidden !important;
   }
   .ow-navigation .dropdown-menu {
     background-color: transparent;
@@ -732,39 +727,40 @@
     padding-right: 0;
   }
   .ow-navigation .nav {
-    margin-top: 15px;
+    margin-top: 0;
   }
   .ow-navigation .ddl-active > .ddl-switch:before {
     content: "\f106";
   }
   .ow-navigation .navbar-toggle {
-    background-color: var(--color-accent);
+    background-color: var(--color-white);
     border-color: var(--color-accent);
     border-radius: 0;
     display: block;
     float: none;
     margin: 0;
-    margin-inline-start: auto;
     flex-shrink: 0;
     padding: var(--header-nav-toggle-padding-y) var(--header-nav-toggle-padding-x);
+    transition:
+      background-color 0.2s ease,
+      border-color 0.2s ease;
   }
-  .navbar-default .navbar-toggle:focus,
-  .navbar-default .navbar-toggle:hover,
-  .navbar-fixed-top .ow-navigation .navbar-toggle .icon-bar,
-  .ow-navigation .navbar-toggle .icon-bar,
-  .navbar-fixed-top .ow-navigation .navbar-toggle:focus,
-  .navbar-fixed-top .ow-navigation .navbar-toggle:hover,
-  .ow-navigation .navbar-default .navbar-toggle:focus,
-  .ow-navigation .navbar-default .navbar-toggle:hover,
-  .ow-navigation .navbar-toggle:hover {
-    background-color: var(--color-white);
-  }
-  .navbar-default .navbar-toggle:focus .icon-bar,
-  .navbar-default .navbar-toggle:hover .icon-bar,
-  .navbar-fixed-top .ow-navigation .navbar-toggle:focus .icon-bar,
-  .navbar-fixed-top .ow-navigation .navbar-toggle:hover .icon-bar,
-  .ow-navigation .navbar-toggle:hover .icon-bar {
+
+  .ow-navigation.navbar-default .navbar-toggle .icon-bar {
     background-color: var(--color-accent);
+    transition: background-color 0.2s ease;
+  }
+
+  .navbar-header .lang-switcher-mobile-toggle {
+    margin-inline-start: auto;
+  }
+
+  .ow-navigation .navbar-toggle.is-open {
+    background-color: var(--color-accent);
+  }
+
+  .ow-navigation .navbar-toggle.is-open .icon-bar {
+    background-color: var(--color-white);
   }
   .ow-navigation.navbar-default .navbar-nav > li {
     position: relative;
@@ -789,13 +785,6 @@
     padding-left: 10px;
     padding-right: 10px;
   }
-
-  .ow-navigation .nav-menu-lang {
-    display: flex;
-    justify-content: center;
-    padding: 24px 0 20px;
-  }
-
 }
 
 /* -- max-width: 767 */

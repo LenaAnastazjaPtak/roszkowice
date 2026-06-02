@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import LangToggle from "./LangToggle";
+import LangSwitcherMobileToggle from "./LangSwitcherMobileToggle";
+import LangSwitcherMobilePanel from "./LangSwitcherMobilePanel";
 
 const SCROLL_HEIGHT_STICKY =
   typeof window !== "undefined" ? window.innerHeight : 600;
@@ -9,8 +11,11 @@ const SCROLL_HEIGHT_STICKY =
 function Header() {
   const { t } = useTranslation("common");
   const [sticky, setSticky] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
+  const [navOpen, setNavOpen] = useState(false);
   const headerRef = useRef(null);
   const headerHeightRef = useRef(0);
+  const navRef = useRef(null);
 
   useEffect(() => {
     const onScroll = () => {
@@ -24,6 +29,44 @@ function Header() {
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
   }, [sticky]);
+
+  useEffect(() => {
+    if (!langOpen && !navOpen) return undefined;
+    const closeAll = () => {
+      setLangOpen(false);
+      setNavOpen(false);
+    };
+    const handlePointerDown = (event) => {
+      if (navRef.current && !navRef.current.contains(event.target)) {
+        closeAll();
+      }
+    };
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") closeAll();
+    };
+    document.addEventListener("mousedown", handlePointerDown);
+    document.addEventListener("touchstart", handlePointerDown);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", handlePointerDown);
+      document.removeEventListener("touchstart", handlePointerDown);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [langOpen, navOpen]);
+
+  const toggleLang = () => {
+    setLangOpen((open) => !open);
+    setNavOpen(false);
+  };
+
+  const closeLang = () => setLangOpen(false);
+
+  const toggleNav = () => {
+    setNavOpen((open) => !open);
+    setLangOpen(false);
+  };
+
+  const closeNav = () => setNavOpen(false);
 
   return (
     <>
@@ -84,21 +127,24 @@ function Header() {
           </div>
         </div>
         <div className="container">
-          <nav className="navbar navbar-default ow-navigation">
+          <nav className="navbar navbar-default ow-navigation" ref={navRef}>
             <div className="navbar-header">
               <button
                 aria-controls="navbar"
-                aria-expanded="false"
-                data-target="#navbar"
-                data-toggle="collapse"
-                className="navbar-toggle collapsed"
+                aria-expanded={navOpen}
+                className={`navbar-toggle${navOpen ? " is-open" : ""}`}
                 type="button"
+                onClick={toggleNav}
               >
                 <span className="sr-only">{t("nav.toggle")}</span>
                 <span className="icon-bar"></span>
                 <span className="icon-bar"></span>
                 <span className="icon-bar"></span>
               </button>
+              <LangSwitcherMobileToggle
+                open={langOpen}
+                onToggle={toggleLang}
+              />
               <Link to="/" className="navbar-brand">
                 <img
                   src="/images/roszkowice/logo_with_transparent_background.png"
@@ -106,8 +152,12 @@ function Header() {
                 />
               </Link>
             </div>
-            <div className="navbar-collapse collapse navbar-right" id="navbar">
-              <ul className="nav navbar-nav">
+            <LangSwitcherMobilePanel open={langOpen} onClose={closeLang} />
+            <div
+              className={`navbar-collapse navbar-right${navOpen ? " is-open" : ""}`}
+              id="navbar"
+            >
+              <ul className="nav navbar-nav" onClick={closeNav}>
                 <li>
                   <Link to="/about" title={t("nav.about")}>
                     {t("nav.about")}
@@ -134,9 +184,6 @@ function Header() {
                   </Link>
                 </li>
               </ul>
-              <div className="nav-menu-lang">
-                <LangToggle />
-              </div>
             </div>
           </nav>
         </div>

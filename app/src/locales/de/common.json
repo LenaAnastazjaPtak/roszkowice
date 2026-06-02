@@ -8,6 +8,7 @@
   },
   "nav": {
     "toggle": "Navigation umschalten",
+    "languageToggle": "Sprache ändern",
     "home": "Startseite",
     "home1": "Startseite 1",
     "home2": "Startseite 2",

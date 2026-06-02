@@ -8,6 +8,7 @@
   },
   "nav": {
     "toggle": "Toggle navigation",
+    "languageToggle": "Change language",
     "home": "Home",
     "home1": "home 1",
     "home2": "home 2",

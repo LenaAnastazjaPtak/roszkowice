@@ -166,12 +166,30 @@
     max-height: 100%;
   }
   .onview-section .onview-content {
-    padding-top: 60px;
-    padding-bottom: 60px;
+    padding-top: 0;
+    padding-bottom: 0;
     padding-inline: var(--layout-inline-padding);
   }
   .onview-section .onview-content ul li:nth-child(2n + 1) {
     clear: both;
+  }
+  .welcome-section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  .welcome-section__layout {
+    padding-bottom: 0;
+  }
+  .onview-section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  .portfolio-section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  .portfolio-section-cta {
+    padding-bottom: 0;
   }
   .onview-section2 .onview-left,
   .onview-section2 .onview-right {
@@ -245,21 +263,14 @@
   .welcome-section2 .content-block {
     padding-top: 0;
   }
-  .onview-section {
-    padding-top: 50px;
-    padding-bottom: 50px;
-  }
-  .onview-section .img-block {
-    padding-top: 35px;
-  }
   .onview-section .onview-content {
     padding-top: 30px;
-    padding-bottom: 30px;
+    padding-bottom: 0;
     text-align: left;
   }
   .onview-section .onview-content .content-block-link {
     margin-top: 30px;
-    margin-bottom: 30px;
+    margin-bottom: 0;
   }
   .onview-section--compact .onview-content {
     margin-top: 40px;

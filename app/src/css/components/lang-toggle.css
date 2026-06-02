@@ -48,9 +48,3 @@
     padding: 2px 4px;
   }
 }
-
-@media (max-width: 991px) {
-  .nav-menu-lang .lang-toggle {
-    margin-left: 0;
-  }
-}

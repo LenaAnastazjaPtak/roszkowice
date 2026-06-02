@@ -234,6 +234,7 @@
     --header-nav-toggle-icon-gap: 3px;
     --layout-inline-padding: var(--layout-space-12);
     --page-split-inline-gap-sm: var(--layout-inline-padding);
+    --header-mobile-panel-transition: 0.35s ease;
   }
 }
 
