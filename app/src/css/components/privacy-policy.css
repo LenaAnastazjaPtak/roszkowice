@@ -1,6 +1,7 @@
 .privacy-policy-page .privacy-policy-inner {
   text-align: left;
   color: var(--color-text-placeholder);
+  overflow-wrap: anywhere;
 }
 
 @media (min-width: 768px) {
