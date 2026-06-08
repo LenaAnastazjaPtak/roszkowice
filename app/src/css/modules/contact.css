@@ -54,6 +54,14 @@
 .contact-form form {
   margin-top: 40px;
 }
+@media (max-width: 767px) {
+  .contact-form {
+    margin-top: 60px;
+  }
+  .contact-form .row > [class*="col-"] {
+    padding-inline: 0;
+  }
+}
 .contact-form .form-control {
   height: 40px;
   border: 1px solid var(--color-border-input);
