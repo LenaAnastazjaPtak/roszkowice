@@ -200,8 +200,19 @@
   --slider-mobile-caption-cta-letter-spacing: calc(var(--layout-space-base) * 0.3);
   --slider-mobile-caption-cta-padding-y: calc(var(--layout-space-base) * 3.5);
   --slider-mobile-caption-cta-padding-x: calc(var(--layout-space-base) * 11);
-  --slider-mobile-caption-shadow-pretitle: 0 2px 20px var(--color-overlay-black-80);
-  --slider-mobile-caption-shadow-tagline: 0 2px 16px var(--color-overlay-black-80);
+  --slider-mobile-caption-pretitle-tagline-gap: var(--layout-space-3);
+  --slider-mobile-caption-cta-margin-top: var(--layout-space-8);
+  --slider-caption-shadow-pretitle: 0 1px 3px var(--color-overlay-black-80),
+    0 4px 28px var(--color-overlay-black-60);
+  --slider-caption-shadow-title: 0 1px 3px var(--color-overlay-black-80),
+    0 4px 24px var(--color-overlay-black-60);
+  --slider-caption-shadow-subtitle: 0 1px 2px var(--color-overlay-black-80),
+    0 3px 20px var(--color-overlay-black-60);
+  --slider-mobile-caption-shadow-pretitle: var(--slider-caption-shadow-pretitle);
+  --slider-mobile-caption-shadow-tagline: var(--slider-caption-shadow-subtitle);
+
+  --section-title-border-frame-inset-left: 40px;
+  --section-title-border-mobile-title-ch: 23;
   --slider-tablet-pretitle-font-size: 4rem;
   --slider-tablet-pretitle-line-height: 1.15;
   --slider-tablet-pretitle-max-width: min(90vw, 720px);
@@ -225,7 +236,7 @@
 @media (max-width: 991px) {
   :root {
     --site-logo-size: 120px;
-    --header-nav-bar-padding-y: var(--layout-space-4);
+    --header-mobile-inline-gutter: var(--layout-space-5);
     --header-nav-bar-inline-gap: var(--layout-space-6);
     --header-nav-toggle-padding-y: var(--layout-space-2);
     --header-nav-toggle-padding-x: var(--layout-space-3);
@@ -241,7 +252,6 @@
 @media (max-width: 767px) {
   :root {
     --site-logo-size: 100px;
-    --header-nav-bar-padding-y: var(--layout-space-2);
     --header-nav-bar-inline-gap: var(--layout-space-10);
     --slider-overlay-opacity: 0.78;
     --text-prose-text-align: left;
@@ -251,8 +261,7 @@
 @media (max-width: 479px) {
   :root {
     --slider-overlay-opacity: 0.63;
-    --site-logo-size: 80px;
-    --header-nav-bar-padding-y: calc(var(--layout-space-base) * 1.5);
+    --site-logo-size: 100px;
     --slider-mobile-caption-pretitle-font-size: 3.2rem;
     --slider-mobile-caption-tagline-font-size: 1.35rem;
   }

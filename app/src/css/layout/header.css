@@ -221,6 +221,10 @@
   .top-header .top-icons .lang-toggle {
     display: none;
   }
+
+  .header-section > .container {
+    padding-inline: 0;
+  }
 }
 
 @media (max-width: 767px) {

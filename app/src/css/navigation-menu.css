@@ -629,6 +629,9 @@
 
 /* - Navigation Menu Switch < 991 RES */
 @media (max-width: 991px) {
+  .header-section .container {
+    padding-inline: var(--header-mobile-inline-gutter);
+  }
   .ow-navigation {
     padding-bottom: 0;
   }
@@ -642,8 +645,12 @@
   }
   .ow-navigation .navbar-brand {
     float: none;
-    padding: var(--header-nav-bar-padding-y) 0;
+    padding: 10px 0;
     width: auto;
+  }
+  .ow-navigation .navbar-brand > img {
+    contain-intrinsic-block-size: auto 100px;
+    max-width: 115px;
   }
   .ow-navigation .navbar-collapse {
     margin-right: 0;

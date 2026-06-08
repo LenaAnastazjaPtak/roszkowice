@@ -18,7 +18,7 @@
   content: "";
   display: inline-block;
   position: absolute;
-  left: 40px;
+  left: var(--section-title-border-frame-inset-left);
   right: 0;
   top: 0;
   z-index: -1;
@@ -26,9 +26,11 @@
 
 .section-header span,
 .section-header2 span {
+  display: inline-block;
   font-family: var(--font-accent);
-  font-size: var(--text-body-font-size);
+  font-size: calc(var(--text-body-font-size) * 1.15);
   font-style: italic;
+  letter-spacing: 0.06em;
   color: var(--color-accent);
 }
 
@@ -52,4 +54,24 @@
 .section-header2 i {
   display: block;
   margin-bottom: 15px;
+}
+
+@media (max-width: 767px) {
+  .section-header .section-title-border {
+    font-family: var(--font-heading);
+    font-size: 32px;
+    min-width: min(
+      100%,
+      calc(
+        var(--section-title-border-mobile-title-ch) * 1ch +
+          var(--section-title-border-frame-inset-left)
+      )
+    );
+  }
+}
+
+@media (max-width: 639px) {
+  .section-header .section-title-border {
+    font-size: 25px;
+  }
 }

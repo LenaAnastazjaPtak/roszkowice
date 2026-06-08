@@ -12,8 +12,8 @@
   padding-right: 50px;
 }
 .welcome-section .content-block p {
-  color: var(--color-text-placeholder);
-  line-height: var(--text-body-line-height);
+  color: var(--color-text-dark);
+  line-height: 1.7;
   letter-spacing: 0.28px;
   margin-bottom: 30px;
 }
@@ -21,7 +21,6 @@
   text-align: right;
 }
 .welcome-section .img-block i {
-  display: inline-block;
   position: relative;
 }
 .welcome-section .img-block i::after {
