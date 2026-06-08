@@ -181,6 +181,10 @@
 @media (max-width: 767px) {
   .onview-section .onview-content {
     text-align: center;
+    order: 1;
+  }
+  .onview-section .img-block {
+    order: 2;
   }
   .onview-section .onview-content .section-title-border {
     padding-right: 0;
