@@ -18,7 +18,7 @@
 
 @media (max-width: 767px) {
   .youtube-embed {
-    padding-block: var(--page-section-padding-y-sm);
+    padding-block: 60px;
   }
 
   .youtube-embed.container-fluid {
