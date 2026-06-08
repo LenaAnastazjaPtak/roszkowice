@@ -20,4 +20,16 @@
   .youtube-embed {
     padding-block: var(--page-section-padding-y-sm);
   }
+
+  .youtube-embed.container-fluid {
+    padding-inline: 0;
+  }
+
+  .youtube-embed .row {
+    margin-inline: 0;
+  }
+
+  .youtube-embed .row > [class*="col-"] {
+    padding-inline: 0;
+  }
 }
