@@ -173,7 +173,6 @@ function PrivacyPolicyPage() {
           </div>
         </div>
       </div>
-      <div className="padding-100"></div>
     </>
   );
 }

@@ -1,8 +1,13 @@
 .privacy-policy-page .privacy-policy-inner {
   text-align: left;
-  padding-top: 60px;
-  padding-bottom: 20px;
   color: var(--color-text-placeholder);
+}
+
+@media (min-width: 768px) {
+  .privacy-policy-page .privacy-policy-inner {
+    padding-top: 60px;
+    padding-bottom: 20px;
+  }
 }
 
 .privacy-policy-page .privacy-policy-inner .section-header2 {
