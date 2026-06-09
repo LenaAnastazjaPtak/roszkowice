@@ -79,6 +79,7 @@
   }
 
   .history-page .welcome-section2 .content-block {
+    text-align: left;
     padding-top: 0;
     padding-inline: var(--page-split-inline-gap-sm);
   }
@@ -88,7 +89,7 @@
   }
 
   .history-page .history-postcards-section.onview-section--compact .onview-content {
-    margin-top: var(--page-stack-after-split);
+    margin-bottom: var(--page-stack-after-split);
     padding-inline: var(--page-split-inline-gap-sm);
   }
 }
