@@ -1,3 +1,7 @@
+.contact-section {
+  padding-top: var(--page-section-padding-y);
+  padding-bottom: var(--page-section-padding-y);
+}
 .contact-info {
   text-align: center;
   float: left;
@@ -55,6 +59,10 @@
   margin-top: 40px;
 }
 @media (max-width: 767px) {
+  .contact-section {
+    padding-top: var(--page-section-padding-y-sm);
+    padding-bottom: var(--page-section-padding-y-sm);
+  }
   .contact-form {
     margin-top: 60px;
   }

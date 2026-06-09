@@ -135,7 +135,6 @@ function ContactPage() {
   return (
     <>
       <PageBanner title={t('title')} image="/images/roszkowice/zewn/jesien.jpg" />
-      <div className="section-padding"></div>
       <div className="container-fluid no-padding contact-section">
         <div className="container">
           <div className="contact-info">
@@ -176,7 +175,6 @@ function ContactPage() {
           </div>
         </div>
       </div>
-      <div className="padding-100"></div>
       <div className="container-fluid no-padding map-section">
         {mapError ? (
           <div className="map-canvas" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 300, background: '#e8e8e8' }}>
