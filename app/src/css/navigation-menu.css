@@ -22,7 +22,6 @@
 }
 .ow-navigation .navbar-brand > img {
   display: inline-block;
-  margin-right: 10px;
   max-width: var(--site-logo-size);
   height: var(--site-logo-size);
   object-fit: contain;
@@ -650,7 +649,7 @@
   }
   .ow-navigation .navbar-brand > img {
     contain-intrinsic-block-size: auto 100px;
-    max-width: 115px;
+    max-width: 100px;
   }
   .ow-navigation .navbar-collapse {
     margin-right: 0;

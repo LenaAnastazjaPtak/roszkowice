@@ -240,8 +240,8 @@
     --site-logo-size: 120px;
     --header-mobile-inline-gutter: var(--layout-space-5);
     --header-nav-bar-inline-gap: var(--layout-space-6);
-    --header-nav-toggle-padding-y: var(--layout-space-2);
-    --header-nav-toggle-padding-x: var(--layout-space-3);
+    --header-nav-toggle-padding-y: var(--layout-space-3);
+    --header-nav-toggle-padding-x: var(--layout-space-4);
     --header-nav-toggle-icon-width: 1.125rem;
     --header-nav-toggle-icon-height: 2px;
     --header-nav-toggle-icon-gap: 3px;
