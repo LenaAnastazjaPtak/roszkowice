@@ -1,37 +1,103 @@
+import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { SUPPORTED_LANGUAGES } from "../shared/languages";
 
 function LangToggle() {
-  const { i18n } = useTranslation("common");
+  const { i18n, t } = useTranslation("common");
+  const [open, setOpen] = useState(false);
+  const containerRef = useRef(null);
+  const current = i18n.language?.slice(0, 2);
+  const currentLanguage = SUPPORTED_LANGUAGES.find(({ code }) => code === current);
+
+  useEffect(() => {
+    if (!open) return undefined;
+
+    const close = () => setOpen(false);
+    const handlePointerDown = (event) => {
+      if (containerRef.current && !containerRef.current.contains(event.target)) {
+        close();
+      }
+    };
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") close();
+    };
+
+    document.addEventListener("mousedown", handlePointerDown);
+    document.addEventListener("touchstart", handlePointerDown);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", handlePointerDown);
+      document.removeEventListener("touchstart", handlePointerDown);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [open]);
+
+  const handleSelect = (code) => {
+    i18n.changeLanguage(code);
+    setOpen(false);
+  };
 
   return (
-    <div className="lang-toggle">
+    <li
+      className={`lang-toggle${open ? " is-open" : ""}`}
+      ref={containerRef}
+    >
       <button
         type="button"
-        className={`lang-option${i18n.language === "pl" ? " active" : ""}`}
-        onClick={() => i18n.changeLanguage("pl")}
-        aria-label="Polski"
+        className={`lang-toggle__trigger${open ? " is-open" : ""}`}
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        aria-controls="lang-toggle-panel"
+        aria-label={`${t("nav.languageToggle")}: ${currentLanguage?.name ?? current}`}
+        onClick={() => setOpen((value) => !value)}
       >
-        PL
+        <span className="lang-toggle__trigger-inner">
+          <i className="fa fa-globe lang-toggle__globe" aria-hidden="true" />
+          <span className="lang-toggle__current">
+            {currentLanguage?.label ?? current}
+          </span>
+          <i
+            className="fa fa-caret-down lang-toggle__caret"
+            aria-hidden="true"
+          />
+        </span>
       </button>
-      <span className="lang-separator">|</span>
-      <button
-        type="button"
-        className={`lang-option${i18n.language === "en" ? " active" : ""}`}
-        onClick={() => i18n.changeLanguage("en")}
-        aria-label="English"
+      <div
+        id="lang-toggle-panel"
+        className={`lang-toggle__panel${open ? " is-open" : ""}`}
+        aria-hidden={!open}
       >
-        EN
-      </button>
-      <span className="lang-separator">|</span>
-      <button
-        type="button"
-        className={`lang-option${i18n.language === "de" ? " active" : ""}`}
-        onClick={() => i18n.changeLanguage("de")}
-        aria-label="Deutsch"
-      >
-        DE
-      </button>
-    </div>
+        <ul
+          className="lang-toggle__list"
+          role="listbox"
+          aria-label={t("nav.languageToggle")}
+        >
+          {SUPPORTED_LANGUAGES.map(({ code, label, name }) => {
+            const isActive = current === code;
+            return (
+              <li key={code}>
+                <button
+                  type="button"
+                  role="option"
+                  aria-selected={isActive}
+                  tabIndex={open ? 0 : -1}
+                  className={`lang-toggle__option${isActive ? " is-active" : ""}`}
+                  onClick={() => handleSelect(code)}
+                >
+                  <span className="lang-toggle__code">{label}</span>
+                  <span className="lang-toggle__name">{name}</span>
+                  {isActive ? (
+                    <span className="lang-toggle__check" aria-hidden="true">
+                      <i className="fa fa-check" />
+                    </span>
+                  ) : null}
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </li>
   );
 }
 

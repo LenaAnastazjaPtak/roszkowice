@@ -1,0 +1,36 @@
+{
+  "siteName": "Zámek Roszkowice",
+  "defaultImage": "/images/roszkowice/zewn/pionowa_zima.jpg",
+  "home": {
+    "title": "Zámek Roszkowice",
+    "description": "Zámek Roszkowice — historická rezidence z 19. století v Roszkowicích. Historie panství, renovace a plánované prohlídky."
+  },
+  "about": {
+    "title": "O nás",
+    "description": "Poznejte Zámek Roszkowice — zámeckou rezidenci z 19. století. Historie objektu, renovace a plány otevření pro návštěvníky."
+  },
+  "history": {
+    "title": "Historie",
+    "description": "Historie Zámku Roszkowice od středověku po rody von Cramon-Taubadel. Bitva u Byczyny a dějiny panství v Roszkowicích."
+  },
+  "gallery": {
+    "title": "Galerie",
+    "description": "Fotografie Zámku Roszkowice — interiéry, park, rekonstrukce a pohledy zvenku. Podívejte se na historickou rezidenci v Roszkowicích."
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Novinky a příspěvky o Zámku Roszkowice — postup renovace, akce a příběhy spojené s panstvím v Roszkowicích."
+  },
+  "contact": {
+    "title": "Kontakt",
+    "description": "Kontaktujte Zámek Roszkowice. Adresa, e-mail a kontaktní formulář. Roszkowice 57, vojvodství opolské."
+  },
+  "privacy": {
+    "title": "Zásady ochrany osobních údajů",
+    "description": "Zásady ochrany osobních údajů webu palacroszkowice.pl — informace o zpracování osobních údajů a souborech cookies."
+  },
+  "notFound": {
+    "title": "Stránka nenalezena",
+    "description": "Hledaná stránka neexistuje. Vraťte se na domovskou stránku Zámku Roszkowice."
+  }
+}

@@ -145,6 +145,7 @@
     var(--color-accent) 40%,
     transparent
   );
+  --lang-toggle-panel-bg: var(--color-bg-header);
 
   --layout-space-base: 0.25rem;
   --layout-space-2: calc(var(--layout-space-base) * 2);

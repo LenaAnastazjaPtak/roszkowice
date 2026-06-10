@@ -1,0 +1,61 @@
+{
+  "slider": {
+    "slides": [
+      {
+        "pretitle": "ZÁMEK ROSZKOWICE",
+        "title": "Zastavený čas,",
+        "subtitle": "Neřčené příběhy."
+      },
+      {
+        "pretitle": "ZÁMEK ROSZKOWICE",
+        "title": "Objevte to, co po léta",
+        "subtitle": "zůstávalo ve stínu."
+      },
+      {
+        "pretitle": "ZÁMEK ROSZKOWICE",
+        "title": "Myšlenky utvářejí skutečný běh",
+        "subtitle": "dějin"
+      },
+      {
+        "pretitle": "ZÁMEK ROSZKOWICE",
+        "title": "Historie,",
+        "subtitle": "kterou píšeme dál."
+      }
+    ],
+    "cta": "CO U NÁS",
+    "since": "založ."
+  },
+  "welcome": {
+    "welcomeTo": "Vítejte v",
+    "title": "Zámku v Roszkowicích",
+    "text": "Zámek v Roszkowicích je perla architektury 19. století, která po staletí tvořila srdce živého panství. Od pozemků ve vlastnictví vratislavských biskupů, přes zkázu způsobenou tatarskou hordou a velkou bitvou u Byczyny, až po časy slávy rodu von Cramon-Taubadel — tato země a tyto zdi skrývají fascinující příběhy, které utvářely identitu regionu.\n\nDnes, po letech zapomnění, prochází zámek důkladnou renovací. Obnovujeme lesk historického charakteru a dbáme na každý detail, aby toto výjimečné místo mohlo znovu uchvátit svým eklektickým stylem.",
+    "readMore": "Číst více",
+    "altWinter": "Zámek Roszkowice v zimě",
+    "alt": "Zámek Roszkowice"
+  },
+  "gallery": {
+    "subtitle": "Podívejte se na zámek objektivem",
+    "title": "naše galerie",
+    "all": "VŠE",
+    "exterior": "ZÁMEK ZVENKU",
+    "interior": "INTERIÉR ZÁMKU",
+    "park": "PARK",
+    "remont": "REKONSTRUKCE",
+    "other": "OSTATNÍ",
+    "palace": "Zámek Roszkowice",
+    "imageAlt": "{{palace}} — {{category}}",
+    "galleryLabel": "Galerie",
+    "seeFullGallery": "Zobrazit celou galerii",
+    "close": "Zavřít",
+    "previous": "Předchozí",
+    "next": "Další"
+  },
+  "latestBlog": {
+    "subtitle": "Co říkají naši návštěvníci",
+    "title": "NEJNOVĚJŠÍ ZPRÁVY",
+    "comments": "{{count}} komentářů",
+    "readMore": "Číst více",
+    "monthApril": "duben",
+    "visitBlog": "Navštívit blog"
+  }
+}

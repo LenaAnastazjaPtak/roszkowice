@@ -1,0 +1,36 @@
+{
+  "siteName": "Kaštieľ Roszkowice",
+  "defaultImage": "/images/roszkowice/zewn/pionowa_zima.jpg",
+  "home": {
+    "title": "Kaštieľ Roszkowice",
+    "description": "Kaštieľ Roszkowice — historická rezidencia z 19. storočia v Roszkowiciach. História panstva, rekonštrukcia a plánované prehliadky."
+  },
+  "about": {
+    "title": "O nás",
+    "description": "Spoznajte Kaštieľ Roszkowice — zámockú rezidenciu z 19. storočia. História objektu, rekonštrukcia a plány otvorenia pre návštevníkov."
+  },
+  "history": {
+    "title": "História",
+    "description": "História Kaštieľa Roszkowice od stredoveku po rody von Cramon-Taubadel. Bitka pri Byczyně a dejiny panstva v Roszkowiciach."
+  },
+  "gallery": {
+    "title": "Galéria",
+    "description": "Fotografie Kaštieľa Roszkowice — interiéry, park, rekonštrukcia a pohľady zvonka. Pozrite sa na historickú rezidenciu v Roszkowiciach."
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Novinky a príspevky o Kaštieli Roszkowice — postup rekonštrukcie, podujatia a príbehy spojené s panstvom v Roszkowiciach."
+  },
+  "contact": {
+    "title": "Kontakt",
+    "description": "Kontaktujte Kaštieľ Roszkowice. Adresa, e-mail a kontaktný formulár. Roszkowice 57, vojvodstvo opolské."
+  },
+  "privacy": {
+    "title": "Zásady ochrany osobných údajov",
+    "description": "Zásady ochrany osobných údajov webu palacroszkowice.pl — informácie o spracovaní osobných údajov a súboroch cookies."
+  },
+  "notFound": {
+    "title": "Stránka nenájdená",
+    "description": "Hľadaná stránka neexistuje. Vráťte sa na domovskú stránku Kaštieľa Roszkowice."
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "title": "Kontakt",
+  "locationIconAlt": "Ikona polohy Kaštieľa Roszkowice",
+  "contactIconAlt": "Ikona kontaktu s Kaštieľom Roszkowice",
+  "emailIconAlt": "Ikona e-mailu Kaštieľa Roszkowice",
+  "locationTitle": "Naša poloha",
+  "contactTitle": "Kontaktujte nás",
+  "emailTitle": "E-mail",
+  "formTitle": "Zanechajte správu",
+  "formSubtitle": "Napíšte nám",
+  "firstName": "Meno *",
+  "lastName": "Priezvisko *",
+  "email": "E-mailová adresa *",
+  "subject": "Predmet",
+  "message": "Vaša správa",
+  "submit": "Odoslať správu",
+  "fillAll": "Vyplňte prosím všetky polia.",
+  "error": "Vyskytla sa chyba. Skúste to prosím neskôr.",
+  "openInGoogleMaps": "Otvoriť v Google Maps",
+  "validationRequired": "Vyplňte toto pole.",
+  "validationEmail": "Zadajte platnú e-mailovú adresu.",
+  "validationTooLong": "Tento text je príliš dlhý."
+}

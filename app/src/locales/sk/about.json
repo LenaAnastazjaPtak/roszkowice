@@ -1,0 +1,38 @@
+{
+  "title": "O nás",
+  "welcome": {
+    "welcomeIn": "Vitajte v",
+    "palaceName": "Kaštieli Roszkowice",
+    "imgAlt": "Kaštieľ Roszkowice",
+    "paragraph1": "Kaštieľ Roszkowice je zámocká rezidencia z 19. storočia, ktorá po desaťročia bola srdcom miestneho spoločenského a kultúrneho života. Postavený ako rodové sídlo, spája eleganciu historickej architektúry s príbehmi ľudí, ktorí toto miesto formovali.",
+    "paragraph2": "V priebehu rokov kaštieľ prechádzal rôznymi etapami — od súkromnej rezidencie, cez povojnové zmeny využitia budovy, až po súčasné snahy o navrátenie jeho dávneho charakteru."
+  },
+  "seePhotos": "Zobraziť fotografie",
+  "onview": {
+    "sectionLabel": "O nás",
+    "heading": "Kaštieľ dnes",
+    "imgAlt": "Kaštieľ Roszkowice",
+    "paragraph1": "Kaštieľ v Roszkowiciach je miesto s výnimočnou históriou, ktoré roky bolo svedkom meniacich sa epoch a osudov regiónu. Dnes začína nová kapitola — s rešpektom k minulosti a víziou budúcnosti.",
+    "paragraph2": "V súčasnosti vykonávame rekonštrukčné práce, ktorých cieľom je navrátiť kaštieľu jeho dávnu slávu a dať mu novú funkciu. Naším zámerom je vytvoriť priestor otvorený návštevníkom — miesto stretávania, kultúry a objavovania histórie.",
+    "paragraph3": "Po dokončení rekonštrukcie bude objekt prístupný hosťom, ktorí budú môcť prehliadať jeho interiéry, spoznávať históriu objektu a zúčastňovať sa podujatí inšpirovaných jeho dedičstvom.",
+    "paragraph4": "Pracujeme na tom, aby sme vás už čoskoro mohli pozvať na toto výnimočné miesto.",
+    "paragraph5": "Pozývame vás na sledovanie postupu prác a spoločné objavovanie histórie Kaštieľa v Roszkowiciach."
+  },
+  "exhibition": {
+    "africanArt": "Africké umenie",
+    "decorativeArt": "Dekoratívne umenie",
+    "decorativeArt2": "Dekoratívne umenie",
+    "americanArt": "Americké umenie",
+    "gardens": "Záhrady",
+    "gardens2": "Záhrady",
+    "asianArt": "Ázijské umenie",
+    "warHistory": "Vojnová história",
+    "warHistory2": "Vojnová história",
+    "classicalArt": "Klasické umenie",
+    "historyKings": "Králi histórie",
+    "historyKings2": "Králi histórie",
+    "germanArt": "Nemecké umenie",
+    "vintageArt": "Vintage umenie",
+    "vintageArt2": "Vintage umenie"
+  }
+}

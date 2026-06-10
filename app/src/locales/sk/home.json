@@ -1,0 +1,61 @@
+{
+  "slider": {
+    "slides": [
+      {
+        "pretitle": "KAŠTIEĽ ROSZKOWICE",
+        "title": "Zastavený čas,",
+        "subtitle": "Nepovedané príbehy."
+      },
+      {
+        "pretitle": "KAŠTIEĽ ROSZKOWICE",
+        "title": "Objavte to, čo roky",
+        "subtitle": "zostávalo v tieni."
+      },
+      {
+        "pretitle": "KAŠTIEĽ ROSZKOWICE",
+        "title": "Myšlienky formujú skutočný beh",
+        "subtitle": "dejín"
+      },
+      {
+        "pretitle": "KAŠTIEĽ ROSZKOWICE",
+        "title": "História,",
+        "subtitle": "ktorú píšeme ďalej."
+      }
+    ],
+    "cta": "ČO U NÁS",
+    "since": "založ."
+  },
+  "welcome": {
+    "welcomeTo": "Vitajte v",
+    "title": "Kaštieli v Roszkowiciach",
+    "text": "Kaštieľ v Roszkowiciach je perla architektúry 19. storočia, ktorá po stáročia tvorila srdce živého panstva. Od pozemkov vo vlastníctve vratislavských biskupov, cez skazu spôsobenú tatárskou hordou a veľkú bitku pri Byczyně, až po časy slávy rodu von Cramon-Taubadel — táto zem a tieto múry skrývajú fascinujúce príbehy, ktoré formovali identitu regiónu.\n\nDnes, po rokoch zabudnutia, prechádza kaštieľ dôkladnou rekonštrukciou. Obnovujeme lesk historického charakteru a dbáme na každý detail, aby toto výnimočné miesto mohlo znova uchvátiť svojím eklektickým štýlom.",
+    "readMore": "Čítať viac",
+    "altWinter": "Kaštieľ Roszkowice v zime",
+    "alt": "Kaštieľ Roszkowice"
+  },
+  "gallery": {
+    "subtitle": "Pozrite sa na kaštieľ objektívom",
+    "title": "naša galéria",
+    "all": "VŠETKO",
+    "exterior": "KAŠTIEĽ ZVONKA",
+    "interior": "INTERIÉR KAŠTIEĽA",
+    "park": "PARK",
+    "remont": "REKONŠTRUKCIA",
+    "other": "OSTATNÉ",
+    "palace": "Kaštieľ Roszkowice",
+    "imageAlt": "{{palace}} — {{category}}",
+    "galleryLabel": "Galéria",
+    "seeFullGallery": "Zobraziť celú galériu",
+    "close": "Zavrieť",
+    "previous": "Predchádzajúce",
+    "next": "Ďalšie"
+  },
+  "latestBlog": {
+    "subtitle": "Čo hovoria naši návštevníci",
+    "title": "NAJNOVŠIE SPRÁVY",
+    "comments": "{{count}} komentárov",
+    "readMore": "Čítať viac",
+    "monthApril": "apríl",
+    "visitBlog": "Navštíviť blog"
+  }
+}

@@ -116,13 +116,15 @@ function Header() {
                     <i className="fa fa-youtube"></i>
                   </a>
                 </li>
+                <LangToggle />
               </ul>
-              <LangToggle />
-              <h5 className="hours-line">
-                <span className="hours-text">{t("hoursBefore")}</span>
-                <span className="hours-palace">{t("hoursPalace")}</span>
-                <span className="hours-text">{t("hoursAfter")}</span>
-              </h5>
+              <div className="top-icons__hours">
+                <h5 className="hours-line">
+                  <span className="hours-text">{t("hoursBefore")}</span>
+                  <span className="hours-palace">{t("hoursPalace")}</span>
+                  <span className="hours-text">{t("hoursAfter")}</span>
+                </h5>
+              </div>
             </div>
           </div>
         </div>

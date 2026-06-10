@@ -25,6 +25,31 @@ import deAbout from "./locales/de/about.json";
 import deHistory from "./locales/de/history.json";
 import dePrivacy from "./locales/de/privacy.json";
 import deSeo from "./locales/de/seo.json";
+import csCommon from "./locales/cs/common.json";
+import csHome from "./locales/cs/home.json";
+import csBlog from "./locales/cs/blog.json";
+import csContact from "./locales/cs/contact.json";
+import csAbout from "./locales/cs/about.json";
+import csHistory from "./locales/cs/history.json";
+import csPrivacy from "./locales/cs/privacy.json";
+import csSeo from "./locales/cs/seo.json";
+import skCommon from "./locales/sk/common.json";
+import skHome from "./locales/sk/home.json";
+import skBlog from "./locales/sk/blog.json";
+import skContact from "./locales/sk/contact.json";
+import skAbout from "./locales/sk/about.json";
+import skHistory from "./locales/sk/history.json";
+import skPrivacy from "./locales/sk/privacy.json";
+import skSeo from "./locales/sk/seo.json";
+import ukCommon from "./locales/uk/common.json";
+import ukHome from "./locales/uk/home.json";
+import ukBlog from "./locales/uk/blog.json";
+import ukContact from "./locales/uk/contact.json";
+import ukAbout from "./locales/uk/about.json";
+import ukHistory from "./locales/uk/history.json";
+import ukPrivacy from "./locales/uk/privacy.json";
+import ukSeo from "./locales/uk/seo.json";
+import { SUPPORTED_LANGUAGES } from "./shared/languages";
 
 const resources = {
   pl: {
@@ -57,6 +82,36 @@ const resources = {
     privacy: dePrivacy,
     seo: deSeo,
   },
+  cs: {
+    common: csCommon,
+    home: csHome,
+    blog: csBlog,
+    contact: csContact,
+    about: csAbout,
+    history: csHistory,
+    privacy: csPrivacy,
+    seo: csSeo,
+  },
+  sk: {
+    common: skCommon,
+    home: skHome,
+    blog: skBlog,
+    contact: skContact,
+    about: skAbout,
+    history: skHistory,
+    privacy: skPrivacy,
+    seo: skSeo,
+  },
+  uk: {
+    common: ukCommon,
+    home: ukHome,
+    blog: ukBlog,
+    contact: ukContact,
+    about: ukAbout,
+    history: ukHistory,
+    privacy: ukPrivacy,
+    seo: ukSeo,
+  },
 };
 
 i18n
@@ -65,7 +120,7 @@ i18n
   .init({
     resources,
     fallbackLng: "pl",
-    supportedLngs: ["pl", "en", "de"],
+    supportedLngs: SUPPORTED_LANGUAGES.map(({ code }) => code),
     defaultNS: "common",
     ns: ["common", "home", "blog", "contact", "about", "history", "privacy", "seo"],
     interpolation: { escapeValue: false },

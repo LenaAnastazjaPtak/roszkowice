@@ -1,0 +1,53 @@
+{
+  "logoAlt": "Kaštieľ Roszkowice — domovská stránka",
+  "notFound": {
+    "ups": "Ups!",
+    "title": "Stránka nenájdená",
+    "imageAlt": "Ilustrácia chyby 404 — stránka nebola nájdená",
+    "searchPlaceholder": "Zadajte, čo hľadáte...",
+    "search": "Hľadať",
+    "backHome": "Späť na domovskú stránku"
+  },
+  "nav": {
+    "toggle": "Prepnúť navigáciu",
+    "languageToggle": "Zmeniť jazyk",
+    "home": "Domovská stránka",
+    "home1": "domovská stránka 1",
+    "home2": "domovská stránka 2",
+    "about": "O nás",
+    "history": "História",
+    "events": "Podujatia",
+    "event": "Podujatie",
+    "gallery": "Galéria",
+    "pages": "Stránky",
+    "blog": "Blog",
+    "blogPost": "Príspevok na blogu",
+    "contact": "Kontakt"
+  },
+  "search": {
+    "title": "Hľadať",
+    "placeholder": "Zadajte kľúčové slovo a stlačte Enter..."
+  },
+  "backToTopAriaLabel": "Prejsť hore na stránku",
+  "hoursBefore": "Už čoskoro bude ",
+  "hoursPalace": "Kaštieľ Roszkowice",
+  "hoursAfter": " otvorený pre návštevníkov!",
+  "footer": {
+    "about": "Zámocká rezidencia z 19. storočia, ktorá znovu získava svoju dávnu slávu.",
+    "info": "INFORMÁCIE",
+    "aboutLink": "O nás",
+    "onExhibition": "Na výstave",
+    "history": "História",
+    "gallery": "Galéria",
+    "camera": "Odkaz na kameru",
+    "services": "Služby",
+    "contact": "Kontakt",
+    "resources": "Zdroje",
+    "privacy": "Zásady ochrany osobných údajov",
+    "sitemap": "Mapa stránok",
+    "newsletter": "Newsletter",
+    "emailPlaceholder": "Vaša e-mailová adresa",
+    "subscribe": "Odoberať",
+    "copyright": "všetky práva vyhradené"
+  }
+}

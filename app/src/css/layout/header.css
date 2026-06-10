@@ -8,13 +8,14 @@
 
 .top-header {
   position: relative;
-  z-index: 0;
+  z-index: 2;
   overflow: visible;
   text-align: left;
 }
 
 .header-section .container {
   position: relative;
+  z-index: 1;
 }
 
 .top-header .top-content {
@@ -23,6 +24,7 @@
   width: auto;
   position: relative;
   padding-right: 115px;
+  overflow: visible;
 }
 
 .top-header .top-content::after {
@@ -68,24 +70,29 @@
   background-color: var(--color-bg-header);
   float: left;
   position: relative;
+  overflow: visible;
 }
 
-.top-header .top-icons ul {
+.top-header:has(.lang-toggle.is-open) {
+  z-index: 30;
+}
+
+.top-header .top-icons > ul {
   padding-left: 0;
   margin-bottom: 0;
 }
 
-.top-header .top-icons ul,
-.top-header .top-icons ul li {
+.top-header .top-icons > ul,
+.top-header .top-icons > ul > li {
   float: left;
   list-style: none;
 }
 
-.top-header .top-icons ul li {
+.top-header .top-icons > ul > li {
   border-right: 1px solid var(--color-text-muted);
 }
 
-.top-header .top-icons ul li a {
+.top-header .top-icons > ul > li a {
   float: left;
   width: 60px;
   height: 60px;
@@ -94,8 +101,16 @@
   color: var(--color-text-muted);
 }
 
-.top-header .top-icons ul li a:hover {
+.top-header .top-icons > ul > li a:hover {
   color: var(--color-accent);
+}
+
+.top-icons__hours {
+  display: inline-flex;
+  align-items: center;
+  float: left;
+  height: 60px;
+  margin-left: 40px;
 }
 
 .top-header .top-icons h5 {
@@ -103,7 +118,7 @@
   font-family: var(--font-heading);
   font-weight: 600;
   color: var(--color-accent);
-  margin: 22px 0 22px 40px;
+  margin: 0;
 }
 
 .top-header .top-icons h5 span {
@@ -190,17 +205,6 @@
   margin: 5px;
 }
 
-.lang-toggle .lang-option {
-  border: none;
-  background: none;
-  cursor: pointer;
-  min-width: 30px;
-  min-height: 30px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .top-header .hours-line .hours-text {
   color: var(--color-white);
 }
@@ -218,10 +222,6 @@
 }
 
 @media (max-width: 991px) {
-  .top-header .top-icons .lang-toggle {
-    display: none;
-  }
-
   .header-section > .container {
     padding-inline: 0;
   }

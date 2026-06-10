@@ -1,10 +1,5 @@
 import { useTranslation } from "react-i18next";
-
-const LANGUAGES = [
-  { code: "pl", label: "PL", name: "Polski" },
-  { code: "en", label: "EN", name: "English" },
-  { code: "de", label: "DE", name: "Deutsch" },
-];
+import { SUPPORTED_LANGUAGES } from "../shared/languages";
 
 function LangSwitcherMobilePanel({ open, onClose }) {
   const { i18n, t } = useTranslation("common");
@@ -27,7 +22,7 @@ function LangSwitcherMobilePanel({ open, onClose }) {
           role="listbox"
           aria-label={t("nav.languageToggle")}
         >
-          {LANGUAGES.map(({ code, label, name }) => {
+          {SUPPORTED_LANGUAGES.map(({ code, label, name }) => {
             const isActive = current === code;
             return (
               <li key={code}>

@@ -1,0 +1,23 @@
+{
+  "title": "Kontakt",
+  "locationIconAlt": "Ikona polohy Zámku Roszkowice",
+  "contactIconAlt": "Ikona kontaktu se Zámkem Roszkowice",
+  "emailIconAlt": "Ikona e-mailu Zámku Roszkowice",
+  "locationTitle": "Naše poloha",
+  "contactTitle": "Kontaktujte nás",
+  "emailTitle": "E-mail",
+  "formTitle": "Zanechte zprávu",
+  "formSubtitle": "Napište nám",
+  "firstName": "Jméno *",
+  "lastName": "Příjmení *",
+  "email": "E-mailová adresa *",
+  "subject": "Předmět",
+  "message": "Vaše zpráva",
+  "submit": "Odeslat zprávu",
+  "fillAll": "Vyplňte prosím všechna pole.",
+  "error": "Došlo k chybě. Zkuste to prosím později.",
+  "openInGoogleMaps": "Otevřít v Google Maps",
+  "validationRequired": "Vyplňte toto pole.",
+  "validationEmail": "Zadejte platnou e-mailovou adresu.",
+  "validationTooLong": "Tento text je příliš dlouhý."
+}
