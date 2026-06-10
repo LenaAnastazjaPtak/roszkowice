@@ -292,8 +292,24 @@
   .onview-section2 .onview-right {
     padding-inline: var(--layout-inline-padding);
   }
+  .portfolio-categories {
+    text-align: left;
+  }
   .portfolio-categories ul li {
-    padding-inline: var(--layout-inline-padding);
+    display: block;
+    padding-inline: 0;
+  }
+  .portfolio-categories ul li + li::before {
+    display: none;
+  }
+  .portfolio-categories ul li a::before,
+  .portfolio-categories ul li .portfolio-filter-link::before {
+    left: 100%;
+    right: auto;
+    bottom: auto;
+    top: 50%;
+    margin: 0 0 0 12px;
+    transform: translateY(-50%);
   }
   .portfolio-box {
     position: relative !important;
@@ -348,10 +364,6 @@
   }
   .portfolio-categories ul {
     border-bottom: none;
-  }
-  .portfolio-categories ul li a::before,
-  .portfolio-categories ul li .portfolio-filter-link::before {
-    display: none;
   }
   .event-block .event-content {
     padding-inline: var(--layout-inline-padding);
