@@ -1,9 +1,13 @@
 import { useEffect } from "react";
+import { SITE_URL, toAbsoluteSiteUrl } from "../shared/siteConfig";
 
 const OG_LOCALE_BY_LANG = {
   pl: "pl_PL",
   en: "en_US",
   de: "de_DE",
+  cs: "cs_CZ",
+  sk: "sk_SK",
+  uk: "uk_UA",
 };
 
 function upsertMeta(selector, attributes, content) {
@@ -29,10 +33,7 @@ function upsertLink(rel, href) {
 }
 
 function toAbsoluteUrl(path) {
-  if (/^https?:\/\//i.test(path)) {
-    return path;
-  }
-  return new URL(path, window.location.origin).href;
+  return toAbsoluteSiteUrl(path);
 }
 
 export function usePageSeo({
@@ -46,7 +47,7 @@ export function usePageSeo({
 }) {
   useEffect(() => {
     const canonicalPath = path ?? window.location.pathname;
-    const pageUrl = new URL(canonicalPath, window.location.origin).href;
+    const pageUrl = new URL(canonicalPath, `${SITE_URL}/`).href;
     const imageUrl = image ? toAbsoluteUrl(image) : null;
     const ogLocale = OG_LOCALE_BY_LANG[locale?.slice(0, 2)] ?? OG_LOCALE_BY_LANG.pl;
 

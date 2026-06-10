@@ -6,6 +6,10 @@ import BackToTop from './components/BackToTop'
 
 function Layout() {
   useEffect(() => {
+    document.documentElement.setAttribute("data-prerender-ready", "true");
+  }, []);
+
+  useEffect(() => {
     const timer = setTimeout(() => {
       const loader = document.getElementById('site-loader')
       if (loader && window.$) {

@@ -1,63 +1,15 @@
-import { readFileSync, writeFileSync } from "fs";
+import { writeFileSync } from "fs";
 import { dirname, resolve } from "path";
 import { fileURLToPath } from "url";
+import { getRequiredEnv } from "./shared/loadEnv.mjs";
+import {
+  fetchBlogPosts,
+  STATIC_SITEMAP_ROUTES,
+} from "./shared/prerenderRoutes.mjs";
 
 const scriptDir = dirname(fileURLToPath(import.meta.url));
 const appRoot = resolve(scriptDir, "..");
 const outputPath = resolve(appRoot, "public", "sitemap.xml");
-
-const STATIC_ROUTES = [
-  { path: "/", changefreq: "weekly", priority: "1.0" },
-  { path: "/about", changefreq: "monthly", priority: "0.8" },
-  { path: "/history", changefreq: "monthly", priority: "0.8" },
-  { path: "/gallery", changefreq: "monthly", priority: "0.8" },
-  { path: "/blog", changefreq: "weekly", priority: "0.8" },
-  { path: "/contact", changefreq: "yearly", priority: "0.6" },
-  { path: "/privacy-policy", changefreq: "yearly", priority: "0.3" },
-];
-
-function readEnvFile(filePath) {
-  try {
-    const content = readFileSync(filePath, "utf8");
-    const values = {};
-
-    for (const line of content.split("\n")) {
-      const trimmed = line.trim();
-      if (!trimmed || trimmed.startsWith("#")) {
-        continue;
-      }
-
-      const separatorIndex = trimmed.indexOf("=");
-      if (separatorIndex === -1) {
-        continue;
-      }
-
-      const key = trimmed.slice(0, separatorIndex).trim();
-      const value = trimmed.slice(separatorIndex + 1).trim();
-      values[key] = value;
-    }
-
-    return values;
-  } catch {
-    return {};
-  }
-}
-
-function getRequiredEnv(name) {
-  if (process.env[name]) {
-    return process.env[name];
-  }
-
-  const localEnv = readEnvFile(resolve(appRoot, ".env.local"));
-  const defaultEnv = readEnvFile(resolve(appRoot, ".env"));
-  const value = localEnv[name] ?? defaultEnv[name];
-
-  if (!value) {
-    throw new Error(`Missing required env variable: ${name}`);
-  }
-
-  return value;
-}
 
 function escapeXml(value) {
   return value
@@ -89,21 +41,11 @@ function buildUrlEntry({ loc, changefreq, priority, lastmod }) {
   return lines.join("\n");
 }
 
-async function fetchBlogPosts(apiUrl) {
-  const response = await fetch(`${apiUrl}/api/posts?locale=pl`);
-
-  if (!response.ok) {
-    throw new Error(`API responded with ${response.status}`);
-  }
-
-  return response.json();
-}
-
 async function generateSitemap() {
-  const apiUrl = getRequiredEnv("VITE_API_URL").replace(/\/$/, "");
+  const apiUrl = getRequiredEnv("VITE_API_URL", appRoot).replace(/\/$/, "");
   const posts = await fetchBlogPosts(apiUrl);
 
-  const staticEntries = STATIC_ROUTES.map((route) =>
+  const staticEntries = STATIC_SITEMAP_ROUTES.map((route) =>
     buildUrlEntry({
       loc: `${apiUrl}${route.path}`,
       changefreq: route.changefreq,
@@ -132,7 +74,7 @@ async function generateSitemap() {
   writeFileSync(outputPath, sitemap, "utf8");
 
   console.log(
-    `Generated sitemap with ${STATIC_ROUTES.length} static routes and ${posts.length} blog posts.`,
+    `Generated sitemap with ${STATIC_SITEMAP_ROUTES.length} static routes and ${posts.length} blog posts.`,
   );
 }
 
