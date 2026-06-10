@@ -63,10 +63,12 @@ final class GalleryImageCrudController extends AbstractCrudController
     public function configureActions(Actions $actions): Actions
     {
         $moveUp = Action::new(self::ACTION_MOVE_UP, 'Wyżej', 'fa fa-arrow-up')
-            ->linkToCrudAction(self::ACTION_MOVE_UP);
+            ->linkToCrudAction(self::ACTION_MOVE_UP)
+            ->renderAsForm();
 
         $moveDown = Action::new(self::ACTION_MOVE_DOWN, 'Niżej', 'fa fa-arrow-down')
-            ->linkToCrudAction(self::ACTION_MOVE_DOWN);
+            ->linkToCrudAction(self::ACTION_MOVE_DOWN)
+            ->renderAsForm();
 
         $reorder = Action::new(self::ACTION_REORDER, 'Ułóż kolejność', 'fa fa-arrows-up-down-left-right')
             ->createAsGlobalAction()
@@ -114,13 +116,13 @@ final class GalleryImageCrudController extends AbstractCrudController
         return $image;
     }
 
-    #[AdminRoute(path: '/move-up/{entityId}', name: 'move_up', options: ['methods' => ['POST']])]
+    #[AdminRoute(path: '/move-up/{entityId}', name: 'move_up')]
     public function moveUp(AdminContext $context): Response
     {
         return $this->moveInDirection($context, GalleryReorderService::DIRECTION_UP);
     }
 
-    #[AdminRoute(path: '/move-down/{entityId}', name: 'move_down', options: ['methods' => ['POST']])]
+    #[AdminRoute(path: '/move-down/{entityId}', name: 'move_down')]
     public function moveDown(AdminContext $context): Response
     {
         return $this->moveInDirection($context, GalleryReorderService::DIRECTION_DOWN);
