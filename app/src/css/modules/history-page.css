@@ -27,7 +27,7 @@
   margin-bottom: 0;
 }
 
-.history-page .welcome-section2 .content-block > a {
+.history-page .welcome-section2 .content-block > .content-block-link {
   display: inline-block;
   margin-top: var(--page-prose-gap-y);
 }

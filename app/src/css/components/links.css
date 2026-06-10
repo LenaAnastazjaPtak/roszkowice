@@ -62,19 +62,3 @@
 .content-block-link:hover::before {
   width: 0;
 }
-
-.type-post .entry-content > a.content-block-link::before {
-  transition: width 0.7s ease;
-}
-
-.type-post .entry-content > a.content-block-link:hover::before {
-  width: 0;
-}
-
-.welcome-section2 .content-block > a.content-block-link::before {
-  transition: width 0.7s ease;
-}
-
-.welcome-section2 .content-block > a.content-block-link:hover::before {
-  width: 0;
-}
