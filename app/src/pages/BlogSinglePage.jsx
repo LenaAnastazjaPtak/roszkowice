@@ -28,6 +28,7 @@ function BlogSinglePage() {
         image={post.image ?? undefined}
         path={`/blog/post/${post.id}`}
         type="article"
+        blogPost={post}
       />
       <PageBanner
         title={t("title")}

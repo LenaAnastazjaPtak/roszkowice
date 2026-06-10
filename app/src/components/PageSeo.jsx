@@ -1,5 +1,8 @@
+import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
+import { useJsonLd } from "../hooks/useJsonLd";
 import { usePageSeo } from "../hooks/usePageSeo";
+import { buildPageStructuredData } from "../shared/structuredData";
 
 function PageSeo({
   pageKey,
@@ -8,6 +11,7 @@ function PageSeo({
   image,
   path,
   type,
+  blogPost,
   noindex = false,
 }) {
   const { t, i18n } = useTranslation("seo");
@@ -29,6 +33,35 @@ function PageSeo({
     type,
     noindex,
   });
+
+  const structuredData = useMemo(() => {
+    if (noindex) {
+      return null;
+    }
+
+    return buildPageStructuredData({
+      pageKey,
+      siteName,
+      title: documentTitle,
+      description: pageDescription,
+      image: pageImage,
+      path,
+      locale: i18n.language,
+      blogPost,
+    });
+  }, [
+    noindex,
+    pageKey,
+    siteName,
+    documentTitle,
+    pageDescription,
+    pageImage,
+    path,
+    i18n.language,
+    blogPost,
+  ]);
+
+  useJsonLd(structuredData);
 
   return null;
 }
