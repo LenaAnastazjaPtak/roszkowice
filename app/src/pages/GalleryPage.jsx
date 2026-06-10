@@ -9,7 +9,6 @@ function GalleryPage() {
     <>
       <PageBanner title={t('nav.gallery')} image="/images/roszkowice/zewn/kopula.jpg" />
       <GallerySection standalone />
-      <div className="section-padding"></div>
     </>
   )
 }
