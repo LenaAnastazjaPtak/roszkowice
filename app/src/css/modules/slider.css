@@ -95,16 +95,16 @@
 .slider-section .uranus.tparrows {
   background-color: var(--color-overlay-white-90);
   border-radius: 100%;
-  height: 72px;
-  width: 72px;
-  line-height: 72px;
+  height: 55px;
+  width: 55px;
+  line-height: 55px;
 }
 .slider-section .uranus.tparrows::before {
   color: var(--color-black);
-  font-size: 30px;
-  height: 72px;
-  width: 72px;
-  line-height: 72px;
+  font-size: 25px;
+  height: 55px;
+  width: 55px;
+  line-height: 55px;
 }
 .slider-section .uranus.tparrows:hover {
   background-color: var(--color-overlay-accent-90);
