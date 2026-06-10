@@ -1,7 +1,7 @@
 :is(.link-with-line, .content-block-link) {
   font-family: var(--font-heading);
-  font-size: var(--text-ui-13);
-  font-weight: 600;
+  font-size: var(--text-ui-15);
+  font-weight: 1000;
   position: relative;
   padding-left: 80px;
   color: var(--color-text-dark);
