@@ -43,7 +43,7 @@
   text-shadow: var(--slider-caption-shadow-subtitle);
 }
 .slider-section .slide-btn > a {
-  background-color: var(--color-black);
+  background-color: var(--color-accent);
   border-radius: 0;
   -webkit-clip-path: polygon(
     var(--slider-cta-chamfer) 0,

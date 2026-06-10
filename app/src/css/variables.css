@@ -19,8 +19,7 @@
 
   --color-white: #fff;
   --color-black: #000;
-  --color-accent: #e2b13c;
-  --color-accent-alt: #c19a6b;
+  --color-accent: #dcab5e;
   --color-bg-dark: #111;
   --color-bg-header: #2a2a2a;
   --color-text-dark: #222222;
@@ -123,7 +122,7 @@
   );
   --lang-toggle-border: color-mix(
     in srgb,
-    var(--color-accent-alt) 40%,
+    var(--color-accent) 40%,
     transparent
   );
   --lang-toggle-option: color-mix(
@@ -138,12 +137,12 @@
   );
   --lang-toggle-active-glow: color-mix(
     in srgb,
-    var(--color-accent-alt) 50%,
+    var(--color-accent) 50%,
     transparent
   );
   --lang-toggle-separator: color-mix(
     in srgb,
-    var(--color-accent-alt) 40%,
+    var(--color-accent) 40%,
     transparent
   );
 

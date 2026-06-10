@@ -26,7 +26,7 @@
 }
 
 .lang-toggle .lang-option.active {
-  color: var(--color-accent-alt);
+  color: var(--color-accent);
   text-shadow: 0 0 8px var(--lang-toggle-active-glow);
 }
 
