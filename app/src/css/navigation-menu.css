@@ -20,10 +20,11 @@
 .ow-navigation .navbar-brand {
   height: auto;
 }
+
 .ow-navigation .navbar-brand > img {
   display: inline-block;
-  max-width: var(--site-logo-size);
-  height: var(--site-logo-size);
+  max-height: var(--site-logo-size);
+  padding: 20px 0;
   object-fit: contain;
 }
 .header-section.navbar-fixed-top .ow-navigation .navbar-collapse {
@@ -628,6 +629,9 @@
 
 /* - Navigation Menu Switch < 991 RES */
 @media (max-width: 991px) {
+  .ow-navigation .navbar-brand > img {
+    padding: 0;
+  }
   .header-section .container {
     padding-inline: var(--header-mobile-inline-gutter);
   }
