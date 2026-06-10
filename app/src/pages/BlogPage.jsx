@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useBlogPosts } from "../hooks/useBlogPosts";
 import LatestPostsWidget from "../components/LatestPostsWidget";
 import BlogSearchWidget from "../components/BlogSearchWidget";
+import PageSeo from "../components/PageSeo";
 import PageBanner from "../components/PageBanner";
 import BlogPost from "../components/BlogPost";
 
@@ -59,6 +60,7 @@ function BlogPage() {
 
   return (
     <>
+      <PageSeo pageKey="blog" image="/images/roszkowice/park/park.jpg" />
       <PageBanner
         title={t("title")}
         image="/images/roszkowice/park/park.jpg"

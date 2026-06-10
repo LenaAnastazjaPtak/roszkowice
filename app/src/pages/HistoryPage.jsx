@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import PageSeo from "../components/PageSeo";
 import PageBanner from "../components/PageBanner";
 import HistoryIntroSection from "../components/HistoryIntroSection";
 import HistoryPostcardsSection from "../components/HistoryPostcardsSection";
@@ -11,6 +12,10 @@ function HistoryPage() {
 
   return (
     <>
+      <PageSeo
+        pageKey="history"
+        image="/images/roszkowice/remont/20231011_135743.jpg"
+      />
       <PageBanner title={t("title")} image="/images/roszkowice/remont/20231011_135743.jpg" />
       <div className="history-page">
         <HistoryIntroSection

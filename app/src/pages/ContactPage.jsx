@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import PageSeo from '../components/PageSeo'
 import PageBanner from '../components/PageBanner'
 
 const DEFAULT_MAP_ADDRESS = 'Roszkowice 57, 46-220 Roszkowice'
@@ -134,6 +135,7 @@ function ContactPage() {
 
   return (
     <>
+      <PageSeo pageKey="contact" image="/images/roszkowice/zewn/jesien.jpg" />
       <PageBanner title={t('title')} image="/images/roszkowice/zewn/jesien.jpg" />
       <div className="container-fluid no-padding contact-section">
         <div className="container">

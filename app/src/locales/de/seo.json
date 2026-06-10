@@ -1,0 +1,36 @@
+{
+  "siteName": "Schloss Roszkowice",
+  "defaultImage": "/images/roszkowice/zewn/pionowa_zima.jpg",
+  "home": {
+    "title": "Schloss Roszkowice",
+    "description": "Schloss Roszkowice — ein historisches Herrenhaus aus dem 19. Jahrhundert in Roszkowice. Geschichte des Gutes, Renovierung und geplante Besichtigung."
+  },
+  "about": {
+    "title": "Über uns",
+    "description": "Lernen Sie Schloss Roszkowice kennen — ein Landhaus aus dem 19. Jahrhundert. Geschichte des Anwesens, Renovierung und Pläne für Besucher."
+  },
+  "history": {
+    "title": "Geschichte",
+    "description": "Die Geschichte von Schloss Roszkowice vom Mittelalter bis zur Familie von Cramon-Taubadel. Die Schlacht bei Byczyna und die Geschichte des Gutes."
+  },
+  "gallery": {
+    "title": "Galerie",
+    "description": "Fotos von Schloss Roszkowice — Innenräume, Park, Renovierung und Außenansichten. Sehen Sie das historische Anwesen in Roszkowice."
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Neuigkeiten und Beiträge über Schloss Roszkowice — Renovierungsfortschritt, Veranstaltungen und Geschichten aus Roszkowice."
+  },
+  "contact": {
+    "title": "Kontakt",
+    "description": "Kontaktieren Sie Schloss Roszkowice. Adresse, E-Mail und Kontaktformular. Roszkowice 57, Woiwodschaft Oppeln, Polen."
+  },
+  "privacy": {
+    "title": "Datenschutz",
+    "description": "Datenschutzerklärung für palacroszkowice.pl — Informationen zur Verarbeitung personenbezogener Daten und zu Cookies."
+  },
+  "notFound": {
+    "title": "Seite nicht gefunden",
+    "description": "Die gesuchte Seite existiert nicht. Kehren Sie zur Startseite von Schloss Roszkowice zurück."
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "siteName": "Pałac Roszkowice",
+  "defaultImage": "/images/roszkowice/zewn/pionowa_zima.jpg",
+  "home": {
+    "title": "Pałac Roszkowice",
+    "description": "Pałac Roszkowice — zabytkowa rezydencja z XIX wieku w Roszkowicach. Historia majątku, renowacja i planowane zwiedzanie."
+  },
+  "about": {
+    "title": "O nas",
+    "description": "Poznaj Pałac Roszkowice — XIX-wieczną rezydencję ziemiańską. Historia obiektu, renowacja i plany otwarcia dla zwiedzających."
+  },
+  "history": {
+    "title": "Historia",
+    "description": "Historia Pałacu Roszkowice od średniowiecza po rody von Cramon-Taubadel. Bitwa pod Byczyną i dzieje majątku w Roszkowicach."
+  },
+  "gallery": {
+    "title": "Galeria",
+    "description": "Zdjęcia Pałacu Roszkowice — wnętrza, park, remont i widoki z zewnątrz. Zobacz zabytkową rezydencję w Roszkowicach."
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Aktualności i wpisy o Pałacu Roszkowice — postępy renowacji, wydarzenia i historie związane z majątkiem w Roszkowicach."
+  },
+  "contact": {
+    "title": "Kontakt",
+    "description": "Skontaktuj się z Pałacem Roszkowice. Adres, e-mail i formularz kontaktowy. Roszkowice 57, województwo opolskie."
+  },
+  "privacy": {
+    "title": "Polityka prywatności",
+    "description": "Polityka prywatności serwisu palacroszkowice.pl — informacje o przetwarzaniu danych osobowych i plikach cookies."
+  },
+  "notFound": {
+    "title": "Strona nie znaleziona",
+    "description": "Szukana strona nie istnieje. Wróć na stronę główną Pałacu Roszkowice."
+  }
+}

@@ -3,8 +3,10 @@ import { Link, useParams, Navigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useBlogPosts } from "../hooks/useBlogPosts";
 import LatestPostsWidget from "../components/LatestPostsWidget";
+import PageSeo from "../components/PageSeo";
 import PageBanner from "../components/PageBanner";
 import BlogPost from "../components/BlogPost";
+import { buildSeoDescription } from "../shared/seoDescription";
 
 function BlogSinglePage() {
   const { t } = useTranslation("blog");
@@ -16,8 +18,17 @@ function BlogSinglePage() {
   if (loading) return null;
   if (!post) return <Navigate to="/404" replace />;
 
+  const seoDescription = buildSeoDescription(post.header || post.content);
+
   return (
     <>
+      <PageSeo
+        title={post.title}
+        description={seoDescription}
+        image={post.image ?? undefined}
+        path={`/blog/post/${post.id}`}
+        type="article"
+      />
       <PageBanner
         title={t("title")}
         image="/images/roszkowice/park/park.jpg"

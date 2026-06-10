@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import PageSeo from "../components/PageSeo";
 import YouTubeEmbed from "../components/YouTubeEmbed";
 import PageBanner from "../components/PageBanner";
 import OnviewSection from "../components/OnviewSection";
@@ -8,6 +9,10 @@ function AboutPage() {
 
   return (
     <>
+      <PageSeo
+        pageKey="about"
+        image="/images/roszkowice/park/IMG_0345.jpg"
+      />
       <PageBanner
         title={t("title")}
         image="/images/roszkowice/park/IMG_0345.jpg"

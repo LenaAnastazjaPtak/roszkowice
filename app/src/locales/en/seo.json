@@ -1,0 +1,36 @@
+{
+  "siteName": "Palace Roszkowice",
+  "defaultImage": "/images/roszkowice/zewn/pionowa_zima.jpg",
+  "home": {
+    "title": "Palace Roszkowice",
+    "description": "Palace Roszkowice — a 19th-century historic residence in Roszkowice. Estate history, renovation, and planned visitor access."
+  },
+  "about": {
+    "title": "About us",
+    "description": "Discover Palace Roszkowice — a 19th-century manor house. Learn about the building's history, renovation, and plans to welcome visitors."
+  },
+  "history": {
+    "title": "History",
+    "description": "The history of Palace Roszkowice from the Middle Ages to the von Cramon-Taubadel family. The Battle of Byczyna and the estate's story."
+  },
+  "gallery": {
+    "title": "Gallery",
+    "description": "Photos of Palace Roszkowice — interiors, park, renovation, and exterior views. See the historic residence in Roszkowice."
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "News and stories about Palace Roszkowice — renovation progress, events, and tales from the Roszkowice estate."
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "Get in touch with Palace Roszkowice. Address, email, and contact form. Roszkowice 57, Opole Voivodeship, Poland."
+  },
+  "privacy": {
+    "title": "Privacy policy",
+    "description": "Privacy policy for palacroszkowice.pl — how personal data and cookies are handled on this website."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The page you are looking for does not exist. Return to the Palace Roszkowice homepage."
+  }
+}

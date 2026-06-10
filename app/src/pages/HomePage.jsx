@@ -1,3 +1,4 @@
+import PageSeo from '../components/PageSeo'
 import SliderSection from '../components/SliderSection'
 import WelcomeSection from '../components/WelcomeSection'
 import GallerySection from '../components/GallerySection'
@@ -7,6 +8,7 @@ import OnviewSection from '../components/OnviewSection'
 function HomePage() {
   return (
     <>
+      <PageSeo pageKey="home" />
       <SliderSection />
       <WelcomeSection />
       <OnviewSection showReadMore />

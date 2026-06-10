@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import ContentBlockLink from "../components/ContentBlockLink";
+import PageSeo from "../components/PageSeo";
 import PageBanner from "../components/PageBanner";
 
 function NotFoundPage() {
@@ -7,6 +8,7 @@ function NotFoundPage() {
 
   return (
     <>
+      <PageSeo pageKey="notFound" noindex />
       <PageBanner
         title="404"
         image="/images/roszkowice/remont/IMG_0284.jpg"

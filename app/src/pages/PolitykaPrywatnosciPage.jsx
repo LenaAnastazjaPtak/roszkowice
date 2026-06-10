@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import PageSeo from "../components/PageSeo";
 import PageBanner from "../components/PageBanner";
 
 const SITE_URL = "https://palacroszkowice.pl";
@@ -9,6 +10,10 @@ function PrivacyPolicyPage() {
 
   return (
     <>
+      <PageSeo
+        pageKey="privacy"
+        image="/images/roszkowice/zewn/DSC09468.JPG"
+      />
       <PageBanner
         title={tCommon("footer.privacy")}
         image="/images/roszkowice/zewn/DSC09468.JPG"

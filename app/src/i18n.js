@@ -8,6 +8,7 @@ import plContact from "./locales/pl/contact.json";
 import plAbout from "./locales/pl/about.json";
 import plHistory from "./locales/pl/history.json";
 import plPrivacy from "./locales/pl/privacy.json";
+import plSeo from "./locales/pl/seo.json";
 import enCommon from "./locales/en/common.json";
 import enHome from "./locales/en/home.json";
 import enBlog from "./locales/en/blog.json";
@@ -15,6 +16,7 @@ import enContact from "./locales/en/contact.json";
 import enAbout from "./locales/en/about.json";
 import enHistory from "./locales/en/history.json";
 import enPrivacy from "./locales/en/privacy.json";
+import enSeo from "./locales/en/seo.json";
 import deCommon from "./locales/de/common.json";
 import deHome from "./locales/de/home.json";
 import deBlog from "./locales/de/blog.json";
@@ -22,6 +24,7 @@ import deContact from "./locales/de/contact.json";
 import deAbout from "./locales/de/about.json";
 import deHistory from "./locales/de/history.json";
 import dePrivacy from "./locales/de/privacy.json";
+import deSeo from "./locales/de/seo.json";
 
 const resources = {
   pl: {
@@ -32,6 +35,7 @@ const resources = {
     about: plAbout,
     history: plHistory,
     privacy: plPrivacy,
+    seo: plSeo,
   },
   en: {
     common: enCommon,
@@ -41,6 +45,7 @@ const resources = {
     about: enAbout,
     history: enHistory,
     privacy: enPrivacy,
+    seo: enSeo,
   },
   de: {
     common: deCommon,
@@ -50,6 +55,7 @@ const resources = {
     about: deAbout,
     history: deHistory,
     privacy: dePrivacy,
+    seo: deSeo,
   },
 };
 
@@ -61,7 +67,7 @@ i18n
     fallbackLng: "pl",
     supportedLngs: ["pl", "en", "de"],
     defaultNS: "common",
-    ns: ["common", "home", "blog", "contact", "about", "history", "privacy"],
+    ns: ["common", "home", "blog", "contact", "about", "history", "privacy", "seo"],
     interpolation: { escapeValue: false },
   });
 
