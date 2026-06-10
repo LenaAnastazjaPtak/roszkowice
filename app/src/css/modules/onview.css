@@ -165,7 +165,7 @@
 @media (min-width: 992px) {
   .onview-section .container::before {
     content: "";
-    border: 6px solid var(--color-accent);
+    border: 2px solid var(--color-accent);
     position: absolute;
     left: -2%;
     right: -2%;
