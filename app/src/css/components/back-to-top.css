@@ -1,16 +1,16 @@
 .back-to-top {
   position: fixed;
-  right: 20px;
-  bottom: 20px;
+  right: var(--floating-action-btn-offset);
+  bottom: var(--floating-action-btn-offset);
   z-index: 300;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
+  width: var(--floating-action-btn-size);
+  height: var(--floating-action-btn-size);
   padding: 0;
   border: none;
-  border-radius: 4px;
+  border-radius: var(--floating-action-btn-radius);
   background: var(--color-bg-header);
   color: var(--color-accent);
   font-size: var(--text-body-font-size);

@@ -233,6 +233,25 @@
   --history-frame-muted-inset-y: 2rem;
   --history-frame-accent-inset-x: 6%;
   --history-frame-muted-outset-x: -6%;
+
+  --floating-action-btn-size: 44px;
+  --floating-action-btn-offset: 20px;
+  --floating-action-btn-radius: 4px;
+  --floating-action-btn-icon-size: 22px;
+
+  --a11y-widget-dialog-width: 520px;
+  --a11y-widget-text-title: 18px;
+  --a11y-widget-text-subtitle: 14px;
+  --a11y-widget-text-label: 16px;
+  --a11y-widget-text-desc: 14px;
+  --a11y-widget-text-control: 15px;
+  --a11y-widget-toggle-padding-y: 14px;
+  --a11y-widget-toggle-padding-x: 20px;
+  --a11y-widget-icon-control: 22px;
+  --a11y-widget-pill-width: 44px;
+  --a11y-widget-pill-height: 24px;
+  --a11y-widget-pill-knob: 18px;
+  --a11y-widget-close-size: 36px;
 }
 
 @media (max-width: 991px) {
