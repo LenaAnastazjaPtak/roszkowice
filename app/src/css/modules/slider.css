@@ -290,6 +290,9 @@
     text-align: center;
     text-transform: uppercase;
     text-shadow: var(--slider-mobile-caption-shadow-pretitle);
+    hyphens: none;
+    overflow-wrap: normal;
+    word-break: keep-all;
   }
 
   .slider-section .slider-mobile-caption__tagline {
@@ -304,6 +307,7 @@
     text-align: center;
     text-transform: uppercase;
     text-shadow: var(--slider-mobile-caption-shadow-tagline);
+    hyphens: none;
   }
 
   .slider-section .slider-mobile-caption__cta {
