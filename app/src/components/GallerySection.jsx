@@ -1,6 +1,7 @@
 import { useState, useCallback, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import ContentBlockLink from "./ContentBlockLink";
+import { getGalleryImageAlt } from "../shared/galleryImageAlt";
 
 const MOBILE_BREAKPOINT = 768;
 const HOME_LIMIT_DESKTOP = 12;
@@ -191,7 +192,10 @@ function GallerySection({ standalone = false }) {
                   setSelectedIndex(index);
                 }}
               >
-                <img src={item.src} alt="Roszkowice" />
+                <img
+                  src={item.src}
+                  alt={getGalleryImageAlt(t, item.category)}
+                />
               </a>
             </div>
           ))}
@@ -244,7 +248,10 @@ function GallerySection({ standalone = false }) {
           </button>
           <img
             src={galleryItems[selectedIndex].src}
-            alt="Roszkowice"
+            alt={getGalleryImageAlt(
+              t,
+              galleryItems[selectedIndex].category,
+            )}
             className="gallery-modal-img"
             onClick={(e) => e.stopPropagation()}
           />

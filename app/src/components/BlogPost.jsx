@@ -3,8 +3,10 @@ import { useTranslation } from "react-i18next";
 import { formatPostDate } from "../shared/formatDate.js";
 
 function BlogPost({ post, variant = "listing" }) {
-  const { t, i18n } = useTranslation("blog");
+  const { i18n } = useTranslation("blog");
   const linkToPost = variant === "listing";
+  const isSingle = variant === "single";
+  const TitleTag = isSingle ? "h1" : "h3";
   const postUrl = `/blog/post/${post.id}`;
   const { day, month, year } = formatPostDate(
     post.publishedAt,
@@ -16,10 +18,10 @@ function BlogPost({ post, variant = "listing" }) {
       <div className="entry-cover">
         {linkToPost ? (
           <Link to={postUrl}>
-            <img src={post.image} alt={t("postAlt")} />
+            <img src={post.image} alt={post.title} />
           </Link>
         ) : (
-          <img src={post.image} alt={t("postAlt")} />
+          <img src={post.image} alt={post.title} />
         )}
       </div>
       <div className="entry-header">
@@ -28,7 +30,7 @@ function BlogPost({ post, variant = "listing" }) {
           <span>{month}</span>
           <span>{year}</span>
         </div>
-        <h3 className="entry-title">
+        <TitleTag className="entry-title">
           {linkToPost ? (
             <Link to={postUrl} title={post.title}>
               {post.title}
@@ -36,7 +38,7 @@ function BlogPost({ post, variant = "listing" }) {
           ) : (
             post.title
           )}
-        </h3>
+        </TitleTag>
         <div className="entry-meta">
           <div className="byline">
             <span>{post.header}</span>

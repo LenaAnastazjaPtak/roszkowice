@@ -148,7 +148,7 @@ function Header() {
               <Link to="/" className="navbar-brand">
                 <img
                   src="/images/roszkowice/logo_with_transparent_background.png"
-                  alt="Logo"
+                  alt={t("logoAlt")}
                 />
               </Link>
             </div>

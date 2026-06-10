@@ -15,7 +15,7 @@ function WelcomeSection() {
         <div className="section-header">
           <div className="section-title-border">
             <span>{t("welcome.welcomeTo")}</span>
-            <h2>{t("welcome.title")}</h2>
+            <h1>{t("welcome.title")}</h1>
           </div>
         </div>
         <div className="row welcome-section__layout">

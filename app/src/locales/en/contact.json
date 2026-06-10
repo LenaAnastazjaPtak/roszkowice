@@ -1,6 +1,8 @@
 {
   "title": "Contact",
-  "contactInfoAlt": "Contact information",
+  "locationIconAlt": "Palace Roszkowice location icon",
+  "contactIconAlt": "Palace Roszkowice contact icon",
+  "emailIconAlt": "Palace Roszkowice email icon",
   "locationTitle": "Our Location",
   "contactTitle": "Contact us",
   "emailTitle": "Email",

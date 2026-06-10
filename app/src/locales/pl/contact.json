@@ -1,6 +1,8 @@
 {
   "title": "Kontakt",
-  "contactInfoAlt": "Informacje kontaktowe",
+  "locationIconAlt": "Ikona lokalizacji Pałacu Roszkowice",
+  "contactIconAlt": "Ikona kontaktu z Pałacem Roszkowice",
+  "emailIconAlt": "Ikona adresu e-mail Pałacu Roszkowice",
   "locationTitle": "Nasza Lokalizacja",
   "contactTitle": "Skontaktuj się z nami",
   "emailTitle": "E-mail",

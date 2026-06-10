@@ -43,6 +43,7 @@
     "remont": "RENOVATION",
     "other": "SONSTIGES",
     "palace": "Schloss Roszkowice",
+    "imageAlt": "{{palace}} — {{category}}",
     "galleryLabel": "Galerie",
     "seeFullGallery": "Galerie ansehen",
     "close": "Schließen",

@@ -1,6 +1,8 @@
 {
   "title": "Kontakt",
-  "contactInfoAlt": "Kontaktinformationen",
+  "locationIconAlt": "Standortsymbol Schloss Roszkowice",
+  "contactIconAlt": "Kontaktsymbol Schloss Roszkowice",
+  "emailIconAlt": "E-Mail-Symbol Schloss Roszkowice",
   "locationTitle": "Unser Standort",
   "contactTitle": "Kontaktieren Sie uns",
   "emailTitle": "E-Mail",

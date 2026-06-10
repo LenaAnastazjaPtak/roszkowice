@@ -1,7 +1,9 @@
 {
+  "logoAlt": "Schloss Roszkowice — Startseite",
   "notFound": {
     "ups": "Ups!",
     "title": "Seite nicht gefunden",
+    "imageAlt": "404-Fehlerillustration — Seite nicht gefunden",
     "searchPlaceholder": "Geben Sie ein, wonach Sie suchen...",
     "search": "Suchen",
     "backHome": "Zurück zur Startseite"

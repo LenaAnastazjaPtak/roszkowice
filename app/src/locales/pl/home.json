@@ -43,6 +43,7 @@
     "remont": "REMONT",
     "other": "INNE",
     "palace": "Pałac Roszkowice",
+    "imageAlt": "{{palace}} — {{category}}",
     "galleryLabel": "Galeria",
     "seeFullGallery": "Zobacz całą galerię",
     "close": "Zamknij",

@@ -10,10 +10,10 @@ function Footer() {
         <div className="row">
           <div className="col-md-4 col-sm-6 col-xs-6">
             <aside className="ftr-widget widget_about">
-              <Link to="/" title="Logo" className="navbar-brand">
+              <Link to="/" title={t("logoAlt")} className="navbar-brand">
                 <img
                   src="/images/roszkowice/logo_with_transparent_background.png"
-                  alt="logo"
+                  alt={t("logoAlt")}
                 />
               </Link>
               <p>{t("footer.about")}</p>

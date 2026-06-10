@@ -16,7 +16,7 @@ function NotFoundPage() {
       <div className="error-page container-fluid no-padding">
         <div className="padding-50"></div>
         <div className="container">
-          <img src="/images/404.png" alt="404" />
+          <img src="/images/404.png" alt={t("notFound.imageAlt")} />
           <div className="error-content">
             <h3>
               <span>{t("notFound.ups")}</span> {t("notFound.title")}

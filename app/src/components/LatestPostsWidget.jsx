@@ -16,7 +16,7 @@ function LatestPostsWidget({ posts }) {
         return (
           <div key={item.id} className="latestpost-content">
             <Link to={`/blog/post/${item.id}`} title={t("coverTitle")}>
-              <img src={item.image} alt={t("postAlt")} />
+              <img src={item.image} alt={item.title} />
             </Link>
             <h3>
               <Link to={`/blog/post/${item.id}`} title={item.title}>

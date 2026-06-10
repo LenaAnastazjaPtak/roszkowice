@@ -32,6 +32,7 @@ function BlogSinglePage() {
       <PageBanner
         title={t("title")}
         image="/images/roszkowice/park/park.jpg"
+        showTitle={false}
       />
       <div className="section-padding"></div>
       <div className="container-fluid no-padding blog-single">

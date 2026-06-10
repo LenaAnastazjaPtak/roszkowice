@@ -84,12 +84,13 @@
 }
 
 @media (max-width: 767px) {
-	.page-banner h3 {
+	.page-banner__title {
 		font-size: 40px;
 	}
 }
 
 @media (max-width: 639px) {
+	.section-header h1,
 	.section-header h2 {
 		font-size: 25px;
 		margin-bottom: 5px;

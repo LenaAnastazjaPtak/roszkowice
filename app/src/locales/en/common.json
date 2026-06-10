@@ -1,7 +1,9 @@
 {
+  "logoAlt": "Palace Roszkowice — home",
   "notFound": {
     "ups": "Oops!",
     "title": "Page not found",
+    "imageAlt": "404 error illustration — page not found",
     "searchPlaceholder": "Type what you're looking for...",
     "search": "Search",
     "backHome": "Back to home"

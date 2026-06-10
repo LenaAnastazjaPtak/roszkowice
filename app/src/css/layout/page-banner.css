@@ -7,7 +7,7 @@
 	padding: 100px 0 90px;
 }
 
-.page-banner h3 {
+.page-banner__title {
 	color: var(--color-white);
 	font-family: var(--font-heading);
 	font-size: 50px;

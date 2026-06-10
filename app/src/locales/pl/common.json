@@ -1,7 +1,9 @@
 {
+  "logoAlt": "Pałac Roszkowice — strona główna",
   "notFound": {
     "ups": "Ups!",
     "title": "Nie znaleziono strony",
+    "imageAlt": "Ilustracja błędu 404 — strona nie została znaleziona",
     "searchPlaceholder": "Wpisz, czego szukasz...",
     "search": "Szukaj",
     "backHome": "Wróć na stronę główną"

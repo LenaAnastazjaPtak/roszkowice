@@ -33,7 +33,7 @@ function LatestBlogSection() {
               <div className="col-md-4 latest-blog__thumb-col">
                 <div className="entry-cover entry-cover--square">
                   <Link to={`/blog/post/${latestPost.id}`}>
-                    <img src={latestPost.image} alt="Blog" />
+                    <img src={latestPost.image} alt={latestPost.title} />
                   </Link>
                 </div>
               </div>

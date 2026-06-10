@@ -34,6 +34,7 @@
   color: var(--color-accent);
 }
 
+.section-header h1,
 .section-header h2,
 .section-header2 h2 {
   font-family: var(--font-heading);
