@@ -86,6 +86,7 @@ final class GalleryImageCrudController extends AbstractCrudController
             ->setBasePath('/uploads/')
             ->setUploadDir('public/uploads/')
             ->setUploadedFileNamePattern('gallery/[timestamp]-[randomhash].[extension]')
+            ->mimeTypes('.jpg,.jpeg,.png,.webp,.avif')
             ->setFileConstraints(new Image(
                 maxSize: '15M',
                 mimeTypes: ['image/jpeg', 'image/png', 'image/webp', 'image/avif'],
