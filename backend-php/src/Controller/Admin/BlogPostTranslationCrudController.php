@@ -40,14 +40,17 @@ final class BlogPostTranslationCrudController extends AbstractCrudController
 
         yield TextField::new('title', 'Tytuł')
             ->setRequired(true)
+            ->setFormTypeOption('empty_data', '')
             ->setColumns(8);
 
         yield TextField::new('header', 'Nagłówek')
             ->setRequired(true)
+            ->setFormTypeOption('empty_data', '')
             ->setColumns(12);
 
         yield TextareaField::new('content', 'Treść')
             ->setRequired(true)
+            ->setFormTypeOption('empty_data', '')
             ->setNumOfRows(8)
             ->setColumns(12);
     }
