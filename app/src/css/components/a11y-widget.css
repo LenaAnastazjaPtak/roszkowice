@@ -55,10 +55,14 @@
   width: var(--a11y-widget-close-size) !important;
   height: var(--a11y-widget-close-size) !important;
 }
+.pgm-icon-sm {
+  width: var(--a11y-widget-close-icon-size) !important;
+  height: var(--a11y-widget-close-icon-size) !important;
+}
 
 .pgm-close-btn .pgm-icon {
-  width: 18px !important;
-  height: 18px !important;
+  width: var(--a11y-widget-close-icon-size) !important;
+  height: var(--a11y-widget-close-icon-size) !important;
 }
 
 .pgm-size-section {
@@ -115,7 +119,9 @@
 }
 
 .pgm-pill-knob--on {
-  left: calc(var(--a11y-widget-pill-width) - var(--a11y-widget-pill-knob) - 3px) !important;
+  left: calc(
+    var(--a11y-widget-pill-width) - var(--a11y-widget-pill-knob) - 3px
+  ) !important;
 }
 
 .pgm-pill-knob--off {

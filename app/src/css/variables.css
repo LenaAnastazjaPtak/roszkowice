@@ -252,6 +252,7 @@
   --a11y-widget-pill-height: 24px;
   --a11y-widget-pill-knob: 18px;
   --a11y-widget-close-size: 36px;
+  --a11y-widget-close-icon-size: 20px;
 }
 
 @media (max-width: 991px) {
