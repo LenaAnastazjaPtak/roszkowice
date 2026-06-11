@@ -686,7 +686,7 @@
     transition: max-height var(--header-mobile-panel-transition);
   }
   .ow-navigation .navbar-collapse.is-open {
-    max-height: 300px;
+    max-height: 360px;
   }
   .ow-navigation .navbar-collapse > .navbar-nav {
     margin: 0;

@@ -6,19 +6,22 @@ function ThemeToggle({ variant = "desktop" }) {
   const { isDark, toggleTheme } = useTheme();
   const label = isDark ? t("nav.themeLight") : t("nav.themeDark");
 
-  if (variant === "mobile") {
+  if (variant === "mobile-menu") {
     return (
-      <button
-        type="button"
-        className="theme-toggle theme-toggle--mobile"
-        aria-label={label}
-        onClick={toggleTheme}
-      >
-        <i
-          className={`fa ${isDark ? "fa-sun-o" : "fa-moon-o"}`}
-          aria-hidden="true"
-        />
-      </button>
+      <div className="theme-toggle theme-toggle--mobile-menu">
+        <button
+          type="button"
+          className="theme-toggle__menu-trigger"
+          aria-label={label}
+          onClick={toggleTheme}
+        >
+          <i
+            className={`fa ${isDark ? "fa-sun-o" : "fa-moon-o"}`}
+            aria-hidden="true"
+          />
+          <span>{label}</span>
+        </button>
+      </div>
     );
   }
 

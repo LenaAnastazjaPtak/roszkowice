@@ -145,7 +145,6 @@ function Header() {
                 <span className="icon-bar"></span>
                 <span className="icon-bar"></span>
               </button>
-              <ThemeToggle variant="mobile" />
               <LangSwitcherMobileToggle
                 open={langOpen}
                 onToggle={toggleLang}
@@ -189,6 +188,7 @@ function Header() {
                   </Link>
                 </li>
               </ul>
+              <ThemeToggle variant="mobile-menu" />
             </div>
           </nav>
         </div>
