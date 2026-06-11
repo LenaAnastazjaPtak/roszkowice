@@ -8,15 +8,22 @@ import PageBanner from "../components/PageBanner";
 import BlogPost from "../components/BlogPost";
 import LoadingSpinner from "../components/LoadingSpinner";
 import { buildSeoDescription } from "../shared/seoDescription";
+import { buildPostPath, extractPostId } from "../shared/postUrl";
 
 function BlogSinglePage() {
   const { t } = useTranslation("blog");
   const { posts, loading, getLatestPosts } = useBlogPosts();
-  const { id } = useParams();
-  const post = posts.find((p) => String(p.id) === id);
+  const { slug } = useParams();
+  const postId = extractPostId(slug);
+  const post = posts.find((p) => String(p.id) === postId);
   const latestPosts = useMemo(() => getLatestPosts(3), [getLatestPosts]);
 
   if (!loading && !post) return <Navigate to="/404" replace />;
+
+  const canonicalPath = post ? buildPostPath(post) : undefined;
+  if (post && `/blog/post/${slug}` !== canonicalPath) {
+    return <Navigate to={canonicalPath} replace />;
+  }
 
   const seoDescription = post ? buildSeoDescription(post.content) : undefined;
 
@@ -27,7 +34,7 @@ function BlogSinglePage() {
         title={post?.title}
         description={seoDescription}
         image={post?.image ?? undefined}
-        path={post ? `/blog/post/${post.id}` : undefined}
+        path={canonicalPath}
         type="article"
         blogPost={post}
       />

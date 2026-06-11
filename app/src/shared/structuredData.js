@@ -8,6 +8,7 @@ import {
   SITE_URL,
   toAbsoluteSiteUrl,
 } from "./siteConfig";
+import { buildPostPath } from "./postUrl";
 
 function buildPublisher() {
   return {
@@ -99,7 +100,7 @@ export function buildPageStructuredData({
   blogPost,
 }) {
   if (blogPost) {
-    const pageUrl = toAbsoluteSiteUrl(path ?? `/blog/post/${blogPost.id}`);
+    const pageUrl = toAbsoluteSiteUrl(path ?? buildPostPath(blogPost));
     return buildBlogPosting({
       post: blogPost,
       description,

@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useBlogPosts } from "../hooks/useBlogPosts";
 import { formatPostDate } from "../shared/formatDate.js";
 import { getBlogExcerpt } from "../shared/blogExcerpt.js";
+import { buildPostPath } from "../shared/postUrl";
 import ContentBlockLink from "./ContentBlockLink";
 import LoadingSpinner from "./LoadingSpinner";
 
@@ -28,6 +29,7 @@ function LatestBlogSection() {
     latestPost.publishedAt,
     i18n.language,
   );
+  const postUrl = buildPostPath(latestPost);
 
   return (
     <div className="container-fluid no-padding latest-blog">
@@ -37,7 +39,7 @@ function LatestBlogSection() {
             <article className="type-post">
               <div className="col-md-4 latest-blog__thumb-col">
                 <div className="entry-cover entry-cover--square">
-                  <Link to={`/blog/post/${latestPost.id}`}>
+                  <Link to={postUrl}>
                     <img src={latestPost.image} alt={latestPost.title} />
                   </Link>
                 </div>
@@ -50,10 +52,7 @@ function LatestBlogSection() {
                     <span>{year}</span>
                   </div>
                   <h3 className="entry-title">
-                    <Link
-                      to={`/blog/post/${latestPost.id}`}
-                      title={latestPost.title}
-                    >
+                    <Link to={postUrl} title={latestPost.title}>
                       {latestPost.title}
                     </Link>
                   </h3>

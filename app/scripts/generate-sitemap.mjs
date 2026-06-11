@@ -6,6 +6,7 @@ import {
   fetchBlogPosts,
   STATIC_SITEMAP_ROUTES,
 } from "./shared/prerenderRoutes.mjs";
+import { buildPostPath } from "../src/shared/postUrl.js";
 
 const scriptDir = dirname(fileURLToPath(import.meta.url));
 const appRoot = resolve(scriptDir, "..");
@@ -55,7 +56,7 @@ async function generateSitemap() {
 
   const postEntries = posts.map((post) =>
     buildUrlEntry({
-      loc: `${apiUrl}/blog/post/${post.id}`,
+      loc: `${apiUrl}${buildPostPath(post)}`,
       changefreq: "monthly",
       priority: "0.6",
       lastmod: formatLastmod(post.publishedAt),

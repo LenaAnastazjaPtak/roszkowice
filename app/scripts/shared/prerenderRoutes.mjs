@@ -1,3 +1,5 @@
+import { buildPostPath } from "../../src/shared/postUrl.js";
+
 export const STATIC_PRERENDER_ROUTES = [
   "/",
   "/about",
@@ -30,7 +32,7 @@ export async function fetchBlogPosts(apiUrl) {
 
 export async function getPrerenderRoutes(apiUrl) {
   const posts = await fetchBlogPosts(apiUrl);
-  const blogPostRoutes = posts.map((post) => `/blog/post/${post.id}`);
+  const blogPostRoutes = posts.map((post) => buildPostPath(post));
 
   return [...STATIC_PRERENDER_ROUTES, ...blogPostRoutes];
 }

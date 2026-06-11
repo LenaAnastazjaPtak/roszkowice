@@ -2,13 +2,14 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { formatPostDate } from "../shared/formatDate.js";
 import { getBlogExcerpt } from "../shared/blogExcerpt.js";
+import { buildPostPath } from "../shared/postUrl";
 import ContentBlockLink from "./ContentBlockLink";
 
 function BlogPost({ post, variant = "listing" }) {
   const { t, i18n } = useTranslation("blog");
   const linkToPost = variant === "listing";
   const isSingle = variant === "single";
-  const postUrl = `/blog/post/${post.id}`;
+  const postUrl = buildPostPath(post);
   const { day, month, year } = formatPostDate(
     post.publishedAt,
     i18n.language,
