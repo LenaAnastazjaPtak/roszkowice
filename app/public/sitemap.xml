@@ -1,67 +1,109 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://localhost:8000/</loc>
+    <loc>https://palacroszkowice.pl/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>http://localhost:8000/about</loc>
+    <loc>https://palacroszkowice.pl/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://localhost:8000/history</loc>
+    <loc>https://palacroszkowice.pl/history</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://localhost:8000/gallery</loc>
+    <loc>https://palacroszkowice.pl/gallery</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://localhost:8000/blog</loc>
+    <loc>https://palacroszkowice.pl/blog</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://localhost:8000/contact</loc>
+    <loc>https://palacroszkowice.pl/contact</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>http://localhost:8000/privacy-policy</loc>
+    <loc>https://palacroszkowice.pl/privacy-policy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>http://localhost:8000/blog/post/6-</loc>
-    <lastmod>2026-06-10</lastmod>
+    <loc>https://palacroszkowice.pl/blog/post/14-zdradzamy-wnetrze-palacu</loc>
+    <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>http://localhost:8000/blog/post/4-jestesmy-na-instagramie</loc>
-    <lastmod>2026-01-20</lastmod>
+    <loc>https://palacroszkowice.pl/blog/post/13-piekny-widok-na-staw</loc>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>http://localhost:8000/blog/post/3-nowy-rok-2026-plany-i-przyspieszenie-renowacji</loc>
-    <lastmod>2026-01-01</lastmod>
+    <loc>https://palacroszkowice.pl/blog/post/12-spacer-po-parku</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>http://localhost:8000/blog/post/2-wigilijny-wieczor-w-roszkowicach</loc>
-    <lastmod>2025-12-24</lastmod>
+    <loc>https://palacroszkowice.pl/blog/post/11-sala-balowa</loc>
+    <lastmod>2026-04-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>http://localhost:8000/blog/post/1-zlota-jesien-w-parku-palacowym</loc>
-    <lastmod>2025-10-19</lastmod>
+    <loc>https://palacroszkowice.pl/blog/post/10-widok-palacu-z-lotu-ptaka</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://palacroszkowice.pl/blog/post/9-odkrywanie-strychu</loc>
+    <lastmod>2026-03-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://palacroszkowice.pl/blog/post/8-zniszczenia-palacu</loc>
+    <lastmod>2026-02-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://palacroszkowice.pl/blog/post/7-podroz-w-poszukiwaniu-palacu</loc>
+    <lastmod>2026-02-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://palacroszkowice.pl/blog/post/4-jestesmy-na-instagramie</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://palacroszkowice.pl/blog/post/3-nowy-rok-2026-plany-i-przyspieszenie-renowacji</loc>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://palacroszkowice.pl/blog/post/2-wigilijny-wieczor-w-roszkowicach</loc>
+    <lastmod>2025-12-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://palacroszkowice.pl/blog/post/1-zlota-jesien-w-parku-palacowym</loc>
+    <lastmod>2025-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
