@@ -104,7 +104,7 @@ final class ImportLegacyDataCommand extends Command
             return 0;
         }
 
-        $translationStmt = $legacy->prepare('SELECT locale, title, header, content FROM "BlogPostTranslation" WHERE "blogPostId" = :postId');
+        $translationStmt = $legacy->prepare('SELECT locale, title, content FROM "BlogPostTranslation" WHERE "blogPostId" = :postId');
 
         $imported = 0;
         foreach ($postRows as $row) {
@@ -137,7 +137,6 @@ final class ImportLegacyDataCommand extends Command
                 $entity = new BlogPostTranslation();
                 $entity->setLocale((string) $translation['locale']);
                 $entity->setTitle((string) $translation['title']);
-                $entity->setHeader((string) $translation['header']);
                 $entity->setContent((string) $translation['content']);
                 $post->addTranslation($entity);
             }

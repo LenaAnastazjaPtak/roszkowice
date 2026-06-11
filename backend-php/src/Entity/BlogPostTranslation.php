@@ -31,10 +31,6 @@ class BlogPostTranslation
     #[Assert\NotBlank(message: 'Tytuł jest wymagany.')]
     private string $title = '';
 
-    #[ORM\Column(length: 255)]
-    #[Assert\NotBlank(message: 'Nagłówek jest wymagany.')]
-    private string $header = '';
-
     #[ORM\Column(type: 'text')]
     #[Assert\NotBlank(message: 'Treść jest wymagana.')]
     private string $content = '';
@@ -68,18 +64,6 @@ class BlogPostTranslation
     public function setTitle(string $title): self
     {
         $this->title = $title;
-
-        return $this;
-    }
-
-    public function getHeader(): string
-    {
-        return $this->header;
-    }
-
-    public function setHeader(string $header): self
-    {
-        $this->header = $header;
 
         return $this;
     }

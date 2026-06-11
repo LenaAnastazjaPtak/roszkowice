@@ -7,6 +7,7 @@ import BlogSearchWidget from "../components/BlogSearchWidget";
 import PageSeo from "../components/PageSeo";
 import PageBanner from "../components/PageBanner";
 import BlogPost from "../components/BlogPost";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 const POSTS_PER_PAGE = 3;
 
@@ -56,8 +57,6 @@ function BlogPage() {
 
   const latestPosts = useMemo(() => getLatestPosts(3), [getLatestPosts]);
 
-  if (loading) return null;
-
   return (
     <>
       <PageSeo pageKey="blog" image="/images/roszkowice/park/park.jpg" />
@@ -66,6 +65,13 @@ function BlogPage() {
         image="/images/roszkowice/park/park.jpg"
       />
       <div className="section-padding"></div>
+      {loading ? (
+        <div className="container-fluid no-padding blog-listing">
+          <div className="container">
+            <LoadingSpinner />
+          </div>
+        </div>
+      ) : (
       <div className="container-fluid no-padding blog-listing">
         <div className="container">
           <div className="row">
@@ -121,6 +127,7 @@ function BlogPage() {
           </div>
         </div>
       </div>
+      )}
       <div className="section-padding"></div>
     </>
   );

@@ -25,7 +25,7 @@ final class BlogPostCrudController extends AbstractCrudController
         return $crud
             ->setEntityLabelInSingular('Post')
             ->setEntityLabelInPlural('Posty')
-            ->setSearchFields(['translations.title', 'translations.header'])
+            ->setSearchFields(['translations.title', 'translations.content'])
             ->setDefaultSort(['publishedAt' => 'DESC'])
             ->setPageTitle(Crud::PAGE_INDEX, 'Posty na blogu')
             ->setPageTitle(Crud::PAGE_NEW, 'Nowy post')

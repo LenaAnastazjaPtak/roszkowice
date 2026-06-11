@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { formatPostDate } from "../shared/formatDate.js";
+import { getBlogExcerpt } from "../shared/blogExcerpt.js";
+import ContentBlockLink from "./ContentBlockLink";
 
 function BlogPost({ post, variant = "listing" }) {
-  const { i18n } = useTranslation("blog");
+  const { t, i18n } = useTranslation("blog");
   const linkToPost = variant === "listing";
   const isSingle = variant === "single";
-  const TitleTag = isSingle ? "h1" : "h3";
   const postUrl = `/blog/post/${post.id}`;
   const { day, month, year } = formatPostDate(
     post.publishedAt,
@@ -30,7 +31,7 @@ function BlogPost({ post, variant = "listing" }) {
           <span>{month}</span>
           <span>{year}</span>
         </div>
-        <TitleTag className="entry-title">
+        <h3 className="entry-title">
           {linkToPost ? (
             <Link to={postUrl} title={post.title}>
               {post.title}
@@ -38,15 +39,17 @@ function BlogPost({ post, variant = "listing" }) {
           ) : (
             post.title
           )}
-        </TitleTag>
-        <div className="entry-meta">
-          <div className="byline">
-            <span>{post.header}</span>
-          </div>
-        </div>
+        </h3>
       </div>
       <div className="entry-content">
-        <div style={{ whiteSpace: "pre-line" }}>{post.content}</div>
+        <div style={{ whiteSpace: "pre-line" }}>
+          {isSingle ? post.content : getBlogExcerpt(post.content)}
+        </div>
+        {linkToPost && (
+          <ContentBlockLink to={postUrl} title={t("readMore")}>
+            {t("readMore")}
+          </ContentBlockLink>
+        )}
       </div>
     </article>
   );

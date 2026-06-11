@@ -2,14 +2,9 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useBlogPosts } from "../hooks/useBlogPosts";
 import { formatPostDate } from "../shared/formatDate.js";
+import { getBlogExcerpt } from "../shared/blogExcerpt.js";
 import ContentBlockLink from "./ContentBlockLink";
-
-const EXCERPT_LENGTH = 280;
-
-function getExcerpt(content) {
-  if (!content || content.length <= EXCERPT_LENGTH) return content;
-  return content.slice(0, EXCERPT_LENGTH).trim() + "...";
-}
+import LoadingSpinner from "./LoadingSpinner";
 
 function LatestBlogSection() {
   const { t } = useTranslation("home");
@@ -17,7 +12,17 @@ function LatestBlogSection() {
   const { posts, loading } = useBlogPosts();
   const latestPost = posts.length > 0 ? posts[0] : null;
 
-  if (loading || !latestPost) return null;
+  if (loading) {
+    return (
+      <div className="container-fluid no-padding latest-blog">
+        <div className="container">
+          <LoadingSpinner />
+        </div>
+      </div>
+    );
+  }
+
+  if (!latestPost) return null;
 
   const { day, month, year } = formatPostDate(
     latestPost.publishedAt,
@@ -54,7 +59,7 @@ function LatestBlogSection() {
                   </h3>
                 </div>
                 <div className="entry-content">
-                  <p>{getExcerpt(latestPost.content)}</p>
+                  <p>{getBlogExcerpt(latestPost.content)}</p>
                   <ContentBlockLink
                     to="/blog"
                     title={t("latestBlog.visitBlog")}

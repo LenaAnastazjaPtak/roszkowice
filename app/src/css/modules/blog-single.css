@@ -1,5 +1,9 @@
-.blog-single .type-post {
+.blog-single .type-post .entry-cover img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
+
 .type-post blockquote {
   border-left: 2px solid var(--color-accent);
   padding: 25px 20px;

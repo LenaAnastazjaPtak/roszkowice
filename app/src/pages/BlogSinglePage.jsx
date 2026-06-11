@@ -6,6 +6,7 @@ import LatestPostsWidget from "../components/LatestPostsWidget";
 import PageSeo from "../components/PageSeo";
 import PageBanner from "../components/PageBanner";
 import BlogPost from "../components/BlogPost";
+import LoadingSpinner from "../components/LoadingSpinner";
 import { buildSeoDescription } from "../shared/seoDescription";
 
 function BlogSinglePage() {
@@ -15,27 +16,35 @@ function BlogSinglePage() {
   const post = posts.find((p) => String(p.id) === id);
   const latestPosts = useMemo(() => getLatestPosts(3), [getLatestPosts]);
 
-  if (loading) return null;
-  if (!post) return <Navigate to="/404" replace />;
+  if (!loading && !post) return <Navigate to="/404" replace />;
 
-  const seoDescription = buildSeoDescription(post.header || post.content);
+  const seoDescription = post ? buildSeoDescription(post.content) : undefined;
 
   return (
     <>
       <PageSeo
-        title={post.title}
+        pageKey="blog"
+        title={post?.title}
         description={seoDescription}
-        image={post.image ?? undefined}
-        path={`/blog/post/${post.id}`}
+        image={post?.image ?? undefined}
+        path={post ? `/blog/post/${post.id}` : undefined}
         type="article"
         blogPost={post}
       />
       <PageBanner
-        title={t("title")}
+        title={post?.title ?? t("title")}
         image="/images/roszkowice/park/park.jpg"
-        showTitle={false}
+        bannerClassName={post ? "page-banner--post" : undefined}
+        titleClassName={post ? "page-banner__title--post" : undefined}
       />
       <div className="section-padding"></div>
+      {loading ? (
+        <div className="container-fluid no-padding blog-single">
+          <div className="container">
+            <LoadingSpinner />
+          </div>
+        </div>
+      ) : (
       <div className="container-fluid no-padding blog-single">
         <div className="container">
           <div className="row">
@@ -57,6 +66,7 @@ function BlogSinglePage() {
           </div>
         </div>
       </div>
+      )}
       <div className="section-padding"></div>
     </>
   );

@@ -47,3 +47,19 @@
 	z-index: 2;
 	width: 100%;
 }
+
+.page-banner--post {
+	height: auto;
+	min-height: 270px;
+	padding: 48px 0;
+}
+
+.page-banner__title--post {
+	font-size: 3.5rem;
+	line-height: 1.25;
+	max-width: 52rem;
+	margin-inline: auto;
+	text-wrap: balance;
+	overflow-wrap: break-word;
+	hyphens: auto;
+}

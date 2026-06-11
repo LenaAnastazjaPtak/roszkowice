@@ -98,7 +98,7 @@ final class PostsController extends AbstractController
     }
 
     /**
-     * @return array{id: int, image: string|null, publishedAt: string, title: string, header: string, content: string}
+     * @return array{id: int, image: string|null, publishedAt: string, title: string, content: string}
      */
     private function formatPost(BlogPost $post, BlogPostTranslation $translation, Request $request): array
     {
@@ -107,7 +107,6 @@ final class PostsController extends AbstractController
             'image' => $this->imageUrlNormalizer->normalize($post->getImage(), $request),
             'publishedAt' => $post->getPublishedAt()->format(\DateTimeInterface::ATOM),
             'title' => $translation->getTitle(),
-            'header' => $translation->getHeader(),
             'content' => $translation->getContent(),
         ];
     }
