@@ -11,6 +11,8 @@
   "nav": {
     "toggle": "Navigation umschalten",
     "languageToggle": "Sprache ändern",
+    "themeLight": "Tagmodus aktivieren",
+    "themeDark": "Nachtmodus aktivieren",
     "home": "Startseite",
     "home1": "Startseite 1",
     "home2": "Startseite 2",

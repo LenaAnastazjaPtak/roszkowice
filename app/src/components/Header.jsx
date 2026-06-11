@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import LangToggle from "./LangToggle";
 import LangSwitcherMobileToggle from "./LangSwitcherMobileToggle";
 import LangSwitcherMobilePanel from "./LangSwitcherMobilePanel";
+import ThemeToggle from "./ThemeToggle";
 
 const SCROLL_HEIGHT_STICKY =
   typeof window !== "undefined" ? window.innerHeight : 600;
@@ -116,6 +117,7 @@ function Header() {
                     <i className="fa fa-youtube"></i>
                   </a>
                 </li>
+                <ThemeToggle />
                 <LangToggle />
               </ul>
               <div className="top-icons__hours">
@@ -143,6 +145,7 @@ function Header() {
                 <span className="icon-bar"></span>
                 <span className="icon-bar"></span>
               </button>
+              <ThemeToggle variant="mobile" />
               <LangSwitcherMobileToggle
                 open={langOpen}
                 onToggle={toggleLang}

@@ -1,3 +1,11 @@
+.contact-form .form-control,
+.blog-single .comment-form .form-control,
+.widget_search .input-group .form-control,
+.error-page .error-content .form-control,
+.footer-main .widget_subscribe .form-control {
+  font-size: var(--text-form-control);
+}
+
 .contact-form .form-control {
   color: var(--color-text-input);
 }

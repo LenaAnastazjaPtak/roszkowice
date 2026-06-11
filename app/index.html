@@ -14,6 +14,14 @@
 	<link rel="stylesheet" type="text/css" href="/revolution/css/layers.css">
 	<link rel="stylesheet" type="text/css" href="/revolution/css/navigation.css">
 	<link rel="stylesheet" type="text/css" href="/libraries/lib.css">
+	<script>
+		(function () {
+			var stored = localStorage.getItem("site-theme");
+			if (stored === "dark" || stored === "light") {
+				document.documentElement.setAttribute("data-theme", stored);
+			}
+		})();
+	</script>
 </head>
 <body data-offset="200" data-spy="scroll" data-target=".ow-navigation">
 	<div id="root"></div>

@@ -184,7 +184,6 @@
   position: relative;
   z-index: 1;
   margin-bottom: 15px;
-  font-size: var(--text-ui-13);
   letter-spacing: 0.7px;
   text-transform: uppercase;
   color: var(--color-text-input);

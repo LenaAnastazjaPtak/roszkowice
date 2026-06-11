@@ -743,7 +743,7 @@
     content: "\f106";
   }
   .ow-navigation .navbar-toggle {
-    background-color: var(--color-white);
+    background-color: var(--color-header-surface);
     border-color: var(--color-accent);
     border-radius: 0;
     display: block;

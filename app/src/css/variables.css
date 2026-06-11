@@ -11,6 +11,7 @@
   --text-ui-13: 13px;
   --text-ui-14: 14px;
   --text-ui-15: 15px;
+  --text-form-control: 15px;
   --text-nav-font-size: 14px;
   --font-heading: "Forum", serif;
   --font-accent: "Lora", serif;
@@ -19,6 +20,8 @@
 
   --color-white: #fff;
   --color-black: #000;
+  --color-page-bg: var(--color-white);
+  --color-header-surface: var(--color-white);
   --color-accent: #dcab5e;
   --color-bg-dark: #111;
   --color-bg-header: #2a2a2a;

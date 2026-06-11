@@ -30,7 +30,6 @@
   text-transform: capitalize;
   letter-spacing: 0.84px;
   font-family: var(--font-heading);
-  font-size: var(--text-ui-12);
   padding: 10px 18px;
   color: var(--color-text-input);
 }

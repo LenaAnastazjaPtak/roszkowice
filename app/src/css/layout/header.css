@@ -1,7 +1,7 @@
 .header-section {
   position: relative;
   overflow: visible;
-  background-color: var(--color-white);
+  background-color: var(--color-header-surface);
   border-bottom: none;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
 }
@@ -33,7 +33,7 @@
   left: -1px;
   top: 0;
   bottom: 0;
-  border-bottom: 60px solid var(--color-white);
+  border-bottom: 60px solid var(--color-header-surface);
   border-right: 40px solid transparent;
   z-index: 1;
 }

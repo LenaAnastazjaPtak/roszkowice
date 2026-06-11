@@ -11,6 +11,8 @@
   "nav": {
     "toggle": "Přepnout navigaci",
     "languageToggle": "Změnit jazyk",
+    "themeLight": "Zapnout denní režim",
+    "themeDark": "Zapnout noční režim",
     "home": "Domovská stránka",
     "home1": "domovská stránka 1",
     "home2": "domovská stránka 2",

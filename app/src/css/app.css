@@ -5,6 +5,7 @@
 @import "components/back-to-top.css";
 @import "components/privacy-policy.css";
 @import "components/lang-toggle.css";
+@import "components/theme-toggle.css";
 @import "components/lang-switcher-mobile.css";
 @import "components/a11y-widget.css";
 @import "components/loading-spinner.css";

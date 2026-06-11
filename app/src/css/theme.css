@@ -1,0 +1,75 @@
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-page-bg: #181818;
+  --color-header-surface: #141414;
+  --text-body-color: #e4e4e4;
+  --color-text-dark: #ddd;
+  --color-text-heading: #f0f0f0;
+  --color-text-input: #e4e4e4;
+  --color-text-placeholder: #aaa;
+  --color-text-placeholder-soft: #999;
+  --color-text-meta: #9a9a9a;
+  --color-text-nav: #aaa;
+  --color-border-light: #2e2e2e;
+  --color-border-mid: #3d3d3d;
+  --color-border-cat: #363636;
+  --color-border-nav: #363636;
+  --color-border-widget: #3d3d3d;
+  --color-border-input: #454545;
+  --color-border-welcome: #404040;
+  --color-border-welcome-light: #333;
+  --color-border-comment: #444;
+  --color-border-form: #444;
+  --color-border-search: #444;
+  --color-bg-search: #1e1e1e;
+  --color-bg-tag: #262626;
+  --color-bg-tag-hover: #333;
+  --color-bg-subtle: #1a1a1a;
+  --color-bg-event: #1a1a1a;
+  --color-bg-loader-line: #333;
+  --color-text-loader: #ccc;
+  --color-pagination-border: #444;
+  --color-pagination-text: #888;
+}
+
+[data-theme="dark"] body,
+[data-theme="dark"] .main-container {
+  background-color: var(--color-page-bg);
+}
+
+[data-theme="dark"] .header-section {
+  box-shadow: 0 2px 12px color-mix(in srgb, var(--color-black) 35%, transparent);
+}
+
+[data-theme="dark"] .header-section.navbar-fixed-top {
+  box-shadow: 0 2px 12px color-mix(in srgb, var(--color-black) 35%, transparent);
+}
+
+[data-theme="dark"] .contact-form .form-control,
+[data-theme="dark"] .widget_search .input-group .form-control,
+[data-theme="dark"] .widget_search .btn-default {
+  background-color: var(--color-bg-search);
+  border-color: var(--color-border-input);
+  color: var(--color-text-input);
+}
+
+[data-theme="dark"] .widget_search .input-group {
+  border-color: var(--color-border-search);
+}
+
+[data-theme="dark"] .onview-section::before {
+  background-color: color-mix(
+    in srgb,
+    var(--color-page-bg) 90%,
+    transparent
+  );
+}
+
+[data-theme="dark"] .onview-section2 .onview-right .onview-content ul {
+  background-color: color-mix(
+    in srgb,
+    var(--color-page-bg) 90%,
+    transparent
+  );
+}

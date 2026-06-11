@@ -1,4 +1,5 @@
 body {
+  background-color: var(--color-page-bg);
   font-family: var(--font-body);
   font-size: var(--text-body-font-size);
   line-height: var(--text-body-line-height);

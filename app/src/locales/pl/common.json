@@ -11,6 +11,8 @@
   "nav": {
     "toggle": "Przełącz nawigację",
     "languageToggle": "Zmień język",
+    "themeLight": "Włącz tryb dzienny",
+    "themeDark": "Włącz tryb nocny",
     "home": "Strona główna",
     "home1": "strona główna 1",
     "home2": "strona główna 2",
