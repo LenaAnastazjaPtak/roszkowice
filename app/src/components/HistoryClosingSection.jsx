@@ -1,6 +1,7 @@
 import ContentBlockLink from "./ContentBlockLink";
 import HistoryFramedImage from "./HistoryFramedImage";
 import HistoryParagraphList from "./HistoryParagraphList";
+import ScrollRevealImage from "./ScrollRevealImage";
 
 function HistoryClosingSection({ paragraphs, seeBlogTitle, imageSrc, imageAlt }) {
   return (
@@ -13,9 +14,9 @@ function HistoryClosingSection({ paragraphs, seeBlogTitle, imageSrc, imageAlt })
               {seeBlogTitle}
             </ContentBlockLink>
           </div>
-          <div className="col-md-6 col-sm-6 img-block">
+          <ScrollRevealImage className="col-md-6 col-sm-6 img-block">
             <HistoryFramedImage variant="muted" src={imageSrc} alt={imageAlt} />
-          </div>
+          </ScrollRevealImage>
         </div>
       </div>
     </div>

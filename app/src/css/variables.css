@@ -256,6 +256,10 @@
   --a11y-widget-pill-knob: 18px;
   --a11y-widget-close-size: 36px;
   --a11y-widget-close-icon-size: 20px;
+  --scroll-reveal-offset: 15px;
+  --scroll-reveal-opacity-start: 0.65;
+  --scroll-reveal-duration: 0.75s;
+  --scroll-reveal-easing: ease-out;
 }
 
 @media (max-width: 991px) {

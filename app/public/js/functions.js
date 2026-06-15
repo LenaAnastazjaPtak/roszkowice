@@ -46,7 +46,7 @@
 
 	$(window).on("load",function() {
 		var $container = $(".portfolio-section .portfolio-list");
-		if ($container.length) {
+		if ($container.length && window.matchMedia("(min-width: 768px)").matches) {
 			$container.isotope({
 				layoutMode: 'fitRows',
 				itemSelector: ".portfolio-box",

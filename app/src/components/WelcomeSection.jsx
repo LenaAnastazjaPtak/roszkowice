@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import ContentBlockLink from "./ContentBlockLink";
+import ScrollRevealImage from "./ScrollRevealImage";
 
 const WELCOME_IMAGE_SRC = "/images/roszkowice/zewn/pionowa_zima.jpg";
 
@@ -25,7 +26,7 @@ function WelcomeSection() {
               {t("welcome.readMore")}
             </ContentBlockLink>
           </div>
-          <div className="col-md-6 col-sm-6 img-block">
+          <ScrollRevealImage className="col-md-6 col-sm-6 img-block">
             <i className="welcome-section__img-wrap">
               <img
                 src={WELCOME_IMAGE_SRC}
@@ -38,7 +39,7 @@ function WelcomeSection() {
                 }}
               />
             </i>
-          </div>
+          </ScrollRevealImage>
         </div>
       </div>
     </div>

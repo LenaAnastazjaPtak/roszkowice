@@ -1,4 +1,5 @@
 import HistoryFramedImage from "./HistoryFramedImage";
+import ScrollRevealImage from "./ScrollRevealImage";
 
 function HistoryIntroSection({ sectionLabel, heading, welcomeText, imageSrc, imageAlt }) {
   return (
@@ -12,9 +13,9 @@ function HistoryIntroSection({ sectionLabel, heading, welcomeText, imageSrc, ima
             </div>
             <p>{welcomeText}</p>
           </div>
-          <div className="col-md-6 col-sm-6 img-block">
+          <ScrollRevealImage className="col-md-6 col-sm-6 img-block">
             <HistoryFramedImage variant="muted" src={imageSrc} alt={imageAlt} />
-          </div>
+          </ScrollRevealImage>
         </div>
       </div>
     </div>

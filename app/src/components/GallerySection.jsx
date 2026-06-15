@@ -1,6 +1,8 @@
 import { useState, useCallback, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import ContentBlockLink from "./ContentBlockLink";
+import LoadingSpinner from "./LoadingSpinner";
+import ScrollRevealImage from "./ScrollRevealImage";
 import { getGalleryImageAlt } from "../shared/galleryImageAlt";
 
 const MOBILE_BREAKPOINT = 768;
@@ -173,7 +175,11 @@ function GallerySection({ standalone = false }) {
         )}
       </div>
       <div className="portfolio-section-gallery-wrap">
-        {loading && <div className="container text-center">Ładowanie...</div>}
+        {loading && (
+          <div className="container">
+            <LoadingSpinner />
+          </div>
+        )}
         {error && (
           <div className="container text-center">
             Nie udało się załadować galerii.
@@ -185,18 +191,20 @@ function GallerySection({ standalone = false }) {
               key={item.id}
               className={`portfolio-box no-padding img-hover-zoom ${item.classes}`}
             >
-              <a
-                href={item.src}
-                onClick={(e) => {
-                  e.preventDefault();
-                  setSelectedIndex(index);
-                }}
-              >
-                <img
-                  src={item.src}
-                  alt={getGalleryImageAlt(t, item.category)}
-                />
-              </a>
+              <ScrollRevealImage fadeOnly className="portfolio-box__reveal">
+                <a
+                  href={item.src}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setSelectedIndex(index);
+                  }}
+                >
+                  <img
+                    src={item.src}
+                    alt={getGalleryImageAlt(t, item.category)}
+                  />
+                </a>
+              </ScrollRevealImage>
             </div>
           ))}
         </div>

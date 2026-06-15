@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import ContentBlockLink from "./ContentBlockLink";
+import ScrollRevealImage from "./ScrollRevealImage";
 
 function OnviewSection({ showReadMore, showGalleryLink }) {
   const { t } = useTranslation("about");
@@ -8,12 +9,12 @@ function OnviewSection({ showReadMore, showGalleryLink }) {
     <div className="container-fluid no-padding onview-section">
       <div className="container">
         <div className="row">
-          <div className="col-md-4 col-sm-5 col-xs-12 img-block">
+          <ScrollRevealImage className="col-md-4 col-sm-5 col-xs-12 img-block">
             <img
               src="/images/roszkowice/zewn/pionowe.jpg"
               alt={t("onview.imgAlt")}
             />
-          </div>
+          </ScrollRevealImage>
           <div className="col-md-8 col-sm-7 col-xs-12 onview-content">
             <div className="section-header">
               <div className="section-title-border">
