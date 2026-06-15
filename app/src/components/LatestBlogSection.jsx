@@ -34,42 +34,40 @@ function LatestBlogSection() {
   return (
     <div className="container-fluid no-padding latest-blog">
       <div className="container">
-        <div className="row">
-          <div className="blog-carousel col-md-12 no-padding">
-            <article className="type-post">
-              <div className="col-md-4 latest-blog__thumb-col">
-                <div className="entry-cover entry-cover--square">
-                  <Link to={postUrl}>
-                    <img src={latestPost.image} alt={latestPost.title} />
+        <article className="type-post blog-carousel">
+          <div className="row">
+            <div className="col-md-4 latest-blog__thumb-col">
+              <div className="entry-cover entry-cover--square">
+                <Link to={postUrl}>
+                  <img src={latestPost.image} alt={latestPost.title} />
+                </Link>
+              </div>
+            </div>
+            <div className="col-md-8">
+              <div className="entry-header">
+                <div className="post-date">
+                  <b>{day}</b>
+                  <span>{month}</span>
+                  <span>{year}</span>
+                </div>
+                <h3 className="entry-title">
+                  <Link to={postUrl} title={latestPost.title}>
+                    {latestPost.title}
                   </Link>
-                </div>
+                </h3>
               </div>
-              <div className="col-md-8">
-                <div className="entry-header">
-                  <div className="post-date">
-                    <b>{day}</b>
-                    <span>{month}</span>
-                    <span>{year}</span>
-                  </div>
-                  <h3 className="entry-title">
-                    <Link to={postUrl} title={latestPost.title}>
-                      {latestPost.title}
-                    </Link>
-                  </h3>
-                </div>
-                <div className="entry-content">
-                  <p>{getBlogExcerpt(latestPost.content)}</p>
-                  <ContentBlockLink
-                    to="/blog"
-                    title={t("latestBlog.visitBlog")}
-                  >
-                    {t("latestBlog.visitBlog")}
-                  </ContentBlockLink>
-                </div>
+              <div className="entry-content">
+                <p>{getBlogExcerpt(latestPost.content)}</p>
+                <ContentBlockLink
+                  to="/blog"
+                  title={t("latestBlog.visitBlog")}
+                >
+                  {t("latestBlog.visitBlog")}
+                </ContentBlockLink>
               </div>
-            </article>
+            </div>
           </div>
-        </div>
+        </article>
       </div>
     </div>
   );
