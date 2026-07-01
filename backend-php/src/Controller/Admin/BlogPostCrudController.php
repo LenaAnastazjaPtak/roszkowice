@@ -7,10 +7,11 @@ namespace App\Controller\Admin;
 use App\Entity\BlogPost;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Symfony\Component\Validator\Constraints\Image;
 
 final class BlogPostCrudController extends AbstractCrudController
@@ -25,7 +26,7 @@ final class BlogPostCrudController extends AbstractCrudController
         return $crud
             ->setEntityLabelInSingular('Post')
             ->setEntityLabelInPlural('Posty')
-            ->setSearchFields(['translations.title', 'translations.content'])
+            ->setSearchFields(['title', 'content'])
             ->setDefaultSort(['publishedAt' => 'DESC'])
             ->setPageTitle(Crud::PAGE_INDEX, 'Posty na blogu')
             ->setPageTitle(Crud::PAGE_NEW, 'Nowy post')
@@ -49,17 +50,16 @@ final class BlogPostCrudController extends AbstractCrudController
                 mimeTypesMessage: 'Plik musi być obrazem (JPEG, PNG, WebP lub AVIF).',
                 maxSizeMessage: 'Maksymalny rozmiar pliku to 15 MB.',
             ))
-            ->setRequired(false);
+            ->setRequired(true);
+
+        yield TextField::new('title', 'Tytuł')
+            ->setRequired(true);
+
+        yield TextareaField::new('content', 'Treść')
+            ->setRequired(true);
 
         yield DateTimeField::new('publishedAt', 'Data publikacji')
             ->setFormat('yyyy-MM-dd HH:mm');
-
-        yield CollectionField::new('translations', 'Tłumaczenia')
-            ->useEntryCrudForm(BlogPostTranslationCrudController::class)
-            ->renderExpanded()
-            ->setEntryIsComplex(true)
-            ->showEntryLabel(true)
-            ->onlyOnForms();
 
         yield DateTimeField::new('createdAt', 'Utworzono')
             ->onlyOnDetail();

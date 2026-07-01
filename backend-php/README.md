@@ -368,8 +368,8 @@ Identyczna z poprzednim backendem Node — frontend `app/` nie wymaga zmian w ko
 
 ## Architektura
 
-- `src/Entity/` — Doctrine entities (`BlogPost`, `BlogPostTranslation`, `GalleryImage`).
-- `src/Repository/` — repozytoria z dedykowanymi queries (np. `findAllWithTranslationForLocale`).
+- `src/Entity/` — Doctrine entities (`BlogPost`, `GalleryImage`).
+- `src/Repository/` — repozytoria z dedykowanymi queries (np. `findAllOrderedByPublishedAt`, `findOneByExternalId`).
 - `src/Controller/Api/` — publiczne API (`PostsController`, `GalleryController`).
 - `src/Controller/Admin/` — EasyAdmin Dashboard, CRUD-y i `GalleryReorderController`.
 - `src/Controller/LegacyImagesController.php` — proxy `/images/*` do frontendu.

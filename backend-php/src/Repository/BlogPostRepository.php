@@ -21,26 +21,16 @@ class BlogPostRepository extends ServiceEntityRepository
     /**
      * @return BlogPost[]
      */
-    public function findAllWithTranslationForLocale(string $locale): array
+    public function findAllOrderedByPublishedAt(): array
     {
         return $this->createQueryBuilder('p')
-            ->innerJoin('p.translations', 't', 'WITH', 't.locale = :locale')
-            ->addSelect('t')
-            ->setParameter('locale', $locale)
             ->orderBy('p.publishedAt', 'DESC')
             ->getQuery()
             ->getResult();
     }
 
-    public function findOneWithTranslationForLocale(int $id, string $locale): ?BlogPost
+    public function findOneByExternalId(string $externalId): ?BlogPost
     {
-        return $this->createQueryBuilder('p')
-            ->innerJoin('p.translations', 't', 'WITH', 't.locale = :locale')
-            ->addSelect('t')
-            ->andWhere('p.id = :id')
-            ->setParameter('id', $id)
-            ->setParameter('locale', $locale)
-            ->getQuery()
-            ->getOneOrNullResult();
+        return $this->findOneBy(['externalId' => $externalId]);
     }
 }

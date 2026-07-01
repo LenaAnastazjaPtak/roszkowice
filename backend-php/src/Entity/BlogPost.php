@@ -5,13 +5,14 @@ declare(strict_types=1);
 namespace App\Entity;
 
 use App\Repository\BlogPostRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: BlogPostRepository::class)]
 #[ORM\Table(name: 'blog_post')]
 #[ORM\HasLifecycleCallbacks]
+#[UniqueEntity(fields: ['externalId'], message: 'Post z tym identyfikatorem zewnętrznym już istnieje.')]
 class BlogPost
 {
     #[ORM\Id]
@@ -19,8 +20,20 @@ class BlogPost
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 1024, nullable: true)]
-    private ?string $image = null;
+    #[ORM\Column(length: 1024)]
+    #[Assert\NotBlank(message: 'Zdjęcie jest wymagane.')]
+    private string $image = '';
+
+    #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: 'Tytuł jest wymagany.')]
+    private string $title = '';
+
+    #[ORM\Column(type: 'text')]
+    #[Assert\NotBlank(message: 'Treść jest wymagana.')]
+    private string $content = '';
+
+    #[ORM\Column(name: 'external_id', length: 255, nullable: true, unique: true)]
+    private ?string $externalId = null;
 
     #[ORM\Column(name: 'published_at', type: 'datetime_immutable')]
     private \DateTimeImmutable $publishedAt;
@@ -31,18 +44,8 @@ class BlogPost
     #[ORM\Column(name: 'updated_at', type: 'datetime_immutable')]
     private \DateTimeImmutable $updatedAt;
 
-    /** @var Collection<int, BlogPostTranslation> */
-    #[ORM\OneToMany(
-        targetEntity: BlogPostTranslation::class,
-        mappedBy: 'blogPost',
-        cascade: ['persist', 'remove'],
-        orphanRemoval: true,
-    )]
-    private Collection $translations;
-
     public function __construct()
     {
-        $this->translations = new ArrayCollection();
         $this->publishedAt = new \DateTimeImmutable();
     }
 
@@ -65,14 +68,50 @@ class BlogPost
         return $this->id;
     }
 
-    public function getImage(): ?string
+    public function getImage(): string
     {
         return $this->image;
     }
 
-    public function setImage(?string $image): self
+    public function setImage(string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getTitle(): string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(string $title): self
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    public function getContent(): string
+    {
+        return $this->content;
+    }
+
+    public function setContent(string $content): self
+    {
+        $this->content = $content;
+
+        return $this;
+    }
+
+    public function getExternalId(): ?string
+    {
+        return $this->externalId;
+    }
+
+    public function setExternalId(?string $externalId): self
+    {
+        $this->externalId = $externalId;
 
         return $this;
     }
@@ -99,49 +138,10 @@ class BlogPost
         return $this->updatedAt;
     }
 
-    /** @return Collection<int, BlogPostTranslation> */
-    public function getTranslations(): Collection
-    {
-        return $this->translations;
-    }
-
-    public function addTranslation(BlogPostTranslation $translation): self
-    {
-        if (!$this->translations->contains($translation)) {
-            $this->translations->add($translation);
-            $translation->setBlogPost($this);
-        }
-
-        return $this;
-    }
-
-    public function removeTranslation(BlogPostTranslation $translation): self
-    {
-        if ($this->translations->removeElement($translation)) {
-            if ($translation->getBlogPost() === $this) {
-                $translation->setBlogPost(null);
-            }
-        }
-
-        return $this;
-    }
-
-    public function getTranslationByLocale(string $locale): ?BlogPostTranslation
-    {
-        foreach ($this->translations as $translation) {
-            if ($translation->getLocale() === $locale) {
-                return $translation;
-            }
-        }
-
-        return null;
-    }
-
     public function __toString(): string
     {
-        $primary = $this->getTranslationByLocale('pl');
-        if ($primary instanceof BlogPostTranslation) {
-            return $primary->getTitle();
+        if ($this->title !== '') {
+            return $this->title;
         }
 
         return sprintf('Post #%s', $this->id ?? '?');

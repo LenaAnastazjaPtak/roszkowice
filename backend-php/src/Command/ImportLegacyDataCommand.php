@@ -5,9 +5,8 @@ declare(strict_types=1);
 namespace App\Command;
 
 use App\Entity\BlogPost;
-use App\Entity\BlogPostTranslation;
 use App\Entity\GalleryImage;
-use App\Repository\BlogPostTranslationRepository;
+use App\Repository\BlogPostRepository;
 use App\Repository\GalleryImageRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
@@ -19,13 +18,13 @@ use Symfony\Component\DependencyInjection\Attribute\Autowire;
 
 #[AsCommand(
     name: 'app:import-legacy',
-    description: 'Imports BlogPost, BlogPostTranslation and GalleryImage rows from the legacy Prisma database.',
+    description: 'Imports BlogPost and GalleryImage rows from the legacy Prisma database.',
 )]
 final class ImportLegacyDataCommand extends Command
 {
     public function __construct(
         private readonly EntityManagerInterface $entityManager,
-        private readonly BlogPostTranslationRepository $translationRepository,
+        private readonly BlogPostRepository $blogPostRepository,
         private readonly GalleryImageRepository $galleryRepository,
         #[Autowire(env: 'LEGACY_DATABASE_URL')]
         private readonly string $legacyDatabaseUrl,
@@ -104,42 +103,37 @@ final class ImportLegacyDataCommand extends Command
             return 0;
         }
 
-        $translationStmt = $legacy->prepare('SELECT locale, title, content FROM "BlogPostTranslation" WHERE "blogPostId" = :postId');
+        $translationStmt = $legacy->prepare('SELECT locale, title, content FROM "BlogPostTranslation" WHERE "blogPostId" = :postId AND locale = :locale');
 
         $imported = 0;
         foreach ($postRows as $row) {
             $publishedAt = new \DateTimeImmutable((string) $row['publishedAt']);
-            $image = $row['image'] !== null ? (string) $row['image'] : null;
-
-            $translationStmt->execute(['postId' => (int) $row['id']]);
-            $translations = $translationStmt->fetchAll(\PDO::FETCH_ASSOC);
-            if ($translations === false || $translations === []) {
+            $image = $row['image'] !== null ? trim((string) $row['image']) : '';
+            if ($image === '') {
                 continue;
             }
 
-            $plTranslation = null;
-            foreach ($translations as $translation) {
-                if ($translation['locale'] === 'pl') {
-                    $plTranslation = $translation;
-                    break;
-                }
+            $translationStmt->execute(['postId' => (int) $row['id'], 'locale' => 'pl']);
+            $plTranslation = $translationStmt->fetch(\PDO::FETCH_ASSOC);
+            if ($plTranslation === false) {
+                continue;
             }
 
-            if ($plTranslation !== null && $this->postExists($publishedAt, (string) $plTranslation['title'])) {
+            $title = (string) $plTranslation['title'];
+            $content = (string) $plTranslation['content'];
+            if ($title === '' || $content === '') {
+                continue;
+            }
+
+            if ($this->postExists($publishedAt, $title)) {
                 continue;
             }
 
             $post = new BlogPost();
             $post->setImage($image);
+            $post->setTitle($title);
+            $post->setContent($content);
             $post->setPublishedAt($publishedAt);
-
-            foreach ($translations as $translation) {
-                $entity = new BlogPostTranslation();
-                $entity->setLocale((string) $translation['locale']);
-                $entity->setTitle((string) $translation['title']);
-                $entity->setContent((string) $translation['content']);
-                $post->addTranslation($entity);
-            }
 
             $this->entityManager->persist($post);
             $imported++;
@@ -150,25 +144,16 @@ final class ImportLegacyDataCommand extends Command
         return $imported;
     }
 
-    private function postExists(\DateTimeImmutable $publishedAt, string $plTitle): bool
+    private function postExists(\DateTimeImmutable $publishedAt, string $title): bool
     {
-        $qb = $this->translationRepository->createQueryBuilder('t')
-            ->select('1')
-            ->innerJoin('t.blogPost', 'p')
-            ->andWhere('p.publishedAt = :publishedAt')
-            ->andWhere('t.locale = :locale')
-            ->andWhere('t.title = :title')
-            ->setParameter('publishedAt', $publishedAt)
-            ->setParameter('locale', 'pl')
-            ->setParameter('title', $plTitle)
-            ->setMaxResults(1);
-
-        return $qb->getQuery()->getOneOrNullResult() !== null;
+        return $this->blogPostRepository->findOneBy([
+            'publishedAt' => $publishedAt,
+            'title' => $title,
+        ]) !== null;
     }
 
     private function createLegacyConnection(): \PDO
     {
-        // Legacy source is Prisma on PostgreSQL; target DB is handled separately by Doctrine connection.
         $dsn = $this->buildDsn($this->legacyDatabaseUrl);
 
         return new \PDO(

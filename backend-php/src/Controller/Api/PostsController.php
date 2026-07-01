@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Controller\Api;
 
 use App\Entity\BlogPost;
-use App\Entity\BlogPostTranslation;
 use App\Repository\BlogPostRepository;
 use App\Service\ImageUrlNormalizer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -28,21 +27,15 @@ final class PostsController extends AbstractController
     #[Route('', name: 'api_posts_index', methods: ['GET'])]
     public function index(Request $request): JsonResponse
     {
-        $locale = $this->getValidatedLocale($request);
-        if ($locale === null) {
+        if ($this->getValidatedLocale($request) === null) {
             return $this->invalidLocaleResponse();
         }
 
-        $posts = $this->repository->findAllWithTranslationForLocale($locale);
-
-        $payload = [];
-        foreach ($posts as $post) {
-            $translation = $this->getTranslationForLocale($post, $locale);
-            if ($translation === null) {
-                continue;
-            }
-            $payload[] = $this->formatPost($post, $translation, $request);
-        }
+        $posts = $this->repository->findAllOrderedByPublishedAt();
+        $payload = array_map(
+            fn (BlogPost $post) => $this->formatPost($post, $request),
+            $posts,
+        );
 
         return new JsonResponse($payload);
     }
@@ -50,22 +43,16 @@ final class PostsController extends AbstractController
     #[Route('/{id}', name: 'api_posts_show', methods: ['GET'], requirements: ['id' => '\d+'])]
     public function show(int $id, Request $request): JsonResponse
     {
-        $locale = $this->getValidatedLocale($request);
-        if ($locale === null) {
+        if ($this->getValidatedLocale($request) === null) {
             return $this->invalidLocaleResponse();
         }
 
-        $post = $this->repository->findOneWithTranslationForLocale($id, $locale);
-        if ($post === null) {
+        $post = $this->repository->find($id);
+        if (!$post instanceof BlogPost) {
             return new JsonResponse(['error' => 'Post not found'], Response::HTTP_NOT_FOUND);
         }
 
-        $translation = $this->getTranslationForLocale($post, $locale);
-        if ($translation === null) {
-            return new JsonResponse(['error' => 'Post not found'], Response::HTTP_NOT_FOUND);
-        }
-
-        return new JsonResponse($this->formatPost($post, $translation, $request));
+        return new JsonResponse($this->formatPost($post, $request));
     }
 
     private function getValidatedLocale(Request $request): ?string
@@ -86,28 +73,17 @@ final class PostsController extends AbstractController
         );
     }
 
-    private function getTranslationForLocale(BlogPost $post, string $locale): ?BlogPostTranslation
-    {
-        foreach ($post->getTranslations() as $translation) {
-            if ($translation->getLocale() === $locale) {
-                return $translation;
-            }
-        }
-
-        return null;
-    }
-
     /**
-     * @return array{id: int, image: string|null, publishedAt: string, title: string, content: string}
+     * @return array{id: int, image: string, publishedAt: string, title: string, content: string}
      */
-    private function formatPost(BlogPost $post, BlogPostTranslation $translation, Request $request): array
+    private function formatPost(BlogPost $post, Request $request): array
     {
         return [
             'id' => (int) $post->getId(),
             'image' => $this->imageUrlNormalizer->normalize($post->getImage(), $request),
             'publishedAt' => $post->getPublishedAt()->format(\DateTimeInterface::ATOM),
-            'title' => $translation->getTitle(),
-            'content' => $translation->getContent(),
+            'title' => $post->getTitle(),
+            'content' => $post->getContent(),
         ];
     }
 }
