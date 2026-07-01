@@ -1,109 +1,187 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://palacroszkowice.pl/</loc>
+    <loc>http://localhost:8000/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://palacroszkowice.pl/about</loc>
+    <loc>http://localhost:8000/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://palacroszkowice.pl/history</loc>
+    <loc>http://localhost:8000/history</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://palacroszkowice.pl/gallery</loc>
+    <loc>http://localhost:8000/gallery</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://palacroszkowice.pl/blog</loc>
+    <loc>http://localhost:8000/blog</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://palacroszkowice.pl/contact</loc>
+    <loc>http://localhost:8000/contact</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://palacroszkowice.pl/privacy-policy</loc>
+    <loc>http://localhost:8000/privacy-policy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://palacroszkowice.pl/blog/post/14-zdradzamy-wnetrze-palacu</loc>
-    <lastmod>2026-05-19</lastmod>
+    <loc>http://localhost:8000/blog/post/7-poranna-inspekcja-nad-palacowym-stawem</loc>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://palacroszkowice.pl/blog/post/13-piekny-widok-na-staw</loc>
-    <lastmod>2026-05-01</lastmod>
+    <loc>http://localhost:8000/blog/post/8-spojrzcie-na-to-arcydzielo</loc>
+    <lastmod>2026-05-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://palacroszkowice.pl/blog/post/12-spacer-po-parku</loc>
-    <lastmod>2026-04-21</lastmod>
+    <loc>http://localhost:8000/blog/post/9-idealne-lustro-natury-czasami-warto-sie-zatrzymac-i-po-prostu-patrzec-jak-swiat-odbija-sie-w-tafli-wody-cisza-spokoj-i-harmonia-przedwiosnia</loc>
+    <lastmod>2026-04-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://palacroszkowice.pl/blog/post/11-sala-balowa</loc>
-    <lastmod>2026-04-15</lastmod>
+    <loc>http://localhost:8000/blog/post/10-historie-zapisane-w-korze-kazde-naciecie-to-czyjes-wspomnienie-chwila-zatrzymana-w-czasie-ktora-park-skrupulatnie-przechowuje</loc>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://palacroszkowice.pl/blog/post/10-widok-palacu-z-lotu-ptaka</loc>
+    <loc>http://localhost:8000/blog/post/11-maly-przedsmak-wielkiej-elegancji-sala-balowa-ktora-robi-wrazenie-kazdym-swoim-rzezbieniem-jak-wam-sie-podoba-takie-polaczenie-kolorystyczne</loc>
+    <lastmod>2026-04-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>http://localhost:8000/blog/post/12-z-zewnatrz-coraz-blizej-konca-ale-to-nie-znaczy-ze-zwalniamy</loc>
     <lastmod>2026-04-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://palacroszkowice.pl/blog/post/9-odkrywanie-strychu</loc>
-    <lastmod>2026-03-02</lastmod>
+    <loc>http://localhost:8000/blog/post/13-prog-piwnicy-w-roszkowickim-palacu-jest-jak-granica-miedzy-swiatami</loc>
+    <lastmod>2026-03-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://palacroszkowice.pl/blog/post/8-zniszczenia-palacu</loc>
-    <lastmod>2026-02-20</lastmod>
+    <loc>http://localhost:8000/blog/post/14-spojrzcie-na-te-potezne-belki-to-one-od-dekad-dzwigaja-ciezar-dachu-i-historii-trzymajac-wszystko-w-pionie-mimo-wichur-i-uplywu-lat</loc>
+    <lastmod>2026-02-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://palacroszkowice.pl/blog/post/7-podroz-w-poszukiwaniu-palacu</loc>
-    <lastmod>2026-02-11</lastmod>
+    <loc>http://localhost:8000/blog/post/15-kiedy-po-raz-pierwszy-otworzylismy-drzwi-do-tego-pokoju-na-poddaszu-uderzyla-nas-cisza-tak-gesta-ze-niemal-slychac-bylo-bicie-serca-tego-miejsca</loc>
+    <lastmod>2026-02-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://palacroszkowice.pl/blog/post/4-jestesmy-na-instagramie</loc>
-    <lastmod>2026-01-19</lastmod>
+    <loc>http://localhost:8000/blog/post/16-sierpien-2020-roku-przejechane-tysiace-kilometrow-wzdluz-i-wszerz-w-poszukiwaniu-tego-jedynego-ktory-zapierac-bedzie-dech-w-piersiach</loc>
+    <lastmod>2026-02-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://palacroszkowice.pl/blog/post/3-nowy-rok-2026-plany-i-przyspieszenie-renowacji</loc>
-    <lastmod>2025-12-31</lastmod>
+    <loc>http://localhost:8000/blog/post/4-jestesmy-na-instagramie</loc>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://palacroszkowice.pl/blog/post/2-wigilijny-wieczor-w-roszkowicach</loc>
-    <lastmod>2025-12-23</lastmod>
+    <loc>http://localhost:8000/blog/post/17-nowy-rok-w-palacu-roszkowice-to-czas-wielkich-zmian-i-przyspieszenia-prac-renowacyjnych-mamy-ambitne-plany-dotyczace-otworzenia-dla-was-palacu-i-parku</loc>
+    <lastmod>2026-01-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://palacroszkowice.pl/blog/post/1-zlota-jesien-w-parku-palacowym</loc>
-    <lastmod>2025-10-18</lastmod>
+    <loc>http://localhost:8000/blog/post/3-nowy-rok-2026-plany-i-przyspieszenie-renowacji</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>http://localhost:8000/blog/post/18-dzis-w-ten-wyjatkowy-wigilijny-wieczor-w-roszkowicach-panuje-cisza-i-oczekiwanie-na-pierwsza-gwiazdke-a-my-z-niecierpliwoscia-oczekujemy-gdy-to-miejsce-znow-bedzie-tetnilo-zyciem-swiatlem-i-radoscia-odwiedzajacych</loc>
+    <lastmod>2025-12-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>http://localhost:8000/blog/post/2-wigilijny-wieczor-w-roszkowicach</loc>
+    <lastmod>2025-12-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>http://localhost:8000/blog/post/19-tak-pieknie-jest-w-naszym-parku-jesienia-drzewa-w-roszkowicach-skapane-w-cieplym-sloncu</loc>
+    <lastmod>2025-12-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>http://localhost:8000/blog/post/1-zlota-jesien-w-parku-palacowym</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>http://localhost:8000/blog/post/20-ziomek</loc>
+    <lastmod>2024-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>http://localhost:8000/blog/post/21-park-nie-zasypia</loc>
+    <lastmod>2024-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>http://localhost:8000/blog/post/22-biale-noce</loc>
+    <lastmod>2023-12-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>http://localhost:8000/blog/post/23-biala-dama</loc>
+    <lastmod>2022-12-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>http://localhost:8000/blog/post/24-z-glowa-w-chmurach</loc>
+    <lastmod>2022-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>http://localhost:8000/blog/post/25-ludzie-listy-pisza</loc>
+    <lastmod>2022-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>http://localhost:8000/blog/post/26-aeroplan</loc>
+    <lastmod>2022-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>http://localhost:8000/blog/post/27-sceny-palacowe</loc>
+    <lastmod>2022-10-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
